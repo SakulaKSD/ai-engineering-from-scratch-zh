@@ -136,7 +136,7 @@ MCP 里的 prompts 不是 system prompt。宿主的 system prompt（它自己的
 | Prompt | "slash-command 模板" | 带参数槽位的具名多消息模板 |
 | Prompt arguments | "模板输入" | 宿主在渲染前收集的定型参数 |
 | `prompts/get` | "渲染模板" | server 返回填好的消息列表 |
-| Content block | "定型块" | `{type: text | image | resource | ui_resource}` |
+| Content block | "定型块" | `{type: text \| image \| resource \| ui_resource}` |
 | Slash-command UX | "用户快捷方式" | 宿主把 prompts 呈现为以 `/` 开头的命令 |
 
 ## 延伸阅读

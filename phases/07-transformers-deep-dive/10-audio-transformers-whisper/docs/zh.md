@@ -176,7 +176,7 @@ for s in segments:
 | Mel 频谱图 | "音频图像" | 二维表示：一个轴是频率 bin，另一个是时间帧；每格是 log 缩放的能量。 |
 | Log-mel | "Whisper 看到的东西" | 过了 log 的 mel 频谱图；近似人对响度的感知。 |
 | 帧 | "一个时间切片" | 一个 25 ms 的采样窗口；以 10 ms stride 重叠。 |
-| 任务 token | "语音的 prompt 前缀" | 解码器 prompt 里像 `<|transcribe|>` / `<|translate|>` 这样的特殊 token。 |
+| 任务 token | "语音的 prompt 前缀" | 解码器 prompt 里像 `<\|transcribe\|>` / `<\|translate\|>` 这样的特殊 token。 |
 | 语音活动检测（VAD） | "找出语音" | ASR 前去掉静音的门控；大幅削减成本。 |
 | CTC | "Connectionist Temporal Classification" | 经典 ASR 损失，用于无对齐训练；Whisper 不用它。 |
 | Whisper-turbo | "小解码器，完整编码器" | large-v3 编码器 + 4 层解码器；解码快 8 倍。 |
