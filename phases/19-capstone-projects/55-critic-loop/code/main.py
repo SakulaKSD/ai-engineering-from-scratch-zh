@@ -1,7 +1,7 @@
 """Multi-turn critic loop for a paper draft with five fixed scoring dimensions.
 
 Conceptual references:
-- ./docs/en.md (this lesson)
+- ./docs/zh.md (this lesson)
 - Phase 19 lesson 54 (paper writer; provides the draft shape)
 - Phase 19 lessons 50-53 (earlier auto-research stages)
 

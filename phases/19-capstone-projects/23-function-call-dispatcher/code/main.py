@@ -1,7 +1,7 @@
 """Function call dispatcher with timeout, retry, idempotency, concurrency limit.
 
 Conceptual references:
-- ./docs/en.md (this lesson)
+- ./docs/zh.md (this lesson)
 - JSON-RPC 2.0 specification (error envelope shape)
 - IETF draft draft-bhutton-json-schema-2020-12 (schema subset reused)
 

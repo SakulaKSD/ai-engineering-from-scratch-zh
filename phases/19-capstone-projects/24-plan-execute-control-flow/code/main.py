@@ -1,7 +1,7 @@
 """Plan-and-execute agent with replan on failure, plan diffs, and dual budgets.
 
 Conceptual references:
-- ./docs/en.md (this lesson)
+- ./docs/zh.md (this lesson)
 - Phase 14 lesson 01 (agent loop fundamentals)
 - Phase 13 lesson 02 (tool protocols overview)
 

@@ -150,7 +150,7 @@ JSON-RPC 2.0（2010）是一个轻量的双向协议。REST 是 client 发起的
 | `tools/list` | "发现" | client 向 server 要它当前的工具集 |
 | `tools/call` | "调用" | client 要求 server 带参数执行一个工具 |
 | `notifications/*_changed` | "变更事件" | server 告诉 client 它的基元清单变了 |
-| Content block | "定型结果" | 工具结果里的 `{type: "text" \| "image" \| "resource" \| "ui_resource"}` |
+| Content block | "定型结果" | 工具结果里的 `{type: "text" | "image" | "resource" | "ui_resource"}` |
 | SEP | "Spec Evolution Proposal" | 具名的草案提案（如异步 Tasks 的 SEP-1686） |
 
 ## 延伸阅读

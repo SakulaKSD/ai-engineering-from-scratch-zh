@@ -1,7 +1,7 @@
 """
 End-to-end coding agent on the Track A harness.
 
-See: phases/19-capstone-projects/29-end-to-end-coding-task-demo/docs/en.md
+See: phases/19-capstone-projects/29-end-to-end-coding-task-demo/docs/zh.md
 Concept refs:
   - Verification gates + observation budget (Phase 19 · 25).
   - Sandbox runner with denylist + path jail (Phase 19 · 26).

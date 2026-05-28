@@ -1,7 +1,7 @@
 """
 Eval harness for an agent: fixture tasks, scored samples, pass@k.
 
-See: phases/19-capstone-projects/27-eval-harness-fixture-tasks/docs/en.md
+See: phases/19-capstone-projects/27-eval-harness-fixture-tasks/docs/zh.md
 Concept refs:
   - pass@k = 1 - (1 - p)^k where p is the empirical per-sample pass rate.
   - Deterministic verifiers: file_equals, regex_match, shell_exit_zero.

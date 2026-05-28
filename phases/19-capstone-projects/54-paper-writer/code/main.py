@@ -1,7 +1,7 @@
 """LaTeX paper skeleton generator with figure injection and a mocked prose generator.
 
 Conceptual references:
-- ./docs/en.md (this lesson)
+- ./docs/zh.md (this lesson)
 - Phase 19 lessons 50-53 (earlier auto-research stages)
 
 Stdlib only. Run: python3 code/main.py

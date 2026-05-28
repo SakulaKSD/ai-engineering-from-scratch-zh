@@ -1,7 +1,7 @@
 """
 Full evaluation pipeline for a tiny language model.
 
-See: phases/19-capstone-projects/41-eval-pipeline/docs/en.md
+See: phases/19-capstone-projects/41-eval-pipeline/docs/zh.md
 
 Implements:
   - perplexity_eval (held-out language modelling)

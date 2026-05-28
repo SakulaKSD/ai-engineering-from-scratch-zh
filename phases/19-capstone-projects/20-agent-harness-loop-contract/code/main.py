@@ -1,7 +1,7 @@
 """Agent harness loop contract — deterministic state machine, hooks, pull points.
 
 Conceptual references:
-- ./docs/en.md (this lesson)
+- ./docs/zh.md (this lesson)
 - Phase 14 lesson 01 (agent loop fundamentals)
 - Phase 13 lesson 02 (tool protocols overview)
 

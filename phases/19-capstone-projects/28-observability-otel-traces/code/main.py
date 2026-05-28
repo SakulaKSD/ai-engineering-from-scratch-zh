@@ -1,7 +1,7 @@
 """
 Observability for an agent harness: GenAI spans + Prometheus metrics.
 
-See: phases/19-capstone-projects/28-observability-otel-traces/docs/en.md
+See: phases/19-capstone-projects/28-observability-otel-traces/docs/zh.md
 Concept refs:
   - OpenTelemetry GenAI semantic conventions (gen_ai.* attribute keys).
   - Prometheus text exposition format (counters and histograms).

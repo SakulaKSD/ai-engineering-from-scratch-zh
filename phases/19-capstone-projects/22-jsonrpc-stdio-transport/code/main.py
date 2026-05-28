@@ -1,7 +1,7 @@
 """JSON-RPC 2.0 over newline-delimited stdio.
 
 Conceptual references:
-- ./docs/en.md (this lesson)
+- ./docs/zh.md (this lesson)
 - JSON-RPC 2.0 specification (https://www.jsonrpc.org/specification)
 - RFC 8259 (JSON)
 

@@ -1,7 +1,7 @@
 """
 Direct Preference Optimization (DPO) from scratch.
 
-See: phases/19-capstone-projects/40-dpo-from-scratch/docs/en.md
+See: phases/19-capstone-projects/40-dpo-from-scratch/docs/zh.md
 
 Builds:
   - InstructionTokenizer with INST / RESP specials (byte-level)

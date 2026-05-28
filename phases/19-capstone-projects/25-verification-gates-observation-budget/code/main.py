@@ -1,7 +1,7 @@
 """
 Verification gates and observation budget for an agent harness.
 
-See: phases/19-capstone-projects/25-verification-gates-observation-budget/docs/en.md
+See: phases/19-capstone-projects/25-verification-gates-observation-budget/docs/zh.md
 Concept refs:
   - Gate-chain pattern (cheapest deny first, allow last).
   - Observation budget as a deterministic stopping criterion.

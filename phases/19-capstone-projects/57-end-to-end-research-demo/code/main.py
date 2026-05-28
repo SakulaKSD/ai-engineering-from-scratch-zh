@@ -1,7 +1,7 @@
 """End-to-end auto-research demo: seed -> scheduler -> critic loop -> paper writer.
 
 Conceptual references:
-- ./docs/en.md (this lesson)
+- ./docs/zh.md (this lesson)
 - Phase 19 lesson 54 (paper writer)
 - Phase 19 lesson 55 (critic loop)
 - Phase 19 lesson 56 (iteration scheduler)

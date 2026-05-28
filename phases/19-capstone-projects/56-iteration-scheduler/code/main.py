@@ -1,7 +1,7 @@
 """Auto-research orchestrator: hypothesis queue, parallel slots, UCB scoring, fan-out.
 
 Conceptual references:
-- ./docs/en.md (this lesson)
+- ./docs/zh.md (this lesson)
 - Phase 19 lesson 54 (paper writer; receives paper.trigger fan-out)
 - Phase 19 lesson 55 (critic loop; consumes results downstream)
 - Phase 19 lessons 50-53 (earlier auto-research stages)

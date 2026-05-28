@@ -171,7 +171,7 @@ with torch.inference_mode():
 | 术语 | 大家嘴上怎么说 | 它实际指什么 |
 |------|-----------------|-----------------------|
 | 30 秒窗口 | Whisper 的上限 | 硬性输入上限；更长的音频要分块。 |
-| SOT | 转写起始 | `<\|startoftranscript\|>` 启动解码器 prompt。 |
+| SOT | 转写起始 | `<|startoftranscript|>` 启动解码器 prompt。 |
 | 时间戳 token | 时间对齐 | 每 0.02 s 的偏移在 51k 词表里都是一个特殊 token。 |
 | Turbo | 那个快的变体 | 4 层解码器，快 8 倍，WER 退化 <1%。 |
 | WhisperX | 那个长音频封装 | VAD + Whisper + wav2vec 对齐 + 说话人分离。 |

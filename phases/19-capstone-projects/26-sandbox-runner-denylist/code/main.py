@@ -1,7 +1,7 @@
 """
 Sandbox runner with denylist, path jail, and timeout.
 
-See: phases/19-capstone-projects/26-sandbox-runner-denylist/docs/en.md
+See: phases/19-capstone-projects/26-sandbox-runner-denylist/docs/zh.md
 Concept refs:
   - POSIX subprocess semantics (wall-clock timeout, return codes).
   - Symlink-safe path jail via realpath prefix check.

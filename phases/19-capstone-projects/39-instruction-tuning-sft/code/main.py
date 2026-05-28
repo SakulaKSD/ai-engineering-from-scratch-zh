@@ -1,7 +1,7 @@
 """
 Instruction tuning by supervised fine-tuning (SFT).
 
-See: phases/19-capstone-projects/39-instruction-tuning-sft/docs/en.md
+See: phases/19-capstone-projects/39-instruction-tuning-sft/docs/zh.md
 
 Builds:
   - byte-level tokenizer with INST / RESP / PAD specials

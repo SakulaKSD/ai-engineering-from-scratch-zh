@@ -1,7 +1,7 @@
 """Result evaluator: improvement check, paired t test, log normalisation, verdict.
 
 Conceptual references:
-- ./docs/en.md (this lesson)
+- ./docs/zh.md (this lesson)
 - Phase 19 Track A lessons 20-29 (agent harness primitives)
 
 Stdlib + numpy (read of result lists). The t test math is pure stdlib.

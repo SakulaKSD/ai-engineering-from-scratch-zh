@@ -1,7 +1,7 @@
 """Experiment runner: subprocess sandbox with timeout, memory poller, ablation table.
 
 Conceptual references:
-- ./docs/en.md (this lesson)
+- ./docs/zh.md (this lesson)
 - Phase 19 Track A lessons 20-29 (agent harness primitives)
 
 Stdlib only. Run: python3 code/main.py

@@ -106,7 +106,7 @@ PPO-ptx 成了标配。Anthropic、DeepMind、Meta 都用了某种变体。
 | SFT | 「指令微调」 | 第 1 阶段：在「提示-回复」对上做交叉熵微调 |
 | 奖励模型 | 「那个 RM」 | 对 (提示, 回复) 打分的标量回归器，用 Bradley-Terry 在成对标注上训练 |
 | Bradley-Terry | 「成对偏好损失」 | -log sigmoid(r_w - r_l)；把成对排序化简成二分类 |
-| KL 惩罚 | 「那个正则项」 | `beta * KL(pi \|\| pi_SFT)`——把 RL 策略拴在 SFT 锚点附近 |
+| KL 惩罚 | 「那个正则项」 | `beta * KL(pi || pi_SFT)`——把 RL 策略拴在 SFT 锚点附近 |
 | PPO-ptx | 「带预训练混合的 PPO」 | 在 PPO 目标里加入一部分预训练对数似然，抵消对齐税 |
 | 对齐税 | 「RLHF 退步」 | RLHF 没瞄准的标准基准上，RLHF 之后出现的掉点 |
 | 标注员偏好 | 「那个 ground truth」 | 人类排序的一个采样；RM 是它的统计代理，而不是「人类价值观」的代理 |

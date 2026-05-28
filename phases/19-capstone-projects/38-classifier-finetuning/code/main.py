@@ -1,7 +1,7 @@
 """
 Classifier fine-tuning by head swap.
 
-See: phases/19-capstone-projects/38-classifier-finetuning/docs/en.md
+See: phases/19-capstone-projects/38-classifier-finetuning/docs/zh.md
 
 Compares two strategies on a synthetic spam/ham fixture:
   - Head-only: body frozen, only the linear classification head trains.
