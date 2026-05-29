@@ -2637,9 +2637,22 @@
         var article = document.querySelector('.lesson-article');
         if (!article) return;
 
-        var conceptH2 = article.querySelector('#the-concept, #concept');
-        var buildH2 = article.querySelector('#build-it, #build');
-        var keyTermsH2 = article.querySelector('#key-terms');
+        function findH2(selectors, zhTexts) {
+          var el = article.querySelector(selectors);
+          if (el) return el;
+          var h2s = article.querySelectorAll('h2');
+          for (var i = 0; i < h2s.length; i++) {
+            var t = h2s[i].textContent.trim();
+            for (var j = 0; j < zhTexts.length; j++) {
+              if (t === zhTexts[j] || t.indexOf(zhTexts[j]) >= 0) return h2s[i];
+            }
+          }
+          return null;
+        }
+
+        var conceptH2 = findH2('#the-concept, #concept', ['核心概念', '概念', 'The Concept']);
+        var buildH2 = findH2('#build-it, #build', ['动手构建', '构建', 'Build It']);
+        var keyTermsH2 = findH2('#key-terms', ['核心术语', '关键术语', '术语', 'Key Terms']);
 
         var preQuizHtml = buildQuizHtml(questions.filter(function (q) { return q.stage === 'pre'; }), 'pre', '课前检测');
         var checkQuizHtml = buildQuizHtml(questions.filter(function (q) { return q.stage === 'check'; }), 'check', '课中检测');
@@ -2664,8 +2677,8 @@
 
         // Mid-lesson check: land between Build It and Use It if possible,
         // otherwise fall back to before Use It / Ship It / Key Terms.
-        var useH2 = article.querySelector('#use-it, #use');
-        var shipH2 = article.querySelector('#ship-it, #ship');
+        var useH2 = findH2('#use-it, #use', ['上手使用', '使用', 'Use It']);
+        var shipH2 = findH2('#ship-it, #ship', ['交付', '部署', 'Ship It']);
         if (checkQuizHtml && useH2) {
           useH2.insertAdjacentHTML('beforebegin', checkQuizHtml);
         } else if (checkQuizHtml && shipH2) {
