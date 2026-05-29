@@ -30,10 +30,10 @@
 
 ```mermaid
 graph LR
-    S["Scalar<br/>rank 0<br/>shape: ()"] --> V["Vector<br/>rank 1<br/>shape: (3,)"]
-    V --> M["Matrix<br/>rank 2<br/>shape: (2,3)"]
-    M --> T3["3D Tensor<br/>rank 3<br/>shape: (2,2,2)"]
-    T3 --> T4["4D Tensor<br/>rank 4<br/>shape: (B,C,H,W)"]
+    S["标量<br/>秩 0<br/>shape: ()"] --> V["向量<br/>秩 1<br/>shape: (3,)"]
+    V --> M["矩阵<br/>秩 2<br/>shape: (2,3)"]
+    M --> T3["三维张量<br/>秩 3<br/>shape: (2,2,2)"]
+    T3 --> T4["四维张量<br/>秩 4<br/>shape: (B,C,H,W)"]
 ```
 
 总元素数 = 所有尺寸的乘积。形状 `(2, 3, 4)` 装 `2 * 3 * 4 = 24` 个元素。
@@ -44,16 +44,16 @@ graph LR
 
 ```mermaid
 graph TD
-    subgraph Vision
+    subgraph Vision["视觉"]
         V1["(B, C, H, W)<br/>32, 3, 224, 224"]
     end
     subgraph NLP
         N1["(B, T, D)<br/>16, 128, 768"]
     end
-    subgraph Attention
+    subgraph Attention["注意力"]
         A1["(B, H, T, D)<br/>16, 12, 128, 64"]
     end
-    subgraph Weights
+    subgraph Weights["权重"]
         W1["Linear: (out, in)<br/>Conv2D: (out_c, in_c, kH, kW)<br/>Embedding: (vocab, dim)"]
     end
 ```
@@ -66,10 +66,10 @@ PyTorch 用 NCHW（通道在前）。TensorFlow 默认 NHWC（通道在后）。
 
 ```mermaid
 graph LR
-    subgraph "Row-major (C order)"
+    subgraph "行优先 (C order)"
         R["a b c d e f<br/>strides: (3, 1)"]
     end
-    subgraph "Column-major (F order)"
+    subgraph "列优先 (F order)"
         C["a d b e c f<br/>strides: (1, 2)"]
     end
 ```
@@ -94,8 +94,8 @@ Result:       (8, 7, 6, 5)
 ```mermaid
 graph LR
     subgraph "matmul: ik,kj -> ij"
-        A["A(I,K)"] --> |"sum over k"| C["C(I,J)"]
-        B["B(K,J)"] --> |"sum over k"| C
+        A["A(I,K)"] --> |"对 k 求和"| C["C(I,J)"]
+        B["B(K,J)"] --> |"对 k 求和"| C
     end
 ```
 

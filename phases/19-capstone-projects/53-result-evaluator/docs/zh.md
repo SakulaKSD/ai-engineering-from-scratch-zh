@@ -50,14 +50,14 @@ Improvement 是带符号的。higher_is_better 的 metric 上 improvement 为负
 
 ```mermaid
 flowchart TD
-    A[ExperimentResult candidate] --> N[normalise metrics]
-    B[ExperimentResult baseline] --> N
-    N --> I[direction aware improvement]
-    N --> T[paired t test]
-    I --> V[verdict path]
+    A[ExperimentResult 候选] --> N[归一化指标]
+    B[ExperimentResult 基线] --> N
+    N --> I[方向感知的改善度]
+    N --> T[配对 t 检验]
+    I --> V[判定路径]
     T --> V
-    V --> O[Verdict record]
-    O --> Q[attach to hypothesis queue]
+    V --> O[判定记录]
+    O --> Q[挂到假设队列]
 ```
 
 评估器运行三个独立计算，然后在判定路径中汇合。每个计算都是纯函数，无共享状态。

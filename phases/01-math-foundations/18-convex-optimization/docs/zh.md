@@ -95,14 +95,14 @@ f(tx + (1-t)y) <= t*f(x) + (1-t)*f(y)
 
 ```mermaid
 graph LR
-    subgraph "Convex: ONE answer"
+    subgraph "凸：唯一的答案"
         direction TB
-        C1["Loss surface has a single valley"] --> C2["Gradient descent ALWAYS finds the global minimum"]
+        C1["损失曲面只有一个山谷"] --> C2["梯度下降总能找到全局最小值"]
     end
-    subgraph "Non-convex: MANY traps"
+    subgraph "非凸：许多陷阱"
         direction TB
-        N1["Loss surface has multiple valleys and peaks"] --> N2["Gradient descent may get stuck in a local minimum"]
-        N2 --> N3["Global minimum might be missed"]
+        N1["损失曲面有多个山谷和山峰"] --> N2["梯度下降可能卡在局部最小值"]
+        N2 --> N3["全局最小值可能被错过"]
     end
 ```
 
@@ -169,18 +169,18 @@ Compare to gradient descent:
 
 ```mermaid
 graph TD
-    subgraph "Gradient Descent"
-        GD1["Start"] --> GD2["Step 1"]
-        GD2 --> GD3["Step 2"]
+    subgraph "梯度下降"
+        GD1["起点"] --> GD2["第 1 步"]
+        GD2 --> GD3["第 2 步"]
         GD3 --> GD4["..."]
-        GD4 --> GD5["Step ~500: Converged"]
-        GD_note["Follows gradient blindly — many small steps"]
+        GD4 --> GD5["第 ~500 步：收敛"]
+        GD_note["盲目跟着梯度走 —— 许多小碎步"]
     end
-    subgraph "Newton's Method"
-        NM1["Start"] --> NM2["Step 1"]
+    subgraph "牛顿法"
+        NM1["起点"] --> NM2["第 1 步"]
         NM2 --> NM3["..."]
-        NM3 --> NM4["Step ~5: Converged"]
-        NM_note["Uses curvature for optimal steps"]
+        NM3 --> NM4["第 ~5 步：收敛"]
+        NM_note["利用曲率做最优步"]
     end
 ```
 
@@ -203,12 +203,12 @@ graph TD
 
 ```mermaid
 graph LR
-    subgraph "Unconstrained"
-        U1["Loss function"] --> U2["Free minimum: lowest point of the loss surface"]
+    subgraph "无约束"
+        U1["损失函数"] --> U2["自由最小值：损失曲面的最低点"]
     end
-    subgraph "Constrained"
-        C1["Loss function"] --> C2["Constrained minimum: lowest point within the feasible region"]
-        C3["Constraint boundary limits the search space"]
+    subgraph "有约束"
+        C1["损失函数"] --> C2["约束最小值：可行域内的最低点"]
+        C3["约束边界限制搜索空间"]
     end
 ```
 
@@ -235,9 +235,9 @@ dL/dlambda = g(x) = 0
 
 ```mermaid
 graph LR
-    A["Contours of f(x,y): concentric ellipses"] --- S["Solution point"]
-    B["Constraint curve g(x,y) = 0"] --- S
-    S --- C["At the solution, gradient of f is parallel to gradient of g"]
+    A["f(x,y) 的等高线：同心椭圆"] --- S["解点"]
+    B["约束曲线 g(x,y) = 0"] --- S
+    S --- C["在解处，f 的梯度平行于 g 的梯度"]
 ```
 
 例子：在 x + y = 1 的约束下最小化 f(x,y) = x^2 + y^2。

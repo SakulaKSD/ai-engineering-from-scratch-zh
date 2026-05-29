@@ -168,28 +168,28 @@ softmax(x_i) = e^(x_i) / sum(e^(x_j) for all j)
 
 ```mermaid
 graph LR
-    subgraph "Activation Functions"
-        S["Sigmoid<br/>Range: (0,1)<br/>Saturates both ends"]
-        T["Tanh<br/>Range: (-1,1)<br/>Zero-centered"]
-        R["ReLU<br/>Range: [0,inf)<br/>Dead neurons"]
-        G["GELU<br/>Range: ~(-0.17,inf)<br/>Smooth gating"]
+    subgraph "激活函数"
+        S["Sigmoid<br/>范围：(0,1)<br/>两端饱和"]
+        T["Tanh<br/>范围：(-1,1)<br/>零中心"]
+        R["ReLU<br/>范围：[0,inf)<br/>死亡神经元"]
+        G["GELU<br/>范围：~(-0.17,inf)<br/>平滑门控"]
     end
-    S -->|"Vanishing gradient"| Problem["Deep networks<br/>don't train"]
-    T -->|"Less severe but<br/>still vanishes"| Problem
-    R -->|"Gradient = 1<br/>for x > 0"| Solution["Deep networks<br/>train fast"]
-    G -->|"Smooth gradient<br/>everywhere"| Solution
+    S -->|"梯度消失"| Problem["深层网络<br/>训练不动"]
+    T -->|"程度较轻但<br/>仍然消失"| Problem
+    R -->|"x > 0 时<br/>梯度 = 1"| Solution["深层网络<br/>训练快"]
+    G -->|"处处平滑梯度"| Solution
 ```
 
 ### 梯度流对比
 
 ```mermaid
 graph TD
-    Input["Input Signal"] --> L1["Layer 1"]
-    L1 --> L5["Layer 5"]
-    L5 --> L10["Layer 10"]
-    L10 --> Output["Output"]
+    Input["输入信号"] --> L1["第 1 层"]
+    L1 --> L5["第 5 层"]
+    L5 --> L10["第 10 层"]
+    L10 --> Output["输出"]
 
-    subgraph "Gradient at Layer 1"
+    subgraph "第 1 层的梯度"
         SigGrad["Sigmoid: ~0.000001"]
         TanhGrad["Tanh: ~0.001"]
         ReluGrad["ReLU: ~1.0"]
@@ -201,19 +201,19 @@ graph TD
 
 ```mermaid
 flowchart TD
-    Start["What are you building?"] --> Hidden{"Hidden layers<br/>or output?"}
+    Start["你在搭什么？"] --> Hidden{"隐藏层<br/>还是输出层？"}
 
-    Hidden -->|"Hidden layers"| Arch{"Architecture?"}
-    Hidden -->|"Output layer"| Task{"Task type?"}
+    Hidden -->|"隐藏层"| Arch{"架构？"}
+    Hidden -->|"输出层"| Task{"任务类型？"}
 
-    Arch -->|"Transformer / NLP"| GELU["Use GELU"]
-    Arch -->|"CNN / Vision"| ReLU["Use ReLU or Swish"]
-    Arch -->|"RNN / LSTM"| Tanh["Use Tanh"]
-    Arch -->|"Simple MLP"| ReLU2["Use ReLU"]
+    Arch -->|"Transformer / NLP"| GELU["用 GELU"]
+    Arch -->|"CNN / 视觉"| ReLU["用 ReLU 或 Swish"]
+    Arch -->|"RNN / LSTM"| Tanh["用 Tanh"]
+    Arch -->|"简单 MLP"| ReLU2["用 ReLU"]
 
-    Task -->|"Binary classification"| Sigmoid["Use Sigmoid"]
-    Task -->|"Multi-class classification"| Softmax["Use Softmax"]
-    Task -->|"Regression"| Linear["Use Linear (no activation)"]
+    Task -->|"二分类"| Sigmoid["用 Sigmoid"]
+    Task -->|"多分类"| Softmax["用 Softmax"]
+    Task -->|"回归"| Linear["用线性（无激活）"]
 ```
 
 ## 动手构建

@@ -24,11 +24,11 @@
 
 ```mermaid
 flowchart LR
-  Builder[Builder Agent] --> Artifacts[diff + state + feedback + verdict]
-  Artifacts --> Reviewer[Reviewer Agent]
+  Builder[构建者 Agent] --> Artifacts[diff + 状态 + 反馈 + 裁决]
+  Artifacts --> Reviewer[审查者 Agent]
   Reviewer --> Rubric[reviewer_checklist.md]
   Reviewer --> Report[review_report.json]
-  Report --> Human[Human Sign-Off]
+  Report --> Human[人工签字]
 ```
 
 ### 审查者评分标准

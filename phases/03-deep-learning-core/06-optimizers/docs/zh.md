@@ -118,17 +118,17 @@ w = w - lr * m_hat / (sqrt(v_hat) + epsilon) - lr * lambda * w
 
 ```mermaid
 graph TD
-    LR["Learning Rate"] --> TooHigh["Too high (lr > 0.01)"]
-    LR --> JustRight["Just right"]
-    LR --> TooLow["Too low (lr < 0.00001)"]
+    LR["学习率"] --> TooHigh["太高 (lr > 0.01)"]
+    LR --> JustRight["恰到好处"]
+    LR --> TooLow["太低 (lr < 0.00001)"]
 
-    TooHigh --> Diverge["Loss explodes<br/>NaN weights<br/>Training crashes"]
-    JustRight --> Converge["Loss decreases steadily<br/>Reaches good minimum<br/>Generalizes well"]
-    TooLow --> Stall["Loss decreases slowly<br/>Gets stuck in suboptimal minimum<br/>Wastes compute"]
+    TooHigh --> Diverge["损失爆炸<br/>权重变 NaN<br/>训练崩溃"]
+    JustRight --> Converge["损失稳步下降<br/>到达好的极小值<br/>泛化良好"]
+    TooLow --> Stall["损失下降极慢<br/>卡在次优极小值<br/>浪费算力"]
 
-    JustRight --> Schedule["Usually needs scheduling"]
-    Schedule --> Warmup["Warmup: ramp from 0 to max<br/>First 1-10% of training"]
-    Schedule --> Decay["Decay: reduce over time<br/>Cosine or linear"]
+    JustRight --> Schedule["通常需要调度"]
+    Schedule --> Warmup["热身：从 0 爬到最大值<br/>训练前 1-10%"]
+    Schedule --> Decay["衰减：随时间减小<br/>余弦或线性"]
 ```
 
 如果你只调一个超参数，调学习率。学习率改变 10 倍，比你要做的任何架构决策都更重要。常见默认值：
@@ -142,11 +142,11 @@ graph TD
 
 ```mermaid
 flowchart LR
-    subgraph "Optimization Path"
-        SGD_P["SGD<br/>Oscillates across valley<br/>Slow but finds flat minima"]
-        Mom_P["SGD + Momentum<br/>Smoother path<br/>3x faster than SGD"]
-        Adam_P["Adam<br/>Adapts per-parameter<br/>Fast convergence"]
-        AdamW_P["AdamW<br/>Adam + proper decay<br/>Best generalization"]
+    subgraph "优化路径"
+        SGD_P["SGD<br/>横穿山谷振荡<br/>慢但找到平坦极小值"]
+        Mom_P["SGD + 动量<br/>路径更平滑<br/>比 SGD 快 3 倍"]
+        Adam_P["Adam<br/>逐参数自适应<br/>收敛快"]
+        AdamW_P["AdamW<br/>Adam + 正确的衰减<br/>泛化最好"]
     end
     SGD_P --> Mom_P --> Adam_P --> AdamW_P
 ```
@@ -155,13 +155,13 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    Task["What are you training?"] --> Type{"Model type?"}
+    Task["你在训练什么？"] --> Type{"模型类型？"}
 
     Type -->|"Transformer / LLM"| AdamW["AdamW<br/>lr=1e-4, wd=0.01-0.1"]
-    Type -->|"CNN / ResNet"| SGD_M["SGD + Momentum<br/>lr=0.1, momentum=0.9"]
+    Type -->|"CNN / ResNet"| SGD_M["SGD + 动量<br/>lr=0.1, momentum=0.9"]
     Type -->|"GAN"| Adam2["Adam<br/>lr=2e-4, beta1=0.5"]
-    Type -->|"Fine-tuning"| AdamW2["AdamW<br/>lr=2e-5, wd=0.01"]
-    Type -->|"Don't know yet"| Default["Start with AdamW<br/>lr=3e-4, wd=0.01"]
+    Type -->|"微调"| AdamW2["AdamW<br/>lr=2e-5, wd=0.01"]
+    Type -->|"还不确定"| Default["先用 AdamW<br/>lr=3e-4, wd=0.01"]
 ```
 
 ## 动手构建

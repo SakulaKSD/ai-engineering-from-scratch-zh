@@ -40,23 +40,23 @@
 
 ```mermaid
 graph LR
-    Client["Client<br/>(Web, Mobile, API)"]
-    GW["API Gateway<br/>Auth + Rate Limit"]
-    PR["Prompt Router<br/>Template Selection"]
-    Cache["Semantic Cache<br/>Embedding Lookup"]
-    LLM["LLM Call<br/>Streaming"]
-    Guard["Guardrails<br/>Input + Output"]
-    Eval["Eval Logger<br/>Quality Tracking"]
-    Cost["Cost Tracker<br/>Token Accounting"]
-    Resp["Response<br/>SSE Stream"]
+    Client["客户端<br/>（Web、移动、API）"]
+    GW["API 网关<br/>认证 + 限流"]
+    PR["Prompt 路由器<br/>模板选择"]
+    Cache["语义缓存<br/>Embedding 查找"]
+    LLM["LLM 调用<br/>流式"]
+    Guard["护栏<br/>输入 + 输出"]
+    Eval["Eval 日志<br/>质量追踪"]
+    Cost["成本追踪<br/>Token 记账"]
+    Resp["响应<br/>SSE 流"]
 
     Client --> GW --> Guard
-    Guard -->|Input Check| PR
+    Guard -->|输入检查| PR
     PR --> Cache
-    Cache -->|Hit| Resp
-    Cache -->|Miss| LLM
+    Cache -->|命中| Resp
+    Cache -->|未命中| LLM
     LLM --> Guard
-    Guard -->|Output Check| Eval
+    Guard -->|输出检查| Eval
     Eval --> Cost --> Resp
 ```
 
@@ -85,19 +85,19 @@ graph LR
 
 ```mermaid
 sequenceDiagram
-    participant C as Client
-    participant S as Server
+    participant C as 客户端
+    participant S as 服务器
     participant L as LLM API
 
     C->>S: POST /chat (stream=true)
-    S->>L: API call (stream=true)
+    S->>L: API 调用 (stream=true)
     L-->>S: token: "The"
     S-->>C: SSE: data: {"token": "The"}
     L-->>S: token: " capital"
     S-->>C: SSE: data: {"token": " capital"}
     L-->>S: token: " of"
     S-->>C: SSE: data: {"token": " of"}
-    Note over L,S: ...continues token by token...
+    Note over L,S: ...逐 token 继续...
     L-->>S: [DONE]
     S-->>C: SSE: data: [DONE]
 ```
@@ -176,11 +176,11 @@ claude-sonnet-4-20250514 -> gpt-4o -> gpt-4o-mini -> cached response -> "Service
 
 ```mermaid
 graph TD
-    R["Incoming Request"]
+    R["传入请求"]
     H["Hash(user_id) mod 100"]
     A["Prompt v1 (90%)"]
     B["Prompt v2 (10%)"]
-    L["Log Both Results"]
+    L["记录两者结果"]
     
     R --> H
     H -->|0-89| A

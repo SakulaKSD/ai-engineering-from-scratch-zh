@@ -181,15 +181,15 @@ x_t = sqrt(alpha_t) * x_{t-1} + sqrt(1 - alpha_t) * noise
 
 ```mermaid
 graph LR
-    subgraph "Forward Process (add noise)"
-        X0["x_0 (data)"] -->|"+ noise"| X1["x_1"]
-        X1 -->|"+ noise"| X2["x_2"]
-        X2 -->|"..."| XT["x_T (pure noise)"]
+    subgraph "前向过程 (加噪声)"
+        X0["x_0 (数据)"] -->|"+ 噪声"| X1["x_1"]
+        X1 -->|"+ 噪声"| X2["x_2"]
+        X2 -->|"..."| XT["x_T (纯噪声)"]
     end
-    subgraph "Reverse Process (denoise)"
-        XT2["x_T (noise)"] -->|"neural net"| XR2["x_{T-1}"]
-        XR2 -->|"neural net"| XR1["x_{T-2}"]
-        XR1 -->|"..."| XR0["x_0 (generated data)"]
+    subgraph "反向过程 (去噪声)"
+        XT2["x_T (噪声)"] -->|"神经网络"| XR2["x_{T-1}"]
+        XR2 -->|"神经网络"| XR1["x_{T-2}"]
+        XR1 -->|"..."| XR0["x_0 (生成的数据)"]
     end
 ```
 

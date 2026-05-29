@@ -26,16 +26,16 @@ Cosine-with-warmup schedule 有三个区间。从 step 0 到 step `warmup_steps`
 
 ```mermaid
 flowchart TD
-  Step[Training step] --> Branch{step state}
-  Branch -- step <= warmup --> Linear[Linear ramp from 0 to lr_max]
-  Branch -- warmup < step <= total --> Cosine[Cosine decay from lr_max to lr_min]
-  Branch -- step > total --> Floor[Pin at lr_min]
+  Step[训练步] --> Branch{步数状态}
+  Branch -- step <= warmup --> Linear[从 0 到 lr_max 线性爬升]
+  Branch -- warmup < step <= total --> Cosine[从 lr_max 到 lr_min 余弦衰减]
+  Branch -- step > total --> Floor[钉在 lr_min]
   Linear --> Apply[AdamW.step]
   Cosine --> Apply
   Floor --> Apply
-  Apply --> GradNorm[Compute gradient L2 norm]
-  GradNorm --> Log[Step log row]
-  Log --> Plot[Text plot + CSV]
+  Apply --> GradNorm[计算梯度 L2 范数]
+  GradNorm --> Log[步日志行]
+  Log --> Plot[文本图 + CSV]
 ```
 
 ### Warmup 公式

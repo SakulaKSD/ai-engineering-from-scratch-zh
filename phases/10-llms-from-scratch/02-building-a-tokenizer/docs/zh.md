@@ -34,11 +34,11 @@ GPT-2 的 tokenizer 有 50,257 个 token。Llama 3 有 128,256 个。GPT-4 大�
 
 ```mermaid
 graph LR
-    A[Raw Text] --> B[Normalize]
-    B --> C[Pre-Tokenize]
-    C --> D[BPE Merge]
-    D --> E[Special Tokens]
-    E --> F[Token IDs]
+    A[原始文本] --> B[归一化]
+    B --> C[预分词]
+    C --> D[BPE 合并]
+    D --> E[特殊 token]
+    E --> F[Token ID]
 
     style A fill:#1a1a2e,stroke:#e94560,color:#fff
     style B fill:#1a1a2e,stroke:#e94560,color:#fff

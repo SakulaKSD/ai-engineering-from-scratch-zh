@@ -38,16 +38,16 @@
 
 ```mermaid
 graph LR
-    subgraph Input["Input Layer"]
+    subgraph Input["输入层"]
         x1["x1"]
         x2["x2"]
     end
-    subgraph Hidden["Hidden Layer (3 neurons)"]
+    subgraph Hidden["隐藏层（3 个神经元）"]
         h1["h1"]
         h2["h2"]
         h3["h3"]
     end
-    subgraph Output["Output Layer"]
+    subgraph Output["输出层"]
         y["y"]
     end
     x1 --> h1
@@ -87,14 +87,14 @@ sigmoid 把任意数字压进 (0, 1) 区间。很大的正输入推向 1，很�
 
 ```mermaid
 graph TD
-    X["Input: [x1, x2]"] --> WH["Multiply by Weight Matrix W1 (2x3)"]
-    WH --> BH["Add Bias Vector b1 (3,)"]
-    BH --> AH["Apply sigmoid to each element"]
-    AH --> H["Hidden Output: [h1, h2, h3]"]
-    H --> WO["Multiply by Weight Matrix W2 (3x1)"]
-    WO --> BO["Add Bias Vector b2 (1,)"]
-    BO --> AO["Apply sigmoid"]
-    AO --> Y["Output: y"]
+    X["输入：[x1, x2]"] --> WH["乘以权重矩阵 W1 (2x3)"]
+    WH --> BH["加偏置向量 b1 (3,)"]
+    BH --> AH["逐元素施加 sigmoid"]
+    AH --> H["隐藏层输出：[h1, h2, h3]"]
+    H --> WO["乘以权重矩阵 W2 (3x1)"]
+    WO --> BO["加偏置向量 b2 (1,)"]
+    BO --> AO["施加 sigmoid"]
+    AO --> Y["输出：y"]
 ```
 
 在每一层，三个操作依次发生：
@@ -130,14 +130,14 @@ a = sigmoid(z)           (activation)
 
 ```mermaid
 graph LR
-    subgraph FewNeurons["4 Hidden Neurons"]
-        A["Rough approximation"]
+    subgraph FewNeurons["4 个隐藏神经元"]
+        A["粗略逼近"]
     end
-    subgraph MoreNeurons["16 Hidden Neurons"]
-        B["Close approximation"]
+    subgraph MoreNeurons["16 个隐藏神经元"]
+        B["接近逼近"]
     end
-    subgraph ManyNeurons["64 Hidden Neurons"]
-        C["Near-perfect fit"]
+    subgraph ManyNeurons["64 个隐藏神经元"]
+        C["近乎完美拟合"]
     end
     FewNeurons --> MoreNeurons --> ManyNeurons
 ```

@@ -32,7 +32,7 @@ flowchart LR
         U1["卷积编码器"] --> U2["卷积瓶颈"] --> U3["卷积解码器"]
     end
     subgraph DIT["DiT (2023)"]
-        D1["Patch embed"] --> D2["Transformer 块"] --> D3["Unpatchify"]
+        D1["Patch 嵌入"] --> D2["Transformer 块"] --> D3["反 Patch 化"]
     end
     subgraph MMDIT["MMDiT (SD3, 2024)"]
         M1["文本流"] --> M3["联合注意力<br/>（每模态独立权重）"]

@@ -26,18 +26,18 @@ causal LM 吃的是 `(B, T)` 形状的 id，`B` 是 batch size，`T` 是 context
 
 ```mermaid
 flowchart LR
-    A[raw corpus text] --> B[tokenizer.encode]
-    B --> C[flat list of ids]
-    C --> D[sliding window slicer]
+    A[原始语料文本] --> B[tokenizer.encode]
+    B --> C[扁平 id 列表]
+    C --> D[滑动窗口切分器]
     D --> E[(id_window_0)]
     D --> F[(id_window_1)]
     D --> G[(id_window_n)]
     E --> H[PyTorch Dataset]
     F --> H
     G --> H
-    H --> I[DataLoader with seeded shuffle]
-    I --> J[batches of B x T+1 ids]
-    J --> K[split into input and target]
+    H --> I[带固定种子 shuffle 的 DataLoader]
+    I --> J[B x T+1 id 的 batch]
+    J --> K[拆分为 input 和 target]
 ```
 
 slicer 不会越过语料末尾。如果最后一段不足以填满 `T+1`，本课直接丢掉。你当然也可以用 `<|pad|>` 填尾巴，但那会额外引入 loss mask 复杂度，所以本课不做。
@@ -58,7 +58,7 @@ PyTorch Dataset 只要求两个方法：`__len__` 返回样本数，`__getitem__
 
 ```mermaid
 sequenceDiagram
-    participant Trainer
+    participant Trainer as 训练器
     participant DataLoader
     participant Dataset
     participant Tokenizer
@@ -68,7 +68,7 @@ sequenceDiagram
     Dataset->>Dataset: window = ids[start:start+T+1]
     Dataset->>DataLoader: (input_ids, target_ids)
     DataLoader->>Trainer: batch (B,T) input, (B,T) target
-    Note over Tokenizer,Dataset: tokenizer.encode runs once at build time
+    Note over Tokenizer,Dataset: tokenizer.encode 在构建时只跑一次
 ```
 
 左移一位的逻辑发生在 `__getitem__` 内：`input = window[:-1]`，`target = window[1:]`。两者都是 PyTorch long tensor。训练循环直接把 target 当 ground truth。

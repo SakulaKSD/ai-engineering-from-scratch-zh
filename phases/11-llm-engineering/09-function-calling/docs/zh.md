@@ -37,19 +37,19 @@
 
 ```mermaid
 sequenceDiagram
-    participant U as User
-    participant A as Application
-    participant M as Model
-    participant T as Tool
+    participant U as 用户
+    participant A as 应用
+    participant M as 模型
+    participant T as 工具
 
-    U->>A: "What's the weather in Tokyo?"
-    A->>M: messages + tool definitions
+    U->>A: "东京天气怎么样？"
+    A->>M: 消息 + 工具定义
     M->>A: tool_call: get_weather(city="Tokyo")
-    A->>T: Execute get_weather("Tokyo")
+    A->>T: 执行 get_weather("Tokyo")
     T->>A: {"temp": 18, "condition": "cloudy"}
-    A->>M: tool_result + conversation
-    M->>A: "It's 18C and cloudy in Tokyo."
-    A->>U: Final response
+    A->>M: tool_result + 对话
+    M->>A: "东京现在 18°C，多云。"
+    A->>U: 最终回复
 ```
 
 第 1 步：用户发一条消息。第 2 步：模型收到消息，连同工具定义（描述可用函数的 JSON Schema）。第 3 步：模型不回文本，而是输出一个 tool call——一个带函数名和参数的结构化 JSON 对象。第 4 步：你的代码执行函数、抓住结果。第 5 步：结果回到模型，它现在有真实数据来产出最终答案了。

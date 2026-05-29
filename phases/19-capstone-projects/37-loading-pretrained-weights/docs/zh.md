@@ -31,15 +31,15 @@
 
 ```mermaid
 flowchart LR
-  SF[safetensors file<br/>gpt2-stub.safetensors] --> R[Reader<br/>safe_open]
-  R --> N[Parameter name iterator]
-  N --> M[Name mapper<br/>pretrained -> local]
-  M --> S[Shape check]
-  S -- match --> A[Assign tensor<br/>under torch.no_grad]
-  S -- mismatch --> E[Log mismatch<br/>do not assign]
+  SF[safetensors 文件<br/>gpt2-stub.safetensors] --> R[读取器<br/>safe_open]
+  R --> N[参数名迭代器]
+  N --> M[名称映射器<br/>预训练 -> 本地]
+  M --> S[形状检查]
+  S -- 匹配 --> A[赋值张量<br/>在 torch.no_grad 下]
+  S -- 不匹配 --> E[记录不匹配<br/>不赋值]
   A --> RP[LoadReport]
   E --> RP
-  RP --> G[generate<br/>sanity sample]
+  RP --> G[生成<br/>健全性检查样本]
 ```
 
 name mapper 本质上就是一个 `str -> str` 的函数。shape check 只是一个 if。真正赋值时放在 `torch.no_grad()` 下，避免 autograd 跟踪加载动作。最后 report 把每个名字的命运都记下来。

@@ -35,14 +35,14 @@ Claude Opus 4.7 有 200K token 窗口（beta 版 1M）。GPT-5 有 400K。Gemini
 
 ```mermaid
 graph TD
-    subgraph Window["Context Window (128K tokens)"]
+    subgraph Window["上下文窗口 (128K token)"]
         direction TB
-        S["System Prompt\n~500 tokens"] --> T["Tool Definitions\n~2K-8K tokens"]
-        T --> R["Retrieved Context\n~2K-10K tokens"]
-        R --> H["Conversation History\n~2K-20K tokens"]
-        H --> F["Few-shot Examples\n~1K-3K tokens"]
-        F --> Q["User Query\n~100-500 tokens"]
-        Q --> G["Generation Budget\n~2K-8K tokens"]
+        S["System Prompt\n~500 token"] --> T["工具定义\n~2K-8K token"]
+        T --> R["检索上下文\n~2K-10K token"]
+        R --> H["对话历史\n~2K-20K token"]
+        H --> F["Few-shot 示例\n~1K-3K token"]
+        F --> Q["用户查询\n~100-500 token"]
+        Q --> G["生成预算\n~2K-8K token"]
     end
 
     style S fill:#1a1a2e,stroke:#e94560,color:#fff
@@ -71,13 +71,13 @@ Liu et al.（2023）系统地测试了这个。他们把一篇相关文档放在
 
 ```mermaid
 graph LR
-    subgraph Attention["Attention Distribution Across Context"]
+    subgraph Attention["上下文中的注意力分布"]
         direction LR
-        P1["Position 0-20%\nHIGH attention\n(system prompt)"]
-        P2["Position 20-40%\nMODERATE"]
-        P3["Position 40-70%\nLOW attention\n(lost in middle)"]
-        P4["Position 70-90%\nMODERATE"]
-        P5["Position 90-100%\nHIGH attention\n(current query)"]
+        P1["位置 0-20%\n注意力高\n（system prompt）"]
+        P2["位置 20-40%\n中等"]
+        P3["位置 40-70%\n注意力低\n（迷失在中间）"]
+        P4["位置 70-90%\n中等"]
+        P5["位置 90-100%\n注意力高\n（当前查询）"]
     end
 
     style P1 fill:#51cf66,color:#000
@@ -123,18 +123,18 @@ context engineering 横跨三个时间尺度。
 
 ```mermaid
 graph TD
-    subgraph Memory["Memory Architecture"]
+    subgraph Memory["记忆架构"]
         direction TB
-        STM["Short-term Memory\n(current conversation)\nDirect in context window"]
-        LTM["Long-term Memory\n(facts, preferences)\nDB -> retrieved on session start"]
-        EM["Episodic Memory\n(past interactions)\nEmbeddings -> retrieved on similarity"]
+        STM["短期记忆\n（当前对话）\n直接在上下文窗口中"]
+        LTM["长期记忆\n（事实、偏好）\n数据库 -> 会话开始时取出"]
+        EM["情景记忆\n（过往交互）\nEmbedding -> 按相似度取出"]
     end
 
-    Q["Current Query"] --> STM
+    Q["当前查询"] --> STM
     Q --> LTM
     Q --> EM
 
-    STM --> CW["Context Window"]
+    STM --> CW["上下文窗口"]
     LTM --> CW
     EM --> CW
 

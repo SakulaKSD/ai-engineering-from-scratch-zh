@@ -26,13 +26,13 @@
 
 ```mermaid
 flowchart TD
-  ckpt[checkpoint payload] --> m[model state_dict]
-  ckpt --> o[optimizer state_dict]
-  ckpt --> s[scheduler state_dict]
-  ckpt --> tr[train state: step, epoch, batch_in_epoch, losses]
-  ckpt --> rng[rng state: python, numpy, torch_cpu, torch_cuda]
+  ckpt[checkpoint 载荷] --> m[模型 state_dict]
+  ckpt --> o[优化器 state_dict]
+  ckpt --> s[调度器 state_dict]
+  ckpt --> tr[训练状态: step, epoch, batch_in_epoch, losses]
+  ckpt --> rng[RNG 状态: python, numpy, torch_cpu, torch_cuda]
   ckpt --> meta[wall_saved_at, schema]
-  ckpt --> write[atomic write: tmp file then os.replace]
+  ckpt --> write[原子写入: 临时文件然后 os.replace]
 ```
 
 ### 五类状态
@@ -49,11 +49,11 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-  payload[payload] --> tmpf[write to .ckpt.pt.XXXX.tmp]
-  tmpf --> rename[os.replace to ckpt.pt]
-  rename --> done[ckpt.pt is valid]
-  crash1[crash before rename] --> orig[ckpt.pt unchanged]
-  crash2[crash after rename] --> done
+  payload[载荷] --> tmpf[写入 .ckpt.pt.XXXX.tmp]
+  tmpf --> rename[os.replace 到 ckpt.pt]
+  rename --> done[ckpt.pt 有效]
+  crash1[rename 前崩溃] --> orig[ckpt.pt 不变]
+  crash2[rename 后崩溃] --> done
 ```
 
 两条规则。第一，临时文件和目标放在同一个目录下，保证 rename 在同一个文件系统内；跨设备 rename 不是原子的。第二，每次临时文件名唯一，避免两个 writer 互踩。
@@ -64,14 +64,14 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  state[state_dict] --> split[split keys round robin into N shards]
+  state[state_dict] --> split[按轮询方式拆分 key 到 N 个分片]
   split --> s0[model.shard-000.pt]
   split --> s1[model.shard-001.pt]
   split --> sN[model.shard-NNN.pt]
   s0 --> idx[index.json]
   s1 --> idx
   sN --> idx
-  meta[meta.pt: optimizer + scheduler + train_state + rng] --> idx
+  meta[meta.pt: 优化器 + 调度器 + 训练状态 + RNG] --> idx
 ```
 
 索引记录 shard 数量、每个 shard 的 sha256 以及 meta 文件的 sha256。加载器在任何 hash 不匹配时直接报错。shard 可以落在不同物理磁盘上；meta 很小，先读。

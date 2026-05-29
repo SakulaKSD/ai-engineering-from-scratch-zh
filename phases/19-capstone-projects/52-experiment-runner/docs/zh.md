@@ -40,16 +40,16 @@ ExperimentSpec
 
 ```mermaid
 flowchart TD
-    A[ExperimentSpec] --> B[serialise config to temp file]
-    B --> C[spawn subprocess]
-    C --> D[stdout / stderr pipes]
-    C --> E[wall clock timer]
-    C --> F[memory poller]
-    E -- exceeded --> K[kill process]
-    F -- exceeded --> K
-    D --> P[parse final json line]
-    K --> R[result with terminal=timeout or oom]
-    P --> R[result with metrics]
+    A[ExperimentSpec] --> B[序列化配置到临时文件]
+    B --> C[启动子进程]
+    C --> D[stdout / stderr 管道]
+    C --> E[挂钟计时器]
+    C --> F[内存轮询器]
+    E -- 超限 --> K[杀死进程]
+    F -- 超限 --> K
+    D --> P[解析最后一行 JSON]
+    K --> R[结果: terminal=timeout 或 oom]
+    P --> R[结果: 带指标]
     R --> O[ExperimentResult]
 ```
 

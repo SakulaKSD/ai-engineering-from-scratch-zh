@@ -31,12 +31,12 @@ OpenTelemetry GenAI semantic conventions 就是为这事存在的。它定义了
 
 ```mermaid
 flowchart TD
-  Call[tool call / model call / gate decision] --> Span["SpanBuilder.span()<br/>context manager"]
-  Span --> GenAI[GenAISpan<br/>trace_id / span_id / name<br/>attributes:<br/>gen_ai.system<br/>gen_ai.request.*<br/>gen_ai.usage.*<br/>start, end, status]
+  Call[工具调用 / 模型调用 / gate 决策] --> Span["SpanBuilder.span()<br/>上下文管理器"]
+  Span --> GenAI[GenAISpan<br/>trace_id / span_id / name<br/>attributes:<br/>gen_ai.system<br/>gen_ai.request.*<br/>gen_ai.usage.*<br/>开始、结束、状态]
   GenAI --> Writer[JSONLWriter]
   GenAI --> Metrics[MetricsRegistry]
   Writer --> Traces[traces.jsonl]
-  Metrics --> Prom[/metrics text/]
+  Metrics --> Prom[/metrics 文本/]
 ```
 
 harness 里的每个操作都产一条 span。span 带 trace id（整次 agent invocation）、span id（当前操作）、name（如 `gen_ai.chat`、`gen_ai.tool.execution`）、一组符合 GenAI conventions 的 attributes、开始结束时间和 status。
@@ -51,10 +51,10 @@ metrics 则和 trace 并排存在。每次 tool call 让 counter 自增，例如
 
 ```mermaid
 flowchart LR
-  Harness[AgentHarness<br/>lessons 25-27] --> Span[SpanBuilder<br/>context mgr / attrs / status]
+  Harness[AgentHarness<br/>第 25-27 课] --> Span[SpanBuilder<br/>上下文管理器 / attrs / status]
   Span --> Exporter[JSONLExporter<br/>traces.jsonl]
-  Span --> Metrics[MetricsRegistry<br/>counters / histograms]
-  Metrics --> Prom[Prometheus text<br/>exposition]
+  Span --> Metrics[MetricsRegistry<br/>计数器 / 直方图]
+  Metrics --> Prom[Prometheus 文本<br/>exposition]
 ```
 
 span builder 是个小类，核心方法是 `span(name, attrs)`，返回一个 context manager。进入时记 start time，退出时记 end time，若抛了异常则附带异常，再把完结后的 span 推给 exporter。

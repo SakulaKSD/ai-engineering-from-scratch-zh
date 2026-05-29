@@ -56,37 +56,37 @@ Dropout 训练时随机把神经元置零，评估时则让所有东西原样通
 
 ```mermaid
 graph TD
-    subgraph "Modules"
+    subgraph "模块"
         Linear["Linear<br/>W*x + b"]
         ReLU["ReLU<br/>max(0, x)"]
         Sigmoid["Sigmoid<br/>1/(1+e^-x)"]
-        Dropout["Dropout<br/>random zero mask"]
-        BatchNorm["BatchNorm<br/>normalize activations"]
+        Dropout["Dropout<br/>随机置零掩码"]
+        BatchNorm["BatchNorm<br/>归一化激活"]
     end
 
-    subgraph "Containers"
-        Sequential["Sequential<br/>chains modules"]
+    subgraph "容器"
+        Sequential["Sequential<br/>串联模块"]
     end
 
-    subgraph "Loss Functions"
+    subgraph "损失函数"
         MSE["MSELoss<br/>(pred - target)^2"]
-        BCE["BCELoss<br/>binary cross-entropy"]
+        BCE["BCELoss<br/>二元交叉熵"]
     end
 
-    subgraph "Optimizers"
+    subgraph "优化器"
         SGD["SGD<br/>param -= lr * grad"]
-        Adam["Adam<br/>adaptive moments"]
+        Adam["Adam<br/>自适应矩"]
     end
 
-    subgraph "Data"
-        DataLoader["DataLoader<br/>batching + shuffle"]
+    subgraph "数据"
+        DataLoader["DataLoader<br/>分批 + 打乱"]
     end
 
-    Sequential --> |"contains"| Linear
-    Sequential --> |"contains"| ReLU
-    Sequential --> |"forward/backward"| MSE
-    SGD --> |"updates"| Sequential
-    DataLoader --> |"feeds"| Sequential
+    Sequential --> |"包含"| Linear
+    Sequential --> |"包含"| ReLU
+    Sequential --> |"前向/反向"| MSE
+    SGD --> |"更新"| Sequential
+    DataLoader --> |"喂给"| Sequential
 ```
 
 ### 训练循环
@@ -94,19 +94,19 @@ graph TD
 ```mermaid
 sequenceDiagram
     participant DL as DataLoader
-    participant M as Model
-    participant L as Loss
-    participant O as Optimizer
+    participant M as 模型
+    participant L as 损失
+    participant O as 优化器
 
-    loop Each Epoch
-        DL->>M: batch of inputs
-        M->>M: forward pass (layer by layer)
-        M->>L: predictions
-        L->>L: compute loss
-        L->>M: backward pass (gradients)
-        M->>O: parameters + gradients
-        O->>M: updated parameters
-        O->>O: zero gradients
+    loop 每个 Epoch
+        DL->>M: 一批输入
+        M->>M: 前向传播（逐层）
+        M->>L: 预测
+        L->>L: 计算损失
+        L->>M: 反向传播（梯度）
+        M->>O: 参数 + 梯度
+        O->>M: 更新后的参数
+        O->>O: 清零梯度
     end
 ```
 

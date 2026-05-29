@@ -26,9 +26,9 @@ AI 调试在三个层级上运作：
 
 ```mermaid
 graph TD
-    L3["3. Training Dynamics<br/>Loss curves, gradient norms, activations"] --> L2
-    L2["2. Tensor Operations<br/>Shapes, dtypes, devices, NaN/Inf values"] --> L1
-    L1["1. Standard Python<br/>Breakpoints, logging, profiling, memory"]
+    L3["3. 训练动态<br/>损失曲线、梯度范数、激活值"] --> L2
+    L2["2. 张量运算<br/>形状、dtype、设备、NaN/Inf 值"] --> L1
+    L1["1. 标准 Python<br/>断点、日志、性能分析、内存"]
 ```
 
 大多数人直接跳到第 3 层（盯着 TensorBoard 看）。但 80% 的 AI bug 住在第 1 层和第 2 层。

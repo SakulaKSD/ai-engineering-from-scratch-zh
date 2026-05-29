@@ -26,13 +26,13 @@ Linux 把一切都组织在唯一的根 `/` 下面。没有 `C:\`，没有 `/Vol
 
 ```mermaid
 graph TD
-    root["/"] --> home["home/your-username/<br/>Your files — clone repos, run training"]
-    root --> tmp["tmp/<br/>Temporary files, cleared on reboot"]
-    root --> usr["usr/<br/>System programs and libraries"]
-    root --> etc["etc/<br/>Config files"]
-    root --> varlog["var/log/<br/>Logs — check when something breaks"]
-    root --> mnt["mnt/ or /media/<br/>External drives and volumes"]
-    root --> proc["proc/ and /sys/<br/>Virtual files — kernel and hardware info"]
+    root["/"] --> home["home/your-username/<br/>你的文件 —— 克隆仓库、跑训练"]
+    root --> tmp["tmp/<br/>临时文件，重启后清空"]
+    root --> usr["usr/<br/>系统程序和库"]
+    root --> etc["etc/<br/>配置文件"]
+    root --> varlog["var/log/<br/>日志 —— 出问题时来这看"]
+    root --> mnt["mnt/ 或 /media/<br/>外接硬盘和存储卷"]
+    root --> proc["proc/ 和 /sys/<br/>虚拟文件 —— 内核和硬件信息"]
 ```
 
 你的主目录是 `~` 或 `/home/your-username`。你做的几乎一切都发生在这里。

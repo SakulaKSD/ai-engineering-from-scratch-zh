@@ -28,16 +28,16 @@ attention 的作用，是让一个 token 的表示从同一序列里的其他 to
 
 ```mermaid
 flowchart LR
-    A["(B, T, D) input"] --> B[Linear D -> 3D]
-    B --> C["split into Q, K, V"]
-    C --> D["reshape to (B, H, T, d_head)"]
+    A["(B, T, D) 输入"] --> B[线性层 D -> 3D]
+    B --> C["拆分为 Q, K, V"]
+    C --> D["reshape 到 (B, H, T, d_head)"]
     D --> E["scores = Q @ K.T / sqrt(d_head)"]
-    E --> F[apply causal mask]
-    F --> G[softmax over keys]
+    E --> F[应用 causal mask]
+    F --> G[对 keys 做 softmax]
     G --> H["context = weights @ V"]
-    H --> I["reshape to (B, T, D)"]
-    I --> J[output Linear D -> D]
-    J --> K["(B, T, D) output"]
+    H --> I["reshape 到 (B, T, D)"]
+    I --> J[输出线性层 D -> D]
+    J --> K["(B, T, D) 输出"]
 ```
 
 这块里真正带参数的只有两层线性层：QKV projection 和 output projection。mask、softmax、matmul、reshape 全部无参数。
@@ -66,14 +66,14 @@ decoder-only language model 在预测下一个 token 时，只允许看过去，
 sequenceDiagram
     participant Q
     participant K
-    participant Scores
+    participant Scores as 分数
     participant Mask
     participant Softmax
     participant V
     Q->>Scores: Q @ K.T (B, H, T, T)
-    Scores->>Scores: divide by sqrt(d_head)
-    Mask->>Scores: set upper triangle to -inf
-    Scores->>Softmax: row-wise softmax over keys
+    Scores->>Scores: 除以 sqrt(d_head)
+    Mask->>Scores: 把上三角设为 -inf
+    Scores->>Softmax: 按行对 keys 做 softmax
     Softmax->>V: weights @ V -> (B, H, T, d_head)
 ```
 

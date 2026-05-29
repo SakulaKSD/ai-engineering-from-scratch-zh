@@ -69,13 +69,13 @@ L_DPO(theta) = - E_{(x, y_w, y_l)} [
 
 ```mermaid
 flowchart LR
-  Triple[(x, y_w, y_l)] --> Pol[policy<br/>pi_theta]
-  Triple --> Ref[reference<br/>pi_ref, frozen]
+  Triple[(x, y_w, y_l)] --> Pol[策略模型<br/>pi_theta]
+  Triple --> Ref[参考模型<br/>pi_ref, 冻结]
   Pol --> LWP[log pi_theta y_w]
   Pol --> LLP[log pi_theta y_l]
   Ref --> LWR[log pi_ref y_w]
   Ref --> LLR[log pi_ref y_l]
-  LWP --> Diff[beta * log-ratio diff]
+  LWP --> Diff[beta * 对数比率差]
   LLP --> Diff
   LWR --> Diff
   LLR --> Diff
@@ -117,17 +117,17 @@ DPO 的实现必须小心处理 reference model。Reference 就是冻结住的 S
 
 ```mermaid
 flowchart TD
-  P[(preference triples)] --> Tok[InstructionTokenizer]
+  P[(偏好三元组)] --> Tok[InstructionTokenizer]
   Tok --> DS[PreferenceDataset]
-  DS --> DL[DataLoader<br/>per-row decode]
-  DL --> Pol[Policy TinyGPT]
-  DL --> Ref[Reference TinyGPT<br/>frozen]
-  Pol --> LP[log pi for chosen and rejected]
-  Ref --> LR[log pi_ref for chosen and rejected]
-  LP --> Loss[DPO loss<br/>sigmoid * log-ratio diff]
+  DS --> DL[DataLoader<br/>逐行解码]
+  DL --> Pol[策略 TinyGPT]
+  DL --> Ref[参考 TinyGPT<br/>冻结]
+  Pol --> LP[chosen 和 rejected 的 log pi]
+  Ref --> LR[chosen 和 rejected 的 log pi_ref]
+  LP --> Loss[DPO 损失<br/>sigmoid * 对数比率差]
   LR --> Loss
-  Loss --> Bwd[backward]
-  Bwd --> Opt[Adam optimiser]
+  Loss --> Bwd[反向传播]
+  Bwd --> Opt[Adam 优化器]
 ```
 
 模型跟第 39 课用的 TinyGPT 一样（decoder-only、causal、byte tokeniser）。Reference 和 policy 共享同一个架构；policy 的权重在训练中逐渐偏离 reference，而 reference 始终固定不动。

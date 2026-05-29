@@ -46,16 +46,16 @@ Hypothesis
 
 ```mermaid
 flowchart TD
-    A[seed prompt] --> B[temperature ramp]
-    B --> C[mock language model draft]
-    C --> D[parse tagged response]
-    D --> E{novelty filter}
-    E -- duplicate --> F[discard]
-    E -- novel --> G[append to survivors]
-    G --> H{pass budget hit}
-    H -- no --> B
-    H -- yes --> I[rank survivors]
-    I --> J[hypothesis queue]
+    A[种子 prompt] --> B[温度递增]
+    B --> C[mock 语言模型草稿]
+    C --> D[解析带标签的响应]
+    D --> E{新颖性过滤}
+    E -- 重复 --> F[丢弃]
+    E -- 新颖 --> G[追加到幸存者]
+    G --> H{是否达到轮次预算}
+    H -- 否 --> B
+    H -- 是 --> I[对幸存者排序]
+    I --> J[假设队列]
 ```
 
 循环本身很直白。有意思的是每个框都有一个硬合约。

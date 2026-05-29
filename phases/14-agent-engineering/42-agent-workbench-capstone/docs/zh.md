@@ -28,8 +28,8 @@ flowchart TD
   Pack --> Schemas[schemas/]
   Pack --> Scripts[scripts/]
   Pack --> Bin[bin/install.sh]
-  Bin --> Repo[target repo]
-  Repo --> Surfaces[all seven workbench surfaces wired]
+  Bin --> Repo[目标仓库]
+  Repo --> Surfaces[七个工作台接触面全部接好]
 ```
 
 ### 包布局

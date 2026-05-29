@@ -61,11 +61,11 @@ flowchart LR
         D2 --> D1["64<br/>H x W"]
     end
     E4 --> B1 --> D4
-    E1 -. skip .-> D1
-    E2 -. skip .-> D2
-    E3 -. skip .-> D3
-    E4 -. skip .-> D4
-    D1 --> OUT["1x1 卷积<br/>classes"]
+    E1 -. 跳连 .-> D1
+    E2 -. 跳连 .-> D2
+    E3 -. 跳连 .-> D3
+    E4 -. 跳连 .-> D4
+    D1 --> OUT["1x1 卷积<br/>类别数"]
 
     style ENC fill:#dbeafe,stroke:#2563eb
     style BOT fill:#fef3c7,stroke:#d97706

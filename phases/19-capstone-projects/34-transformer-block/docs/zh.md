@@ -30,15 +30,15 @@ transformer 就是同一个 block 重复很多次。只要第一次把 block 写
 
 ```mermaid
 flowchart TB
-  X[Input embedding<br/>shape B, T, D] --> N1[LayerNorm 1]
-  N1 --> MHA[Multi head causal attention]
-  MHA --> R1[Add residual]
+  X[输入 embedding<br/>形状 B, T, D] --> N1[LayerNorm 1]
+  N1 --> MHA[多头因果 attention]
+  MHA --> R1[加残差]
   X --> R1
   R1 --> N2[LayerNorm 2]
-  N2 --> MLP[Position wise MLP<br/>D to 4D to D]
-  MLP --> R2[Add residual]
+  N2 --> MLP[逐位置 MLP<br/>D 到 4D 到 D]
+  MLP --> R2[加残差]
   R1 --> R2
-  R2 --> Y[Output, same shape]
+  R2 --> Y[输出，形状不变]
 ```
 
 这就是 pre-LN 变体。LayerNorm 放在 residual branch 里面，也就是每个子层之前；residual connection 则把未归一化的信号一路往前带。
@@ -47,15 +47,15 @@ post-LN 变体则把 LayerNorm 移到 residual add 之后：
 
 ```mermaid
 flowchart TB
-  X[Input] --> MHA[Multi head causal attention]
-  MHA --> R1[Add residual]
+  X[输入] --> MHA[多头因果 attention]
+  MHA --> R1[加残差]
   X --> R1
   R1 --> N1[LayerNorm 1]
-  N1 --> MLP[Position wise MLP]
-  MLP --> R2[Add residual]
+  N1 --> MLP[逐位置 MLP]
+  MLP --> R2[加残差]
   N1 --> R2
   R2 --> N2[LayerNorm 2]
-  N2 --> Y[Output]
+  N2 --> Y[输出]
 ```
 
 形状完全一样，训练行为却不一样。post-LN 下，沿 residual path 往回传的梯度必须穿过 LayerNorm。堆到 12 层、学习率设成 `3e-4` 时，这条梯度会衰减得足够快，逼得你不得不用 warmup。pre-LN 则让 residual path 保持未归一化，梯度能更顺地回到 embedding 层。因此从 GPT-2 往后，pre-LN 才成了默认配置。

@@ -24,10 +24,10 @@ Git 是工具，GitHub 是代码存放的地方。这节课只讲本课程需要
 
 ```mermaid
 sequenceDiagram
-    participant WD as Working Directory
-    participant SA as Staging Area
-    participant LR as Local Repo
-    participant R as Remote (GitHub)
+    participant WD as 工作目录
+    participant SA as 暂存区
+    participant LR as 本地仓库
+    participant R as 远端 (GitHub)
     WD->>SA: git add
     SA->>LR: git commit
     LR->>R: git push

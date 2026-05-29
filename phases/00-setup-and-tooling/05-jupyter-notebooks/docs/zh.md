@@ -34,10 +34,10 @@ graph TD
 
 ```mermaid
 graph LR
-    A[Notebook UI] <--> B[Kernel\nPython process]
-    B --> C[Keeps variables in memory]
-    B --> D[Runs cells in whatever order you click]
-    B --> E[Dies when you restart it]
+    A[Notebook UI] <--> B[Kernel\nPython 进程]
+    B --> C[变量保留在内存中]
+    B --> D[你点哪个 cell 就跑哪个]
+    B --> E[重启就没了]
 ```
 
 那个「你点哪个就跑哪个」的特性，既是超能力，也是脚下的地雷。

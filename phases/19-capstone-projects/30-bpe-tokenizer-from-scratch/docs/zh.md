@@ -26,16 +26,16 @@
 
 ```mermaid
 flowchart LR
-    A[raw corpus text] --> B[byte split per word]
-    B --> C[count adjacent pair frequencies]
-    C --> D{pair table empty?}
-    D -- no --> E[merge most frequent pair]
-    E --> F[append merge to merge table]
-    F --> G[grow vocabulary by one id]
+    A[原始语料文本] --> B[按词做 byte 拆分]
+    B --> C[统计相邻 pair 频率]
+    C --> D{pair 表为空?}
+    D -- 否 --> E[合并最高频 pair]
+    E --> F[追加 merge 到 merge table]
+    F --> G[词表增长一个 id]
     G --> C
-    D -- yes --> H[final vocab + merges]
-    H --> I[encode new text]
-    H --> J[decode ids back to bytes]
+    D -- 是 --> H[最终词表 + merges]
+    H --> I[编码新文本]
+    H --> J[把 ids 解码回 bytes]
 ```
 
 训练侧和推理侧共享同一张 merge table。这就是契约。若推理时改了 merge 顺序，解出来的 id 流就变了。
@@ -52,15 +52,15 @@ pretokenizer 会先按空白和标点把语料切开，再让训练看到这些 
 
 ```mermaid
 sequenceDiagram
-    participant Corpus
-    participant PairCount
-    participant MergeTable
-    participant Vocab
-    Corpus->>PairCount: count adjacent pairs
-    PairCount->>MergeTable: pick top pair (a,b)
-    MergeTable->>Vocab: assign new id = a+b
-    MergeTable->>Corpus: rewrite every (a,b) to new id
-    Corpus->>PairCount: recount for next step
+    participant Corpus as 语料
+    participant PairCount as Pair 计数
+    participant MergeTable as Merge 表
+    participant Vocab as 词表
+    Corpus->>PairCount: 统计相邻 pair
+    PairCount->>MergeTable: 选出最高频 pair (a,b)
+    MergeTable->>Vocab: 分配新 id = a+b
+    MergeTable->>Corpus: 把所有 (a,b) 改写成新 id
+    Corpus->>PairCount: 为下一步重新计数
 ```
 
 每一步的成本与“当前语料被表示为 symbol 序列后的总长度”线性相关。对百万词量级语料、目标词表一万上下的情况，这个循环通常几秒内就能跑完，因为 symbol 序列会随着 merge 逐步缩短。

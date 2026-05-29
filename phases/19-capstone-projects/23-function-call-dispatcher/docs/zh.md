@@ -20,18 +20,18 @@
 
 ```mermaid
 flowchart TD
-    loop[harness loop]
+    loop[harness 循环]
     disp[dispatcher]
     reg[tool registry]
     handler[handler]
     loop --> disp
-    disp -->|get name| reg
-    disp -->|validate args| reg
+    disp -->|获取 name| reg
+    disp -->|校验 args| reg
     disp -->|asyncio.wait_for handler args timeout| handler
-    handler -->|success| disp
-    handler -->|TimeoutError -> retry or fail| disp
-    handler -->|Exception -> map to error code| disp
-    disp -->|Ok result or DispatchError| loop
+    handler -->|成功| disp
+    handler -->|TimeoutError -> 重试或失败| disp
+    handler -->|Exception -> 映射到错误码| disp
+    disp -->|Ok 结果或 DispatchError| loop
 ```
 
 只有 dispatcher 知道 timer、retry 和 idempotency。loop 不知道，registry 不知道，handler 也不该知道。这种隔离本身就是目的。
@@ -88,34 +88,34 @@ dispatcher 把 `gather` 包在 semaphore 里。默认并发上限是 8。每次 
 
 ```mermaid
 flowchart TD
-    start([caller: dispatch name, args, opts])
+    start([调用方: dispatch name, args, opts])
     validate[registry.validate name, args]
     schema_err[DispatchError kind=schema]
-    idem_check{idempotency cache?}
-    in_flight[await existing future]
-    cached[return cached result]
+    idem_check{幂等缓存?}
+    in_flight[await 已有 future]
+    cached[返回缓存结果]
     attempt[asyncio.wait_for handler args, timeout]
-    success[cache + return result]
-    timeout_branch{TimeoutError + idempotent?}
-    retry[retry with backoff]
+    success[缓存 + 返回结果]
+    timeout_branch{TimeoutError + 可幂等?}
+    retry[退避重试]
     fail[DispatchError]
     transient_branch{TransientError?}
-    other[map Exception to kind, no retry]
+    other[映射 Exception 到 kind，不重试]
     exhausted[DispatchError]
 
     start --> validate
-    validate -->|errors| schema_err
+    validate -->|错误| schema_err
     validate -->|ok| idem_check
-    idem_check -->|hit in flight| in_flight
-    idem_check -->|hit recent| cached
-    idem_check -->|miss| attempt
+    idem_check -->|命中在飞| in_flight
+    idem_check -->|命中近期| cached
+    idem_check -->|未命中| attempt
     attempt --> success
     attempt --> timeout_branch
-    timeout_branch -->|yes| retry
-    timeout_branch -->|no| fail
+    timeout_branch -->|是| retry
+    timeout_branch -->|否| fail
     attempt --> transient_branch
-    transient_branch -->|yes, attempts left| retry
-    transient_branch -->|exhausted| exhausted
+    transient_branch -->|是，还有重试次数| retry
+    transient_branch -->|耗尽| exhausted
     attempt --> other
     retry --> attempt
 ```

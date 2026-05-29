@@ -24,12 +24,12 @@
 
 ```mermaid
 flowchart TD
-  Start[Session Start] --> Init[init_agent.py]
-  Init --> Probes[probe runtime / deps / paths / env / tests]
+  Start[会话开始] --> Init[init_agent.py]
+  Init --> Probes[探测运行时 / 依赖 / 路径 / 环境变量 / 测试]
   Probes --> Report[init_report.json]
-  Report --> Decision{healthy?}
-  Decision -- yes --> Agent[Agent Loop]
-  Decision -- no --> Halt[fail loud, halt, surface to human]
+  Report --> Decision{健康?}
+  Decision -- yes --> Agent[Agent 循环]
+  Decision -- no --> Halt[大声失败、停下、暴露给人]
 ```
 
 ### init 脚本探测什么

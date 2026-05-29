@@ -89,9 +89,9 @@ registry 暴露 3 个读接口：
 flowchart TD
     code[你的代码]
     reg[ToolRegistry<br/>name<br/>schema<br/>handler<br/>timeout]
-    out[Ok or list of errors]
-    code -->|register name, schema, handler| reg
-    reg -->|validate args| out
+    out[Ok 或错误列表]
+    code -->|注册 name, schema, handler| reg
+    reg -->|校验 args| out
 ```
 
 ## 怎么读代码

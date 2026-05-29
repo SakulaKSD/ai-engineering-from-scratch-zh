@@ -40,10 +40,10 @@
 
 ```mermaid
 graph TD
-    A["Text: 'unhappiness'"] --> B{"Tokenization Strategy"}
-    B -->|Word-level| C["['unhappiness']\n1 token if in vocab\n[UNK] if not"]
-    B -->|Character-level| D["['u','n','h','a','p','p','i','n','e','s','s']\n11 tokens"]
-    B -->|Subword BPE| E["['un','happi','ness']\n3 tokens"]
+    A["文本: 'unhappiness'"] --> B{"分词策略"}
+    B -->|词级别| C["['unhappiness']\n在词表中则 1 个 token\n不在则 [UNK]"]
+    B -->|字符级别| D["['u','n','h','a','p','p','i','n','e','s','s']\n11 个 token"]
+    B -->|子词 BPE| E["['un','happi','ness']\n3 个 token"]
 
     style C fill:#ff6b6b,color:#fff
     style D fill:#ffa500,color:#fff
@@ -106,14 +106,14 @@ Step 4 -- Merge (wes,t) -> "west":
 
 ```mermaid
 graph LR
-    subgraph Training["BPE Training Loop"]
+    subgraph Training["BPE 训练循环"]
         direction TB
-        T1["Start: character vocabulary"] --> T2["Count all adjacent pairs"]
-        T2 --> T3["Merge most frequent pair"]
-        T3 --> T4["Add merged token to vocab"]
-        T4 --> T5{"Reached target\nvocab size?"}
-        T5 -->|No| T2
-        T5 -->|Yes| T6["Done: save merge table"]
+        T1["起点：字符词表"] --> T2["统计所有相邻对"]
+        T2 --> T3["合并最高频的对"]
+        T3 --> T4["将合并后的 token 加入词表"]
+        T4 --> T5{"达到目标\n词表大小？"}
+        T5 -->|否| T2
+        T5 -->|是| T6["完成：保存合并表"]
     end
 ```
 
@@ -163,17 +163,17 @@ Llama 2 用 SentencePiece BPE，词表 32,000 个 token。T5 用 SentencePiece U
 
 ```mermaid
 graph LR
-    subgraph Small["Small Vocab (32K)\ne.g., BERT, T5"]
-        S1["More tokens per text"]
-        S2["Longer sequences"]
-        S3["Smaller embedding matrix"]
-        S4["Better rare-word handling"]
+    subgraph Small["小词表 (32K)\n如 BERT、T5"]
+        S1["每段文本更多 token"]
+        S2["序列更长"]
+        S3["embedding 矩阵更小"]
+        S4["稀有词处理更好"]
     end
-    subgraph Large["Large Vocab (128K+)\ne.g., Llama 3, GPT-4o"]
-        L1["Fewer tokens per text"]
-        L2["Shorter sequences"]
-        L3["Larger embedding matrix"]
-        L4["Faster inference"]
+    subgraph Large["大词表 (128K+)\n如 Llama 3、GPT-4o"]
+        L1["每段文本更少 token"]
+        L2["序列更短"]
+        L3["embedding 矩阵更大"]
+        L4["推理更快"]
     end
 ```
 

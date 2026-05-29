@@ -33,14 +33,14 @@ embedding 阶段的输入是 `(B, T)` 形状的 token ids，输出是 `(B, T, D)
 
 ```mermaid
 flowchart LR
-    A["(B, T) token ids"] --> B[token embedding lookup]
-    B --> C["(B, T, D) token vectors"]
-    A --> D[position broadcast 0..T-1]
-    D --> E[positional embedding lookup]
-    E --> F["(B, T, D) position vectors"]
-    C --> G[elementwise sum]
+    A["(B, T) token ids"] --> B[token embedding 查表]
+    B --> C["(B, T, D) token 向量"]
+    A --> D[位置广播 0..T-1]
+    D --> E[positional embedding 查表]
+    E --> F["(B, T, D) 位置向量"]
+    C --> G[逐元素求和]
     F --> G
-    G --> H["(B, T, D) input to attention"]
+    G --> H["(B, T, D) attention 的输入"]
 ```
 
 组合方式是求和，不是拼接。求和能让整条网络始终保持固定的 `D`，也让模型可以在每个 feature 维度上自己决定：当前该让 token 含义占主导，还是让位置信号占主导。
@@ -81,14 +81,14 @@ emb[p, 2k + 1] = cos(angle)
 
 ```mermaid
 sequenceDiagram
-    participant Caller
-    participant Layer
+    participant Caller as 调用方
+    participant Layer as 组合层
     participant TokEmb
     participant PosEmb
-    Caller->>Layer: forward(ids of shape (B, T))
+    Caller->>Layer: forward(形状 (B, T) 的 ids)
     Layer->>TokEmb: ids -> (B, T, D)
     Layer->>PosEmb: 0..T-1 -> (T, D)
-    Layer->>Layer: tok + pos (broadcast across B)
+    Layer->>Layer: tok + pos（沿 B 维广播）
     Layer->>Caller: (B, T, D)
 ```
 

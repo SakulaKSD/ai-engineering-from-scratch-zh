@@ -41,12 +41,12 @@
 
 ```mermaid
 flowchart LR
-    U[User Input] --> IV[Input\nValidation]
-    IV -->|Pass| LLM[LLM\nProcessing]
-    IV -->|Block| R1[Rejection\nResponse]
-    LLM --> OV[Output\nValidation]
-    OV -->|Pass| R2[Safe\nResponse]
-    OV -->|Block| R3[Filtered\nResponse]
+    U[用户输入] --> IV[输入\n校验]
+    IV -->|通过| LLM[LLM\n处理]
+    IV -->|拦截| R1[拒绝\n响应]
+    LLM --> OV[输出\n校验]
+    OV -->|通过| R2[安全\n响应]
+    OV -->|拦截| R3[过滤后\n响应]
 ```
 
 输入校验在攻击到达模型之前抓住它们。输出校验抓住模型产出有害内容。两个你都需要，因为攻击者会找到绕过每一层单独防线的办法。
@@ -101,16 +101,16 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    I[Input] --> L[Length Check\n< 5000 chars]
-    L --> R[Rate Limit\n10 req/min]
-    R --> T[Topic Classifier\nOn-topic?]
-    T --> P[PII Detector\nRedact sensitive data]
-    P --> J[Injection Detector\nPrompt injection?]
-    J --> M[LLM Processing]
-    M --> TF[Toxicity Filter\n11 categories]
-    TF --> PS[PII Scrubber\nRedact from output]
-    PS --> RV[Relevance Check\nDoes it answer the question?]
-    RV --> O[Output]
+    I[输入] --> L[长度检查\n< 5000 字符]
+    L --> R[限流\n10 次/分钟]
+    R --> T[主题分类器\n是否切题？]
+    T --> P[PII 检测器\n脱敏敏感数据]
+    P --> J[注入检测器\nPrompt 注入？]
+    J --> M[LLM 处理]
+    M --> TF[毒性过滤器\n11 个类别]
+    TF --> PS[PII 清洗器\n从输出中脱敏]
+    PS --> RV[相关性检查\n是否回答了问题？]
+    RV --> O[输出]
 ```
 
 每一层抓住其他层漏掉的。长度检查免费。速率限制便宜。分类器花 5-20ms。LLM 调用花 200-2000ms。把便宜的检查叠在前面。

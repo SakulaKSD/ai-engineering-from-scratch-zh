@@ -28,14 +28,14 @@ JSON-RPC 可以同样跑在 stdio、socket、websocket、HTTP 上。只要 clien
 
 ```mermaid
 sequenceDiagram
-    participant Client
-    participant Server
-    Client->>Server: request {jsonrpc:"2.0", id:7, method:"foo", params:{...}}
-    Server-->>Client: success {jsonrpc:"2.0", id:7, result:{...}}
-    Client->>Server: notification {jsonrpc:"2.0", method:"bar", params:{...}} (no id)
-    Note over Server: no response for notifications
-    Client->>Server: request that fails
-    Server-->>Client: error {jsonrpc:"2.0", id:7 or null, error:{code, message, data?}}
+    participant Client as 客户端
+    participant Server as 服务端
+    Client->>Server: 请求 {jsonrpc:"2.0", id:7, method:"foo", params:{...}}
+    Server-->>Client: 成功 {jsonrpc:"2.0", id:7, result:{...}}
+    Client->>Server: 通知 {jsonrpc:"2.0", method:"bar", params:{...}}（无 id）
+    Note over Server: 通知不回响应
+    Client->>Server: 会失败的请求
+    Server-->>Client: 错误 {jsonrpc:"2.0", id:7 or null, error:{code, message, data?}}
 ```
 
 notification 没有 `id`，server 就不能回它。如果 server 对 notification 也写回响应，client 根本不知道该把这条消息挂回哪个调用点。正是这一条规则，把 framing 的复杂度压了下来。

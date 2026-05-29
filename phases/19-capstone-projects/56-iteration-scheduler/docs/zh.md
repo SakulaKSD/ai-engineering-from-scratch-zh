@@ -25,16 +25,16 @@
 
 ```mermaid
 flowchart LR
-    Queue[Hypothesis queue] --> Sched[Scheduler]
-    Sched --> Slot1[Slot 1]
-    Sched --> Slot2[Slot 2]
-    Sched --> Slot3[Slot 3]
-    Slot1 --> Bus[Result bus]
+    Queue[假设队列] --> Sched[调度器]
+    Sched --> Slot1[槽位 1]
+    Sched --> Slot2[槽位 2]
+    Sched --> Slot3[槽位 3]
+    Slot1 --> Bus[结果总线]
     Slot2 --> Bus
     Slot3 --> Bus
-    Bus --> Score[UCB scorer]
+    Bus --> Score[UCB 评分器]
     Score --> Queue
-    Bus --> Paper[Paper write fan-out]
+    Bus --> Paper[论文写作扇出]
 ```
 
 队列持有假设。当 slot 空闲时，调度器选 UCB 最高的假设。每个 slot 异步运行一个实验。完成的实验将结果扇到 bus 上。Bus 更新来源分支的 UCB 统计量，并在分支产出超过阈值时扇出到论文写作阶段。
@@ -43,12 +43,12 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    Hyp[Hypothesis] --> Id[id]
-    Hyp --> Branch[branch id]
-    Hyp --> Payload[payload dict]
-    Hyp --> Stats[runs and reward sum]
-    Stats --> Runs[runs int]
-    Stats --> Sum[reward sum float]
+    Hyp[假设] --> Id[id]
+    Hyp --> Branch[分支 id]
+    Hyp --> Payload[载荷字典]
+    Hyp --> Stats[运行次数与奖励总和]
+    Stats --> Runs[运行次数 int]
+    Stats --> Sum[奖励总和 float]
 ```
 
 `branch` 是 UCB 统计的 key。多个假设可以共享一个 branch（branch 是研究方向；hypothesis 是该方向内的一次试验）。`runs` 是该分支已完成实验的计数，`reward_sum` 是累积奖励。UCB 读取两者。
@@ -72,16 +72,16 @@ ucb(branch) = mean_reward(branch) + c * sqrt( ln(total_runs) / runs(branch) )
 ```mermaid
 sequenceDiagram
     autonumber
-    participant S as Scheduler
-    participant Q as Hypothesis queue
-    participant R as Experiment runner
-    participant T as In-flight tasks
-    S->>Q: pop highest UCB
+    participant S as 调度器
+    participant Q as 假设队列
+    participant R as 实验执行器
+    participant T as 在途任务
+    S->>Q: 弹出 UCB 最高的假设
     S->>R: create_task(run(hypothesis))
-    R-->>T: Result (task completes)
+    R-->>T: Result (任务完成)
     S->>T: await wait(FIRST_COMPLETED)
-    S->>S: update UCB stats
-    S->>Q: re-queue follow-ups
+    S->>S: 更新 UCB 统计
+    S->>Q: 后续假设入队
 ```
 
 三个 slot 并发运行。主循环从不阻塞在单个实验上。调度器在 slot 空闲后立即启动新任务，直到队列为空且没有 in-flight 任务为止。

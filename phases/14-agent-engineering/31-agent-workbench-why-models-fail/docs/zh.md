@@ -40,13 +40,13 @@
 
 ```mermaid
 flowchart LR
-  Task[Task] --> Scope[Scope Contract]
-  Scope --> State[Repo Memory]
-  State --> Agent[Agent Loop]
-  Agent --> Feedback[Runtime Feedback]
-  Feedback --> Verify[Verification Gate]
-  Verify --> Review[Reviewer]
-  Review --> Handoff[Handoff]
+  Task[任务] --> Scope[范围契约]
+  Scope --> State[仓库记忆]
+  State --> Agent[Agent 循环]
+  Agent --> Feedback[运行时反馈]
+  Feedback --> Verify[验证关卡]
+  Verify --> Review[审查者]
+  Review --> Handoff[交接]
   Handoff --> State
 ```
 

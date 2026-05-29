@@ -30,13 +30,13 @@
 
 ```mermaid
 graph LR
-    Under["Underfitting<br/>Train: 60%<br/>Test: 58%<br/>Model too simple"] --> Good["Good Fit<br/>Train: 95%<br/>Test: 92%<br/>Generalizes well"]
-    Good --> Over["Overfitting<br/>Train: 99.9%<br/>Test: 65%<br/>Memorized noise"]
+    Under["欠拟合<br/>训练：60%<br/>测试：58%<br/>模型太简单"] --> Good["拟合良好<br/>训练：95%<br/>测试：92%<br/>泛化良好"]
+    Good --> Over["过拟合<br/>训练：99.9%<br/>测试：65%<br/>背下了噪声"]
 
-    Dropout["Dropout"] -->|"Pushes left"| Over
-    WD["Weight Decay"] -->|"Pushes left"| Over
-    BN["BatchNorm"] -->|"Pushes left"| Over
-    Aug["Data Augmentation"] -->|"Pushes left"| Over
+    Dropout["Dropout"] -->|"往左推"| Over
+    WD["权重衰减"] -->|"往左推"| Over
+    BN["BatchNorm"] -->|"往左推"| Over
+    Aug["数据增强"] -->|"往左推"| Over
 ```
 
 ### Dropout
@@ -135,20 +135,20 @@ LLaMA、LLaMA 2、LLaMA 3、Mistral 以及大多数现代 LLM 都用 RMSNorm 而
 
 ```mermaid
 graph TD
-    subgraph "Batch Normalization"
-        BN_D["Normalize across BATCH<br/>for each feature"]
-        BN_S["Batch: [x1, x2, x3, x4]<br/>Feature 1: normalize [x1f1, x2f1, x3f1, x4f1]"]
-        BN_P["Needs batch > 32<br/>Different train vs eval<br/>Used in CNNs"]
+    subgraph "批归一化"
+        BN_D["跨批归一化<br/>按每个特征"]
+        BN_S["批：[x1, x2, x3, x4]<br/>特征 1：归一化 [x1f1, x2f1, x3f1, x4f1]"]
+        BN_P["需要批大小 > 32<br/>训练和推理行为不同<br/>用在 CNN 里"]
     end
-    subgraph "Layer Normalization"
-        LN_D["Normalize across FEATURES<br/>for each sample"]
-        LN_S["Sample x1: normalize [f1, f2, f3, f4]"]
-        LN_P["Batch-independent<br/>Same train vs eval<br/>Used in Transformers"]
+    subgraph "层归一化"
+        LN_D["跨特征归一化<br/>按每个样本"]
+        LN_S["样本 x1：归一化 [f1, f2, f3, f4]"]
+        LN_P["不依赖批大小<br/>训练和推理一致<br/>用在 Transformer 里"]
     end
-    subgraph "RMS Normalization"
-        RN_D["Like LayerNorm<br/>but skip mean subtraction"]
-        RN_S["Just divide by RMS<br/>No centering"]
-        RN_P["10% faster than LayerNorm<br/>Same accuracy<br/>Used in LLaMA, Mistral"]
+    subgraph "RMS 归一化"
+        RN_D["类似 LayerNorm<br/>但省掉减均值"]
+        RN_S["只除以 RMS<br/>不做居中"]
+        RN_P["比 LayerNorm 快 10%<br/>准确率相同<br/>用在 LLaMA、Mistral 里"]
     end
 ```
 
@@ -170,21 +170,21 @@ graph TD
 
 ```mermaid
 flowchart TD
-    Gap{"Train-test<br/>accuracy gap?"} -->|"> 10%"| Heavy["Heavy regularization"]
-    Gap -->|"5-10%"| Medium["Moderate regularization"]
-    Gap -->|"< 5%"| Light["Light regularization"]
+    Gap{"训练-测试<br/>准确率差距？"} -->|"> 10%"| Heavy["重度正则化"]
+    Gap -->|"5-10%"| Medium["中度正则化"]
+    Gap -->|"< 5%"| Light["轻度正则化"]
 
     Heavy --> D5["Dropout p=0.3-0.5"]
-    Heavy --> WD2["Weight decay 0.01-0.1"]
-    Heavy --> Aug["Aggressive data augmentation"]
-    Heavy --> ES["Early stopping"]
+    Heavy --> WD2["权重衰减 0.01-0.1"]
+    Heavy --> Aug["激进数据增强"]
+    Heavy --> ES["早停"]
 
     Medium --> D3["Dropout p=0.1-0.2"]
-    Medium --> WD1["Weight decay 0.001-0.01"]
-    Medium --> Norm["BatchNorm or LayerNorm"]
+    Medium --> WD1["权重衰减 0.001-0.01"]
+    Medium --> Norm["BatchNorm 或 LayerNorm"]
 
     Light --> D1["Dropout p=0.05-0.1"]
-    Light --> WD0["Weight decay 1e-4"]
+    Light --> WD0["权重衰减 1e-4"]
 ```
 
 ## 动手构建

@@ -60,7 +60,7 @@ Dimension    Avg distance ratio (max/min between random points)
 
 ```mermaid
 graph LR
-    A["Original data (2D)\nData spread in both\nx and y directions"] -->|"PCA rotation"| B["After PCA\nPC1 captures the elongated spread\nPC2 captures the narrow spread\nDrop PC2 and you lose little info"]
+    A["原始数据 (2D)\n数据沿 x 和 y\n两个方向铺开"] -->|"PCA 旋转"| B["PCA 之后\nPC1 捕获拉长方向的铺展\nPC2 捕获狭窄方向的铺展\n丢掉 PC2 损失很小"]
 ```
 
 - **PCA 之前：** 数据云沿对角方向铺开，横跨 x 和 y 两根轴

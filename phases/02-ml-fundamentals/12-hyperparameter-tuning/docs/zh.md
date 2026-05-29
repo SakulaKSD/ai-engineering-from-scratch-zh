@@ -60,13 +60,13 @@
 
 ```mermaid
 flowchart LR
-    subgraph Grid Search
+    subgraph GS["网格搜索"]
         G1[3 个不同的学习率]
         G2[3 个不同的最大深度]
         G3[共 9 次评估]
     end
 
-    subgraph Random Search
+    subgraph RS["随机搜索"]
         R1[9 个不同的学习率]
         R2[9 个不同的最大深度]
         R3[共 9 次评估]

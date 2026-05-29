@@ -29,7 +29,7 @@ flowchart LR
   Router[AGENTS.md] --> Rules[docs/agent-rules.md]
   Rules --> Checker[rule_checker.py]
   Checker --> Report[rule_report.json]
-  Report --> Reviewer[Reviewer]
+  Report --> Reviewer[审查者]
 ```
 
 ### 覆盖大多数规则的五个类别

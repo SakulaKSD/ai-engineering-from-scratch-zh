@@ -26,19 +26,19 @@
 
 ```mermaid
 flowchart TD
-  Source[Remote shard URLs] --> Plan[Plan manifest entries]
-  Plan --> Download[Streaming GET with Range]
-  Download --> Verify[Hash partial bytes]
-  Verify -->|mismatch| Resume[Issue Range request]
-  Verify -->|match| Decompress[Stream through zstd]
-  Decompress --> Iterate[Iterate JSONL documents]
-  Iterate --> Sig[MinHash signature]
-  Sig --> Bucket[LSH bucket lookup]
-  Bucket -->|new| Keep[Append to shard]
-  Bucket -->|near-duplicate| Drop[Drop with verdict]
-  Keep --> Manifest[Update manifest entry]
+  Source[远程分片 URL] --> Plan[规划 manifest 条目]
+  Plan --> Download[流式 GET + Range 头]
+  Download --> Verify[对已下载字节做哈希校验]
+  Verify -->|不匹配| Resume[发起 Range 续传请求]
+  Verify -->|匹配| Decompress[流式 zstd 解压]
+  Decompress --> Iterate[迭代 JSONL 文档]
+  Iterate --> Sig[MinHash 签名]
+  Sig --> Bucket[LSH 桶查找]
+  Bucket -->|新文档| Keep[追加到分片]
+  Bucket -->|近似重复| Drop[丢弃并记录判定]
+  Keep --> Manifest[更新 manifest 条目]
   Drop --> Manifest
-  Manifest --> Done[Shard manifest emitted]
+  Manifest --> Done[分片 manifest 输出完成]
 ```
 
 ### 用 `urllib` 流式传输

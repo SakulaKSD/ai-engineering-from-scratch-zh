@@ -28,14 +28,14 @@ loop 有 6 个状态。5 个是活动态，1 个是终止态。
 stateDiagram-v2
     [*] --> IDLE
     IDLE --> PLANNING: run(goal)
-    PLANNING --> EXECUTING: plan committed
-    EXECUTING --> AWAITING_TOOL: tool_call needed
-    AWAITING_TOOL --> REFLECTING: result
-    EXECUTING --> REFLECTING: no_tool step done
-    REFLECTING --> EXECUTING: next step
-    REFLECTING --> PLANNING: replan
-    REFLECTING --> DONE: goal_met
-    PLANNING --> DONE: no_plan
+    PLANNING --> EXECUTING: plan 已提交
+    EXECUTING --> AWAITING_TOOL: 需要 tool_call
+    AWAITING_TOOL --> REFLECTING: 收到结果
+    EXECUTING --> REFLECTING: 无工具步骤完成
+    REFLECTING --> EXECUTING: 下一步
+    REFLECTING --> PLANNING: 重新规划
+    REFLECTING --> DONE: 目标达成
+    PLANNING --> DONE: 无 plan
     DONE --> [*]
 ```
 

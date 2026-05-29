@@ -33,12 +33,12 @@
 
 ```mermaid
 flowchart TD
-  Call[ToolCall<br/>already passed gate chain] --> Run["Sandbox.run()"]
-  Run --> S1[1. resolve executable against denylist<br/>rm, sudo, mkfs, ...]
-  S1 --> S2[2. inspect argv<br/>interpreter -c, shell metachars when shell=False]
-  S2 --> S3[3. resolve path-like arguments<br/>against project_root via realpath]
-  S3 --> S4[4. spawn subprocess<br/>capture, wall-clock timeout, env scrub]
-  S4 --> S5[5. truncate stdout/stderr to max_output_bytes]
+  Call[ToolCall<br/>已通过 gate chain] --> Run["Sandbox.run()"]
+  Run --> S1[1. 对照 denylist 解析可执行文件<br/>rm, sudo, mkfs, ...]
+  S1 --> S2[2. 检查 argv<br/>解释器 -c、shell=False 时的 shell 元字符]
+  S2 --> S3[3. 解析类路径参数<br/>通过 realpath 对照 project_root]
+  S3 --> S4[4. 启动子进程<br/>捕获输出、墙钟超时、清洗环境变量]
+  S4 --> S5[5. 截断 stdout/stderr 到 max_output_bytes]
   S5 --> Result[SandboxResult<br/>exit_code, stdout, stderr,<br/>truncated, timed_out, denied, reason]
 ```
 
@@ -50,8 +50,8 @@ sandbox 有 4 个拒绝轴：命令名、argv、路径、结构。四者都先�
 
 ```mermaid
 flowchart LR
-  Harness[AgentHarness<br/>lesson 20-25] -->|call| Sandbox[Sandbox<br/>denylist<br/>path jail<br/>argv inspect<br/>timeout<br/>truncation]
-  Sandbox -->|exec| Popen[subprocess.Popen]
+  Harness[AgentHarness<br/>第 20-25 课] -->|调用| Sandbox[Sandbox<br/>denylist<br/>路径监禁<br/>argv 检查<br/>超时<br/>截断]
+  Sandbox -->|执行| Popen[subprocess.Popen]
   Sandbox --> Result[SandboxResult]
 ```
 

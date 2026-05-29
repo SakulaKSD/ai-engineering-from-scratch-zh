@@ -89,15 +89,15 @@ x.squeeze()        # remove size-1 dimensions
 
 ```mermaid
 graph LR
-    x["x (leaf)"] --> mul["*"]
-    w["w (leaf, requires_grad)"] --> mul
+    x["x（叶子节点）"] --> mul["*"]
+    w["w（叶子节点，requires_grad）"] --> mul
     mul --> add["+"]
-    b["b (leaf, requires_grad)"] --> add
-    add --> loss["loss"]
+    b["b（叶子节点，requires_grad）"] --> add
+    add --> loss["损失"]
     loss --> |".backward()"| add
-    add --> |"grad"| b
-    add --> |"grad"| mul
-    mul --> |"grad"| w
+    add --> |"梯度"| b
+    add --> |"梯度"| mul
+    mul --> |"梯度"| w
 ```
 
 和你框架的关键区别：PyTorch 用基于"磁带"（tape）的自动微分。每个操作在前向传播时往一卷"磁带"上追加。调用 `.backward()` 就把磁带倒着重放一遍。
@@ -184,11 +184,11 @@ PyTorch 自带你造过的一切的生产级版本。
 ```mermaid
 sequenceDiagram
     participant D as DataLoader
-    participant M as Model
-    participant L as Loss fn
-    participant O as Optimizer
+    participant M as 模型
+    participant L as 损失函数
+    participant O as 优化器
 
-    loop Each Epoch
+    loop 每个 Epoch
         D->>M: batch = next(dataloader)
         M->>L: predictions = model(batch)
         L->>L: loss = criterion(predictions, targets)

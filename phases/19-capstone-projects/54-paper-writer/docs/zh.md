@@ -27,13 +27,13 @@ Skeleton 把这个流程反过来。结构作为数据预先声明。Section 是
 
 ```mermaid
 flowchart TB
-    Paper[Paper] --> Meta[metadata]
-    Paper --> Sections[sections list]
-    Paper --> Figures[figures list]
-    Paper --> Bib[bibliography list]
-    Meta --> Title[title]
-    Meta --> Authors[authors]
-    Meta --> Abstract[abstract]
+    Paper[Paper] --> Meta[元数据]
+    Paper --> Sections[章节列表]
+    Paper --> Figures[图表列表]
+    Paper --> Bib[参考文献列表]
+    Meta --> Title[标题]
+    Meta --> Authors[作者]
+    Meta --> Abstract[摘要]
     Sections --> Sec1[Section: id, title, body, cites]
     Figures --> Fig1[Figure: id, path, caption, label]
     Bib --> Entry1[BibEntry: key, fields]
@@ -54,7 +54,7 @@ flowchart TB
 ```mermaid
 flowchart LR
     Exp[experiment.json] --> Reader[read_experiment_manifest]
-    Reader --> Figs[Figure list]
+    Reader --> Figs[图表列表]
     Figs --> Paper[Paper.figures]
     Paper --> Render[render_latex]
     Render --> Out[paper.tex]
@@ -77,9 +77,9 @@ flowchart TB
     Writer[PaperWriter.write] --> Tex[paper.tex]
     Writer --> Bib[references.bib]
     Writer --> Man[manifest.json]
-    Man --> F[figures referenced]
-    Man --> C[citations used]
-    Man --> S[sections rendered]
+    Man --> F[引用的图表]
+    Man --> C[使用的引文]
+    Man --> S[渲染的章节]
 ```
 
 Manifest 是下游评估器或 critic loop 读取的东西。它不解析 LaTeX；它读 manifest。下一课——critic loop——以这个 manifest 为输入，产出反馈列表。这就是为什么 manifest 是契约的一部分，而 LaTeX 不是。
