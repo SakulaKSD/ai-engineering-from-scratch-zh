@@ -571,9 +571,21 @@
 | 55 | [评审循环](phases/19-capstone-projects/55-critic-loop) | ✅ | ~90 min |
 | 56 | [迭代调度器](phases/19-capstone-projects/56-iteration-scheduler) | ✅ | ~90 min |
 | 57 | [端到端研究 Demo](phases/19-capstone-projects/57-end-to-end-research-demo) | ✅ | ~90 min |
+| 58 | [Vision Encoder 的 Patch 切分](phases/19-capstone-projects/58-vision-encoder-patches) | ✅ | ~90 min |
+| 59 | [Vision Transformer Encoder（ViT）](phases/19-capstone-projects/59-vit-transformer) | ✅ | ~90 min |
+| 60 | [用 Projection Layer 做模态对齐](phases/19-capstone-projects/60-projection-layer-modality-align) | ✅ | ~90 min |
+| 61 | [Cross-Attention 融合](phases/19-capstone-projects/61-cross-attention-fusion) | ✅ | ~90 min |
+| 62 | [Vision-Language 预训练](phases/19-capstone-projects/62-vision-language-pretraining) | ✅ | ~90 min |
+| 63 | [多模态评测](phases/19-capstone-projects/63-multimodal-eval) | ✅ | ~90 min |
+| 64 | [Chunking 策略横向对比](phases/19-capstone-projects/64-chunking-strategies-advanced) | ✅ | ~90 min |
+| 65 | [用 BM25 与 Dense Embedding 做 Hybrid Retrieval](phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense) | ✅ | ~90 min |
+| 66 | [Cross-Encoder Reranker](phases/19-capstone-projects/66-reranker-cross-encoder) | ✅ | ~90 min |
+| 67 | [Query 改写：HyDE、Multi-Query 与 Decomposition](phases/19-capstone-projects/67-query-rewriting-hyde) | ✅ | ~90 min |
+| 68 | [RAG 评测：Precision、Recall、MRR、nDCG 等](phases/19-capstone-projects/68-rag-eval-precision-recall) | ✅ | ~90 min |
+| 69 | [端到端 RAG 系统](phases/19-capstone-projects/69-end-to-end-rag-system) | ✅ | ~90 min |
 
 ---
 
-**总计：20 个阶段，430+ 节课 | 430+ 已完成 | 预计约 1000 小时**
+**总计：20 个阶段，442+ 节课 | 442+ 已完成 | 预计约 1050 小时**
 
 想出一份力？挑任意一节 ⬚ 课提交 PR。详见 [CONTRIBUTING.md](CONTRIBUTING.md)。

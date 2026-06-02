@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-1a1a1a?style=flat-square&labelColor=fafaf5" alt="MIT License"></a>
-  <a href="ROADMAP.md"><img src="https://img.shields.io/badge/lessons-435-3553ff?style=flat-square&labelColor=fafaf5" alt="435 lessons"></a>
+  <a href="ROADMAP.md"><img src="https://img.shields.io/badge/lessons-447-3553ff?style=flat-square&labelColor=fafaf5" alt="447 lessons"></a>
   <a href="#contents"><img src="https://img.shields.io/badge/phases-20-3553ff?style=flat-square&labelColor=fafaf5" alt="20 phases"></a>
   <a href="https://github.com/fancyboi999/ai-engineering-from-scratch-zh/stargazers"><img src="https://img.shields.io/github/stars/fancyboi999/ai-engineering-from-scratch-zh?style=flat-square&labelColor=fafaf5&color=3553ff" alt="GitHub stars"></a>
   <a href="https://aieng-zh.cn"><img src="https://img.shields.io/badge/website-live-3553ff?style=flat-square&labelColor=fafaf5" alt="Website"></a>
@@ -819,7 +819,7 @@ the agent went wrong and explain why...
 </details>
 
 <details id="phase-19">
-<summary><b>Phase 19 — 综合项目</b> &nbsp;<code>55 projects</code>&nbsp; <em>2026 年的端到端可交付产品，每个 20-40 小时。</em></summary>
+<summary><b>Phase 19 — 综合项目</b> &nbsp;<code>67 projects</code>&nbsp; <em>2026 年的端到端可交付产品，每个 20-40 小时。</em></summary>
 <br/>
 
 | # | Project | Combines | Lang |
@@ -879,6 +879,18 @@ the agent went wrong and explain why...
 | 55 | [评审循环](phases/19-capstone-projects/55-critic-loop/) | D. 自动研究 | Python |
 | 56 | [迭代调度器](phases/19-capstone-projects/56-iteration-scheduler/) | D. 自动研究 | Python |
 | 57 | [端到端研究 Demo](phases/19-capstone-projects/57-end-to-end-research-demo/) | D. 自动研究 | Python |
+| 58 | [Vision Encoder 的 Patch 切分](phases/19-capstone-projects/58-vision-encoder-patches/) | E. 多模态 | Python |
+| 59 | [Vision Transformer Encoder（ViT）](phases/19-capstone-projects/59-vit-transformer/) | E. 多模态 | Python |
+| 60 | [用 Projection Layer 做模态对齐](phases/19-capstone-projects/60-projection-layer-modality-align/) | E. 多模态 | Python |
+| 61 | [Cross-Attention 融合](phases/19-capstone-projects/61-cross-attention-fusion/) | E. 多模态 | Python |
+| 62 | [Vision-Language 预训练](phases/19-capstone-projects/62-vision-language-pretraining/) | E. 多模态 | Python |
+| 63 | [多模态评测](phases/19-capstone-projects/63-multimodal-eval/) | E. 多模态 | Python |
+| 64 | [Chunking 策略横向对比](phases/19-capstone-projects/64-chunking-strategies-advanced/) | F. 高级 RAG | Python |
+| 65 | [用 BM25 与 Dense Embedding 做 Hybrid Retrieval](phases/19-capstone-projects/65-hybrid-retrieval-bm25-dense/) | F. 高级 RAG | Python |
+| 66 | [Cross-Encoder Reranker](phases/19-capstone-projects/66-reranker-cross-encoder/) | F. 高级 RAG | Python |
+| 67 | [Query 改写：HyDE、Multi-Query 与 Decomposition](phases/19-capstone-projects/67-query-rewriting-hyde/) | F. 高级 RAG | Python |
+| 68 | [RAG 评测：Precision、Recall、MRR、nDCG 等](phases/19-capstone-projects/68-rag-eval-precision-recall/) | F. 高级 RAG | Python |
+| 69 | [端到端 RAG 系统](phases/19-capstone-projects/69-end-to-end-rag-system/) | F. 高级 RAG | Python |
 
 </details>
 
