@@ -7,7 +7,7 @@
 **前置要求：** 阶段 6 · 11（实时音频）、阶段 6 · 12（语音助手）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 语音 agent 在每个 20 ms 块上做的三个不同判断：
 
@@ -120,7 +120,7 @@ def flush_on_end(stt_client, audio_buffer):
 
 STT（Kyutai、Deepgram、AssemblyAI）必须支持 flush 这才管用。Whisper streaming 不支持——它是基于块的，总在等待分块。
 
-## 上手使用
+## 实际使用
 
 | 情形 | VAD 选择 |
 |-----------|-----------|
@@ -141,7 +141,7 @@ STT（Kyutai、Deepgram、AssemblyAI）必须支持 flush 这才管用。Whisper
 - **没有预滚缓冲。** 用户音频的前 200-300 ms 丢失。永远保留一段滚动预滚。
 - **忽视语义端点判定。** 「Hmm, let me think...」里含长停顿。用户讨厌被在思考中途打断。用 LiveKit 的轮次检测器或类似的。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-vad-tuner.md`。为一种负载挑选 VAD 模型、阈值、挂起、预滚和轮次检测策略。
 

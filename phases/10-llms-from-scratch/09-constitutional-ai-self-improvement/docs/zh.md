@@ -14,7 +14,7 @@
 - 用基于规则的结果奖励生成可验证的推理轨迹，并在没有单独奖励模型的情况下给它们打分
 - 判断什么时候自我改进胜过人类偏好数据、什么时候它会塌缩成 mode seeking
 
-## 问题所在
+## 问题背景
 
 你在第 07 课搭了 RLHF，在第 08 课搭了 DPO。两者都依赖同一种昂贵的输入：人类偏好对。Anthropic 在 InstructGPT 时代的流水线用了大约 33,000 对比较。Llama 2 Chat 用了超过 150 万。Claude 3 用得更多。这种数据慢、贵，并且偏向标注员在打分那天恰好相信的任何东西。
 
@@ -289,13 +289,13 @@ def self_improvement_round(prompts: list[str], policy_sampler, group_size: int =
             "overall_mean": float(np.mean([m["mean_reward"] for m in metrics]))}
 ```
 
-## 上手使用
+## 实际使用
 
 运行 `code/main.py` 会端到端跑完两个循环。CAI 循环产出一小组 (initial, revised) 对，你可以拿来微调。GRPO 循环对算术问题产出每个 prompt 的奖励统计，展示组相对 advantage 如何让一个弱采样器在没有价值函数或人类标签的情况下改进。
 
 数字不是重点。在用训练好的模型做的真实运行里，奖励均值应该跨轮上升，奖励标准差应该保持为正（如果它塌缩到零，策略就 mode-collapse 了，你应该停下），到参考的 KL 应该缓慢增长。这三条曲线——奖励均值上升、标准差稳定、KL 有界——就是 GRPO 或 CAI 流水线的生产健康检查。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/skill-self-improvement-auditor.md`。喂给它一条拟议的自我改进流水线，它会强制执行不可妥协的关卡：一条真正可验证的奖励规则、对参考的一个 KL 预算、一个多样性下限、一个人类数据配额。它拒绝批准任何号称 "纯自我改进" 却没有任何外部锚定的循环。
 

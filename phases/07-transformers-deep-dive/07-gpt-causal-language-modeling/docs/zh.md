@@ -7,7 +7,7 @@
 **前置要求：** 阶段 7 · 02（Self-Attention）、阶段 7 · 05（完整的 Transformer）、阶段 7 · 06（BERT）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 语言模型回答一个问题：给定前 `t-1` 个 token，token `t` 的概率分布是什么？在这个信号——下一个 token 预测——上训练，你就得到一个能一次一个 token 生成任意文本的模型。
 
@@ -101,7 +101,7 @@ def causal_mask(n):
 
 实现贪心、温度、top-k、top-p、min-p。在一个固定 prompt 上各跑一遍，对比输出。一个采样函数 10 行。
 
-## 上手使用
+## 实际使用
 
 PyTorch，2026 年的写法：
 
@@ -126,7 +126,7 @@ print(tok.decode(out[0]))
 
 **GPT vs BERT，各一行：** GPT 预测 `P(x_t | x_{<t})`。BERT 预测 `P(x_masked | x_unmasked)`。损失决定模型能不能生成。
 
-## 交付
+## 拿去用
 
 见 `outputs/skill-sampling-tuner.md`。这个 skill 为一个新的生成任务挑选采样参数，并在需要确定性解码时标出来。
 

@@ -7,7 +7,7 @@
 **前置要求：** 阶段 6 · 02（频谱图与梅尔）、阶段 5 · 22（嵌入模型）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 一个用户念了一句口令。你想知道：这是不是他声称的那个人（*验证*，1:1），还是你登记库里的第一个人（*辨认*，1:N）？或者两者都不是——这是不是一个未知的说话人（*开集*）？
 
@@ -120,7 +120,7 @@ for turn, _, speaker in diarization.itertracks(yield_label=True):
     print(f"{turn.start:.1f}–{turn.end:.1f}  {speaker}")
 ```
 
-## 上手使用
+## 实际使用
 
 2026 年的工具栈：
 
@@ -140,7 +140,7 @@ for turn, _, speaker in diarization.itertracks(yield_label=True):
 - **跨条件用固定阈值。** 永远在目标领域的留出开发集上调阈值。
 - **在未归一化的嵌入上做余弦。** 先做 L2 归一化；否则幅值会主导。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-speaker-verifier.md`。挑选模型、登记协议、阈值调优方案和防欺诈保护。
 

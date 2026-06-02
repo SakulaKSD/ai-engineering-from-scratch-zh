@@ -14,7 +14,7 @@
 - 产出一份审查者 agent 和 CI 都能读的 `verification_report.json`。
 - 在任何 block 严重度的失败上拒绝推进任务，无一例外。
 
-## 问题所在
+## 问题背景
 
 agent 太容易宣布成功。三种失败形态占主导：
 
@@ -95,7 +95,7 @@ python3 code/main.py
 
 **`--strict` 模式把 warn 提升为 block。** 对发布分支、阻断上线的 PR 或事故后分诊，`--strict` 让每个警告都成为硬失败。这个标志按分支 opt-in；不是全局默认，因为对一切都 strict 会腐蚀日常流程。
 
-## 上手使用
+## 实际使用
 
 生产模式：
 
@@ -105,7 +105,7 @@ python3 code/main.py
 
 关卡是工作台流程里定夺的那条边。其他每个接触面都在它上游。
 
-## 交付
+## 拿去用
 
 `outputs/skill-verification-gate.md` 把关卡接进一个具体项目：哪些验收命令喂给它、哪些规则是 block 严重度、容忍哪些范围外写入、覆盖审计日志怎么存。
 

@@ -14,7 +14,7 @@
 - 解释为什么后处理 PII 清理对 GDPR 不够，并说出实时推理层脱敏作为站得住脚的标准。
 - 描述跨框架控制映射（比如访问控制对应 ISO 27001 A.5.15-5.18 + GDPR 第 32 条 + HIPAA §164.312(a)）。
 
-## 问题所在
+## 问题背景
 
 一个企业客户的采购要 SOC 2 Type II、GDPR、HIPAA BAA、ISO 27001，以及"EU AI Act 合规声明"。你的团队有 SOC 2 Type I。你离 Type II 还有六个月，GDPR 第 30 条记录都还没开始。
 
@@ -98,11 +98,11 @@ OpenAI 维持 SOC 2 Type 2、ISO/IEC 27001:2022、ISO/IEC 27701:2019、GDPR/CCPA
 - SOC 2 Type II 窗口：6-12 个月的控制运作。
 - Colorado AI Act 生效日期：2026 年 6 月 30 日（因 SB25B-004 从 2026 年 2 月推迟）。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 是个 Python 写的合规映射表 —— 给定一个控制，列出它满足的框架。
 
-## 交付
+## 拿去用
 
 这一课产出 `outputs/skill-compliance-matrix.md`。给定客户群和地理位置，指明所需框架和控制。
 

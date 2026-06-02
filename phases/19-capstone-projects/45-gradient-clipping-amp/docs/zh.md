@@ -96,7 +96,7 @@ python3 code/main.py
 - **backward 之前先检查 loss。** `torch.isfinite(loss).all()` 就是一次张量 reduction；代价可以忽略，但在 NaN loss 上省下的是一整个训练步。务必执行。
 - **`zero_grad` 里用 `set_to_none=True`。** 把梯度设为 `None` 而不是零，让 optimizer 跳过不受影响的参数组。这是个免费的吞吐量提升，还能略微减少 bug 面。
 
-## 交付
+## 拿去用
 
 `outputs/skill-clip-amp.md` 在真实项目中会描述训练步使用什么 clip 阈值和 autocast device、per-step CSV 在版本控制中放哪里、生产跳步率告警阈值是多少。本课交付的是引擎。
 

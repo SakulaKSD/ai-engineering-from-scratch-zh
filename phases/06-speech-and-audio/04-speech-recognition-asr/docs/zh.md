@@ -7,7 +7,7 @@
 **前置要求：** 阶段 6 · 02（频谱图与梅尔）、阶段 5 · 08（用于文本的 CNN 与 RNN）、阶段 5 · 10（注意力）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 你有一段 10 秒、16 kHz 的音频。你想要一个字符串："turn on the kitchen lights"。难点在结构上：音频帧和字符并不是一一对齐的。"okay" 这个词可能耗时 200 ms，也可能 1200 ms。静音穿插在话语之间。有些音素比别的长。输出 token 的数量事先并不知道。
 
@@ -130,7 +130,7 @@ for chunk in streaming_audio():
 
 流式 ASR 需要分块的编码器注意力和状态延续；用一个支持它的库（Parakeet 用 NeMo，或带 `chunk_length_s` 的 `transformers` pipeline）。
 
-## 上手使用
+## 实际使用
 
 2026 年的工具栈：
 
@@ -150,7 +150,7 @@ for chunk in streaming_audio():
 - **语种识别漂移。** Whisper 的自动 LID 会把嘈杂音频误路由到日语或威尔士语；你知道语种时就强制 `language="en"`。
 - **长音频不分块。** Whisper 有一个 30 秒的窗口。超过这个长度就用 `chunk_length_s=30, stride=5`。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-asr-picker.md`。针对给定的部署目标，挑选模型、解码策略、分块方式和 LM 融合。
 

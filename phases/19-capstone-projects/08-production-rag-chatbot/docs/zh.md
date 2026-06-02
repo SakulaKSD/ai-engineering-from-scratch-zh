@@ -8,7 +8,7 @@
 **涉及阶段：** P5 · P7 · P11 · P12 · P17 · P18
 **预计时间：** 30 小时
 
-## 问题所在
+## 问题背景
 
 受监管领域的 RAG（法律合同、临床试验方案、保险保单）是 2026 年出货最多的生产形态，因为 ROI 一目了然、风险也很具体。Harvey（Allen & Overy）为法律做了它。Mendable 出的是开发者文档那一味。Glean 覆盖企业搜索。范式是：高保真摄入、带重排的混合检索、带引用强制和 prompt caching 的合成、多层安全把关、持续监控漂移。
 
@@ -88,7 +88,7 @@ eval:
 
 9. **成本报告。** Langfuse：prompt 缓存命中率、每查询 token 数、按阶段拆分的 $/查询。
 
-## 上手使用
+## 实际使用
 
 ```
 $ chat --role=analyst --jurisdiction=GDPR
@@ -104,7 +104,7 @@ answer:
   citations: [MSA-2024-03-11 s12.4, DPA-v2.1 s5]
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-production-rag.md` 描述交付物。一个带合规标签部署、通过评分标准、用实时漂移监控盯着的受监管领域聊天机器人。
 

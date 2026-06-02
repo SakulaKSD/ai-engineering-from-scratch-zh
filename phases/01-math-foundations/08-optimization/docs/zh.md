@@ -14,7 +14,7 @@
 - 区分凸和非凸损失曲面，解释鞍点在高维中的作用
 - 配置学习率调度（阶梯衰减、余弦退火、warmup）以保证训练稳定
 
-## 问题所在
+## 问题背景
 
 你有一个损失函数。它告诉你模型错得多离谱。你有梯度。它们告诉你哪个方向会让损失变得更糟。现在你需要一套往下坡走的策略。
 
@@ -311,7 +311,7 @@ for name, history in [("GD", gd_history), ("SGD+M", sgd_history), ("Adam", adam_
 
 预期输出：Adam 收敛最快。带动量的 SGD 走更平滑的路径。原始 GD 沿着狭窄山谷进展缓慢。
 
-## 上手使用
+## 实际使用
 
 实践中，用 PyTorch 或 JAX 的优化器。它们处理参数组、权重衰减、梯度裁剪和 GPU 加速。
 
@@ -335,7 +335,7 @@ scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(adam, T_max=100)
 - 对于超过几个 epoch 的训练，总是用学习率调度。
 - 如果训练不稳定，降低学习率。如果训练太慢，提高它。
 
-## 交付
+## 拿去用
 
 本节课产出一个用于选对优化器的提示词。参见 `outputs/prompt-optimizer-guide.md`。
 

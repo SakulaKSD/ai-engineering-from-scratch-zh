@@ -7,7 +7,7 @@
 **前置要求：** Phase 9 · 04（Q-learning）、Phase 9 · 06（REINFORCE）、Phase 9 · 07（Actor-Critic）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 一个机器人学习在房间里导航，是个单 agent RL 问题。一支足球队不是。AlphaStar 对阵《星际争霸》对手不是。一个竞价 agent 市场不是。两辆车在四向停车口博弈不是。现实世界里多对多的问题都不是。
 
@@ -113,7 +113,7 @@ def independent_q(env, episodes, alpha, gamma, epsilon):
 - **联赛循环。** 纯自我对弈可能卡在一个支配循环里。修法：用多样化对手的联赛对弈。
 - **样本爆炸。** `n` 个 agent × 状态空间 × 联合动作。用函数近似来近似；因式化动作空间（每个 agent 一个策略输出头）。
 
-## 上手使用
+## 实际使用
 
 2026 年的 MARL 应用地图：
 
@@ -128,7 +128,7 @@ def independent_q(env, episodes, alpha, gamma, epsilon):
 
 到了 2026 年，MARL 增长最快的领域是基于 LLM 的：成群的语言模型 agent 谈判、辩论、构建软件。RL 表现为对*轨迹级*输出（而非 token 级）的偏好优化（Phase 16 · 03）。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-marl-architect.md`：
 

@@ -14,7 +14,7 @@
 - 实现一个小 DiT 块和一个 rectified-flow 训练循环，都不超过 100 行
 - 按架构、参数量和授权区分模型变体（SD3、FLUX.1-dev、FLUX.1-schnell、Z-Image、Qwen-Image）
 
-## 问题所在
+## 问题背景
 
 第 10 课用 U-Net 去噪器搭了一个 DDPM。那套配方主导了 2020-2023：U-Net + beta 调度 + 噪声预测损失。它产出了 Stable Diffusion 1.5、2.1 和 DALL-E 2。
 
@@ -280,7 +280,7 @@ def synthetic_blobs(num=200, size=16, seed=0):
 
 在这个上面用 rectified flow 训练一个 `TinyDiT`。500 步后，采样输出应该看起来像淡淡的彩色斑块。
 
-## 上手使用
+## 实际使用
 
 用 FLUX / SD3 / Z-Image 做真正的图像生成，`diffusers` 用统一 API 提供它们每一个：
 
@@ -314,7 +314,7 @@ pipe = StableDiffusion3Pipeline.from_pretrained(
 out = pipe(prompt, guidance_scale=3.5, num_inference_steps=28).images[0]
 ```
 
-## 交付
+## 拿去用
 
 这一课产出：
 

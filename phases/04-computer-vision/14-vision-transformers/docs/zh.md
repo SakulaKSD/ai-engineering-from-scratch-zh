@@ -14,7 +14,7 @@
 - 在架构先验上对比 ViT、Swin、ConvNeXt（无先验、局部窗口注意力、卷积骨干）
 - 用 `timm` 和标准的线性探针 / 微调配方，在一个小数据集上微调预训练 ViT
 
-## 问题所在
+## 问题背景
 
 十年里，卷积几乎就是计算机视觉的同义词。CNN 有强归纳偏置——局部性、平移等变性——没人觉得你能替换掉它们。然后 Dosovitskiy 等人（2020）证明：一个朴素 transformer，作用于展平的图像 patch，完全不用卷积机制，在规模上能匹敌甚至击败最好的 CNN。
 
@@ -223,7 +223,7 @@ print(f"probs:  {logits.softmax(-1)}")
 
 应该无错运行。概率之和为 1。
 
-## 上手使用
+## 实际使用
 
 `timm` 提供每个 ViT 变体的 ImageNet 预训练权重。一行：
 
@@ -237,7 +237,7 @@ model = timm.create_model("vit_base_patch16_224", pretrained=True, num_classes=1
 
 做多模态（图像 + 文本）时，`transformers` 提供 CLIP、SigLIP、BLIP-2、LLaVA。这些里面的图像编码器都是某个 ViT 变体。
 
-## 交付
+## 拿去用
 
 这一课产出：
 

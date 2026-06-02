@@ -14,7 +14,7 @@
 - 解释那个让你能把一个网关工具和一个独立 eval 平台组合起来的 OpenTelemetry 粘合模式。
 - 说出 2026 年的成本差异点（Arize AX 的零拷贝方式 vs 单体式摄入），并给出大致的 100 倍乘数。
 
-## 问题所在
+## 问题背景
 
 你交付了一个 LLM 特性。它能用。你对 prompt 失败、工具死循环、延迟回退、成本尖峰或 prompt 缓存命中率毫无可见性。你 Google "LLM observability"，得到八个工具，全都声称在三个不同价位上解决同一个问题。
 
@@ -100,11 +100,11 @@ OpenTelemetry 在 2025 年底发布了 GenAI 语义约定（`gen_ai.system`、`g
 - Arize AX 宣称：规模上比单体式便宜约 100 倍。
 - OpenTelemetry GenAI 约定：2025 年发布，2026 年广泛采用。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 跨多种留存策略（100% 摄入、采样、采样 + 错误）模拟一个 100 万 trace 的日子。报告存储成本以及每种策略下丢了什么。
 
-## 交付
+## 拿去用
 
 这一课产出 `outputs/skill-observability-stack.md`。给定栈、规模、预算、许可态度，挑出工具。
 

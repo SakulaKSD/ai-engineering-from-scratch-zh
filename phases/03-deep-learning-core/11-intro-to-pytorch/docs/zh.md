@@ -14,7 +14,7 @@
 - 把你从零写的迷你框架组件转换成它们的 PyTorch 等价物
 - 在同一个任务上对比你的纯 Python 框架和 PyTorch，剖析两者的训练速度
 
-## 问题所在
+## 问题背景
 
 你有一个能用的迷你框架。线性层、ReLU、dropout、批归一化、Adam、一个 DataLoader、一个训练循环。它用纯 Python 在一个圆形分类问题上训练一个 4 层网络。
 
@@ -449,7 +449,7 @@ def main():
 
 10 个 epoch 后的预期输出：约 97.8% 测试准确率。CPU 上训练时间：约 30 秒。GPU 上：约 5 秒。用同样架构在你的迷你框架上：约 45 分钟。
 
-## 上手使用
+## 实际使用
 
 ### 快速对比：迷你框架 vs PyTorch
 
@@ -490,7 +490,7 @@ for epoch in range(10):
 
 PyTorch 自带 15 个以上的调度器：StepLR、ExponentialLR、CosineAnnealingLR、OneCycleLR、ReduceLROnPlateau。全都接入同一个优化器接口。
 
-## 交付
+## 拿去用
 
 本课产出两个产物：
 

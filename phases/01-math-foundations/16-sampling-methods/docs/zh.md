@@ -14,7 +14,7 @@
 - 解释重参数化技巧，以及为什么它让 VAE 里穿过采样的反向传播成为可能
 - 跑 Metropolis-Hastings MCMC 从一个未归一化的目标分布采样
 
-## 问题所在
+## 问题背景
 
 一个语言模型处理完你的 prompt，产出一个 50,000 维的 logits 向量。词表里每个 token 一个。现在它得挑一个。怎么挑？
 
@@ -604,7 +604,7 @@ def gumbel_softmax(logits, temperature):
 
 带全部可视化的完整实现在 `code/sampling.py` 里。
 
-## 上手使用
+## 实际使用
 
 用 NumPy 和 SciPy，生产版本：
 

@@ -14,7 +14,7 @@
 - 对比类别加权、阈值调节和重采样策略，为给定的不平衡比例选对方法
 - 构建一条完整的不平衡数据流水线，结合 SMOTE、类别权重和阈值优化
 
-## 问题所在
+## 问题背景
 
 你做了一个欺诈检测模型。它拿到 99.9% 准确率。你庆祝。然后你意识到它对每一笔交易都预测"非欺诈"。
 
@@ -457,7 +457,7 @@ preds_thresh = (probs_cw >= best_thresh).astype(int)
 
 代码文件在一个脚本里跑完这一切并打印结果。
 
-## 上手使用
+## 实际使用
 
 用 scikit-learn 和 imbalanced-learn，这些技术都是一行：
 
@@ -491,7 +491,7 @@ print(classification_report(y_test, pipeline.predict(X_test)))
 
 从零实现让你看清每种技术到底做什么。SMOTE 就是对少数类做 k-NN 插值。类别权重乘损失。阈值调节是对截断点做 for 循环。没魔法。
 
-## 交付
+## 拿去用
 
 本节课产出：
 - `outputs/skill-imbalanced-data.md` -- 处理不平衡分类问题的决策清单

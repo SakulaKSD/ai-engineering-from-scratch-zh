@@ -7,7 +7,7 @@
 **前置要求：** 阶段 6 · 02（频谱图）、阶段 4 · 10（扩散模型）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 文本 → 一段 30 秒到 4 分钟、带歌词、人声和结构的音乐。三个子问题：
 
@@ -118,7 +118,7 @@ description = llm.complete(prompt)
 music = musicgen.generate([description], duration=30)
 ```
 
-## 上手使用
+## 实际使用
 
 | 目标 | 工具栈 |
 |------|-------|
@@ -137,7 +137,7 @@ music = musicgen.generate([description], duration=30)
 - **人声可懂度。** Suno 很出色；开源模型在咬字上常常糊成一团。如果歌词重要，用商用 API 或微调。
 - **单声道输出。** 开源模型生成单声道或假立体声。用正经的立体声重建升级（ezst、Cartesia 的立体声扩散）。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-music-designer.md`。为一次音乐生成部署挑选模型、许可策略、长度 / 结构方案和披露元数据。
 

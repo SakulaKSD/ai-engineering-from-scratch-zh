@@ -7,7 +7,7 @@
 **前置要求：** 阶段 7 · 05（完整的 Transformer）、阶段 7 · 06（BERT）、阶段 7 · 07（GPT）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 纯解码器 GPT 和纯编码器 BERT 各自为不同目标精简了 2017 年的架构。但许多任务天然就是输入-输出的：
 
@@ -116,7 +116,7 @@ def corrupt_spans(tokens, mask_rate=0.15, mean_span=3.0, rng=None):
 
 五个函数：`token_mask`、`token_delete`、`text_infill`、`sentence_permute`、`document_rotate`。组合其中两个并展示结果。
 
-## 上手使用
+## 实际使用
 
 HuggingFace 参考：
 
@@ -132,7 +132,7 @@ print(tok.decode(out[0], skip_special_tokens=True))
 
 T5 的把戏：任务名写进输入文本里。同一个模型搞定几十种任务，因为每个任务都是文本进、文本出。2026 年这个模式被指令微调的纯解码器模型推广了，但 T5 最先把它编成了定式。
 
-## 交付
+## 拿去用
 
 见 `outputs/skill-seq2seq-picker.md`。这个 skill 会根据输入-输出结构、延迟和质量目标，在编码器-解码器和纯解码器之间为一个新任务做选择。
 

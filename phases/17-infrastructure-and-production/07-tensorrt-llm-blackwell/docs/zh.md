@@ -14,7 +14,7 @@
 - 说出 TRT-LLM 利用的 Blackwell 特有特性（day-0 FP4、MTP、分离式服务、all-to-all 原语）。
 - 判断 TRT-LLM 的 NVIDIA 锁定何时值得相对 Hopper 上 vLLM 的 7 倍成本差距。
 
-## 问题所在
+## 问题背景
 
 2026 年推理经济学的前沿是"每美元多少 token"。答案取决于四个叠加的选择：硬件代际（Hopper H100/H200 vs Blackwell B200/GB200）、精度（BF16 → FP8 → NVFP4）、服务引擎（vLLM vs SGLang vs TRT-LLM）、编排（朴素 vs 分离式 vs Dynamo）。
 
@@ -72,11 +72,11 @@ TRT-LLM 是 C++ + CUDA + 闭源 kernel。模型需要为特定 GPU SKU 编译。
 
 TRT-LLM 的分离式服务（分开的 prefill 和 decode 池）在阶段 17 · 20 里深入讲。在 Blackwell 上，乘数叠加：FP4 权重 × MTP 加速 × 分离式放置 × 缓存感知路由。那个 7 倍数字假设的就是这整套栈。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 跨三套栈为一个模型算 HBM 占用、decode 吞吐（内存受限制度）和 $/M-token：H100 + BF16 + vLLM、H100 + FP8 + vLLM、B200 + NVFP4/FP8 + TRT-LLM。跑一下，看看叠加效应，以及每项改动贡献了差距的多少份。
 
-## 交付
+## 拿去用
 
 这一课产出 `outputs/skill-trtllm-blackwell-advisor.md`。给定一个工作负载、模型规模和年 token 量，它判断 Blackwell + TRT-LLM 这套栈是否值得 NVIDIA 锁定。
 

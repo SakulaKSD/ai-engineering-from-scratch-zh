@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 02（BoW + TF-IDF）、Phase 2 · 14（朴素贝叶斯）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 "The food was not great." 正面还是负面？
 
@@ -179,7 +179,7 @@ def evaluate(y_true, y_pred):
     return {"tp": tp, "fp": fp, "tn": tn, "fn": fn, "precision": precision, "recall": recall, "f1": f1}
 ```
 
-## 上手使用
+## 实际使用
 
 scikit-learn 六行就能正确做完。
 
@@ -211,7 +211,7 @@ print(pipe.score(X_test, y_test))
 
 重训情感模型是家常便饭，重新评估却不是。论文里报的准确率用的是特定的划分、特定的预处理、特定的分词器。如果你拿自己的新模型和基线比，却没用完全相同的流水线，你得到的差值会误导人。永远在你自己的流水线上重新生成基线，而不是用论文里的数字。
 
-## 交付
+## 拿去用
 
 存为 `outputs/prompt-sentiment-baseline.md`：
 

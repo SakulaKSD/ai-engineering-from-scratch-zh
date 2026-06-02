@@ -8,7 +8,7 @@
 **涉及阶段：** P10 · P11 · P13 · P14 · P18
 **预计时间：** 25 小时
 
-## 问题所在
+## 问题背景
 
 2026 年 LLM 安全的前沿，不是分类器灵不灵（大体是灵的），而是怎么围着一个生产应用正确地组合它们，既不过度拒答，也不留明显的窟窿。Llama Guard 4 处理英文的策略违例。X-Guard（132 种语言）处理多语种越狱。ShieldGemma-2 抓基于图像的 prompt 注入。NVIDIA Nemotron 3 Content Safety 覆盖企业类别。Anthropic 的 Constitutional Classifiers 是一种单独的方法，用在训练期而非服务期。
 
@@ -93,7 +93,7 @@ output: CVSS-scored findings + disclosure timeline + before/after harmlessness d
 
 9. **靶场自动化。** 以上一切跑在 cron 上；发现写进队列；过度拒答的回归告警发到 Slack。
 
-## 上手使用
+## 实际使用
 
 ```
 $ safety probe --model=target --family=PAIR --budget=50
@@ -105,7 +105,7 @@ $ safety probe --model=target --family=PAIR --budget=50
 [range]      7 successes out of 50 (14% success rate)
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-safety-harness.md` 是交付物。一条生产级的分层安全流水线，加一个可复现的红队靶场，带前后无害性差值。
 

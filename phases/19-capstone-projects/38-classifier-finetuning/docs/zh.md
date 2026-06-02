@@ -15,7 +15,7 @@
 - 从原始 logits 计算 precision、recall、F1 和 confusion matrix。
 - 理解参数量、训练时间与上限空间（head-room）之间的权衡。
 
-## 问题所在
+## 问题背景
 
 你预训练了一个小 transformer。原始输出 head 会把最后隐状态投到一个 1000-token 词表上。现在你手头有 800 条短信，标了 spam 或 ham，你要的是二分类。摆在你面前的选项有三种。
 

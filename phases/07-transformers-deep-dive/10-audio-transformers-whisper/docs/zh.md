@@ -7,7 +7,7 @@
 **前置要求：** 阶段 7 · 05（完整的 Transformer）、阶段 7 · 08（编码器-解码器）、阶段 7 · 09（ViT）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 Whisper（OpenAI，Radford et al. 2022）之前，最先进的自动语音识别（ASR）就意味着 wav2vec 2.0 和 HuBERT——自监督特征提取器加一个微调过的头。质量高、数据流水线昂贵、对领域脆弱。多语种语音识别需要每个语系一个单独的模型。
 
@@ -127,7 +127,7 @@ def whisper_prompt(lang="en", task="transcribe", timestamps=True):
 
 这就是整个任务控制面。一个 4 token 的前缀。
 
-## 上手使用
+## 实际使用
 
 ```python
 import whisper
@@ -159,7 +159,7 @@ for s in segments:
 - 需要 <200 ms 的实时对话 AI——专用流式 ASR。
 - 说话人分离——Whisper 不做这个；加上 pyannote。
 
-## 交付
+## 拿去用
 
 见 `outputs/skill-asr-configurator.md`。这个 skill 为一个新的语音应用挑选 ASR 模型、解码参数和预处理流水线。
 

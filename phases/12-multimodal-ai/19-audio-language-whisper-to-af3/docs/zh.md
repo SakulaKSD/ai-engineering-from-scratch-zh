@@ -14,7 +14,7 @@
 - 搭一个音频 Q-former：N 个可学习 query 交叉关注频谱图 patch。
 - 解释级联（先 Whisper 后 LLM）vs 端到端音频 LLM 训练：为什么端到端在推理上扩展得更好。
 
-## 问题所在
+## 问题背景
 
 语音识别被 Whisper 解决了。音频的 OCR 成了大路货。但"大路货"止步于转录。如果模型无法对它听到的东西推理——时序、说话人、情绪、音乐结构、环境声——光转录撑不起产品功能。
 
@@ -108,7 +108,7 @@ MMAU（Massive Multimodal Audio Understanding）是 2024-2025 的音频推理基
 
 开放 SOTA（AF3）在 0.72；专有前沿约 0.78（Gemini 2.5 Pro、Claude Opus 4.7）。这个差距比 VideoMME 的开放 vs 闭源差距更小，说明音频 LLM 正在成熟。
 
-## 上手使用
+## 实际使用
 
 `code/main.py`：
 
@@ -116,7 +116,7 @@ MMAU（Massive Multimodal Audio Understanding）是 2024-2025 的音频推理基
 - 音频 Q-former 骨架：给定编码器输出帧，计算 Q、K、V、注意力，并吐出 N 个 token。
 - 在一个玩具任务上做级联 vs 端到端的对比。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/skill-audio-llm-pipeline-picker.md`。给定一个音频任务（转录、音乐标注、情绪推断、多说话人分离、环境分类），它挑选级联、端到端 AF3，还是混合。
 

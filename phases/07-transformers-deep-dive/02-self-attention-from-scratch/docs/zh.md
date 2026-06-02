@@ -14,7 +14,7 @@
 - 追踪注意力矩阵如何捕捉 token 之间的关系，并解释为什么除以 sqrt(d_k) 能防止 softmax 饱和
 - 应用因果掩码，把双向注意力转成自回归（解码器风格）注意力
 
-## 问题所在
+## 问题背景
 
 RNN 一次处理一个 token。等你走到第 50 个 token，来自第 1 个 token 的信息已经被压缩了 50 步。长程依赖被挤进一个固定大小的隐藏状态——这个瓶颈靠再多 LSTM 门控也没法彻底解决。
 
@@ -274,7 +274,7 @@ def ascii_heatmap(weights, tokens, chars=" ░▒▓█"):
 ascii_heatmap(weights, sentence)
 ```
 
-## 上手使用
+## 实际使用
 
 PyTorch 的 `nn.MultiheadAttention` 做的正是我们刚搭的东西，外加多头拆分和输出投影：
 
@@ -301,7 +301,7 @@ print(attn_weights[0].detach().numpy().round(3))
 
 关键区别：multi-head attention 并行跑多个注意力函数，每个有自己的、大小为 dk = d_model / n_heads 的 Q、K、V 投影，然后拼接结果。这让模型能同时关注不同类型的关系。
 
-## 交付
+## 拿去用
 
 这节课产出：
 - `outputs/prompt-attention-explainer.md` —— 一个通过数据库查找类比来讲解注意力的 prompt

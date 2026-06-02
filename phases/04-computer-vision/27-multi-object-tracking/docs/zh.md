@@ -14,7 +14,7 @@
 - 解释 SAM 2 的记忆库，以及为什么它比基于 IoU 的关联更能处理遮挡
 - 读懂三个追踪指标（MOTA、IDF1、HOTA），为给定用例挑出要紧的那个
 
-## 问题所在
+## 问题背景
 
 检测器告诉你单帧里物体在哪。追踪器告诉你第 `t` 帧的哪个检测和第 `t-1` 帧的某个检测是同一个物体。没有它，你数不了越线的物体、跟不了穿过遮挡的球，也不知道"4 号车已经在车道上 8 秒了"。
 
@@ -237,7 +237,7 @@ def count_id_switches(tracks_per_frame, gt_per_frame):
 
 这是一个简化的、接近 IDF1 的指标：数一个真值物体改变其被分配的预测轨迹 ID 的次数。真正的 MOTA / IDF1 / HOTA 工具在 `py-motmetrics` 和 `TrackEval` 里。
 
-## 上手使用
+## 实际使用
 
 2026 年的生产追踪器：
 
@@ -253,7 +253,7 @@ def count_id_switches(tracks_per_frame, gt_per_frame):
 - 带可辨认外观的重度遮挡：**DeepSORT / StrongSORT**（ReID 特征）。
 - 体育 / 复杂交互：**BoT-SORT** 或学习式追踪器（MOTRv3）。
 
-## 交付
+## 拿去用
 
 这一课产出：
 

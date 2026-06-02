@@ -14,7 +14,7 @@
 - 量化 LMCache CPU-DRAM 何时有帮助（KV > HBM）vs 何时增加开销（KV 小到能装进 HBM）。
 - 在给定部署约束下，在原生 vLLM CPU offload 和 LMCache connector 之间挑选。
 
-## 问题所在
+## 问题背景
 
 你的 vLLM 服务显示 GPU 的 HBM 在 100%，并且并发一爬升就出现抢占事件。请求被驱逐、重新入队，你在一分钟里把同一个 2K token prompt 重 prefill 了四次。GPU 算力花在了冗余的 prefill 上；goodput 远低于裸吞吐。
 
@@ -82,11 +82,11 @@ vLLM 0.11.0（2026 年 1 月）加了一条异步 offload 路径 —— offload 
 - 16 块 H100 基准：KV 占用超过 HBM 时 LMCache 有帮助。
 - HBM 压力小：3-5% 开销而无收益。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 模拟一个带和不带 LMCache 的抢占重工作负载。报告避免的重 prefill 次数、吞吐增益和盈亏平衡的 HBM 利用率。
 
-## 交付
+## 拿去用
 
 这一课产出 `outputs/skill-vllm-stack-decider.md`。给定工作负载形态和 vLLM 部署，决定 原生 vs LMCache vs 都不要。
 

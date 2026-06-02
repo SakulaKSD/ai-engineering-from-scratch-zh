@@ -14,7 +14,7 @@
 - 实现逐像素交叉熵、Dice 损失，以及那个当前是医学和工业分割默认的组合损失
 - 逐类读 IoU 和 Dice 指标，诊断一个差分数是来自小物体召回、边界精度，还是类别不平衡
 
-## 问题所在
+## 问题背景
 
 分类每张图输出一个标签。检测每张图输出一把框。分割每个像素输出一个标签。对一个 `H x W` 大小的输入，输出是一个形状为 `H x W`（语义）或 `H x W x N_instances`（实例）的张量。那是每张图数百万个预测，不是一个。
 
@@ -343,7 +343,7 @@ def train_one_epoch(model, loader, optimizer, device, num_classes):
 
 在合成数据集上跑 10-30 个 epoch，看着形状类别的 mIoU 爬过 0.9。注意 `nan_to_num(0)` 把 batch 里不存在的类别当成零；要得到准确的逐类 IoU，按是否出现做掩码，并在评估时跨 batch 用 `torch.nanmean`，而不是在这里求平均。
 
-## 上手使用
+## 实际使用
 
 生产中，`segmentation_models_pytorch`（"smp"）用任意 torchvision 或 timm 骨干包住了每个标准分割架构。三行：
 
@@ -365,7 +365,7 @@ model = smp.Unet(
 
 这三个在 `smp` 或 `transformers` 里都是即插即换，用同一个 data loader。
 
-## 交付
+## 拿去用
 
 这一课产出：
 

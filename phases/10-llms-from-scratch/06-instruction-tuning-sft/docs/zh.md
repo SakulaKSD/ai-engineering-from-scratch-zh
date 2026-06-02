@@ -14,7 +14,7 @@
 - 解释为什么需要 SFT：基座模型是在续写文本，而不是回答问题
 - 通过在留出指令集上对比基座模型 vs 微调后模型的回复，评估 SFT 质量
 
-## 问题所在
+## 问题背景
 
 你在第 04 课训了一个模型。它能给定一段序列预测下一个 token。喂它 "The transformer architecture"，它可能续写 "has revolutionized natural language processing"。对一个下一个 token 预测器来说这很厉害。
 
@@ -472,7 +472,7 @@ def measure_forgetting(model, test_text, seq_len=64):
 
 在真实微调里，你会全程追踪这个指标。如果原始文本损失上升超过 10-15%，你的 SFT 就太激进了。降低学习率或减少 epoch 数。
 
-## 上手使用
+## 实际使用
 
 ### 完整 SFT 流水线演示
 
@@ -562,7 +562,7 @@ The model learns to predict the next token given all previous tokens."""
             print(f"  Steps {i:3d}-{i + len(chunk) - 1:3d}: avg loss = {avg:.4f}")
 ```
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/prompt-sft-data-curator.md`——一个 prompt，帮你为 SFT 设计和筛选指令数据集。给定一个目标能力（代码生成、数学、对话），它产出一份数据收集计划，含格式规范、质量标准和多样性要求。
 

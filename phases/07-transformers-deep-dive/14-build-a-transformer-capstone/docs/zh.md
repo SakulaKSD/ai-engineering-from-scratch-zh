@@ -7,7 +7,7 @@
 **前置要求：** 阶段 7 · 01 到 13。别跳。
 **预计时间：** ~120 分钟
 
-## 问题所在
+## 问题背景
 
 你读完了每篇论文。你实现了注意力、多头拆分、位置编码、编码器和解码器 block、BERT 和 GPT 的损失、MoE、KV 缓存。现在让它们在一个真实任务上协同工作。
 
@@ -134,7 +134,7 @@ The chief that well shame and hath been his friends,
 
 不是莎士比亚。但是莎士比亚的样子。对约 80 万参数、笔记本上 6 分钟来说，这是个明确的胜利。
 
-## 上手使用
+## 实际使用
 
 这个收官项目是一个参考架构。三个扩展能把它推向真东西：
 
@@ -144,7 +144,7 @@ The chief that well shame and hath been his friends,
 
 最后这会变成一个生成流畅英语的 125M 参数 GPT。不是前沿模型。但同一条代码路径——只是更大——正是 Karpathy、EleutherAI 和 Allen Institute 在 2026 年训练研究 checkpoint 用的。
 
-## 交付
+## 拿去用
 
 见 `outputs/skill-transformer-review.md`。这个 skill 会针对前面全部 13 课的正确性审查一个从零构建的 transformer 实现。
 

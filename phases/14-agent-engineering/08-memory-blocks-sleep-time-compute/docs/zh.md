@@ -14,7 +14,7 @@
 - 描述 sleep-time compute 是什么、为什么它在关键路径之外、为什么它能跑一个比主 agent 更强的模型。
 - 实现一个脚本化的双 agent 循环：一个主 agent 提供响应，一个 sleep-time agent 在轮次之间整合块。
 
-## 问题所在
+## 问题背景
 
 MemGPT（第 07 课）解决了虚拟内存的控制流。又冒出三个生产问题：
 
@@ -91,13 +91,13 @@ python3 code/main.py
 
 transcript 展示了这种拆分：主轮次快且产生原始写入；sleep 遍历做压实和清理。
 
-## 上手使用
+## 实际使用
 
 - **Letta**（letta.com）作为参考实现。自托管或托管云。
 - **Claude Agent SDK skill** 作为块形态的知识 —— 一个 skill 就是一段具名、有版本、可检索的指令块，agent 按需加载。
 - **自定义构建** 给那些想掌控存储后端的团队。用 Letta 的 API 契约，这样你以后能迁移。
 
-## 交付
+## 拿去用
 
 `outputs/skill-memory-blocks.md` 为任意运行时生成一个 Letta 形态的块系统，带 sleep-time hook，包含安全规则和引用接线。
 

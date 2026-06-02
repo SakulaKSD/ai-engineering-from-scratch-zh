@@ -7,7 +7,7 @@
 **前置要求：** 阶段 10 第 12 课（推理优化），阶段 10 第 04 课（预训练 Mini-GPT）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 一个 70B 级模型在 H100 上的 decode 吞吐通常是 40-80 token/秒。每个 token 需要一次从 HBM 读取全部模型权重的完整前向传播。你没法在不改变输出的情况下把模型变小。你没法把 batch size 增大到超出内存。你卡住了——除非你能让模型每次前向传播输出不止一个 token。
 
@@ -156,14 +156,14 @@ def speculative_step(p_target, q_draft, K, temperature=1.0):
     return accepted
 ```
 
-## 上手使用
+## 实际使用
 
 - **vLLM** 和 **SGLang** 内置一流的推测解码。标志：`--speculative_model`、`--num_speculative_tokens`。EAGLE-2/3 经 `--spec_decoding_algorithm eagle` 标志支持。
 - **NVIDIA TensorRT-LLM** 原生支持 Medusa 和 EAGLE 树。
 - **参考 draft 模型**：`Qwen/Qwen3-0.6B-spec`（为 Qwen3-32B 起草）、`meta-llama/Llama-3.2-1B-Instruct-spec`（为 70B 起草）。
 - **Medusa 头**（Cai et al. 2024，"Medusa: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads"）：不用 draft 模型，而是给 target 自身加 K 个并行预测头。部署更简单，接受率比 EAGLE 略低。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/skill-speculative-tuning.md`——一个 skill，它给一个 target 模型的工作负载做剖析并选择：draft 模型、K（draft 长度）、树宽度、温度，以及何时回退到普通解码。
 

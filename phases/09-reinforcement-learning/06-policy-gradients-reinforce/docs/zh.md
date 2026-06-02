@@ -7,7 +7,7 @@
 **前置要求：** Phase 3 · 03（反向传播）、Phase 9 · 03（蒙特卡洛）、Phase 9 · 04（TD 学习）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 Q-learning 和 DQN 参数化的是*价值*函数。你靠 `argmax Q` 来挑动作。对离散动作和离散状态这没问题。但当动作连续时（在 10 维力矩上 `argmax` 哪个？）或者你想要一个随机策略时（`argmax` 天生是确定性的），它就崩了。
 
@@ -130,7 +130,7 @@ def reinforce_step(theta, trajectory, gamma, lr, baseline=0.0):
 - **非平稳梯度。** 来自 100 个 episode 之前的同一个梯度用的是旧 `π`。正因如此，同策略方法每几次 rollout 就更新一次。
 - **信用分配。** 不用 reward-to-go，过去奖励就会贡献噪声。永远用 reward-to-go。
 
-## 上手使用
+## 实际使用
 
 到了 2026 年，REINFORCE 很少被直接跑，但它的梯度公式无处不在：
 
@@ -145,7 +145,7 @@ def reinforce_step(theta, trajectory, gamma, lr, baseline=0.0):
 
 当你在 2026 年的训练脚本里读到 `loss = -advantage * log_prob`，那就是带基线的 REINFORCE。整篇整篇的论文（DPO、GRPO、RLOO）都是建立在这一行之上的方差削减技巧。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-policy-gradient-trainer.md`：
 

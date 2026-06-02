@@ -14,7 +14,7 @@
 - 在网关层强制一份钉定工具哈希的清单。
 - 把官方 MCP Registry 和元注册表（Glama、MCPMarket、MCP.so、Smithery、LobeHub）区分开。
 
-## 问题所在
+## 问题背景
 
 一家世界 500 强有 30 个批准的 MCP server、5000 名开发者、合规与审计要求，还有一个想要集中策略的安全团队。放任每个开发者在自己 IDE 里装任意 server，根本行不通。
 
@@ -92,7 +92,7 @@ Cloudflare MCP Portals、Kong AI Gateway、IBM ContextForge、MintMCP、TrueFoun
 
 阶段 17（生产基础设施）更深入网关运维。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 用约 150 行交付一个极简网关：用一个假 Bearer token 认证用户、持有每用户 RBAC 策略、把请求路由到两个后端 MCP server、把每个调用写进审计日志、强制一个限流，并拒绝任何描述哈希对不上钉定清单的后端工具。
 
@@ -103,7 +103,7 @@ Cloudflare MCP Portals、Kong AI Gateway、IBM ContextForge、MintMCP、TrueFoun
 - 限流用每用户一个 token bucket。
 - 钉定清单是一个 `server::tool -> hash` 的 dict。
 
-## 交付
+## 拿去用
 
 本课产出 `outputs/skill-gateway-bootstrap.md`。给定一个企业 MCP 计划（用户、后端、合规），这个 skill 产出一份网关配置规格。
 

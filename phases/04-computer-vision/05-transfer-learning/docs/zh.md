@@ -14,7 +14,7 @@
 - 用差异化学习率渐进解冻各层，让早期的通用特征比后期的任务特定特征更新得更小
 - 诊断三种常见故障：解冻块上学习率过高导致的特征漂移、小数据集上 BN 统计量崩溃、灾难性遗忘
 
-## 问题所在
+## 问题背景
 
 在 ImageNet 上训练一个 ResNet-50 大约要 2,000 GPU 小时。很少有团队能为他们交付的每个任务都掏这个预算。几乎每个团队实际交付的，是一个预训练骨干，配上一个在几百或几千张任务特定图像上训练的新头部。
 
@@ -279,7 +279,7 @@ def progressive_unfreeze_schedule(model):
 
 第一个 epoch 之前调用一次 `start()`。每个 epoch 开头调用 `unfreeze(epoch)`。每当可训练参数的集合变化时就重建优化器，否则被冻结的参数仍持有缓存的动量，会把它搞糊涂。
 
-## 上手使用
+## 实际使用
 
 对大多数真实任务，`torchvision.models` + 三行就够了。上面那套更重的机制，是在你撞上库默认值修不了的问题时才要紧。
 
@@ -296,7 +296,7 @@ optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4, weight_decay=1e-4)
 - `timm` 提供约 800 个预训练视觉骨干，API 一致（`timm.create_model("resnet50", pretrained=True, num_classes=10)`）。任何超出 torchvision 模型库的微调，它都是标准。
 - 对 transformer，`transformers.AutoModelForImageClassification.from_pretrained(name, num_labels=N)` 给你 ViT / BEiT / DeiT，加载语义和文本模型一样。
 
-## 交付
+## 拿去用
 
 这一课产出：
 

@@ -15,7 +15,7 @@
 - 解释约束解码如何在 token 层面强制产出合法 JSON，无需后处理
 - 设计稳健的抽取 prompt，可靠地把非结构化文本转成有类型的数据结构
 
-## 问题所在
+## 问题背景
 
 你问一个 LLM："从这段文本里抽取产品名、价格和库存状态。"它回复：
 
@@ -419,7 +419,7 @@ def run_demo():
             print(f"  Output: FAILED after retries")
 ```
 
-## 上手使用
+## 实际使用
 
 ### OpenAI 结构化输出
 
@@ -502,7 +502,7 @@ Anthropic 通过 tool use 来实现结构化输出。模型吐出一个带结构
 
 Instructor 包裹任意 LLM 客户端，并加上带校验的自动重试。如果第一次尝试没通过校验，它会把错误作为上下文发回给模型，让它修正输出。这适用于任何 provider，不只是 OpenAI。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/prompt-structured-extractor.md`——一个可复用的 prompt 模板，给定一份 schema 定义，就能从任意文本里抽取结构化数据。喂给它一个 JSON Schema 和非结构化文本，它返回已校验的 JSON。
 

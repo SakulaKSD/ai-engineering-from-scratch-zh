@@ -8,7 +8,7 @@
 **涉及阶段：** P5 · P6 · P11 · P12 · P14 · P17 · P18
 **预计时间：** 30 小时
 
-## 问题所在
+## 问题背景
 
 自适应辅导过去是教育科技的研究小众。到 2026 年它成了消费级产品。Khanmigo 部署在美国大多数学区。Duolingo Max 拿下了数千万月活。Google 的 LearnLM / Gemini for Education 给 Google Classroom 里的辅导供能。Quizlet Q-Chat 跟闪卡并排坐着。Synthesis Tutor 凭“给好奇孩子的导师”火了一把。共同要素：多模态输入（打字、说话、给方程拍照）、苏格拉底式教学法（先问，后解释）、一个每次交互后更新的学习者模型，以及严格的适龄安全。
 
@@ -92,7 +92,7 @@ learner device
 
 9. **每周进度报告。** 按学习者，自动生成一份 PDF 摘要：探索过的主题、掌握度轨迹、推荐的下一步。
 
-## 上手使用
+## 实际使用
 
 ```
 learner: "I don't understand why 3x + 6 = 12 means x = 2"
@@ -106,7 +106,7 @@ learner: "6"
 [scaffold] "great. now what is 3x / 3 equal to?"
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-ai-tutor.md` 是交付物。一个学科专属的自适应导师，带多模态输入、学习者模型、记忆、安全，以及实测的成效。
 

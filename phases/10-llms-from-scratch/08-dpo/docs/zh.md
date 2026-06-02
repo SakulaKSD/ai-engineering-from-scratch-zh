@@ -14,7 +14,7 @@
 - 在训练稳定性、算力成本和所需模型数量上对比 DPO vs RLHF
 - 调整 beta 参数来控制训练后的策略偏离参考模型多远
 
-## 问题所在
+## 问题背景
 
 你在第 07 课搭了一条 RLHF 流水线。三个阶段。三个模型。SFT 模型、奖励模型，以及用 PPO 优化的策略模型。光奖励模型就需要数千对人类偏好和一个单独的训练循环。PPO 需要仔细调 KL 系数、学习率、裁剪比率和 epoch 数。
 
@@ -500,7 +500,7 @@ def beta_sensitivity_analysis(sft_model, preference_data, betas, max_seq_len=128
 
 小 beta（0.01）让模型自由偏离参考——学得快但有退化解的风险。大 beta（1.0）让模型靠近参考——稳定但学得慢。对大多数应用，甜点区是 0.1 到 0.3。
 
-## 上手使用
+## 实际使用
 
 ### 完整 DPO 流水线演示
 
@@ -614,7 +614,7 @@ if __name__ == "__main__":
     print("    - Many production systems use both: RLHF first, DPO to refine.")
 ```
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/prompt-alignment-method-selector.md`——一个 prompt，帮你为你的用例选对对齐方法（SFT、RLHF、DPO、KTO、ORPO、SimPO）。给定你的数据可得性、算力预算和对齐目标，它推荐一个方法和训练计划。
 

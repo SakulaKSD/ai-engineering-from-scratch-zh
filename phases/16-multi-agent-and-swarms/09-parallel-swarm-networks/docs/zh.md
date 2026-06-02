@@ -7,7 +7,7 @@
 **前置要求：** Phase 16 · 05（Supervisor 模式）、Phase 16 · 04（原语模型）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 supervisor 能扩展到几个 worker。几百个呢？supervisor 自己就成了瓶颈：每一个「谁干什么」的决策都漏斗般挤过一个 agent。一个慢的规划步骤就拖住整个系统。
 
@@ -86,11 +86,11 @@ python3 code/main.py
 
 输出展示每个 worker 的任务数（swarm 分配得不均匀但最优）和墙钟时间。
 
-## 上手使用
+## 实际使用
 
 `outputs/skill-swarm-fit.md` 评估一个任务该用 swarm 还是 supervisor。输入：任务独立性、时长方差、顺序要求、可调试性需求。
 
-## 交付
+## 拿去用
 
 检查清单：
 

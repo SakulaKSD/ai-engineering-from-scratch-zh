@@ -14,7 +14,7 @@
 - 实现连续批处理和 PagedAttention 的概念，在并发请求下最大化 GPU 利用率
 - 对比推理优化技术（KV-cache、推测解码、flash attention）及其吞吐/延迟权衡
 
-## 问题所在
+## 问题背景
 
 你在 4 张 A100 上部署 Llama 3 70B。单个用户能拿到约 50 token/秒。感觉很快。然后 100 个用户同时打到端点。吞吐掉到 3 token/秒/用户。你那 25,000 美元/月的 GPU 账单，服务回复的速度比人打字还慢。
 
@@ -683,7 +683,7 @@ def memory_budget(config, gpu_memory_gb, model_dtype_bytes=2, kv_dtype_bytes=2):
     }
 ```
 
-## 上手使用
+## 实际使用
 
 用 vLLM：
 
@@ -738,7 +738,7 @@ outputs = runner.generate(
 )
 ```
 
-## 交付
+## 拿去用
 
 本节课产出：
 - `outputs/skill-inference-optimization.md` —— 一个用于诊断和优化 LLM 推理服务的 skill

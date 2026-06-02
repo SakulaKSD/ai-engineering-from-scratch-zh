@@ -14,7 +14,7 @@
 - 解释 AlphaEvolve 的演化循环，以及为什么它只有在有程序化评估器时才管用。
 - 用标准库实现一个玩具 HTN 规划器外加一个玩具演化搜索。
 
-## 问题所在
+## 问题背景
 
 ReWOO（第 02 课）、Plan-and-Execute 和 ReAct 覆盖了大多数 agent 规划。有两种情形它们覆盖得不好：
 
@@ -102,14 +102,14 @@ python3 code/main.py
 
 轨迹展示 HTN 规划器分解一个复合任务（带一次计划中途的 LLM 兜底），以及演化循环收敛到一个目标表达式。
 
-## 上手使用
+## 实际使用
 
 - **HTN 规划器** —— `pyhop`、`SHOP3`，或为领域专用的策略强制自己造一个。
 - **ChatHTN** —— 研究代码；这个模式（符号 + LLM 兜底）能干净地移植到任何 HTN 规划器。
 - **AlphaEvolve** —— DeepMind 论文；这个模式（集成 + 评估器）可复现。OpenEvolve 和类似的开源分叉正在涌现。
 - **agent 框架** —— 目前还没有哪个把 HTN 或 AlphaEvolve 作为一等公民提供。把它作为子 agent 或后台 worker 来构建。
 
-## 交付
+## 拿去用
 
 `outputs/skill-hybrid-planner.md` 生成一个混合规划器脚手架（HTN 或演化），LLM 的角色被显式限定范围。
 

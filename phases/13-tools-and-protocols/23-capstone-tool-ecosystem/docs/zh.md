@@ -15,7 +15,7 @@
 - 把一部分工作负载委派给一个 A2A 子 agent；验证不透明性得以保持。
 - 用 AGENTS.md + SKILL.md 把整个栈打包，让其他 agent 能驱动它。
 
-## 问题所在
+## 问题背景
 
 交付那个"研究并出报告"的系统：
 
@@ -106,7 +106,7 @@ research-system/
 | 20 | LLM 层的路由网关 |
 | 21 | SKILL.md + AGENTS.md 打包 |
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 把前几课的模式缝成一个可运行的 demo。全标准库、全进程内，让你能端到端地读它。它跑研究并出报告场景的完整流程：和网关握手、OAuth 2.1 模拟、tools/list 合并、generate_report 作为一个 task、对 writer 的 A2A 调用、返回 ui:// 资源、发出 OTel span。
 
@@ -118,7 +118,7 @@ research-system/
 - A2A 调用的内部状态对编排器不透明。
 - AGENTS.md 和 SKILL.md 是另一个 agent 重现这个工作流唯一需要的文件。
 
-## 交付
+## 拿去用
 
 本课产出 `outputs/skill-ecosystem-blueprint.md`。给定一个产品需求（研究、摘要、自动化），这个 skill 产出完整架构：用哪些 MCP 基元、哪些网关控制、哪些 A2A 调用、哪些遥测、哪种打包。
 

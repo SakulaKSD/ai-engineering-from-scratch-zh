@@ -15,7 +15,7 @@
 - 在 12 层堆叠上跟踪两种变体的梯度流，并用实测信号读出差异，而不是嘴上玄学。
 - 把 block 作为可直接复用的单元，供下一课组装 1.24 亿参数 GPT。
 
-## 问题所在
+## 问题背景
 
 transformer 就是同一个 block 重复很多次。只要第一次把 block 写错，重复 12 次之后，你得到的模型要么在第一轮训练就发散，要么后半辈子都得靠 warmup 补锅。本课里你会看到的两种失败并不稀奇，而是大多数初学者第一次堆 block 时就会撞上的：
 
@@ -103,7 +103,7 @@ python3 code/main.py
 
 **dropout 只放两处，不放三处。** dropout 应该放在 attention softmax 后（attention dropout）以及 MLP 第二层线性后（residual dropout）。若直接往 residual 自身上打 dropout，你会破坏那条维持梯度流动的加法恒等路径。早期不少实现犯过这个错，训练稳定性直接跟着掉。
 
-## 上手使用
+## 实际使用
 
 - 这节课里的 block，下一课拼 GPT 时可以原封不动塞进去。
 - pre-LN 是现代开源权重 LLM 的默认形态；post-LN 则是 2017 原始论文的写法。两者你都懂，基本就能看懂市面上绝大多数 decoder 架构。

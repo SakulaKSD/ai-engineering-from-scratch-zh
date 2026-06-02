@@ -15,7 +15,7 @@
 - 在累计 observation budget 将被打穿时拒绝 tool call。
 - 返回结构化的 `GateDecision` 记录，供下游 observability 吃进去。
 
-## 问题所在
+## 问题背景
 
 一旦 agent harness 让模型自由调用 tool，三个坑基本一小时内就会出现。
 

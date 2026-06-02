@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 10（注意力机制）、Phase 5 · 04（GloVe、FastText、子词）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 模型读一种语言的句子，产出另一种语言的句子。长度会变，词序会变。有些源词对应多个目标词，反之亦然。习语拒绝一对一映射。"I miss you" 在法语里是 "tu me manques"——字面意思是"你对我而言缺失了"。任何词级对齐在这面前都活不下来。
 
@@ -131,7 +131,7 @@ Trainer(model=model, args=args, train_dataset=ds).train()
 
 几千条高质量平行样本，胜过几十万条嘈杂的网络爬取样本。训练数据的质量是生产里最大的那根杠杆。
 
-## 上手使用
+## 实际使用
 
 2026 年 MT 的生产栈：
 
@@ -145,7 +145,7 @@ Trainer(model=model, args=args, train_dataset=ds).train()
 
 截至 2026 年，LLM 在好几个语言对上已经胜过专用 MT 模型，尤其是在习语内容和长上下文上。代价是每 token 的成本和延迟。当上下文长度、风格一致性、或靠 prompting 做领域适配比吞吐更重要时，挑 LLM。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-mt-evaluator.md`：
 

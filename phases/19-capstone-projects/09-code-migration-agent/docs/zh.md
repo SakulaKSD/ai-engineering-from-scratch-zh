@@ -8,7 +8,7 @@
 **涉及阶段：** P5 · P7 · P11 · P13 · P14 · P15 · P17
 **预计时间：** 30 小时
 
-## 问题所在
+## 问题背景
 
 大规模代码迁移是 2026 年编码 agent 最干净的生产应用之一。真值一目了然（迁移之后测试套件过不过？），回报很实在（一支 Java-8 舰队的迁移是一个按人头计的项目），基准也是公开的（MigrationBench 的 50 仓库子集）。Moderne 的 OpenRewrite 处理确定性那一侧。agent 层处理 OpenRewrite recipe 搞不定的一切：含糊的重写、构建系统漂移、长尾语法、传递性依赖破裂。
 
@@ -81,7 +81,7 @@ file under failure class + attach repro
 
 8. **50 仓库跑批。** 在 MigrationBench 子集上执行。报告每类别通过率、每仓库成本、覆盖率保持，以及一个对照纯确定性基线的对比。
 
-## 上手使用
+## 实际使用
 
 ```
 $ migrate legacy-java-service --target java17
@@ -94,7 +94,7 @@ $ migrate legacy-java-service --target java17
 [pr]       opened #1841  cost=$3.20  turns=4
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-migration-agent.md` 是交付物。给定一个仓库，它先跑确定性 recipe 再跑 agent 循环，产出一个转绿的迁移分支，或把仓库归到某个分类法类别下。
 

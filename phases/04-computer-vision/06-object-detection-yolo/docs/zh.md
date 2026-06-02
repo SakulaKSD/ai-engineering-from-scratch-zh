@@ -14,7 +14,7 @@
 - 在一个预训练骨干之上搭一个极简的 YOLO 风格头，包括分类、objectness 和框回归损失
 - 读懂一行检测指标（precision@0.5、recall、mAP@0.5、mAP@0.5:0.95），决定下一步该拧哪个旋钮
 
-## 问题所在
+## 问题背景
 
 分类说"这张图是狗"。检测说"在像素 (112, 40, 280, 210) 处有一只狗，在 (400, 180, 560, 310) 处有一只猫，画面里没别的了"。这一个结构性改变——预测数量可变的带标签的框，而不是每张图一个标签——是每个自动驾驶系统、每个监控产品、每个文档版面解析器、每条工厂视觉线所依赖的。
 
@@ -351,7 +351,7 @@ def postprocess(pred_tensor, anchors, stride, img_size, conf_threshold=0.25, iou
 
 这就是完整的评估路径：头部 -> 解码 -> 阈值 -> NMS。
 
-## 上手使用
+## 实际使用
 
 `torchvision.models.detection` 提供概念结构相同的生产级检测器。加载一个预训练模型三行就够。
 
@@ -371,7 +371,7 @@ print(f"labels: {predictions[0]['labels'].shape}")
 
 对实时推理流水线，`ultralytics`（YOLOv8/v9）是标准：`from ultralytics import YOLO; model = YOLO('yolov8n.pt'); model(img)`。模型在内部处理解码和 NMS，返回你上面搭出来的同一个 `boxes / scores / labels` 三元组。
 
-## 交付
+## 拿去用
 
 这一课产出：
 

@@ -8,7 +8,7 @@
 **涉及阶段：** P3 · P7 · P10 · P17
 **预计时间：** 30 小时
 
-## 问题所在
+## 问题背景
 
 推测解码在 2026 年成了大路货。EAGLE-3 draft 头在目标模型的隐藏状态上训练，预测往前 N 个 token；目标模型一遍验证。60-80% 的接受率换来 2-3 倍的端到端吞吐。vLLM 0.7 原生集成了它。SGLang + SpecForge 给你训练流水线。Red Hat 的 Speculators 为 Llama 3.3 70B、Qwen3-Coder-30B MoE、GPT-OSS-120B 发布对齐的 draft。
 
@@ -79,7 +79,7 @@ HPA on queue-wait metric
 
 9. **成本对比。** 在同一份评测上算 $/100 万 token vs Anthropic Claude Sonnet 4.7 和 OpenAI GPT-5.4。发布。
 
-## 上手使用
+## 实际使用
 
 ```
 $ curl https://infer.example.com/v1/chat/completions -d '{"messages":[...]}'
@@ -89,7 +89,7 @@ $ curl https://infer.example.com/v1/chat/completions -d '{"messages":[...]}'
 [cost]      $0.34 per 1M output tokens at sustained throughput
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-inference-server.md` 描述交付物。一个带推测解码、有实测的服务栈、一份完整基准报告，以及一个 K8s 部署。
 

@@ -14,7 +14,7 @@
 - 走一遍 Task 生命周期（submitted → working → input-required → completed / failed / canceled / rejected）。
 - 用带 Part（text、file、data）的 Message，以及作为输出的 Artifact。
 
-## 问题所在
+## 问题背景
 
 一个客服 agent 需要把写报告委派给一个专门的写手 agent。A2A 之前的选项：
 
@@ -136,7 +136,7 @@ Artifact 可以分块流式传。调用方累积。
 
 想调用一个特定工具时用 MCP。想把一整个 task 委派给另一个 agent 时用 A2A。许多生产系统两者都用：一个 agent 把 MCP 用于它的工具层，把 A2A 用于它的协作层。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 实现一个极简 A2A 脚手架：一个研究 agent 发布它的 card，一个写手 agent 收到一个带 part（含一个 PDF 和一条文本指令）的 `tasks/send`，穿过 working → input_required → working → completed，并返回一个文本 artifact。全标准库；用一个内存传输来聚焦于消息形状。
 
@@ -148,7 +148,7 @@ Artifact 可以分块流式传。调用方累积。
 - task 中途的 input-required 分支。
 - 完成时返回的 artifact。
 
-## 交付
+## 拿去用
 
 本课产出 `outputs/skill-a2a-agent-spec.md`。给定一个应当能被其他 agent 调用的新 agent，这个 skill 产出 Agent Card JSON、skill schema 和端点蓝图。
 

@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 13（问答）、Phase 5 · 23（分块策略）
 **预计时间：** ~60 分钟
 
-## 问题所在
+## 问题背景
 
 你有一份 200 页的合同。模型号称 100 万 token 的上下文。你把合同粘进去，问："What is the termination clause?"。模型答了——但答的是封面页，因为终止条款埋在 12 万 token 深处，超出了模型实际关注的范围。
 
@@ -132,7 +132,7 @@ def eval_model_on_longbench(model, subset="single-doc-qa"):
 - **忽略延迟。** 100 万 token 的 prompt 预填充要 30-120 秒。在准确率之外测量首 token 时间。
 - **厂商自报的数字。** OpenAI、Google、Anthropic 都发布自己的分数。永远在你的用例上独立重跑。
 
-## 上手使用
+## 实际使用
 
 2026 年的栈：
 
@@ -147,7 +147,7 @@ def eval_model_on_longbench(model, subset="single-doc-qa"):
 
 生产的经验法则：在你打算用的长度上没跑过 NIAH + 1 个推理任务之前，永远别信一个上下文窗口。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-long-context-eval.md`：
 

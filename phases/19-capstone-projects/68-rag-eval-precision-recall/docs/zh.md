@@ -13,7 +13,7 @@
 - 构建一个 fixture qrels 文件（query、gold doc id、gold 答案文本），让评测端到端读它。
 - 读这些指标值来诊断 pipeline 在哪一环失败：检索、排序、生成，还是 grounding。
 
-## 问题所在
+## 问题背景
 
 一个 RAG 系统至少有四个活动部件：chunker、retriever、reranker、generator。任何一个都可能是错误答案的祸根。没有按级别的指标，你就是在盲飞。
 

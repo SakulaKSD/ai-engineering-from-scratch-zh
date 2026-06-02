@@ -14,7 +14,7 @@
 - 解析并发射 JSON-RPC 2.0 的 request、response、notification 外壳。
 - 解释 `initialize` 时的能力协商是什么，以及没有它会崩掉什么。
 
-## 问题所在
+## 问题背景
 
 MCP 之前，每个用工具的 agent 都有自己的协议。Cursor 有一套 MCP 形状但不兼容的工具系统。Claude Desktop 出厂带着另一套。VS Code 的 Copilot 扩展又是第三套。一个做了"Postgres 查询"工具的团队，把同一个工具写了三遍，每遍对接一个不同宿主的 API。复用它得靠拷代码。
 
@@ -111,7 +111,7 @@ server 声明它能发 `tools/list_changed` notification，并支持 `resources/
 
 JSON-RPC 2.0（2010）是一个轻量的双向协议。REST 是 client 发起的。MCP 需要 server 发起的消息（sampling、notification），所以带对称 request/response 形状的 JSON-RPC 是自然的契合。JSON-RPC 还能干净地组合在 stdio 和 WebSocket/Streamable HTTP 之上，不必重新发明 HTTP 的请求形状。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 交付一个极简 JSON-RPC 2.0 解析器和发射器，然后手动走一遍 `initialize` → `tools/list` → `tools/call` → `shutdown` 序列，打印每条消息。没有真实传输；只有消息形状。和延伸阅读里链接的规范对照，逐个核实每个外壳。
 
@@ -122,7 +122,7 @@ JSON-RPC 2.0（2010）是一个轻量的双向协议。REST 是 client 发起的
 - `tools/call` 用 `params.name` 和 `params.arguments`。
 - 响应的 `content` 是一个 `{type, text}` block 数组。
 
-## 交付
+## 拿去用
 
 本课产出 `outputs/skill-mcp-handshake-tracer.md`。给定一份 pcap 风格的 MCP client-server 交互记录，这个 skill 给每条消息标注它属于哪个基元、哪个生命周期阶段，以及它依赖哪个能力。
 

@@ -14,7 +14,7 @@
 - 走一遍 V1 到 V2 的 diff：什么变快了、什么变简单了、什么变稳了，以及每个改动为什么对生产预训练是必要的。
 - 用纯 Python 从零实现差分注意力，并在一个合成的信号加噪声 query 上经验性地验证噪声抵消性质。
 
-## 问题所在
+## 问题背景
 
 标准 softmax 注意力有一个数学性质，到了规模上变成一个运营头疼事。对一个 query `q`，注意力权重是 `softmax(qK^T / sqrt(d))`。Softmax 永远产不出精确的零——每个不匹配的 token 都得到一些正的质量。那点残余质量是噪声，且随 context 长度放大。在 128k token 下，即使每个不匹配 token 只得到 0.001% 的概率，它们 127,999 个加起来贡献约 12% 的总量。模型不得不学会绕过一个随 context 增长的噪声底。
 
@@ -140,7 +140,7 @@ out = [[sum(w * v[j] for w, v in zip(row, V)) for j in range(d_v)] for row in di
 
 玩具测量 V2 的额外参数成本（每个注意力块大约 `hidden * hidden` 额外）并打印它。
 
-## 上手使用
+## 实际使用
 
 截至 2026 年 4 月，DIFF V2 还没在每个生产推理服务器里上线，但 vLLM 和 SGLang 的集成正在进行。同时这个模式出现在：
 
@@ -158,7 +158,7 @@ out = [[sum(w * v[j] for w, v in zip(row, V)) for j in range(d_v)] for row in di
 - 你在服务一个长 context 性能稳定的预训练稠密模型。重训成本在现有权重上很少回本。
 - 你的 context 总在 16k 以下。噪声底可忽略。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/skill-diff-attention-integrator.md`。给定一个模型架构、目标 context 长度、幻觉画像和训练预算，它产出一份把差分注意力加进新预训练运行或 LoRA 微调的集成计划。
 

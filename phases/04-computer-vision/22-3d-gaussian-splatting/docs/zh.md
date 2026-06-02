@@ -14,7 +14,7 @@
 - 用 `alpha` 合成从零实现一个 2D 高斯泼溅光栅化器，再展示 3D 情形如何投影到同一个循环
 - 用 `nerfstudio`、`gsplat` 或 `SuperSplat` 从 20-50 张照片重建一个场景，并导出到 `KHR_gaussian_splatting` glTF 扩展或 OpenUSD 26.03 的 `UsdVolParticleField3DGaussianSplat` schema
 
-## 问题所在
+## 问题背景
 
 NeRF 把场景存成一个 MLP 的权重。每个渲染像素是沿一条射线的几百次 MLP 查询。训练要几小时，渲染要几秒，而且权重没法编辑——你想在场景里挪一把椅子，就得重训。
 
@@ -308,7 +308,7 @@ def eval_sh_degree_3(sh_coeffs, dirs):
 
 学到的 `sh_coeffs` 为那个高斯存"每个方向上的颜色"。渲染时对着当前视角方向求值，得到一个 3 维 RGB。
 
-## 上手使用
+## 实际使用
 
 干真正的 3DGS 活，用 `gsplat`（Meta）或 `nerfstudio`：
 
@@ -329,7 +329,7 @@ ns-train splatfacto --data path/to/data
 
 做 4D / 动态场景，`4DGS` 和 `Deformable-3DGS` 用随时间变化的均值和不透明度扩展同一套机制。
 
-## 交付
+## 拿去用
 
 这一课产出：
 

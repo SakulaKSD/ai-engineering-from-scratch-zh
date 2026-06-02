@@ -14,7 +14,7 @@
 - 用中心有限差分对照数值梯度验证解析梯度
 - 解释为什么训练偏好 bfloat16 而非 float16，以及损失缩放如何防止梯度下溢
 
-## 问题所在
+## 问题背景
 
 你的模型训练了三个小时，然后损失变成了 NaN。你加一句 print。在第 9,000 步 logits 还好好的。第 9,001 步它们成了 `inf`。到第 9,002 步每个梯度都是 `nan`，训练死了。
 
@@ -498,7 +498,7 @@ numerical = numerical_gradient(f, point)
 check_gradient(analytical, numerical)
 ```
 
-## 上手使用
+## 实际使用
 
 ### 混合精度模拟
 
@@ -554,7 +554,7 @@ check_tensor("ugly", [1.0, float('inf'), 3.0])
 
 完整实现见 `code/numerical.py`，里面演示了所有边界情况。
 
-## 交付
+## 拿去用
 
 本节课产出：
 - `code/numerical.py`，含稳定 softmax、log-sum-exp、交叉熵、梯度检查和混合精度模拟

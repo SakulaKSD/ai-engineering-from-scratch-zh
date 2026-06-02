@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 17（聊天机器人）、Phase 5 · 19（子词分词）
 **预计时间：** ~60 分钟
 
-## 问题所在
+## 问题背景
 
 一个分类器给 LLM 下 prompt："Return one of {positive, negative, neutral}."。模型返回 "The sentiment is positive — this review is overwhelmingly favorable because the customer explicitly states that they ..."。你的解析器崩了。你分类器的 F1 是 0.0。
 
@@ -157,7 +157,7 @@ print(response.output_parsed)
 - **过早认定。** 见上面的字段顺序坑。永远把 reasoning 放前面。
 - **没 schema 的厂商 JSON 模式。** 纯 JSON 模式只保证有效 JSON，不保证对*你的用例*有效。永远提供完整 schema。
 
-## 上手使用
+## 实际使用
 
 2026 年的栈：
 
@@ -170,7 +170,7 @@ print(response.output_parsed)
 | 自托管推理服务器 | vLLM 引导解码 |
 | 可接受重试的批处理 | Instructor + 最便宜的模型 |
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-structured-output-picker.md`：
 

@@ -14,7 +14,7 @@
 - 用 CUDA/MPS 验证 GPU 访问，并运行一次测试张量运算
 - 理解四层技术栈：系统、包、运行时、AI 库
 
-## 问题所在
+## 问题背景
 
 你即将用 Python、TypeScript、Rust 和 Julia 学习 200+ 节 AI 工程课程。如果你的环境是坏的，那么每一节课都会变成和工具链的搏斗，而不是学习本身。
 
@@ -140,7 +140,7 @@ if torch.cuda.is_available():
 python phases/00-setup-and-tooling/01-dev-environment/code/verify.py
 ```
 
-## 上手使用
+## 实际使用
 
 你的环境现在已经为本课程的每一节课准备就绪。下面是各部分的用途：
 
@@ -151,7 +151,7 @@ python phases/00-setup-and-tooling/01-dev-environment/code/verify.py
 | Rust | 阶段 12、15-17（性能关键系统） | cargo |
 | Julia | 阶段 1（数学基础） | Pkg |
 
-## 交付
+## 拿去用
 
 本节课产出一个验证脚本，任何人都可以运行它来检查自己的配置。
 

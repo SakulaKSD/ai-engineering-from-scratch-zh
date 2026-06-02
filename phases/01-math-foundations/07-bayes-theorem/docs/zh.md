@@ -14,7 +14,7 @@
 - 比较 MLE 和 MAP 估计，解释 MAP 如何对应 L2 正则化
 - 用 Beta-Binomial 共轭先验为 A/B 测试实现序贯贝叶斯更新
 
-## 问题所在
+## 问题背景
 
 一项医学检测准确率 99%。你测出阳性。你真得这病的概率有多大？
 
@@ -309,7 +309,7 @@ print("\nTop ham words:")
 show_top_words(classifier, "ham")
 ```
 
-## 上手使用
+## 实际使用
 
 scikit-learn 自带生产级别的朴素贝叶斯实现：
 
@@ -331,7 +331,7 @@ for msg, pred in zip(test_messages, predictions):
 
 同一套算法。CountVectorizer 处理分词和词表构建。MultinomialNB 在内部处理平滑和对数概率。你从零写的版本用 40 行做了同样的事。
 
-## 交付
+## 拿去用
 
 这里构建的 NaiveBayes 类展示了完整流水线：分词、用 Laplace 平滑做概率估计、对数空间预测。`code/bayes.py` 里的代码端到端运行，除了 Python 标准库不依赖任何东西。
 

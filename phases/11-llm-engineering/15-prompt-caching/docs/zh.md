@@ -7,7 +7,7 @@
 **前置要求：** 阶段 11 · 01（Prompt Engineering）、阶段 11 · 05（Context Engineering）、阶段 11 · 11（缓存与成本）
 **预计时间：** ~60 分钟
 
-## 问题所在
+## 问题背景
 
 一个编码 agent 在一段对话的每一轮里都把同样的 15,000 token system prompt 发给 Claude。20 轮、$3/M 输入 token，光输入成本就是 $0.90——这还在用户任何真正的消息之前。乘以每天 10,000 段对话，账单就为一段从不改变的文本冲到 $9,000/天。
 
@@ -167,7 +167,7 @@ resp = client.models.generate_content(
 - **块太小。** Anthropic 强制 1,024 token 的下限（Haiku 是 2,048）。更小的块会悄悄不缓存。
 - **盲目的成本看板。** 把"输入 token"拆成缓存的 vs 未缓存的。否则流量下降看起来会像是缓存的胜利。
 
-## 上手使用
+## 实际使用
 
 2026 年的缓存技术栈：
 
@@ -181,7 +181,7 @@ resp = client.models.generate_content(
 
 为用户消息那一层配上语义缓存（阶段 11 · 11）：prompt caching 处理 *token 完全相同* 的复用，语义缓存处理 *语义相同* 的复用。
 
-## 交付
+## 拿去用
 
 保存 `outputs/skill-prompt-caching-planner.md`：
 

@@ -7,7 +7,7 @@
 **前置要求：** 阶段 7 · 02（Self-Attention）、阶段 7 · 03（Multi-Head Attention）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 缩放点积注意力对顺序是盲的。注意力矩阵 `softmax(Q K^T / √d) V` 是从两两相似度算出来的。把 `X` 的行打乱，输出的行就以同样方式打乱。注意力内部没有任何东西在乎位置。
 
@@ -130,7 +130,7 @@ def alibi_bias(n_heads, seq_len):
 
 挑两个随机向量 `a, b`。按 `(pos_a, pos_b)` 旋转。再按 `(pos_a + k, pos_b + k)` 旋转。两个点积必须在浮点误差内一致。这个性质就是 RoPE 的全部意义——它对绝对偏移不变，只有相对差距才重要。
 
-## 上手使用
+## 实际使用
 
 PyTorch 2.5+ 在 `torch.nn.functional` 里自带 RoPE 工具。大多数生产代码用 `flash_attn` 或 `xformers`，RoPE 在注意力 kernel 内部应用。
 
@@ -147,7 +147,7 @@ model = AutoModel.from_pretrained("meta-llama/Llama-3.2-3B")
 - **LongRoPE。** 微软 2024 年的方法，用进化搜索来挑每个维度的缩放因子。Phi-3-Long 用它。
 - **位置插值 + 微调。** 直接把位置按扩展因子缩小，再微调 1–5B token。意外地有效。
 
-## 交付
+## 拿去用
 
 见 `outputs/skill-positional-encoding-picker.md`。这个 skill 会根据目标上下文长度、外推需求和训练预算，为一个新模型挑选编码策略。
 

@@ -7,7 +7,7 @@
 **前置要求：** 阶段 6 · 02（频谱图与梅尔）、阶段 3 · 06（CNN）、阶段 5 · 08（用于文本的 CNN 与 RNN）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 你拿到一段 10 秒的音频，想知道「这是什么」：城市声音（警笛、电钻、狗叫）、语音命令（yes/no/stop）、语种识别（en/es/ar）、说话人情绪（愤怒/中性）或环境声（室内/室外、人声嘈杂）。这些全是*音频分类*，而 2026 年的基线架构已经成熟：对数梅尔 → CNN 或 Transformer → softmax。
 
@@ -133,7 +133,7 @@ logits = model(**inputs).logits
 
 要用 BEATs，就通过 `beats` 库走 `microsoft/BEATs-base`；transformers 的 API 形状是一样的。
 
-## 上手使用
+## 实际使用
 
 2026 年的工具栈：
 
@@ -148,7 +148,7 @@ logits = model(**inputs).logits
 
 决策准则：**从冻结骨干起步，而不是全新模型**。微调一个 BEATs 头几小时就能拿到 95% 的 SOTA，而不是几周。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-classifier-designer.md`。针对给定的音频分类任务，挑选架构、增强方式、类别平衡策略和评估指标。
 

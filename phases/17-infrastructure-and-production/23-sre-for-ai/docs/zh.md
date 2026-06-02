@@ -14,7 +14,7 @@
 - 说出对抗式评估模式（NeuBird Hawkeye）：两个模型一致 = 置信；分歧 = 升级。
 - 引用 MIT 的 89% 早期检测结果，以及那条运维约束：没有执行的预测只是仪表盘。
 
-## 问题所在
+## 问题背景
 
 一个 on-call 工程师凌晨 3 点被呼叫。"结账高错误率。"他们查 Datadog、Loki、三份 runbook、部署日志。30 分钟后才意识到根因是一次 KV cache 尖峰引发的 vLLM OOM。他们重启 pod；错误消失。
 
@@ -90,11 +90,11 @@ Runbook 从 Confluence 页面进化成带结构化章节（症状、假设、验
 - 安全自动修复集合：重启 pod、还原部署、边界内扩缩。
 - 对抗式评估：两个模型独立；一致 = 置信。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 模拟一次多 agent 分诊：日志 agent 找到错误，指标 agent 找到 CPU 尖峰，runbook agent 匹配到已知问题。Supervisor 给假设排序。
 
-## 交付
+## 拿去用
 
 这一课产出 `outputs/skill-ai-sre-plan.md`。给定当前 on-call、事件量、团队成熟度，设计一次 AI SRE 上线。
 

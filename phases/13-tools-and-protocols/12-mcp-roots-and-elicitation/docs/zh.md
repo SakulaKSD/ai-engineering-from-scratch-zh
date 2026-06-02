@@ -14,7 +14,7 @@
 - 用 `elicitation/create` 在工具调用中途向用户要一个确认或结构化输入。
 - 在表单模式和 URL 模式 elicitation 之间做选择（后者是实验性的；已注明漂移风险）。
 
-## 问题所在
+## 问题背景
 
 一个 notes MCP server 在生产里撞上的两个具体失败。
 
@@ -122,7 +122,7 @@ client 在浏览器里打开 URL，等待完成，用户回来时返回。对 OA
 
 Elicitation 加 sampling 一起，让 MCP 的"人在回路"模型成为可能。一个 server 的 agent 循环可以为用户输入（elicitation）或模型推理（sampling）而暂停。阶段 13 · 11 讲了 sampling；本课讲 elicitation。把它们放一起做完整的循环中途控制。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 在 notes server 上扩展出：
 
@@ -133,7 +133,7 @@ Elicitation 加 sampling 一起，让 MCP 的"人在回路"模型成为可能。
 
 demo 跑三个场景：happy path（一条匹配）、消歧（三条匹配，elicitation 触发）、root 外写入（被拒）。
 
-## 交付
+## 拿去用
 
 本课产出 `outputs/skill-elicitation-form-designer.md`。给定一个可能需要用户确认或消歧的工具，这个 skill 设计 elicitation 表单 schema 和消息模板。
 

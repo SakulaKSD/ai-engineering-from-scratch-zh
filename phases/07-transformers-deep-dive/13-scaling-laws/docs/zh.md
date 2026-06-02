@@ -7,7 +7,7 @@
 **前置要求：** 阶段 7 · 05（完整的 Transformer）、阶段 7 · 07（GPT）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 当你有 C 个 FLOPs 的训练算力、想要最好的模型时，你面对两个旋钮：
 
@@ -109,7 +109,7 @@ def chinchilla_loss(N, D, A=406.4, B=410.7, alpha=0.34, beta=0.28, E=1.69):
 
 代入 GPT-3、Chinchilla、Llama 3 8B、DeepSeek-V3（激活参数）的已知 `(N, D)` 对，对比预测损失和报告损失。
 
-## 上手使用
+## 实际使用
 
 你不太可能自己训练一个前沿模型。但 scaling laws 告诉你：
 
@@ -123,7 +123,7 @@ def chinchilla_loss(N, D, A=406.4, B=410.7, alpha=0.34, beta=0.28, E=1.69):
 - **算力倍增器把戏。** Muon 优化器、MoE、更好的数据精选——每个都移动绝对常数，不移动渐近线。
 - **RL 的 scaling laws。** 开放问题。早期证据暗示 RL 样本上是幂律，但指数和预训练非常不同。
 
-## 交付
+## 拿去用
 
 见 `outputs/skill-training-budget-estimator.md`。这个 skill 会根据算力预算、部署约束和目标损失，为一次新训练任务挑选 `(N, D, hours, GPU)`。
 

@@ -14,7 +14,7 @@
 - 解释为什么基于 Adam 的优化器需要 warmup，以及它如何稳定训练初期
 - 在同一个任务上对比全部五种调度的收敛速度，并为给定的训练预算选对一个
 
-## 问题所在
+## 问题背景
 
 把学习率设成 0.1。训练发散——损失 3 步内跳到无穷。设成 0.0001。训练龟速——100 个 epoch 后，模型几乎还没离开随机起点。设成 0.01。训练前 50 个 epoch 还行，然后损失在一个它永远够不着的极小值附近振荡，因为步子太大了。
 
@@ -354,7 +354,7 @@ def lr_sensitivity(data):
         print(f"  {lr:>10.4f} {start:>12.6f} {end_str:>12} {status:>15}")
 ```
 
-## 上手使用
+## 实际使用
 
 PyTorch 在 `torch.optim.lr_scheduler` 里提供了各种调度器：
 
@@ -387,7 +387,7 @@ scheduler = get_cosine_schedule_with_warmup(
 
 这个 HuggingFace 函数是大多数 Llama 和 GPT 微调脚本用的。拿不准就用 warmup + 余弦，warmup 取总步数的 3-5%。它几乎对什么都管用。
 
-## 交付
+## 拿去用
 
 本课产出：
 - `outputs/prompt-lr-schedule-advisor.md` —— 一个提示词，为你的训练配置推荐对的学习率调度和超参数

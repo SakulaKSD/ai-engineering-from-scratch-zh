@@ -15,7 +15,7 @@
 - 用 span context manager 包裹任意 callable，记录 duration、status 和异常。
 - 验证导出的 span 能经 `json.loads` roundtrip，并匹配规范形状。
 
-## 问题所在
+## 问题背景
 
 一个线上 coding agent，每个 turn 至少会产生三类产物：模型调用、工具执行、verification gate decision。没有结构化 telemetry，这三样几乎都没用。
 

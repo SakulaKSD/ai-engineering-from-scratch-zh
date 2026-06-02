@@ -8,7 +8,7 @@
 **涉及阶段：** P11 · P13 · P14 · P17 · P18
 **预计时间：** 25 小时
 
-## 问题所在
+## 问题背景
 
 MCP 成了工具使用的通用语。Claude Code、Cursor 3、Amp、OpenCode、Gemini CLI，以及每个托管 agent 现在都消费 MCP 服务器。生产上的挑战不在编写服务器（FastMCP 让这事很简单），而在带企业要求大规模部署它们：逐租户的 OAuth scope、破坏性工具上的 OPA 策略、StreamableHTTP 无状态扩展、一个用于发现的注册中心、逐工具调用的审计日志。Pinterest 内部的 MCP 生态和 AAIF Registry 规范立下了 2026 年的标准。
 
@@ -86,7 +86,7 @@ Postgres    S3 listing  Jira       Linear     Datadog
 
 9. **一致性测试。** 对两个服务器跑官方 MCP 一致性套件。通过所有强制章节。
 
-## 上手使用
+## 实际使用
 
 ```
 $ curl -H "Authorization: Bearer eyJhbGc..." \
@@ -99,7 +99,7 @@ $ curl -H "Authorization: Bearer eyJhbGc..." \
 response:    { "result": { "rows": [[1]] } }
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-mcp-server.md` 描述交付物。一个生产级的 MCP 服务器 + 注册中心 + 审计层，给内部工具用，带 OAuth 2.1 scope 和 OPA 把关。
 

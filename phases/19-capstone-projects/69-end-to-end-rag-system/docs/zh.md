@@ -13,7 +13,7 @@
 - 对组装好的 pipeline 跑第 68 课的评测，证明分级构建在每一个指标上都打赢同样组件各自孤立时的表现。
 - 构建一个自终止的 CLI 演示：摄入一个 fixture corpus，跑一个固定的 query 集，带一份小结报告以退出码 0 退出。
 
-## 问题所在
+## 问题背景
 
 六个孤立的组件什么都证明不了。chunker 可以在对着 corpus 的 recall@5 上赢，却在系统的 recall@5 上输——因为 retriever 排不动 chunker 吐出来的东西。reranker 可以在一个合成候选池上抬高 MRR，却在真实的 bi-encoder 候选上失败——因为 bi-encoder 在重排预算处的 recall 太低。query 改写器可以在单个 query 上把 gold doc 顶上去，下一个就崩——因为那个 LLM mock 返回了一个退化的假想。
 

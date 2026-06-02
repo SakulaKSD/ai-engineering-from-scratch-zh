@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 02（BoW + TF-IDF）、Phase 5 · 03（词嵌入）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 "Apple sued Google over its iPhone search deal in the US." 五个实体：Apple（ORG）、Google（ORG）、iPhone（PRODUCT）、search deal（也许算）、US（GPE）。一个好的 NER 系统会把它们全抽出来，类型也对。一个差的会漏掉 iPhone，把"苹果"这种水果和苹果公司搞混，还把 "US" 标成 PERSON。
 
@@ -201,7 +201,7 @@ class BiLSTM_CRF_Head(nn.Module):
 
 CRF 层用 `torchcrf.CRF`（pip install pytorch-crf）。相比手工特征 CRF 的增益是可测量的，但比你预期的要小——除非你有数万句标注数据。
 
-## 上手使用
+## 实际使用
 
 spaCy 开箱即用提供生产级 NER。
 
@@ -268,7 +268,7 @@ zero-shot 和 few-shot 的 LLM NER 如今在许多领域已经能和微调模型
 - **长实体。** "United States Federal Deposit Insurance Corporation."。token 级模型有时会把它切开。用 `aggregation_strategy` 或做后处理。
 - **稀疏类型。** 医学 NER 标签如 DRUG_BRAND、ADVERSE_EVENT、DOSE。通用模型完全摸不着头脑。Scispacy 和 BioBERT 是那里的起点。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-ner-picker.md`：
 

@@ -8,7 +8,7 @@
 **涉及阶段：** P4 · P6 · P7 · P11 · P12 · P17
 **预计时间：** 30 小时
 
-## 问题所在
+## 问题背景
 
 长视频问答是 2026 年规模下最吃带宽的多模态问题。Gemini 2.5 Pro 能原生读一个 2 小时的视频，但把 100 小时视频摄入成一份可查询的语料，仍然需要一个场景级索引。生产形态把场景切分（TransNetV2 或 PySceneDetect）、用 VLM 做逐场景 captioning（Gemini 2.5、Qwen3-VL-Max 或 Molmo 2）、转写对齐（带词级时间戳的 Whisper-v3-turbo），以及一个把 caption、帧 embedding、转写并排存的多向量索引结合起来。查询流水线用 (start, end) 时间戳加帧预览作答。
 
@@ -82,7 +82,7 @@ answer + (start, end) timestamps + frame thumbs + citations
 
 9. **评测。** 跑 ActivityNet-QA 和 NeXT-GQA。建一个 100 问自定义集。报告整体准确率 + 逐类别拆分（计数、动作、描述）。
 
-## 上手使用
+## 实际使用
 
 ```
 $ video-qa ask --url=https://youtube.com/watch?v=X "how many cars pass the intersection in the first minute?"
@@ -97,7 +97,7 @@ citations: [scene 3: 00:12-00:58]
           [frame preview at 00:14, 00:27, 00:44, 00:51, 00:57]
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-video-qa.md` 是交付物。给定一个 YouTube URL 或上传的视频，流水线给场景建索引，并用带时间戳的引用作答。
 

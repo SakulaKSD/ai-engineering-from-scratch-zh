@@ -14,7 +14,7 @@
 - 创建定长训练序列，配上正确的 attention mask 和文档边界处理
 - 对流水线吞吐做性能剖析，确保 dataloader 跟得上 GPU 的训练速度
 
-## 问题所在
+## 问题背景
 
 你有了一个 tokenizer。现在你需要数据。
 
@@ -384,7 +384,7 @@ def compute_statistics(documents, token_ids, sequences, tokenizer_vocab_size):
 
 序列利用率告诉你打包序列里多少是真数据、多少是填充。低于 90% 意味着你的打包效率低下——你在填充 token 上浪费了算力。
 
-## 上手使用
+## 实际使用
 
 ### 和 HuggingFace Datasets 对比
 
@@ -412,7 +412,7 @@ print(f"HuggingFace: {total_tokens:,} tokens in {hf_time:.2f}s ({total_tokens/hf
 
 HuggingFace 流水线底层用 Rust tokenizer，并在 4 个核上并行处理。你的纯 Python 流水线会慢 10-50 倍。这个差距就是生产团队用编译后 tokenizer 的原因。算法是一样的。差别在实现语言。
 
-## 交付
+## 拿去用
 
 本节课产出一个用于验证和调试 LLM 训练流水线数据质量的 prompt。见 `outputs/prompt-data-quality-checker.md`。
 

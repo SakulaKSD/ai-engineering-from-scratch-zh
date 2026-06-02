@@ -7,7 +7,7 @@
 **前置要求：** 阶段 6 · 06（说话人识别）、阶段 6 · 07（TTS）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 2026 年，用一张消费级 GPU，5 秒音频就足以产出任何人声音的高质量克隆。ElevenLabs、F5-TTS、OpenVoice v2、VoiceBox 全都提供零样本或少样本克隆。这项技术既是福音（无障碍 TTS、配音、辅助发声），也是武器（诈骗电话、政治深伪、知识产权盗窃）。
 
@@ -118,7 +118,7 @@ def cloned_inference(text, ref_audio, consent_record):
     return wav
 ```
 
-## 上手使用
+## 实际使用
 
 2026 年的工具栈：
 
@@ -139,7 +139,7 @@ def cloned_inference(text, ref_audio, consent_record):
 - **语言泄漏。** 克隆一个英语说话人，再让模型说法语，往往还是带着那股口音；用跨语种模型（XTTS、VALL-E X）。
 - **没有水印。** 从 2026 年 8 月起在欧盟法律上不可交付。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-voice-cloner.md`。设计一条带同意闸门 + 水印 + 质量目标的克隆或转换流水线。
 

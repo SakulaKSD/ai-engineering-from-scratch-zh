@@ -7,7 +7,7 @@
 **前置要求：** 阶段 7 · 07（GPT 因果 LM）、阶段 7 · 12（KV Cache 与 Flash Attention）
 **预计时间：** ~60 分钟
 
-## 问题所在
+## 问题背景
 
 一个 70B LLM 在 H100 上采样一个 token 约需 30 ms。一个 3B 草稿模型约需 3 ms。如果我们让 3B 往前起草 5 个 token，再跑 70B *一次*验证全部 5 个，对最多 5 个被接受的 token 来说总计是 `5×3 + 30 = 45 ms`——对比直线生成的 `5×30 = 150 ms`。这就是投机解码的全部卖点：用一点额外 GPU 显存（草稿模型）换 2–4 倍更低的解码延迟。
 
@@ -149,7 +149,7 @@ def spec_step(prefix, q_model, p_model, N, rng):
 
 经验上：投机循环产出的 token 直方图应该匹配直接从验证器采样产出的直方图。这是 Leviathan 定理的实践。卡方检验在采样误差内确认。
 
-## 上手使用
+## 实际使用
 
 生产：
 
@@ -183,7 +183,7 @@ vllm serve meta-llama/Llama-3.1-70B-Instruct \
 - 极其创意 / 高温采样（α 下降）。
 - 显存受限的部署（草稿模型增加显存）。
 
-## 交付
+## 拿去用
 
 见 `outputs/skill-spec-decode-picker.md`。这个 skill 为一个新的推理负载挑选投机解码策略（朴素 / Medusa / EAGLE / 前瞻）和调优参数（N、草稿温度）。
 

@@ -96,7 +96,7 @@ python3 code/main.py
 - **Warmup 是 total steps 的比例，不是绝对步数。** 一个 2 亿步的运行配 2,000 步 warmup 几乎一开始就到峰值；一个 20,000 步的运行配同样的数字却是 10% 的 warmup。把 warmup 配成比例（典型：1-3%），schedule 就能随训练时长自动缩放。
 - **`lr_min` 故意非零。** 一个 10% `lr_max` 的地板让 optimizer 在长尾阶段还能学。`lr_min = 0` 的 schedule 画出来的曲线很漂亮，但模型其实还没训完。
 
-## 交付
+## 拿去用
 
 `outputs/skill-cosine-warmup.md` 在真实项目中会描述哪个配置文件承载 schedule、trainer step 的全局计数器从哪里读、部署值的 `lr_max` sweep 产出了什么。本课交付的是引擎。
 

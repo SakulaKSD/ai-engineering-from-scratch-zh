@@ -14,7 +14,7 @@
 - 按 JSON-RPC 2.0 规范和 MCP 的附加错误码发射结构化错误响应。
 - 把一个标准库实现毕业到 FastMCP（Python SDK）或 TypeScript SDK，无需重写工具逻辑。
 
-## 问题所在
+## 问题背景
 
 在你能用远程传输（阶段 13 · 09）或一个鉴权层（阶段 13 · 16）之前，你需要一个干净的本地 server。本地意味着 stdio：server 被 client 当子进程启动，消息以换行分隔在 stdin/stdout 上流动。
 
@@ -120,7 +120,7 @@ def notes_search(query: str, limit: int = 10) -> list[dict]:
 
 TypeScript SDK 有一个等价的形状。准备好时毕业路径是直接替换；概念（能力、分发、内容 block）是一样的。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 是一个完整的、跑在 stdio 上、纯标准库的 notes MCP server。它处理 `initialize`、三个工具（`notes_list`、`notes_search`、`notes_create`）的 `tools/list` 和 `tools/call`、每条笔记的 `resources/list` 和 `resources/read`，以及一个 `review_note` prompt。你可以靠管入 JSON-RPC 消息来驱动它：
 
@@ -134,7 +134,7 @@ echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' | python main.
 - 每个工具执行器返回一个内容 block 列表，不是一个裸字符串。
 - 执行器抛错时设 `isError: true`。
 
-## 交付
+## 拿去用
 
 本课产出 `outputs/skill-mcp-server-scaffolder.md`。给定一个领域（notes、tickets、files、database），这个 skill 用正确的 tools / resources / prompts 划分和 SDK 毕业路径搭起一个 MCP server 骨架。
 

@@ -14,7 +14,7 @@
 - 说出 2026 年 WebGPU 的覆盖缺口（Firefox Android 在追赶）和 Safari iOS 26 的落地。
 - 为每个目标挑一个量化格式（ANE 用 Core ML INT4 + FP16，Hexagon 用 QNN INT8/INT4，浏览器用 WebGPU Q4，Jetson Thor 用 NVFP4）。
 
-## 问题所在
+## 问题背景
 
 一个客户想要一个设备端聊天机器人：语音优先、默认私密、离线可用。在 MacBook Pro M3 Max 上，Llama 3.1 8B Q4 跑约 55 tok/s —— 还行。在 iPhone 16 Pro 上，同一个模型跑 3 tok/s —— 不行。在搭载 Snapdragon 8 Gen 3 的中端 Android 上，7 tok/s。在 Chrome Android v121+ 上经由 WebGPU 在浏览器里跑，4-8 tok/s，取决于设备。
 
@@ -87,11 +87,11 @@ Llama 3.1 的 128K 上下文是个数据中心特性。在一台 8 GB RAM 的手
 - 数据中心与边缘的带宽差距：30-50 倍。
 - WebGPU 移动端覆盖：约 70-75%（Firefox Android 落后）。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 跨边缘目标用带宽受限数学算出理论 decode 吞吐天花板。和观测到的基准对比，并指出哪里是带宽（而非算力）成为瓶颈。
 
-## 交付
+## 拿去用
 
 这一课产出 `outputs/skill-edge-target-picker.md`。给定平台（iOS/Android/浏览器/Jetson）、模型和延迟/内存预算，挑一个量化格式和转换流水线。
 

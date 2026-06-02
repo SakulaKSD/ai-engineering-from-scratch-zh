@@ -14,7 +14,7 @@
 - 配置 NVIDIA Container Toolkit，把 GPU 暴露进容器
 - 用 Docker Compose 编排多服务 AI 应用（推理服务器 + 向量数据库）
 
-## 问题所在
+## 问题背景
 
 你在自己的笔记本上用 PyTorch 2.3、CUDA 12.4、Python 3.12 训练了一个模型。你同事用的是 PyTorch 2.1、CUDA 11.8、Python 3.10。你的模型在他机器上崩了。但你的 Dockerfile 在两边都能跑。
 
@@ -341,7 +341,7 @@ docker cp <container_id>:/workspace/results.csv ./results.csv
 docker logs -f <container_id>
 ```
 
-## 上手使用
+## 实际使用
 
 你现在有了一个可复现的 AI 开发环境。本课程接下来：
 

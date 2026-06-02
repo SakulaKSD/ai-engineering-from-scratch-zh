@@ -14,7 +14,7 @@
 - 从零实现零样本分类：编码类别 prompt、算余弦相似度、取 argmax
 - 区分 CLIP、SigLIP、OpenCLIP 和 LLaVA/LLaMA-vision 模型——2026 年各自用于什么
 
-## 问题所在
+## 问题背景
 
 传统分类器是闭词表的：一个 1000 类的 ImageNet 模型只能预测 1000 个标签。每个新类别都需要带标签数据和一个重训的头。
 
@@ -162,7 +162,7 @@ print(f"batch size: {i.size(0)}   loss: {loss.item():.3f}")
 
 对一个随机初始化的模型，损失应该接近 `log(N) = log(8) = 2.08`——还没学到结构时对称交叉熵的目标值。
 
-## 上手使用
+## 实际使用
 
 2026 年 OpenCLIP 是社区默认：
 
@@ -189,7 +189,7 @@ print(probs)
 
 SigLIP 更新，在小规模上训得更好，新工作更推荐它：`google/siglip-base-patch16-224`。Hugging Face 两个都提供。
 
-## 交付
+## 拿去用
 
 这一课产出：
 

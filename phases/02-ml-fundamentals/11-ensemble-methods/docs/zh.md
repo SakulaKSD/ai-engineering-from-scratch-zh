@@ -14,7 +14,7 @@
 - 从各方法针对哪个误差分量的角度，对比 bagging、boosting 和 stacking
 - 评估集成多样性，解释为什么多数投票准确率随独立弱学习器增多而提升
 
-## 问题所在
+## 问题背景
 
 单棵决策树训练快、易解读，但它过拟合。单个线性模型在复杂边界上欠拟合。你可以花几天去打磨完美的模型架构。或者你可以把一堆不完美的模型组合起来，得到比其中任何一个单独都更好的东西。
 
@@ -288,7 +288,7 @@ class GradientBoostingScratch:
 
 代码验证我们的从零实现产出的准确率和 sklearn 的 `AdaBoostClassifier`、`GradientBoostingClassifier` 相近，并把所有方法并排对比。
 
-## 上手使用
+## 实际使用
 
 ### 何时用哪个方法
 
@@ -312,7 +312,7 @@ class GradientBoostingScratch:
 
 表格数据上的神经网络几乎总是比梯度提升差，尽管研究一直在尝试。TabNet、NODE 这类架构偶尔能追平，但很少打败一个调好的 XGBoost。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/prompt-ensemble-selector.md` —— 一个帮你为给定数据集挑选合适集成方法的提示词。描述你的数据（规模、特征类型、噪声水平、类别平衡）和你要解决的问题。提示词会走一遍决策清单、推荐一个方法、建议起始超参数，并警告该方法的常见错误。还产出 `outputs/skill-ensemble-builder.md`，含完整的选择指南。
 

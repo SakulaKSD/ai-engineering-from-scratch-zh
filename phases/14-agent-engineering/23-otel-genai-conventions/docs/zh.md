@@ -14,7 +14,7 @@
 - 列出顶层 GenAI 属性：提供方名称、请求模型、数据源 ID。
 - 解释内容捕获契约：opt-in、`OTEL_SEMCONV_STABILITY_OPT_IN`、外部引用建议。
 
-## 问题所在
+## 问题背景
 
 每个厂商都发明自己的 span 名。运维团队最后得为每个框架各建一套仪表盘。OpenTelemetry 的 GenAI SIG 通过定义一个整个生态都对齐的标准来修这个问题。
 
@@ -88,14 +88,14 @@ python3 code/main.py
 
 输出：一棵带所有必需 GenAI 属性的 span 树，以及一个展示 opt-in 内容引用的「外部存储」。
 
-## 上手使用
+## 实际使用
 
 - **Datadog LLM Observability**（v1.37+）原生映射属性。
 - **Langfuse / Phoenix / Opik**（第 24 课）—— 自动 instrument 整个生态。
 - **Jaeger / Honeycomb / Grafana Tempo** —— 原始 OTel trace；从 GenAI 属性建仪表盘。
 - **自托管** —— 用带 GenAI processor 的 OTel Collector 跑。
 
-## 交付
+## 拿去用
 
 `outputs/skill-otel-genai.md` 把 OTel GenAI span 接进一个现有 agent，带内容捕获默认值和外部引用存储。
 

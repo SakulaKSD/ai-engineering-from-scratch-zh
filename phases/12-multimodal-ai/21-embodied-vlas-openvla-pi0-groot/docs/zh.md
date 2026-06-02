@@ -14,7 +14,7 @@
 - 在同一个机器人任务上把 OpenVLA（开放 7B Llama+VLM）、π0（flow-matching）、GR00T N1（双系统）作比较。
 - 说出 Open X-Embodiment 数据集及其作为 RT-X 训练语料的角色。
 
-## 问题所在
+## 问题背景
 
 一台能听自然语言指令做家务的机器人，自 1970 年代起就是研究目标。2020 年代的答案：一个 vision-language-action（VLA）模型。和做 VQA 用的 VLM 架构相同，但输出是动作（关节扭矩、末端执行器位姿、离散命令），而非文本。
 
@@ -106,7 +106,7 @@ RT-2 的比例：约 1:1。OpenVLA：约 0.5:1 网络对机器人。π0：类似
 
 这些坐在 VLA 之外，作为控制层检查。VLA 的输出是建议，不是命令。
 
-## 上手使用
+## 实际使用
 
 `code/main.py`：
 
@@ -115,7 +115,7 @@ RT-2 的比例：约 1:1。OpenVLA：约 0.5:1 网络对机器人。π0：类似
 - 在 (离散 bin、FAST、连续 flow) 上对比每动作步的 token 数。
 - 打印一份 RT-2 → OpenVLA → π0 → GR00T 的脉络摘要。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/skill-vla-action-format-picker.md`。给定一个机器人任务（操作、导航、人形全身），它在 离散 bin + RT-2、FAST + OpenVLA、flow-matching + π0、双系统 + GR00T 之间挑选。
 

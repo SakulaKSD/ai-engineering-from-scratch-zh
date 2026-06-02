@@ -14,7 +14,7 @@
 - 计算特征与目标之间的互信息，给特征重要性排序
 - 把困惑度解释为语言模型从中挑选的有效词表大小
 
-## 问题所在
+## 问题背景
 
 你训练的每个分类模型里都会调 `CrossEntropyLoss()`。你在每篇语言模型论文里都见过"困惑度"。你在 VAE、蒸馏和 RLHF 里读到过 KL 散度。这些不是互不相干的概念。它们是同一个想法戴着不同的帽子。
 
@@ -404,7 +404,7 @@ print(f"MI (independent): {mutual_information(independent):.4f} bits")
 print(f"MI (dependent):   {mutual_information(dependent):.4f} bits")
 ```
 
-## 上手使用
+## 实际使用
 
 同样的概念用 NumPy 实现，这是你实践中会用的方式：
 

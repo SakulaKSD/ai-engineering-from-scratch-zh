@@ -15,7 +15,7 @@
 - 设计一套分层防御系统，结合输入过滤、system prompt 加固和输出校验
 - 用一组红队 prompt 测试护栏，测量假阳性/假阴性率
 
-## 问题所在
+## 问题背景
 
 你给一家银行部署客服机器人。第一天，有人输入：
 
@@ -744,7 +744,7 @@ if __name__ == "__main__":
     run_demo()
 ```
 
-## 上手使用
+## 实际使用
 
 ### OpenAI Moderation API
 
@@ -851,7 +851,7 @@ NeMo Guardrails 作为你 LLM 的一个包裹层工作。用 Colang 定义流程
 
 Guardrails AI 在它们的 hub 上有 50+ 个校验器。单独安装校验器：`guardrails hub install hub://guardrails/detect_pii`。校验失败时它自动重试，让模型重新生成一个合规的回复。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/prompt-safety-auditor.md`——一个可复用的 prompt，为任何 LLM 应用审计安全漏洞。给它你的 system prompt、工具定义和部署上下文。它返回一份威胁评估，附带具体的攻击向量和推荐的防御。
 

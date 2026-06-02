@@ -7,7 +7,7 @@
 **前置要求：** Phase 16 · 04（原语模型）
 **预计时间：** ~60 分钟
 
-## 问题所在
+## 问题背景
 
 自洽性（self-consistency）——对一个模型采样多次、取多数答案——是你能加上去的最便宜的推理增强。它管用，但很快就饱和。你可以把采样数翻倍，却再也看不到一次有意义的跃升。
 
@@ -71,11 +71,11 @@ Zhuge 等人（《Mindstorms in Natural Language-Based Societies of Mind》，ar
 python3 code/main.py
 ```
 
-## 上手使用
+## 实际使用
 
 `outputs/skill-debate-configurator.md` 为一个新任务配置一场辩论：agent 数量、轮数、异质性（同模型 vs 混合）、角色分配（对称 vs 一个对抗）。它还在你运行前估算 token 成本。
 
-## 交付
+## 拿去用
 
 如果你要上辩论：
 

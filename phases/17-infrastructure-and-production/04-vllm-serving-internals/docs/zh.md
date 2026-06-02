@@ -14,7 +14,7 @@
 - 用一句话描述 chunked prefill，并说出它保护的是哪个延迟指标（提示：是 TTFT 尾部，不是平均吞吐）。
 - 说出 2026 年 vLLM v0.18.0 那个坑 —— 一次把所有优化全打开的团队会被它咬到。
 
-## 问题所在
+## 问题背景
 
 一个朴素的 PyTorch 服务循环一次只处理一个请求：分词、prefill、decode 到 EOS、返回。一个用户时没问题。一百个用户时，它就是一队有耐心的人在排着。显而易见的修法 —— 静态批处理 —— 把每个请求填充到窗口里最长的 prompt，把每次 decode 填充到最长的预期输出，然后整批被最慢的序列拖死。你为根本用不上的填充付费，快请求等慢请求。
 
@@ -93,7 +93,7 @@ while True:
 
 `code/main.py` 就是用标准库 Python 写的这个循环，带假的 token 计数和假的 forward 延迟。跑一下能看到 chunked prefill 怎么在一次长 prefill 期间让 decode 序列保持存活。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 模拟一个 vLLM 风格的调度器，特性可开关。跑一下能看到：
 
@@ -104,7 +104,7 @@ while True:
 
 输出展示总吞吐（每虚拟秒的 token）、TTFT 均值和 P99 ITL。`CONTINUOUS + CHUNKED` 这一行在混合流量上应该碾压其他。
 
-## 交付
+## 拿去用
 
 这一课产出 `outputs/skill-vllm-scheduler-reader.md`。给定一份服务配置（批大小、KV 内存利用率、chunked prefill 大小、speculative 配置），它产出一份调度器诊断 —— 指出三个默认项里哪个在卡瓶颈、该调什么。
 

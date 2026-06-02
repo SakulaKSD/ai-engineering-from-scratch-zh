@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 01（文本处理）、Phase 2 · 14（朴素贝叶斯）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 第 01 课许诺过：词形还原需要词性标签。不知道 `running` 是动词，词形还原器就没法把它还原成 `run`。不知道 `better` 是形容词，就没法还原成 `good`。
 
@@ -180,7 +180,7 @@ at         tag=IN    pos=ADP    dep=prep       head=running
 
 把 `dep` 列从下往上读，句子的语法结构就浮出来了。
 
-## 上手使用
+## 实际使用
 
 每个生产级 NLP 库都把词性和依存分析器作为标准流水线的一部分提供。
 
@@ -198,7 +198,7 @@ at         tag=IN    pos=ADP    dep=prep       head=running
 - **跨语言迁移。** UD 标签和依存关系与语言无关，使得对新语言做 zero-shot 结构分析成为可能。
 - **低算力流水线。** 如果你没法上 transformer，词性 + 依存分析 + 词典能带你走得出奇地远。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-grammar-pipeline.md`：
 

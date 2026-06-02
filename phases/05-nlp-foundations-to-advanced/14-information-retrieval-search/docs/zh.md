@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 02（BoW + TF-IDF）、Phase 5 · 04（GloVe、FastText、子词）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 用户敲下 "what happens if someone lies to get money"，期待找到真正涵盖这个的法条："Section 420 IPC"。关键词搜索完全错过它（没有共享词汇）。语义搜索也会错过它，如果 embedding 没在法律文本上训练过的话。真实的搜索两者都得应付。
 
@@ -154,7 +154,7 @@ def hybrid_search(query, bm25, encoder, dense_embeddings, corpus, top_k=5, pool_
 
 调试提示：对失败的查询，比对稀疏和稠密的排序。如果一个找到了正确文档而另一个没有，你就有了词汇不匹配（修法：补上缺的那一半）或语义歧义（修法：更好的 embedding 或一个重排器）。
 
-## 上手使用
+## 实际使用
 
 2026 年的栈：
 
@@ -180,7 +180,7 @@ def hybrid_search(query, bm25, encoder, dense_embeddings, corpus, top_k=5, pool_
 
 按 2026 年的行业测量，恰当的检索设计能把幻觉减少 70-90%。RAG 大部分性能增益来自更好的检索，而不是模型微调。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-retrieval-picker.md`：
 

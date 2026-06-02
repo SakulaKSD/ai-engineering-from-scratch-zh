@@ -14,7 +14,7 @@
 - 解释 DeepStack：为什么多层级 ViT 特征比单一末层特征更能收紧视觉-语言对齐
 - 用跨模态错误率（Cross-Modal Error Rate，CMER）在生产中衡量 VLM 幻觉，并据此行动
 
-## 问题所在
+## 问题背景
 
 CLIP（阶段 4 第 18 课）给你一个图像和文本的共享嵌入空间，这对零样本分类和检索够用。它回答不了"这张图里有几辆红车？"，因为 CLIP 不生成文本——它只给相似度打分。
 
@@ -215,7 +215,7 @@ class ToyVLM(nn.Module):
 
 可以在合成的（特征，类别）对上 200 步以内拟合它——足够展示投影器模式奏效。
 
-## 上手使用
+## 实际使用
 
 2026 年生产团队用 VLM 的三种方式：
 
@@ -246,7 +246,7 @@ answer = processor.decode(generated[0][inputs["input_ids"].shape[1]:], skip_spec
 
 `apply_chat_template` 隐藏了 `<image>` 占位的分词；模型在内部处理合并。
 
-## 交付
+## 拿去用
 
 这一课产出：
 

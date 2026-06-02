@@ -15,7 +15,7 @@
 - 实现同时尊重 response-start 边界的 greedy generation 与 temperature sampling。
 - 用 exact-match 计算 held-out completion 的正确率。
 
-## 问题所在
+## 问题背景
 
 一个只做 next-token prediction 预训练的 base model，根本不知道“instruction”是什么。给它一句 `"What is the capital of France?"`，它大概率只会继续续写这个问题，或者另起一句废话。模型会语言，但不会遵守格式契约。
 

@@ -14,7 +14,7 @@
 - 解释为什么 transformer 用 LayerNorm 而不是 BatchNorm，以及为什么现代 LLM 偏爱 RMSNorm
 - 根据过拟合的严重程度，施加正确组合的正则化手段
 
-## 问题所在
+## 问题背景
 
 一个参数足够多的神经网络能记住任何数据集。这不是假设——Zhang 等人（2017）通过在 ImageNet 上用随机标签训练标准网络证明了它。这些网络在完全随机的标签分配上达到了接近零的训练损失。它们记住了一百万对没有规律可学的随机输入-输出对。训练损失完美。测试准确率为零。
 
@@ -433,7 +433,7 @@ class RegularizedNetwork:
         return history
 ```
 
-## 上手使用
+## 实际使用
 
 PyTorch 把所有归一化和正则化都提供成了模块：
 
@@ -488,7 +488,7 @@ class TransformerBlock(nn.Module):
 
 LayerNorm，不是 BatchNorm。Dropout p=0.1，不是 p=0.5。这些是 transformer 的默认值。
 
-## 交付
+## 拿去用
 
 本课产出：
 - `outputs/prompt-regularization-advisor.md` —— 一个提示词，诊断过拟合并推荐正确的正则化策略

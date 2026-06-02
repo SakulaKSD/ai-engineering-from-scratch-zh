@@ -14,7 +14,7 @@
 - 构建一个 agent 每轮可读、结束时可写的状态文件。
 - 构建一个不靠聊天历史就能挺过多会话工作的任务看板。
 
-## 问题所在
+## 问题背景
 
 大多数团队搞工作台靠写一个 3000 行的 `AGENTS.md` 然后宣布完事。模型加载它，忽略它没法总结的部分，仍在它一直失败的那些接触面上失败。
 
@@ -77,7 +77,7 @@ python3 code/main.py
 
 脚本在自己旁边创建 `workdir/`，铺下三个文件，跑一轮，并打印 diff。重跑它，看第二轮如何从第一轮停下的地方接手。
 
-## 上手使用
+## 实际使用
 
 在生产 agent 产品里，同样的三个文件以不同名字出现：
 
@@ -97,7 +97,7 @@ python3 code/main.py
 
 **跨工具符号链接。** 一个根文件加符号链接（`ln -s AGENTS.md CLAUDE.md`、`ln -s AGENTS.md .github/copilot-instructions.md`、`ln -s AGENTS.md .cursorrules`）让每个编码 agent 用同一个真相源。Nx 的 `nx ai-setup` 从单一配置在 Claude Code、Cursor、Copilot、Gemini、Codex 和 OpenCode 之间自动化这件事。
 
-## 交付
+## 拿去用
 
 `outputs/skill-minimal-workbench.md` 为任意新仓库生成三文件工作台：一个为项目调过的 `AGENTS.md` 路由器、一个带正确键的 `agent_state.json`，以及一个用当前 backlog 播种的 `task_board.json`。
 

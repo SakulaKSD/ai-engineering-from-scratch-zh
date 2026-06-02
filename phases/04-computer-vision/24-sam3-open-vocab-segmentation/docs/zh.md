@@ -14,7 +14,7 @@
 - 用 Hugging Face `transformers` 的 SAM 3 集成做文本提示的检测、分割和视频追踪
 - 根据延迟、概念复杂度和部署目标，在 SAM 3、Grounded SAM 2、YOLO-World 和 SAM-MI 之间挑选
 
-## 问题所在
+## 问题背景
 
 2023 年的 SAM 是个只接受视觉 prompt 的模型：你点一个点或画一个框，它返回一个掩码。对"给我这张照片里所有的橙子"，你需要一个检测器（Grounding DINO）产出框，再用 SAM 分割每一个。Grounded SAM 把这变成了一条流水线，但它是两个冻结模型的级联，免不了误差累积。
 
@@ -236,7 +236,7 @@ scores = outputs.scores
 
 结论：SAM 3 是 2026 年开放词表分割的默认。当你需要检测器灵活性或不同授权条款时，Grounded SAM 2 仍是对的答案。
 
-## 上手使用
+## 实际使用
 
 生产部署模式：
 
@@ -256,7 +256,7 @@ results = model(image_path, prompts="yellow school bus")
 
 和 YOLO、SAM 2 同一个接口。
 
-## 交付
+## 拿去用
 
 这一课产出：
 

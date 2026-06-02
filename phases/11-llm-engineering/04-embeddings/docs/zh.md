@@ -15,7 +15,7 @@
 - 构建一个语义搜索索引，按语义而非精确关键词匹配来检索文档
 - 用检索基准（precision@k、recall）评估 embedding 质量，并为你的任务挑选正确的 embedding 模型
 
-## 问题所在
+## 问题背景
 
 你有 1 万张工单。一个客户写道："my payment didn't go through."（我的付款没成功。）你需要找出相似的历史工单。关键词搜索找到含"payment"和"didn't go through"的工单。它漏掉了"transaction failed"、"charge was declined"和"billing error"。这些工单用完全不同的词描述了完全相同的问题。
 
@@ -410,7 +410,7 @@ def compare_metrics(engine, query, top_k=3):
     return results
 ```
 
-## 上手使用
+## 实际使用
 
 用上生产级 embedding API，架构保持不变。只有 embedder 变了：
 
@@ -462,7 +462,7 @@ embeddings = model.encode(["semantic search query", "another document"])
 
 我们构建里的 VectorIndex 类对这些都适用。换掉 embedding 函数，保留搜索逻辑即可。
 
-## 交付
+## 拿去用
 
 本节课产出：
 - `outputs/prompt-embedding-advisor.md`——一个 prompt，为特定用例挑选 embedding 模型和策略

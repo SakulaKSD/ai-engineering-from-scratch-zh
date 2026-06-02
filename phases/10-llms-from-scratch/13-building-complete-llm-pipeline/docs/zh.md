@@ -14,7 +14,7 @@
 - 构建一个编排器，跟踪实验、给产物算哈希、用 eval 阈值卡住交付决策
 - 设计回滚计划：哪些产物重跑便宜、哪些昂贵，以及一个损坏的 checkpoint 代价多大
 
-## 问题所在
+## 问题背景
 
 前面每节课都能用。tokenizer 训好了。微型 GPT 预训练了。SFT 数据集组装了。奖励模型训了。DPO 跑了。eval 测了。量化权重导出了。推理服务起来了。每一个都是个 notebook。每一个有自己的约定、自己的输出路径、自己的种子。
 
@@ -208,7 +208,7 @@ graph LR
 
 `main.py` 里的流水线跑十二个占位阶段，产出一份 manifest，并触发一道失败的 eval 关卡来展示一个被搁置的运行长什么样。把每个占位符换成对应课的真实训练脚本，你就有了真实前沿流水线用的骨架。
 
-## 上手使用
+## 实际使用
 
 规范的工作流有三条命令。
 
@@ -222,7 +222,7 @@ python code/main.py gate    # read manifest.out.yaml, apply eval gates, ship-or-
 
 `gate` 的输出要么是 `SHIP`，要么是 `HOLD: <reason>`。一个被搁置的运行不是失败；它是个决策点。一个具名 reviewer 要么覆盖（覆盖会被记录），要么批准回滚。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/skill-llm-pipeline-reviewer.md`。喂给它一份拟议的流水线 manifest，它检查所有契约：阶段类型化、哈希链、关卡、回滚计划、成本估算。它拒绝批准缺 eval 关卡、KL 预算无界，或混用 eval 和训练数据的 manifest。
 

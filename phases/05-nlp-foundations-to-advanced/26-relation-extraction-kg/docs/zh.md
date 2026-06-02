@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 06（NER）、Phase 5 · 25（实体链接）
 **预计时间：** ~60 分钟
 
-## 问题所在
+## 问题背景
 
 一位分析师读到："Tim Cook became CEO of Apple in 2011."。四个事实：
 
@@ -145,7 +145,7 @@ print(neighbors("Tim Cook", relation="P108"))    # -> [(P108, Apple)]
 - **时间错误。** "Tim Cook is CEO of Apple"——现在为真，2005 年为假。许多关系是有时间界限的。用限定符（Wikidata 里 `P580` 起始时间、`P582` 结束时间）。
 - **领域不匹配。** REBEL 在 Wikipedia 上训练。法律、医学、科学文本常需要领域微调的 RE 模型。
 
-## 上手使用
+## 实际使用
 
 2026 年的栈：
 
@@ -160,7 +160,7 @@ print(neighbors("Tim Cook", relation="P108"))    # -> [(P108, Apple)]
 
 集成模式：NER → 共指 → 实体链接 → 关系抽取 → 本体映射 → 入图。每个阶段都是一道潜在的质量闸门。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-re-designer.md`：
 

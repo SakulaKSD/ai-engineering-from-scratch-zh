@@ -7,7 +7,7 @@
 **前置要求：** Phase 16 · 04（原语模型）
 **预计时间：** ~60 分钟
 
-## 问题所在
+## 问题背景
 
 静态图（LangGraph）在工作流已知时很棒。真实对话不是静态的：有时 coder 问 reviewer，有时问 researcher，有时问 writer。把每一种可能的 handoff 硬编码会导致边爆炸。你想要的是 *agent 对共享池子做反应*，由某个函数决定接下来谁说话。
 
@@ -102,11 +102,11 @@ manager = GroupChatManager(groupchat=chat, llm_config={...})
 python3 code/main.py
 ```
 
-## 上手使用
+## 实际使用
 
 `outputs/skill-groupchat-selector.md` 为一个给定任务配置 GroupChat 选择器——轮询 vs LLM 选择 vs 自定义，以及该用哪些选择器输入（最近消息、agent 专长、轮次计数）。
 
-## 交付
+## 拿去用
 
 检查清单：
 

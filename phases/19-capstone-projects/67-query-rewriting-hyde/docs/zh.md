@@ -14,7 +14,7 @@
 - 在一个 fixture 上把这三种改写器头对头对比，并解释每种策略各自在什么时候胜出。
 - 接出一个 mock LLM，让它产出确定的、贴合 fixture 的输出，使改写循环离线就能跑。
 
-## 问题所在
+## 问题背景
 
 一个用户敲进"我们团队在上传失败、预算又耗光时会怎么做？"。corpus 里有一篇文档写着"AbortMultipartOnFail 会中止一个进行中的 S3 multipart upload，并在上传失败时把 per-bucket 的 retry budget 减一"。这个 query 和那篇 document 没有共享任何一个名词短语。BM25 漏了。Bi-encoder 把这篇 document 排到了第三或第四，因为 query 向量落进了 embedding 空间里一块更偏爱"被取消的任务"那篇文档、而非"被中止的上传"那篇文档的区域。第 66 课的两级重排能把答案救回来——前提是它落在 top-N 里；但要是它连 top-N 都进不去，reranker 就根本看不到它。
 

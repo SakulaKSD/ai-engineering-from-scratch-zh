@@ -14,7 +14,7 @@
 - 为给定的任务表面，在原子工具和单个庞然工具之间做选择。
 - 对一份注册表跑工具 schema linter，并修掉它的发现项。
 
-## 问题所在
+## 问题背景
 
 设想一个有 30 个工具的 agent。每条用户查询都触发工具选择：模型读每条描述，挑一个。会冒出两种形状的失败。
 
@@ -121,7 +121,7 @@ GOOD : Invalid input: 'city' is required. Example: {"city": "Bengaluru"}.
 
 三者都开源；一个完整评测循环在一套中等 GPU 配置上一小时内跑完。在你的 CI 里放一个（eval 驱动开发会在后续阶段讲）。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 交付一个工具 schema linter，按上面的规则审计注册表。它会标出：
 
@@ -132,7 +132,7 @@ GOOD : Invalid input: 'city' is required. Example: {"city": "Bengaluru"}.
 
 在内置的 `GOOD_REGISTRY`（通过）和 `BAD_REGISTRY`（每条规则都失败）上跑一跑，看确切的发现项。
 
-## 交付
+## 拿去用
 
 本课产出 `outputs/skill-tool-schema-linter.md`。给定任意工具注册表，这个 skill 按上面的设计规则审计它，产出一份带严重级别和建议改写的修复清单。可在 CI 里跑。
 

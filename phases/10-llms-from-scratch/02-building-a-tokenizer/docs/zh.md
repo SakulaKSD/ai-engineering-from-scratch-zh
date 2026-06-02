@@ -14,7 +14,7 @@
 - 加入预分词正则模式，在应用 BPE 合并之前先在词边界处切分文本
 - 在一份语料上训练自定义 tokenizer，并在多语言文本上和 tiktoken 对比其压缩比
 
-## 问题所在
+## 问题背景
 
 你在第 01 课写的 BPE tokenizer 对英文文本能用。现在扔一段日语给它。或者 emoji。或者一段 tab 和空格混用的 Python 代码。
 
@@ -377,7 +377,7 @@ for text in test_texts:
 
 中文字符每个产出 3 字节。emoji 产出 4 字节。这些都没有让 tokenizer 崩溃。都没有产生未知 token。这就是字节级 BPE 的威力。
 
-## 上手使用
+## 实际使用
 
 ### 对比真实的 tokenizer
 
@@ -411,7 +411,7 @@ for name, tok in [("Llama 3", llama_tok), ("Mistral", mistral_tok)]:
 
 权衡始终一样：更大的词表意味着更短的序列，但更多的参数。
 
-## 交付
+## 拿去用
 
 本节课产出一个用于构建和调试生产级 tokenizer 的 prompt。见 `outputs/prompt-tokenizer-builder.md`。
 

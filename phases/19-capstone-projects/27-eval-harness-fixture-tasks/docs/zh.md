@@ -15,7 +15,7 @@
 - 把确定性 verifier（文件 diff、exit code、regex match）做成可复用函数。
 - 产出结构化 JSON 报告，供回归跟踪脚本直接吞。
 
-## 问题所在
+## 问题背景
 
 没有 eval harness 的 agent benchmark，通常会死在三种故障里。
 

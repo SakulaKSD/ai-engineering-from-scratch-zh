@@ -14,7 +14,7 @@
 - 演示零初始化的对称性问题，并解释为什么光有随机尺度还不够
 - 把正确的初始化策略和激活函数对上：sigmoid/tanh 用 Xavier，ReLU/GELU 用 Kaiming
 
-## 问题所在
+## 问题背景
 
 把所有权重初始化为零。什么都学不会。每个神经元算同一个函数、收到同一个梯度、更新得一模一样。一万个 epoch 之后，你那 512 个神经元的隐藏层仍然是同一个神经元的 512 份拷贝。你为 512 个参数付了钱，拿到的是 1 个。
 
@@ -316,7 +316,7 @@ def magnitude_report(name, magnitudes):
             print(f"  Layer {i+1:3d}: {bar} ({mag:.6f})")
 ```
 
-## 上手使用
+## 实际使用
 
 PyTorch 把这些都提供成了内置函数：
 
@@ -339,7 +339,7 @@ nn.init.zeros_(layer.bias)
 
 对 transformer，HuggingFace 的模型通常在它们的 `_init_weights` 方法里处理初始化。GPT-2 的实现把残差投影按 1/sqrt(N) 缩放。如果你从零搭一个 transformer，得自己把这个加上。
 
-## 交付
+## 拿去用
 
 本课产出：
 - `outputs/prompt-init-strategy.md` —— 一个提示词，诊断权重初始化问题并推荐正确的策略

@@ -14,7 +14,7 @@
 - 说出 Python SDK 的会话存储接触面（`append`、`load`、`list_sessions`、`delete`、`list_subkeys`）以及 `--session-mirror` 的作用。
 - 用标准库实现一个 harness，带内置工具、上下文隔离的子 agent 派生、生命周期 hook 和一个会话存储。
 
-## 问题所在
+## 问题背景
 
 一个原始 LLM API 只给你一次往返。一个生产 agent 需要工具执行、MCP 服务器、生命周期 hook、子 agent 派生、会话持久化、trace 传播。Claude Agent SDK 把这个形态作为一个库提供出来 —— 和 Claude Code 用的同一个 harness，暴露出来给自定义 agent。
 
@@ -95,14 +95,14 @@ python3 code/main.py
 
 轨迹展示子 agent 的上下文隔离（编排器上下文大小保持有界）、hook 执行和会话持久化。
 
-## 上手使用
+## 实际使用
 
 - **Claude Agent SDK** 用于想要 Claude Code harness 形态的 Claude 优先产品。
 - **Claude Managed Agents** 用于托管的长时运行异步工作。
 - **OpenAI Agents SDK**（第 16 课）用于 OpenAI 优先的对应物。
 - **LangGraph + 自定义工具** 如果你想要图形态的状态机。
 
-## 交付
+## 拿去用
 
 `outputs/skill-claude-agent-scaffold.md` 脚手架出一个 Claude Agent SDK 应用，带子 agent、hook、会话存储、MCP 服务器挂载和 W3C trace 传播。
 

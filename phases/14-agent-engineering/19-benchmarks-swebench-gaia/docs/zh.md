@@ -15,7 +15,7 @@
 - 说出 AgentBench 的八个环境，以及它对开源 LLM 的主要拦路虎。
 - 总结 SWE-bench+ 的污染发现及其含义。
 
-## 问题所在
+## 问题背景
 
 排行榜告诉你哪个模型在某个基准上赢了。它们不告诉你：
 
@@ -93,14 +93,14 @@ python3 code/main.py
 
 输出展示每任务、每难度的解决率，并让评估器规则变得具体。
 
-## 上手使用
+## 实际使用
 
 - **SWE-bench Verified** 用于代码 agent。永远报 Verified 分数。
 - **GAIA** 用于通才 agent。用私有排行榜 split。
 - **AgentBench** 用于多环境对比。
 - **自定义评估**（第 30 课）用于你产品的真实形态。
 
-## 交付
+## 拿去用
 
 `outputs/skill-benchmark-harness.md` 为任意「代码库-任务」对构建一个 SWE-bench 式 harness，带 FAIL_TO_PASS / PASS_TO_PASS 关卡。
 

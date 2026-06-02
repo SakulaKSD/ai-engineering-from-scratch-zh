@@ -14,7 +14,7 @@
 - 解释部件亲和场（Part Affinity Fields，PAF），以及自底向上流水线如何把关键点关联成实例
 - 用 MediaPipe Pose 或 MMPose 做生产关键点估计，理解它们的输出格式
 
-## 问题所在
+## 问题背景
 
 关键点任务藏在很多名字下：人体姿态（17 个身体关节）、人脸关键点（68 或 478 个点）、手（21 个点）、动物姿态、机器人物体姿态、医学解剖标志点。每一个都共享同一种结构：检测物体上 K 个离散点并输出它们的 (x, y) 坐标。
 
@@ -187,14 +187,14 @@ for step in range(200):
     opt.zero_grad(); loss.backward(); opt.step()
 ```
 
-## 上手使用
+## 实际使用
 
 - **MediaPipe Pose** —— Google 的生产姿态估计器；提供 WebGL + 移动端运行时，延迟低于 10ms。
 - **MMPose**（OpenMMLab）—— 全面的研究代码库；每个 SOTA 架构带预训练权重。
 - **YOLOv8-pose** —— 最快的实时多人姿态，单次前向。
 - **transformers HumanDPT / PoseAnything** —— 用于开放词表姿态（任意物体、任意关键点集）的较新视觉-语言方法。
 
-## 交付
+## 拿去用
 
 这一课产出：
 

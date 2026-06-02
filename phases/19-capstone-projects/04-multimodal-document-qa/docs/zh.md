@@ -8,7 +8,7 @@
 **涉及阶段：** P4 · P5 · P7 · P11 · P12 · P17
 **预计时间：** 30 小时
 
-## 问题所在
+## 问题背景
 
 企业手里压着一堆被 OCR 流水线糟蹋的 PDF：带旋转表格的扫描版 10-K、公式密布的科学论文、只有当成图像才说得通的图表、手写批注。把这些当成文本优先来处理，等于丢掉一半信号。2026 年的答案是在原始页面图像上做后期交互的多向量检索。ColPali（Illuin Tech）提出了它；ColQwen2.5-v0.2 和 ColQwen3-omni 把准确率往上推。在 ViDoRe v3 上，视觉优先检索以可观的幅度领先“先 OCR 再处理文本”——而且在图表、表格、手写上这个差距还会拉大。
 
@@ -77,7 +77,7 @@ query ----+----> retrieve top-k pages (MaxSim)
 
 8. **UI。** 先做 Streamlit 原型；再做 Next.js 15 生产查看器，逐页叠加证据区域。
 
-## 上手使用
+## 实际使用
 
 ```
 $ doc-qa ask "what was the 2024 operating margin change for segment EMEA?"
@@ -90,7 +90,7 @@ answer:
 [viewer]     open with highlighted bounding boxes overlaid on p.88 Table 4
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-doc-qa.md` 描述交付物：一个视觉优先的多模态文档问答系统，针对某份具体语料调优，并在 ViDoRe v3 上对照“先 OCR 再处理文本”的基线评测。
 

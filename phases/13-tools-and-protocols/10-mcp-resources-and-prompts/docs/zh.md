@@ -14,7 +14,7 @@
 - 用参数模板实现 `prompts/list` 和 `prompts/get`。
 - 认出宿主何时把 prompts 呈现为 slash-command，何时作为自动注入的上下文。
 
-## 问题所在
+## 问题背景
 
 一个笔记应用的天真 MCP server 把一切都暴露为工具：`notes_read`、`notes_list`、`notes_search`。这把每次数据访问都包进一个模型驱动的工具调用里。后果：
 
@@ -97,7 +97,7 @@ MCP Apps（第 14 课）：在一个 `ui://` URI 里用 `text/html;profile=mcp-a
 
 MCP 里的 prompts 不是 system prompt。宿主的 system prompt（它自己的操作指令）和 MCP prompts（server 提供、由用户触发的模板）并排共存。一个守规矩的 client 永不让 server prompt 覆盖它自己的 system prompt；它把它们分层叠加。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 在第 07 课的 notes server 上扩展出：
 
@@ -108,7 +108,7 @@ MCP 里的 prompts 不是 system prompt。宿主的 system prompt（它自己的
 
 跑一遍 demo 看完整流程。
 
-## 交付
+## 拿去用
 
 本课产出 `outputs/skill-primitive-splitter.md`。给定一个拟议的 MCP server，这个 skill 把每个能力归类为 tool / resource / prompt 并附一个理由。
 

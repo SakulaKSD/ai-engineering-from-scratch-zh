@@ -14,7 +14,7 @@
 - 解释为什么 MSE 对分类失效，以及为什么二元交叉熵能产生凸的代价曲面
 - 构建一个多分类的 softmax 回归模型，并评估阈值调节带来的权衡
 
-## 问题所在
+## 问题背景
 
 你想根据肿瘤的大小预测它是恶性还是良性。你试了线性回归，它输出 0.3、1.7、-0.5 这样的数字。这些是什么意思？1.7 是"非常恶性"吗？-0.5 是"非常良性"吗？线性回归输出的是无界的数字。分类需要的是 0 到 1 之间有界的概率，以及一个明确的决策：是，还是否。
 
@@ -454,7 +454,7 @@ for t in thresholds:
     print(f"{t:>10.1f} {m.accuracy():>10.4f} {m.precision():>10.4f} {m.recall():>10.4f} {m.f1():>10.4f}")
 ```
 
-## 上手使用
+## 实际使用
 
 现在用 scikit-learn 做同样的事。
 
@@ -493,7 +493,7 @@ print(f"\nClassification Report:\n{classification_report(y_te, y_pred)}")
 
 你的从零实现产出相同的决策边界和指标。scikit-learn 额外提供了求解器选项（liblinear、lbfgs、saga）、自动正则化、多分类策略（one-vs-rest、multinomial），以及数值稳定性优化。
 
-## 交付
+## 拿去用
 
 本节课产出：
 - `code/logistic_regression.py` - 从零实现的带指标的逻辑回归

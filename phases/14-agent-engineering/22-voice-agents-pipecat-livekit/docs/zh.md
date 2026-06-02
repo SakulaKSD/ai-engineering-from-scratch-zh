@@ -14,7 +14,7 @@
 - 解释 LiveKit Agents 的两种语音 agent 类（MultimodalAgent、VoicePipelineAgent）以及各自何时合适。
 - 总结 2026 年的生产延迟预期，以及它们如何驱动架构选择。
 
-## 问题所在
+## 问题背景
 
 语音 agent 不是一个文本循环硬加上 TTS。延迟预算很残酷（~600ms），部分音频是默认情况，回合检测是个模型，传输从电话 SIP 到 WebRTC 都有。要么你构建一条基于帧的流水线（Pipecat），要么你倚靠一个平台（LiveKit）。
 
@@ -89,14 +89,14 @@ python3 code/main.py
 
 轨迹展示正常流程，以及一次在话语中途停掉 TTS 的插话取消。
 
-## 上手使用
+## 实际使用
 
 - **Pipecat** 用于完全控制 —— 自定义 processor、Python 优先、可插拔提供方。
 - **LiveKit Agents** 用于 WebRTC 优先的部署和电话。
 - **Vapi / Retell** 用于不要 WebRTC 团队的托管语音 agent。
 - **OpenAI Realtime / Gemini Live** 用于直接音频进/音频出（MultimodalAgent）。
 
-## 交付
+## 拿去用
 
 `outputs/skill-voice-pipeline.md` 脚手架出一条 Pipecat 形态的语音流水线，带 VAD + STT + LLM + TTS + 传输外加插话处理。
 

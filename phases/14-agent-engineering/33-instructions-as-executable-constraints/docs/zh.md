@@ -14,7 +14,7 @@
 - 实现一个规则检查器，对照规则集给一次运行打分。
 - 让规则集 diff 友好，好让审查能看出改了什么。
 
-## 问题所在
+## 问题背景
 
 一个典型的 `AGENTS.md` 读起来像新人入职文档。它告诉 agent「小心点」「充分测试」「不确定就问」。三天后，agent 交付了一个没有测试的改动、往一个禁止目录写了东西、而且从没问过，因为它从不知道线在哪儿。
 
@@ -82,7 +82,7 @@ python3 code/main.py
 
 **markdown 作源，JSON 作缓存。** `agent-rules.md` 是撰写的文件；`agent-rules.lock.json` 是检查器在热路径里读的缓存。lock 由一个 pre-commit hook 重新生成。markdown diff 可审查；JSON 解析不进每一轮。和 `package.json` / `package-lock.json` 以及 `Cargo.toml` / `Cargo.lock` 同一个形态。
 
-## 上手使用
+## 实际使用
 
 在生产中：
 
@@ -92,7 +92,7 @@ python3 code/main.py
 
 规则集在这三者间可移植，因为它只是 markdown 加函数名。
 
-## 交付
+## 拿去用
 
 `outputs/skill-rule-set-builder.md` 访谈一个项目负责人，把他们现有的散文指令分类进五个类别，并产出一份带版本的 `agent-rules.md` 加一个检查器桩。
 

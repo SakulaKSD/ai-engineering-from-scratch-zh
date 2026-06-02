@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 17（聊天机器人）、Phase 5 · 20（结构化输出）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 在面向任务的对话系统里，用户的目标被编码成一组槽位-值对：`{cuisine: italian, area: north, price: moderate}`。用户的每一轮都可能新增、改变或移除一个槽位。系统必须读完整段对话，正确输出当前状态。
 
@@ -149,7 +149,7 @@ def is_correction(utterance):
 - **隐式继承。** 如果用户之前指定了 "for 4 people"，一个改时间的新请求不该清掉 people。永远传完整历史。
 - **自由值 vs 闭集。** 名字、时间、地址需要自由值槽位；cuisine 和 area 是闭集。在 schema 里两者混用。
 
-## 上手使用
+## 实际使用
 
 2026 年的栈：
 
@@ -162,7 +162,7 @@ def is_correction(utterance):
 | 多领域预订流程 | 配每领域 Pydantic 模型的 schema 引导 LLM |
 | 合规敏感 | 基于规则为主，LLM 兜底配确认流程 |
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-dst-designer.md`：
 

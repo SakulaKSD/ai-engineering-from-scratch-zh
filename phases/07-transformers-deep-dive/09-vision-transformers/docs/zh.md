@@ -7,7 +7,7 @@
 **前置要求：** 阶段 7 · 05（完整的 Transformer）、阶段 4 · 03（CNN）、阶段 4 · 14（Vision Transformers 入门）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 2020 年之前，计算机视觉就意味着卷积。ImageNet、COCO 和检测基准上每个 SOTA 都用 CNN 骨干。transformer 是给语言用的。
 
@@ -100,7 +100,7 @@ def patchify(image, P):
 
 打印 ViT-Base 的参数量：12 层、12 头、d=768、patch=16。和 ResNet-50（~25M）比一比。ViT-Base 落在 ~86M。ViT-Large ~307M。ViT-Huge ~632M。
 
-## 上手使用
+## 实际使用
 
 ```python
 from transformers import ViTImageProcessor, ViTModel
@@ -120,7 +120,7 @@ cls_emb = out[:, 0]                       # 图像表示
 
 **patch 大小怎么挑。** 小模型用 16×16（ViT-B/16）。密集预测（分割）用 8×8 或 14×14（SAM、DINOv2）。超大模型用 14×14。
 
-## 交付
+## 拿去用
 
 见 `outputs/skill-vit-configurator.md`。这个 skill 会根据数据集大小、分辨率和算力预算，为一个新视觉任务挑选 ViT 变体和 patch 大小。
 

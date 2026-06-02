@@ -14,7 +14,7 @@
 - 在每家 provider 里用 `tool_choice` 来强制、禁止或自动挑选工具调用。
 - 知道每家 provider 的硬上限（工具数量、schema 深度、参数长度），以及越限时各自抛出的错误特征。
 
-## 问题所在
+## 问题背景
 
 function-calling 请求的形状因 provider 而异。来自 2026 年生产栈的三个具体例子：
 
@@ -114,7 +114,7 @@ Tool(
 
 生产团队把这个翻译器包进 `AbstractToolset`（Pydantic AI）、`UniversalToolNode`（LangGraph）或 `BaseTool`（LlamaIndex）。阶段 13 · 17 交付一个网关，在三者之中任意一个前面暴露一套 OpenAI 形状的 API。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 定义一个规范化的 `Tool` dataclass 和三个翻译器，分别吐出 OpenAI、Anthropic、Gemini 的声明 JSON。它接着把每种形状一份手工编造的 provider 响应解析成同一个规范化的调用对象，证明它们皮下的语义是一致的。跑一跑，把三份声明并排 diff。
 
@@ -124,7 +124,7 @@ Tool(
 - 三个响应 block 在调用所处的位置上不同（顶层 `tool_calls`、`content[]` block、`parts[]` 条目）。
 - 一个 `canonical_call()` 函数从三种响应形状里都提取出 `{id, name, args}`。
 
-## 交付
+## 拿去用
 
 本课产出 `outputs/skill-provider-portability-audit.md`。给定一份针对某家 provider 的 function-calling 集成，这个 skill 产出一份可移植性审计：它依赖了哪些 provider 上限、哪些字段需要改名、移植到另外每家 provider 时会有什么崩掉。
 

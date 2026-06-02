@@ -14,7 +14,7 @@
 - 从特征方程出发，计算 2x2 矩阵的特征值和特征向量
 - 解释为什么特征值决定了 PCA 的方向、RNN 的稳定性和谱聚类的行为
 
-## 问题所在
+## 问题背景
 
 你读 PCA 的资料，看到"求协方差矩阵的特征向量"。你读模型稳定性的资料，看到"检查是否所有特征值的模都小于 1"。你读数据增强的资料，看到"施加一次随机旋转"。在你从几何上理解矩阵对空间做了什么之前，这些全是天书。
 
@@ -366,7 +366,7 @@ print(f"det(singular)     = {det_2x2(singular):.1f}")
 print("Singular: columns are proportional, space collapses to a line.")
 ```
 
-## 上手使用
+## 实际使用
 
 NumPy 用优化过的例程把这些全包办了。
 
@@ -427,7 +427,7 @@ print(f"Rotate 90 around z: {np.round(rotated_z, 4)}")
 print(f"Rotate 90 around x: {np.round(rotated_x, 4)}")
 ```
 
-## 交付
+## 拿去用
 
 本节课为 PCA（阶段 2）和神经网络权重分析打下几何基础。这里写的特征值/特征向量代码，和驱动生产 ML 系统里降维、谱聚类、稳定性分析的算法是同一套。
 

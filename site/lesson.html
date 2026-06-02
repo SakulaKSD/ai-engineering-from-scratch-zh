@@ -2677,8 +2677,8 @@
 
         // Mid-lesson check: land between Build It and Use It if possible,
         // otherwise fall back to before Use It / Ship It / Key Terms.
-        var useH2 = findH2('#use-it, #use', ['上手使用', '使用', 'Use It']);
-        var shipH2 = findH2('#ship-it, #ship', ['交付', '部署', 'Ship It']);
+        var useH2 = findH2('#use-it, #use', ['实际使用', '上手使用', '使用', 'Use It']);
+        var shipH2 = findH2('#ship-it, #ship', ['拿去用', '交付', '部署', 'Ship It']);
         if (checkQuizHtml && useH2) {
           useH2.insertAdjacentHTML('beforebegin', checkQuizHtml);
         } else if (checkQuizHtml && shipH2) {

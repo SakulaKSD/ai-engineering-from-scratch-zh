@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 13（问答）、Phase 5 · 14（信息检索）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 你的 RAG 系统答："June 29th, 2007."。
 金标准参考是："June 29, 2007."。
@@ -172,7 +172,7 @@ def test_rag_system():
 - **黄金数据集腐烂。** 没版本、随时间漂移的评估集会破坏纵向对比。每次改动都给数据集打标签。
 - **LLM 成本。** 规模化时裁判调用主导成本。用满足校准阈值的最便宜模型。GPT-4o-mini、Claude Haiku、Mistral-small。
 
-## 上手使用
+## 实际使用
 
 2026 年的栈：
 
@@ -187,7 +187,7 @@ def test_rag_system():
 
 典型栈：RAGAS 做监控，DeepEval 做 CI，G-Eval 做新维度。三个都跑；它们的分歧有用。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-eval-architect.md`：
 

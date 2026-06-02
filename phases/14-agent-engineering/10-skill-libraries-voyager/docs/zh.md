@@ -14,7 +14,7 @@
 - 用标准库实现一个技能库，带注册、检索、组合和失败驱动的精修。
 - 把 Voyager 的模式映射到 2026 年的 Claude Agent SDK skill 和 skillkit 生态。
 
-## 问题所在
+## 问题背景
 
 每个会话都从头重建每一项能力的 agent，做错了三件事：
 
@@ -104,14 +104,14 @@ python3 code/main.py
 
 轨迹展示库写入、检索、组合、一次失败执行和一次 v2 精修 —— 端到端的 Voyager 循环。
 
-## 上手使用
+## 实际使用
 
 - **Claude Agent SDK skill**（Anthropic）—— 2026 年的参考：每个 skill 有描述、代码和指令；在 agent 会话期间按需加载。
 - **skillkit**（npm: skillkit）—— 跨 agent 的技能管理，支持 32+ AI 编码 agent。
 - **自定义技能库** —— 领域专用（数据 agent 的 SQL 技能、基建 agent 的 Terraform 技能）。Voyager 模式可以向下缩放。
 - **OpenAI Agents SDK `tools`** —— 在低端；每个工具就是一个轻量技能。
 
-## 交付
+## 拿去用
 
 `outputs/skill-skill-library.md` 为任意目标运行时生成一个 Voyager 形态的技能库，注册、检索、版本管理和精修都接好。
 

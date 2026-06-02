@@ -7,7 +7,7 @@
 **前置要求：** 阶段 6 · 02（音频特征）、阶段 6 · 04（ASR）、阶段 8 · 06（DDPM）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 三个音频生成任务：
 
@@ -87,7 +87,7 @@ def make_tokens(style, length, vocab_size, rng):
 - **对干净数据的胃口。** 音乐生成器需要数万小时的授权音乐。Suno / Udio 的 RIAA 诉讼（2024）把这事摆到了台面上。
 - **声音克隆的伦理。** 3 秒样本加一段文本 prompt 就够 VALL-E / XTTS / ElevenLabs 克隆一个声音了。每个生产模型都需要滥用检测 + 退出名单。
 
-## 上手使用
+## 实际使用
 
 | 任务 | 2026 年的栈 |
 |------|------------|
@@ -100,7 +100,7 @@ def make_tokens(style, length, vocab_size, rng):
 | 开源权重音乐研究 | MusicGen 3.3B、Stable Audio Open 1.0、AudioLDM 2 |
 | 配音 / 翻译 | HeyGen、ElevenLabs Dubbing |
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-audio-brief.md`。技能接受一份音频需求（任务、时长、风格、声音、许可），输出：模型 + 托管、prompt 格式（流派标签、风格描述符、结构标记）、编解码器 + 生成器 + 声码器链路、种子流程，以及评测计划（MOS / CLAP 分数 / TTS 的 CER / 用户 A/B）。
 

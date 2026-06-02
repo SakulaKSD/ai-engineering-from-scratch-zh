@@ -15,7 +15,7 @@
 - 给上下文组件排优先级和顺序，把模型的注意力最大化地聚到最相关的信息上
 - 构建一个上下文组装器，根据查询类型和可用窗口空间动态分配 token
 
-## 问题所在
+## 问题背景
 
 Claude Opus 4.7 有 200K token 窗口（beta 版 1M）。GPT-5 有 400K。Gemini 3 Pro 有 2M。Llama 4 号称 10M。这些数字听着大得吓人，直到你把它们填满。
 
@@ -523,7 +523,7 @@ def run_demo():
     print(f"  (Most relevant at start and end, least relevant in middle)")
 ```
 
-## 上手使用
+## 实际使用
 
 ### Claude Code 的上下文策略
 
@@ -545,7 +545,7 @@ ChatGPT 把用户偏好和事实作为长期记忆存储。每次对话开始时
 
 检索增强生成（RAG）就是 context engineering 的形式化。你不再把知识塞进模型权重里（训练）或 system prompt 里（静态上下文），而是在查询时检索相关文档并注入上下文窗口。整条 RAG 流水线——分块、嵌入、检索、重排——都是为了解决一个问题：把对的信息放进上下文窗口。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/prompt-context-optimizer.md`——一个可复用的 prompt，审查一套上下文组装策略并推荐优化。喂给它你的 system prompt、工具数量、平均历史长度和检索策略，它会找出 token 浪费并给出改进建议。
 

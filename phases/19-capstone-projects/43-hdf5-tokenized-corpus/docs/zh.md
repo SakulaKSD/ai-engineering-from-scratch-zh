@@ -96,7 +96,7 @@ python3 code/main.py
 - **boundary token id。** Boundary token 是 tokenizer 词表的一部分，是 dataloader 唯一注入的 token。训练 loss 如果要让模型忽略它就 mask 掉；否则模型就学着把它当序列分隔符用。
 - **`shards.json` 作为唯一真相源。** 加一个新分片就是写 HDF5、算 sha256、追加一条记录。Trainer 启动时读一次这个文件，之后再也不碰目录列表。
 
-## 交付
+## 拿去用
 
 `outputs/skill-hdf5-tokenized-corpus.md` 在真实项目中会描述哪个 tokenizer 喂流水线、什么 chunk 大小匹配 trainer 的窗口、`shards.json` 在版本控制中放哪里、dataloader worker 怎么在文件间分配。本课交付的是引擎。
 

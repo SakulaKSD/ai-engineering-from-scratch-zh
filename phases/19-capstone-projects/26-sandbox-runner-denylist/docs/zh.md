@@ -15,7 +15,7 @@
 - 在 shell 模式关闭时拒绝 shell 元字符。
 - 返回结构化 `SandboxResult`，供 observability 和 eval harness 消费。
 
-## 问题所在
+## 问题背景
 
 一个能直接 shell out 的 coding agent，一轮里就可能装后门、导出密钥、把开发机搞坏，或者顺手刷一笔云账单。成本最低的防御当然是别给它 shell；第二低的，就是做一个知道该拒绝什么的 sandbox。
 

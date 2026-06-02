@@ -8,7 +8,7 @@
 **涉及阶段：** P11 · P13 · P14 · P15 · P17 · P18
 **预计时间：** 30 小时
 
-## 问题所在
+## 问题背景
 
 2025-2026 年的 SRE 叙事变成了：“AI agent 分诊事故，人类批准修复。”AWS DevOps Agent、Resolve AI、NeuBird、Metoro、PagerDuty AIOps 都在生产里出了这套形态。agent 读 Prometheus 指标、Loki 日志、Tempo trace、kube-state-metrics，以及一张 K8s 对象的知识图。它在五分钟内产出一个带遥测引用的、排好序的根因假设。它从不在没有通过 Slack 拿到明确人类批准的情况下执行破坏性命令。
 
@@ -84,7 +84,7 @@ PagerDuty / Alertmanager webhook
 
 9. **合成事故套件。** 搭 20 个场景：OOMKill 级联、DNS 抖动、HPA 抖动、PVC 写满、吵闹邻居、故障 sidecar、坏 ConfigMap 上线、证书轮换、镜像拉取退避等。在根因准确率和到达假设的时间上给 agent 打分。
 
-## 上手使用
+## 实际使用
 
 ```
 webhook: alert.pagerduty.com -> checkout-api SLO breach, error rate 14%
@@ -98,7 +98,7 @@ webhook: alert.pagerduty.com -> checkout-api SLO breach, error rate 14%
           (approval required; agent does not roll back unilaterally)
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-devops-agent.md` 是交付物。给定一个 K8s 集群和告警来源，agent 产出排好序的根因假设和一个由 Slack 设闸门的修复流程。
 

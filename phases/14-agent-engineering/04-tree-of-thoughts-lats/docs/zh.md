@@ -14,7 +14,7 @@
 - 扩展成一个玩具版 LATS MCTS 循环，含 select / expand / simulate / backpropagate。
 - 判断搜索什么时候值得那个 token 倍数（Game of 24、代码生成），什么时候单条轨迹就够（简单问答）。
 
-## 问题所在
+## 问题背景
 
 思维链是一次线性行走。如果第一步错了，后面每一步都在一个坏前提上干活。在 Game of 24（用四个数字加 + − × ÷ 凑出 24）上，GPT-4 CoT 只有 4% 准确率。模型早早挑错了子表达式，再也回不来。
 
@@ -93,11 +93,11 @@ python3 code/main.py
 
 轨迹展示 ToT 用 BFS 在每个节点展开三个候选，对比 LATS 通过 MCTS 收敛到最佳 rollout。两者都打印 token 数。
 
-## 上手使用
+## 实际使用
 
 LangGraph 把 ToT 式探索作为子图模式提供；LangChain 团队关于 LATS 的博客（2024 年 5 月）是参考教程。LlamaIndex 提供一个 `TreeOfThoughts` agent。对 2026 年大多数生产 agent 来说，这个模式藏在一个 `if task_complexity > threshold: use_search()` 的门后 —— 见第 05 课的 evaluator-optimizer 模式。
 
-## 交付
+## 拿去用
 
 `outputs/skill-search-policy.md` 在给定任务形态、预算和评估器保真度的情况下，在线性 ReAct、ToT、LATS 和演化搜索之间做选择。
 

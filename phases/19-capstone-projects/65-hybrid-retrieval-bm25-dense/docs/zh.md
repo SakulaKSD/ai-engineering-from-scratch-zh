@@ -13,7 +13,7 @@
 - 严格按照 Cormack、Clarke、Buettcher 于 2009 年发表的形式实现 reciprocal rank fusion，并解释为什么它碾压基于分数加权的插值。
 - 调 RRF 的 k 常数和各 modality 的权重，在一个小 fixture corpus 上读出其中的权衡。
 
-## 问题所在
+## 问题背景
 
 当 query 携带着一个 corpus 里逐字存在的字面标识符时，lexical 搜索赢。对 `AbortMultipartOnFail` 的一次查询，BM25 在微秒级就返回了那个正确的 Go 函数。同一个 query 被 embed 之后，却落在三个相似度 cluster 的交界处，于是 dense retriever 把错误的文件排到了第一。
 

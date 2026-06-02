@@ -14,7 +14,7 @@
 - 用 2026 年「五种工作流模式」的框架（Anthropic）判断一个任务该跑「先规划后执行」还是交替式 ReAct。
 - 认清什么时候长跨度的网页或移动端任务需要 Plan-and-Act 的合成计划数据。
 
-## 问题所在
+## 问题背景
 
 ReAct 那个交替的「思考-行动-观察」循环既简单又灵活，但每次工具调用都得带上完整的前置上下文 —— 包括之前的每一个思考。token 用量随深度二次增长。更糟的是：当某个工具在循环中途失败时，模型得从错误观察里把整个计划重新推一遍。
 
@@ -85,11 +85,11 @@ python3 code/main.py
 
 轨迹先展示完整计划，然后是 worker 结果，再然后是 solver 组合。把 token 数（我们打印了一个粗略的字符数）和一次 ReAct 式交替运行做对比 —— 在这种结构化任务上 ReWOO 胜出。
 
-## 上手使用
+## 实际使用
 
 LangGraph 把 Plan-and-Execute 作为一份配方提供（ReAct 用 `create_react_agent`，plan-execute 用自定义图）。CrewAI 的 Flows 直接编码了这个模式：你前置定义好任务，Flow DAG 就执行它们。Plan-and-Act 的合成数据方法目前大体上还停留在研究阶段；运行时模式（显式计划 DAG）已经通过 LangGraph 和 CrewAI Flows 进了生产。
 
-## 交付
+## 拿去用
 
 `outputs/skill-rewoo-planner.md` 在给定一份工具目录的情况下，从用户请求生成一个 ReWOO 计划 DAG。它在把活儿交给执行器之前会校验计划（无环、每个引用都能解析、每个工具都存在）。
 

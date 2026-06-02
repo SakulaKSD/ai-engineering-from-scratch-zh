@@ -14,7 +14,7 @@
 - 比较 Donut（免 OCR，图像 → 标记）、Nougat（科学论文 → LaTeX）、DocLLM（版面感知生成式）、PaliGemma 2（VLM 原生）。
 - 为新任务挑一个文档模型（发票、科学论文、手填表单、中文收据）。
 
-## 问题所在
+## 问题背景
 
 "理解这份 PDF"难得有点骗人。信息坐落在：
 
@@ -127,7 +127,7 @@ OCR 流水线仍在以下方面取胜：
 - 全 arXiv 摄入：数学用 Nougat，图用 VLM。
 - 监管场景：OCR 流水线 + VLM 验证器交叉核对。
 
-## 上手使用
+## 实际使用
 
 `code/main.py`：
 
@@ -135,7 +135,7 @@ OCR 流水线仍在以下方面取胜：
 - 一个 Donut 式任务 schema 生成器：表单的 JSON 模板。
 - 一份跨 OCR 流水线、Donut、Nougat、VLM 原生的每页 token 预算对比。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/skill-document-ai-stack-picker.md`。给定一个文档 AI 项目（领域、规模、质量、监管），它在 OCR 流水线、免 OCR 专家、VLM 原生之间挑选。
 

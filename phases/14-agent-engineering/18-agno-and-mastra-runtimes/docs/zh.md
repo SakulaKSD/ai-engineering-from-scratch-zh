@@ -14,7 +14,7 @@
 - 解释为什么一个无状态、会话范围的 FastAPI 后端是 Agno 推荐的生产路径。
 - 为给定技术栈（Python 优先 vs TypeScript 优先）在 Agno 和 Mastra 之间做选择。
 
-## 问题所在
+## 问题背景
 
 LangGraph、AutoGen、CrewAI 都框架味很重。想要「就 agent 循环、快、在我的运行时里」的团队会上 Agno（Python）或 Mastra（TypeScript）。两者都拿一些框架掌管的原语换取原始速度，以及与周边技术栈更紧的贴合。
 
@@ -74,13 +74,13 @@ python3 code/main.py
 
 两条结构上不同但功能上等价的轨迹。
 
-## 上手使用
+## 实际使用
 
 - **Agno** —— 需要速度和 FastAPI 形态的 Python 后端。
 - **Mastra** —— 带许多提供方和工作流原语的 TypeScript 后端。
 - 两者都提供第一方可观测性 hook。两者都与 Langfuse 集成。
 
-## 交付
+## 拿去用
 
 `outputs/skill-runtime-picker.md` 基于技术栈、延迟预算和运维形态，在 Agno、Mastra、LangGraph 或某个提供方 SDK 之间挑选。
 

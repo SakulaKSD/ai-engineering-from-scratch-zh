@@ -14,7 +14,7 @@
 - 搭一个时间条件 U-Net（小到能在 CPU 上训练），为任意时间步预测噪声
 - 解释 DDPM 和 DDIM 采样的区别，以及各自何时合适（第 23 课深入讲 flow matching 和 rectified flow）
 
-## 问题所在
+## 问题背景
 
 GAN 一次性生成：噪声进、图像出，一次前向。它们快但难训练。扩散模型迭代生成：从纯噪声起步，小步去噪，图像浮现。它们慢但易训练。过去五年，后一个性质占了上风：任何小团队都能训练一个扩散模型并拿到像样的样本；而 GAN 训练是要靠多年失败的运行才学得会的手艺。
 
@@ -277,7 +277,7 @@ def sample_ddim(model, schedule, shape, steps=50, T=1000, device="cpu", eta=0.0)
 
 `eta=0` 完全确定性（同样的噪声输入总是产出同样的输出）。`eta=1` 恢复成 DDPM。
 
-## 上手使用
+## 实际使用
 
 干生产活，用 `diffusers`：
 
@@ -292,7 +292,7 @@ scheduler = DDPMScheduler(num_train_timesteps=1000)
 
 做研究的话，`k-diffusion`（Katherine Crowson）有最忠实的参考实现和最好的采样变体。
 
-## 交付
+## 拿去用
 
 这一课产出：
 

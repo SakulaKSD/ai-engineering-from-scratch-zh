@@ -14,7 +14,7 @@
 - 用标准库实现一个带历史和可选外部验证器的 Self-Refine 循环。
 - 把这个模式映射到 Anthropic 的「evaluator-optimizer」工作流和 OpenAI Agents SDK 的输出 guardrail。
 
-## 问题所在
+## 问题背景
 
 一个 agent 产出了一个差不多对的答案。也许某行代码有语法错误。也许一段摘要太长。也许一个计划漏了某个边界情况。你想要的是：agent 批判自己的输出，然后修好它。
 
@@ -103,11 +103,11 @@ python3 code/main.py
 
 对比 Self-Refine 和 CRITIC 两次运行。CRITIC 抓到了一个 Self-Refine 漏掉的事实错误，因为外部验证器有自我批判者所没有的锚定。
 
-## 上手使用
+## 实际使用
 
 Anthropic 的 evaluator-optimizer 就是这个模式的 Claude 友好版表述。OpenAI Agents SDK 的输出 guardrail 是 CRITIC 形态（guardrail 可以调工具）。LangGraph 提供一个读起来像 Self-Refine 的反思节点。Google 的 Gemini 2.5 Computer Use 加了一个逐步安全评估器，它是 CRITIC 变体：每个动作在提交前都被验证。
 
-## 交付
+## 拿去用
 
 `outputs/skill-refine-loop.md` 在给定任务形态、验证器可用性和迭代预算的情况下配置一个 evaluator-optimizer 循环。产出生成器、评估器/验证器和优化器的 prompt，外加一个停止策略。
 

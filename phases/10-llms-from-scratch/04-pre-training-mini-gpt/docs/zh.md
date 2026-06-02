@@ -14,7 +14,7 @@
 - 实现自回归文本生成，带温度采样和 top-k/top-p 过滤
 - 监控训练损失曲线，验证模型学到了连贯的语言模式
 
-## 问题所在
+## 问题背景
 
 你知道 transformer 是什么。你看过那些图。你能背出 "attention is all you need"，能在白板上画出标着 "Multi-Head Attention" 的方框。
 
@@ -464,7 +464,7 @@ def generate(model, prompt_tokens, max_new_tokens=100, temperature=0.8):
 
 `tokens[-seq_len:]` 这个窗口是必要的，因为模型有最大 context 长度（GPT-2 是 1024）。一旦超过它，你必须丢掉最旧的 token。这就是大家挂在嘴边的 "context window"。
 
-## 上手使用
+## 实际使用
 
 ### 完整的训练和生成演示
 
@@ -492,7 +492,7 @@ print(f"\nGenerated: {generated_text}")
 
 在小语料、小模型上，生成的文本顶多半连贯。它会从训练文本里学到一些字节级模式，但没法像 GPT-2 那样泛化——人家有 40GB 训练数据和完整的 1.24 亿参数架构。重点不在输出质量。重点是你能追踪每一步：embedding 查表、注意力计算、前馈变换、logit 投影、softmax 和采样。每一个操作都可见。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/prompt-gpt-architecture-analyzer.md`——一个 prompt，能分析任意 GPT 风格模型的架构选择。喂给它一张模型卡或技术报告，它会拆解参数分配、注意力设计和缩放决策。
 

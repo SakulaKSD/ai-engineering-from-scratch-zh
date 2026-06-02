@@ -14,7 +14,7 @@
 - 解释为什么 RLHF 需要三个模型（SFT、奖励、策略），以及 KL 约束如何防止奖励作弊
 - 通过对比偏好优化前后的回复质量，评估 RLHF 的效果
 
-## 问题所在
+## 问题背景
 
 问一个模型 "Explain quantum computing"，它可能产出：
 
@@ -491,7 +491,7 @@ def compare_models(sft_model, rlhf_model, reward_model, prompts, max_seq_len=128
     return sft_total / n, rlhf_total / n
 ```
 
-## 上手使用
+## 实际使用
 
 ### 完整 RLHF 流水线演示
 
@@ -590,7 +590,7 @@ if __name__ == "__main__":
         print(f"  KL > {kl_threshold}: {'Yes (model drifted significantly)' if max(kls) > kl_threshold else 'No (model stayed close to reference)'}")
 ```
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/prompt-reward-model-designer.md`——一个用于设计奖励模型训练流水线的 prompt。给定一个目标行为（有用性、编码能力、安全性），它产出一套数据收集协议、标注员指南和奖励模型评估标准。
 

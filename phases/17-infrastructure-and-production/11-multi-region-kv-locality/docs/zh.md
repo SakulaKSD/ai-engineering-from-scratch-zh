@@ -14,7 +14,7 @@
 - 说出 LLM 的那个 32% 灾备失败成因（缺分词器文件 / 量化配置），并给出一份三文件灾备清单。
 - 区分商用跨区域产品（Bedrock CRI、GKE Multi-Cluster Gateway）和 KV 感知路由。
 
-## 问题所在
+## 问题背景
 
 你的服务跑在 us-east-1、us-west-2 和 eu-west-1。你在前面摆了个 ALB 做轮询。生产里前缀缓存命中率掉到 8%。TTFT P50 翻了三倍。你的 vLLM 日志显示每个请求都在付全额 prefill 成本。
 
@@ -87,11 +87,11 @@ AWS Bedrock cross-region inference 在算力压力下自动把请求路由到其
 - 灾备失败：32% 缺分词器/量化配置。
 - 摩根大通 us-east-1 故障转移 2024 年 11 月：22 分钟（30 分钟 SLA）。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 在一个多区域工作负载上模拟三种路由策略（轮询、缓存感知区域内、缓存感知全局）。报告缓存命中率、TTFT P50/P99 和跨区域账单。
 
-## 交付
+## 拿去用
 
 这一课产出 `outputs/skill-multi-region-router.md`。给定区域、驻留约束和 SLA，设计一份路由方案。
 

@@ -14,7 +14,7 @@
 - 对比 L1 正则化（嵌入式选择）和 RFE（包裹式选择），评估它们的计算权衡
 - 构建一条组合多种方法的特征选择流水线，在留出数据上演示泛化的提升
 
-## 问题所在
+## 问题背景
 
 你有 500 个特征。你的模型训练慢、不停过拟合，没人能解释它学到了什么。你加更多特征指望提升性能。结果更糟了。
 
@@ -459,7 +459,7 @@ def _build_tree_importance(X, y, feature_subset, max_depth, depth=0):
 
 代码文件在同一个合成数据集上跑完全部五种方法，并打印一张对比表，展示每种方法选了哪些特征。
 
-## 上手使用
+## 实际使用
 
 用 scikit-learn，特征选择内置在流水线里：
 
@@ -496,7 +496,7 @@ importances = rf.feature_importances_
 
 sklearn 版本加了稳健性（比如 mutual_info_classif 用 k-NN 密度估计而不是分桶）、速度（C 实现）和流水线集成。
 
-## 交付
+## 拿去用
 
 本节课产出：
 - `outputs/skill-feature-selector.md` -- 一棵选择正确特征选择方法的快速参考决策树

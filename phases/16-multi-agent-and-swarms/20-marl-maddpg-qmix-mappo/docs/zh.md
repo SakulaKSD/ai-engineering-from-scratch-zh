@@ -7,7 +7,7 @@
 **前置要求：** Phase 09（强化学习）、Phase 16 · 09（并行 Swarm 网络）
 **预计时间：** ~90 分钟
 
-## 问题所在
+## 问题背景
 
 LLM-agent 系统越来越多地为 agent 间协调训练策略：何时退让、何时行动、调哪个同伴。告诉你如何训练这类策略的文献是多 agent 强化学习（Multi-Agent Reinforcement Learning，MARL），它早于 LLM 浪潮，有一小批占主导的算法。
 
@@ -117,11 +117,11 @@ python3 code/main.py
 
 预期输出：独立 agent 平均约 6 步；CTDE 变体收敛到约 3.5 步（4x4 网格的最优是 3）。尽管是脚本化策略，模式差异仍然显现。
 
-## 上手使用
+## 实际使用
 
 `outputs/skill-marl-picker.md` 是一个 skill，它为一个给定的多 agent 任务挑 MARL 算法：合作 vs 竞争、同质 vs 异质、动作空间类型、规模、奖励信号。
 
-## 交付
+## 拿去用
 
 MARL 在生产里很少见。当你确实要用时：
 

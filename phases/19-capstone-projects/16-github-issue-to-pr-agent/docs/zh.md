@@ -8,7 +8,7 @@
 **涉及阶段：** P11 · P13 · P14 · P15 · P17
 **预计时间：** 30 小时
 
-## 问题所在
+## 问题背景
 
 异步云编码 agent 跟交互式编码 agent（顶点项目 01）是两个不同的产品品类。它的体验是一个 GitHub 标签。你给一个 issue 打上 `@agent fix this`，一个 worker 在云沙箱里起来，克隆仓库、跑测试、改文件、验证，再开一个正文里带着 agent 理由的 PR。没有交互循环，没有终端。AWS Remote SWE Agents、Cursor Background Agents、OpenAI Codex cloud、Google Jules、Factory Droids 全都收敛到了这个上面。
 
@@ -85,7 +85,7 @@ GitHub issue labeled `@agent fix` or PR comment
 
 9. **评测。** 30 个难度不一的内部 seed issue。衡量通过率、PR 质量（diff 大小、风格、覆盖率）、成本、延迟。在同样的 issue 上跟 Cursor Background Agents 和 AWS Remote SWE Agents 对比。
 
-## 上手使用
+## 实际使用
 
 ```
 # on github.com
@@ -99,7 +99,7 @@ GitHub issue labeled `@agent fix` or PR comment
     > Label: needs-review
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-issue-to-pr.md` 是交付物。一个 GitHub App + 异步云 worker，把打了标签的 issue 变成可供评审的 PR，成本有界、凭证受圈定。
 

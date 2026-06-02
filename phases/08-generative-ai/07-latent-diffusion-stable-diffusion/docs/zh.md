@@ -7,7 +7,7 @@
 **前置要求：** 阶段 8 · 02（VAE）、阶段 8 · 06（DDPM）、阶段 7 · 09（ViT）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 512² 下的像素空间扩散意味着 U-Net 跑在形状为 `[B, 3, 512, 512]` 的张量上。对一个 500M 参数的 U-Net，每个采样步约 100 GFLOPS。五十步就是每张图 5 TFLOPS。在十亿张图上训练，算力账单荒唐到家。
 
@@ -88,7 +88,7 @@ h = h + CrossAttention(Q=h, K=text_embed, V=text_embed)
 - **CFG 太高。** `w > 10` 产出饱和、油腻的图像，以多样性为代价过拟合 prompt。甜点区是 `w = 3-7`。
 - **负面 prompt 泄露。** 空的负面 prompt 变成空 token；填了内容的负面 prompt 变成 `ε_uncond`。这两者不是一回事；有些流水线会悄悄默认成空 token。
 
-## 上手使用
+## 实际使用
 
 2026 年的生产栈：
 
@@ -101,7 +101,7 @@ h = h + CrossAttention(Q=h, K=text_embed, V=text_embed)
 | 编辑工作流 | Flux.1-Kontext（2024 年 12 月）——原生接受图像 + 文本 |
 | 研究、基线 | SD 1.5——古老但研究得很透 |
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-sd-prompter.md`。技能接受一个文本 prompt + 目标风格，输出：模型 + 检查点、CFG 强度、采样器、负面 prompt、分辨率、可选的 ControlNet/IP-Adapter 组合，以及一份逐步的 QA 清单。
 

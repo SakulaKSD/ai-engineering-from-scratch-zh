@@ -8,7 +8,7 @@
 **涉及阶段：** P11 · P13 · P17 · P18
 **预计时间：** 25 小时
 
-## 问题所在
+## 问题背景
 
 2026 年每个跑生产流量的 AI 团队都在模型旁边备着一个可观测性平面。成本归因。幻觉检测。漂移监控。越狱信号。SLO 看板。PII 泄漏告警。开源参考——Langfuse、Phoenix、OpenLLMetry——都收敛到了把 OpenTelemetry GenAI 语义约定当作摄入 schema。你现在能用一个 SDK 给 OpenAI、Anthropic、Google、LangChain、LlamaIndex、vLLM 埋点，并发出兼容的 span。
 
@@ -83,7 +83,7 @@ production apps:
 
 9. **回归探针。** 注入一个 bug：被评测的聊天机器人开始 1% 的概率泄漏假 SSN。衡量 MTTR：从 bug 部署到 Slack 告警。
 
-## 上手使用
+## 实际使用
 
 ```
 $ curl -X POST https://my-otel-collector/v1/traces -d @trace.json
@@ -94,7 +94,7 @@ $ curl -X POST https://my-otel-collector/v1/traces -d @trace.json
 [ui]         live at https://obs.example.com
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-llm-observability.md` 是交付物。给定一个 LLM 应用，看板摄入它的 trace、跑评测、对漂移告警，并在 Next.js 里呈现成本/用户拆分。
 

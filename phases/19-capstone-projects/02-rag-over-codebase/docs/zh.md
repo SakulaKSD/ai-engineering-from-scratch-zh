@@ -8,7 +8,7 @@
 **涉及阶段：** P5 · P7 · P11 · P13 · P17
 **预计时间：** 30 小时
 
-## 问题所在
+## 问题背景
 
 到 2026 年，每个前沿编码 agent 都带着一层代码库检索，因为光靠上下文窗口解决不了跨仓库的问题。Claude 的 100 万 token 上下文有帮助，但它消除不了对排序检索的需求。在原始 chunk 上做朴素的余弦搜索，会在生成的代码、monorepo 的重复内容、以及很少被 import 的符号的长尾上把结果搞坏。生产上的答案是：在 AST 感知的 chunk 上做混合搜索（dense + BM25），加一个重排器，背后再有一张符号引用的图。
 
@@ -82,7 +82,7 @@ git push --> webhook --> ingest worker (LlamaIndex Workflow)
 
 9. **评测。** 给 100 个跨仓库问题标注金标准 file:line 答案。衡量 MRR@10、nDCG@10、引用忠实度（断言中带可验证锚点的占比），以及 p50/p99 延迟。
 
-## 上手使用
+## 实际使用
 
 ```
 $ code-rag ask "how is S3 multipart abort wired into our retry budget?"
@@ -97,7 +97,7 @@ answer:
               libs/s3client/multipart.ts:44-61]
 ```
 
-## 交付
+## 拿去用
 
 可交付 skill `outputs/skill-codebase-rag.md`。给定一组仓库语料，它会立起摄入流水线、混合索引和查询 agent，对任何跨仓库问题返回一个带引用的答案。评分标准：
 

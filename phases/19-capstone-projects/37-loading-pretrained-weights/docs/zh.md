@@ -15,7 +15,7 @@
 - 在任何权重赋值发生前，先检测并拒绝 shape mismatch，并给出清晰错误。
 - 用加载后的权重生成一小段 continuation，确认 token 分布真的来自加载好的参数，而不是随机初始化。
 
-## 问题所在
+## 问题背景
 
 公开 checkpoint 从来不是按你的架构命名打包的。它们带的是原始实现自己的参数名。比如预训练文件里有：
 
@@ -133,7 +133,7 @@ python3 code/main.py
 
 **LM head 是 weight tying alias，不是独立 copy。** 标准写法是：`model.lm_head.weight = model.tok_embed.weight`。若你把 embedding 再 copy 一份给 head，绑定就断了，参数数目悄悄翻倍。
 
-## 上手使用
+## 实际使用
 
 - 只要 safetensors 文件遵守 GPT-2 命名规范，这个 loader 就能直接用。真实 GPT-2 small / medium / large / xl 只是在 config 上不同，代码不需要变。
 - 同样的套路也能扩展到 LLaMA、Mistral、Qwen，只要更新 name map 即可。shape check 和 report 逻辑完全不变。

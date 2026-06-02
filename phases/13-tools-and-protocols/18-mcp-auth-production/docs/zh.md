@@ -16,7 +16,7 @@
 - 把每个端点和后台作业都串成 iii 基元——HTTP trigger、cron trigger、具名函数和 `state::*` 读取——这样一次重启就重建整个鉴权表面。
 - 读一份 IdP 能力矩阵，当 IdP 满足不了 MCP 的鉴权 profile 时拒绝部署。
 
-## 问题所在
+## 问题背景
 
 第 16 课的模拟器在内存里跑 OAuth 2.1。生产有三个纯内存模拟器看不到的运维缺口。
 
@@ -245,7 +245,7 @@ Server B 的校验器：
 - **注册 token 失窃。** 一个泄漏的 `registration_access_token` 让攻击者能重写 redirect URI。把这些在静态时哈希；要求 client 在每次更新时出示明文；有嫌疑就轮换。
 - **`iss` 未钉定。** 一个接受任意 `iss` 的校验器，让攻击者能立起自己的 authorization server、为目标受众注册一个 client、并签发 token。受保护资源元数据的 `authorization_servers` 列表就是白名单；强制它。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 用标准库 Python 和一个模仿 `iii.registerFunction`、`iii.registerTrigger`、`iii.trigger` 和 `state::set/get` 的小 `iii_mock` 注册表走完整的生产流程。流程：
 
@@ -261,7 +261,7 @@ Server B 的校验器：
 
 这里的 mock JWT 用带共享密钥的 HS256（这样本课只靠标准库就能跑）。生产用 RS256 或 EdDSA 配上面的 JWKS 模式；校验逻辑在别处是一样的。
 
-## 交付
+## 拿去用
 
 本课产出 `outputs/skill-mcp-auth-iii.md`。给定一份 MCP server 配置和一个 IdP 能力集，这个 skill 发出要注册的 iii 基元、JWKS 轮换计划、scope 映射，以及当 IdP 不支持完整 RFC profile 时要应用的拒绝规则。
 

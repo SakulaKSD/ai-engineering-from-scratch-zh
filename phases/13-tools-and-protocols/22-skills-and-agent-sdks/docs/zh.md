@@ -14,7 +14,7 @@
 - 以文件系统方式把 skill 加载进一个 agent 运行时。
 - 把一个 skill 和一个 MCP server、一个 AGENTS.md 组合起来，让一个包在 Claude Code、Cursor 和 Codex 里都能用。
 
-## 问题所在
+## 问题背景
 
 一个工程师把一套写发布说明的工作流提炼成一个多步 prompt："读最近合入的 PR。按领域分组。各自摘要。按团队风格写一条 changelog 条目。发到 Slack 草稿。"他们把它放进了团队的一个 Notion 文档。
 
@@ -132,7 +132,7 @@ SkillKit 这类工具和类似的跨 agent 分发层，把单个 SKILL.md 翻译
 
 三者都组合得起来：agent 在会话开始时读 AGENTS.md，用户触发一个 skill，skill 的指令含 MCP 工具调用，agent 经由一个 MCP client 分发。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 交付一个标准库 SKILL.md 解析器和加载器。它在 `./skills/` 下发现 skill，解析 YAML frontmatter 加 markdown 正文，产出一个按 skill 名作键的 dict。它接着模拟一个按名字触发 `release-notes-writer` 的 agent 循环。
 
@@ -142,7 +142,7 @@ SkillKit 这类工具和类似的跨 agent 分发层，把单个 SKILL.md 翻译
 - skill 正文一字不差地存着；agent 在触发时把它前置到 system prompt。
 - 渐进式披露经由一个 `read_subresource` 函数演示，它按需拉取被引用的文件。
 
-## 交付
+## 拿去用
 
 本课产出 `outputs/skill-agent-bundle.md`。给定一个工作流，这个 skill 产出组合的 SKILL.md + AGENTS.md + MCP-server 蓝图包，跨 agent 可移植。
 

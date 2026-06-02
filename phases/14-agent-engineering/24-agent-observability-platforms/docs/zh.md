@@ -14,7 +14,7 @@
 - 解释为什么到 2026 年 89% 的组织报告已经部署了 agent 可观测性。
 - 用标准库实现一条「trace 到仪表盘」的流水线，带 LLM 裁判评估。
 
-## 问题所在
+## 问题背景
 
 OTel GenAI（第 23 课）给你 schema。你仍然需要那个摄入 span、跑评估、存 prompt 版本、暴露回归的平台。三个竞争者各自强调生命周期的不同部分。
 
@@ -80,14 +80,14 @@ python3 code/main.py
 
 输出：每会话评估分数和失败分类，匹配 Langfuse/Phoenix/Opik 会展示的东西。
 
-## 上手使用
+## 实际使用
 
 - **Langfuse** 自托管或云；通过 OTel 或它们的 SDK 接入。
 - **Arize Phoenix** 自托管；自动 instrument OpenInference。
 - **Comet Opik** 自托管或云；自动化优化循环。
 - **Datadog LLM Observability** 用于已经在跑 Datadog 的混合 ops+ML 团队。
 
-## 交付
+## 拿去用
 
 `outputs/skill-obs-platform-wiring.md` 挑一个平台，并把 trace + 评估 + prompt 版本接进一个现有 agent。
 

@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 01（文本处理）、Phase 2 · 14（朴素贝叶斯）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 在 transformer 之前、RNN 之前、词嵌入之前，语言模型预测下一个词的方式是数它跟在前 `n-1` 个词后面的频率。数 "the cat" → "sat" 47 次，"the cat" → "jumped" 12 次，"the cat" → "refrigerator" 0 次。归一化得到一个概率分布。
 
@@ -176,14 +176,14 @@ def perplexity(prob_fn, sentences):
 
 越低越好。在 Brown 语料上，一个调好的 4-gram KN 模型困惑度大约 140。transformer LM 在同一测试集上是 15-30。差距约 10 倍。这个差距正是这个领域往前走的原因。
 
-## 上手使用
+## 实际使用
 
 - **经典 NLP 教学。** 你能拿到的对平滑、MLE 和困惑度最清晰的接触。
 - **KenLM。** 生产级 n-gram 库。在低延迟要紧的语音和 MT 系统里当重打分器。
 - **端侧自动补全。** 键盘里的三元组模型。至今还在。
 - **基线。** 在宣布你的神经 LM 好之前，永远先算一个 n-gram LM 困惑度。如果你的 transformer 没有大幅打赢 KN，那一定有什么不对。
 
-## 交付
+## 拿去用
 
 存为 `outputs/prompt-lm-baseline.md`：
 

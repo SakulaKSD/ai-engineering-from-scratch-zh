@@ -14,7 +14,7 @@
 - 用单位根实现离散傅里叶变换
 - 解释复旋转如何支撑 transformer 里的 RoPE 和正弦位置编码
 
-## 问题所在
+## 问题背景
 
 你翻开一篇关于傅里叶变换的论文，到处是 `i`。你看 transformer 的位置编码，看到不同频率上的 `sin` 和 `cos`——复指数的实部和虚部。你读量子计算，发现一切都用复向量空间表达。
 
@@ -380,7 +380,7 @@ def roots_of_unity(N):
 
 正是这些性质让 DFT 可逆。单位根为频率域构成一组正交基。
 
-## 上手使用
+## 实际使用
 
 Python 有内置的复数支持。字面量 `j` 表示虚数单位。
 
@@ -414,7 +414,7 @@ spectrum = np.fft.fft(signal)
 freqs = np.fft.fftfreq(128, d=1/128)
 ```
 
-## 交付
+## 拿去用
 
 运行 `code/complex_numbers.py` 来生成 `outputs/skill-complex-arithmetic.md`。
 

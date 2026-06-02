@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 02（BoW + TF-IDF）、Phase 5 · 03（Word2Vec）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 你手上有 10000 张客服工单、50000 篇新闻，或者 200000 条推文。你需要知道这堆东西在讲什么，又不想读它。你没有标注好的类别。你甚至不知道有多少个类别。
 
@@ -120,7 +120,7 @@ for topic_id in valid_topics[:5]:
 
 最大的实际考量是文档长度。BERT embedding 会截断；LDA 计数对任意长度都管用。文档比 embedding 模型上下文还长时，要么分块 + 聚合，要么用 LDA。
 
-## 上手使用
+## 实际使用
 
 2026 年的栈：
 
@@ -132,7 +132,7 @@ for topic_id in valid_topics[:5]:
 - **FASTopic。** 更新，在超大语料上比 BERTopic 快。
 - **基于 LLM 的打标。** 跑任意聚类，然后让模型给每个簇命名。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-topic-picker.md`：
 

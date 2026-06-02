@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 06（NER）、Phase 5 · 07（词性与句法分析）
 **预计时间：** ~60 分钟
 
-## 问题所在
+## 问题背景
 
 从一篇 300 字的文章里抽出 Apple Inc. 的每一次提及。文章说 "Apple" 时很简单。说 "the company"、"they"、"Cupertino's technology giant" 或 "Jobs's firm" 时就难了。不把这些提及消解到同一个实体上，你的 NER 流水线会漏掉 60-80% 的提及。
 
@@ -103,7 +103,7 @@ Cluster them by what they refer to. Output JSON:
 - **性别假设。** 硬编码的性别规则在非二元指称、组织、动物上崩。用学出来的模型或中性打分。
 - **LLM 在长文档上漂移。** 单次 API 调用没法可靠地跨 50+ 段聚类提及。用滑动窗口 + 合并。
 
-## 上手使用
+## 实际使用
 
 2026 年的栈：
 
@@ -117,7 +117,7 @@ Cluster them by what they refer to. Output JSON:
 
 2026 年上线的集成模式：先跑 NER，再跑共指，把共指簇合并进 NER 实体。下游任务看到的是每簇一个实体，而非每提及一个实体。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-coref-picker.md`：
 

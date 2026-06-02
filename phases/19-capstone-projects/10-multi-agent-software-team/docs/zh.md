@@ -8,7 +8,7 @@
 **涉及阶段：** P11 · P13 · P14 · P15 · P16 · P17
 **预计时间：** 40 小时
 
-## 问题所在
+## 问题背景
 
 单 agent 编码外壳在大任务上撞到天花板。不是因为哪个 agent 弱，而是因为一个 200k token 的上下文装不下一份架构计划加四片并行的代码库切片加评审者评语加测试输出。多 agent 工厂把问题拆开：架构师拥有计划，程序员在并行 worktree 里拥有实现，评审者把关，测试者验证。SWE-AF 的“工厂”架构、MetaGPT 的角色、AutoGen 的带类型 actor 图——这三种框架描述的是同一套形态。
 
@@ -84,7 +84,7 @@ Coder A          Coder B          Coder C          Coder D          (4 parallel)
 
 9. **复盘。** 对每个失败的 issue，找出断掉的那次交接（计划太含糊、合并冲突、评审者误批、测试者抖动）。产出一张交接失败直方图。
 
-## 上手使用
+## 实际使用
 
 ```
 $ team run --issue https://github.com/acme/widget/issues/842
@@ -102,7 +102,7 @@ $ team run --issue https://github.com/acme/widget/issues/842
 [pr]        opened #3382   4 coders, 1 revision, $4.90, 18m
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-multi-agent-team.md` 是交付物。给定一个 issue URL 和并行度，团队产出一个可合并的 PR，带逐角色的 token 计账。
 

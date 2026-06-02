@@ -14,7 +14,7 @@
 - 区分三种失败模式：解析错误、schema 违反、模型拒绝。
 - 交付一条带定型修复和定型拒绝处理的抽取管线。
 
-## 问题所在
+## 问题背景
 
 一个读采购订单邮件的 agent 需要把自由文本变成 `{customer, line_items, total_usd}`。三种做法。
 
@@ -101,7 +101,7 @@ Zod（`z.object({customer: z.string(), ...})`）是 TS 里的对应物。OpenAI 
 
 受约束解码在小模型上也好使。一个带语法强制的 3B 参数开源模型，在结构化任务上胜过一个用裸 prompt 的 70B 参数模型。这是结构化输出对生产之所以重要的主要原因：它把可靠性和模型大小解耦。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 用标准库交付一个极简 JSON Schema 2020-12 校验器（types、required、enum、min/max、pattern、items、additionalProperties）。它包一份 `Invoice` schema，让一份假 LLM 输出过一遍校验器，演示解析错误、schema 违反和拒绝三条路径。生产里把假输出换成任意 provider 的真实响应。
 
@@ -111,7 +111,7 @@ Zod（`z.object({customer: z.string(), ...})`）是 TS 里的对应物。OpenAI 
 - 拒绝分支不重试。它记录日志并返回一个定型拒绝。阶段 14 · 09 把拒绝当安全信号用。
 - `additionalProperties: false` 检查在对抗性测试输入上触发，显示严格模式为何对幻觉字段关上了门。
 
-## 交付
+## 拿去用
 
 本课产出 `outputs/skill-structured-output-designer.md`。给定一个自由文本抽取目标（发票、工单、简历等），这个 skill 产出一份兼容严格模式的 JSON Schema 2020-12，以及一个与之镜像的 Pydantic 模型，定型拒绝和重试处理打好桩。
 

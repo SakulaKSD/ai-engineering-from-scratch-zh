@@ -14,7 +14,7 @@
 - 演示为什么在同一个任务上，AdamW 比带 L2 正则化的 Adam 泛化得更好
 - 为 transformer、CNN、GAN 和微调选对优化器和默认超参数
 
-## 问题所在
+## 问题背景
 
 你算出了梯度。你知道第 4721 号权重应该减小 0.003 来降低损失。但 0.003 是什么单位？以什么缩放？还有，第 1 步和第 1000 步应该走同样的幅度吗？
 
@@ -381,7 +381,7 @@ class OptimizerTestNetwork:
         return losses
 ```
 
-## 上手使用
+## 实际使用
 
 PyTorch 的优化器负责处理参数组、梯度裁剪和学习率调度：
 
@@ -413,7 +413,7 @@ for epoch in range(100):
 
 对 CNN，很多从业者仍然偏爱 SGD + 动量（lr=0.1，momentum=0.9，weight_decay=1e-4）配一个 step 或余弦调度。SGD 找到更平坦的极小值，往往泛化得更好。对 transformer 和 LLM，AdamW 配 warmup + 余弦衰减是通用默认选项。没有量化过的理由就别跟共识对着干。
 
-## 交付
+## 拿去用
 
 本课产出：
 - `outputs/prompt-optimizer-selector.md` —— 一个决策提示词，为任何架构选对优化器和学习率

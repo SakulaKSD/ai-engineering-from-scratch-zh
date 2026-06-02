@@ -14,7 +14,7 @@
 - 为给定任务在标量、启发式和自评三种反馈来源之间做选择。
 - 解释为什么言语强化能抓到那些基于梯度的 RL 要跑上千次试验才能修的错误。
 
-## 问题所在
+## 问题背景
 
 一个 agent 把任务做砸了。在标准 RL 里你会再跑上千次试验、算梯度、更新权重。又贵又慢，而且大多数生产 agent 不可能为每一次失败都备一份训练预算。
 
@@ -94,11 +94,11 @@ python3 code/main.py
 
 轨迹展示三次试验。第 1 次失败，存下一段反思，第 2 次看到反思有改进但仍失败，第 3 次成功。和一次基线运行（无反思）对比 —— 它会一直卡在第 1 次的答案上。
 
-## 上手使用
+## 实际使用
 
 LangGraph 把反思作为一种节点模式提供。Claude Code 的 `/memory` 命令和 pro-workflow 的 `/learn-rule` 把情景缓冲区外化成一个 markdown 文件。Letta 的 sleep-time compute 在空闲时跑 Self-Reflector，让主 agent 保持延迟可控。OpenAI Agents SDK 不直接提供 Reflexion；你用一个按分数拒绝轨迹的自定义 Guardrail 加一个跨运行存活的记忆 `Session` 把它搭出来。
 
-## 交付
+## 拿去用
 
 `outputs/skill-reflexion-buffer.md` 创建并维护一个情景缓冲区，带反思捕获、TTL 和去重。给定一个任务类别和一次失败，它产出一段真能帮到下一次试验的反思（而不是泛泛的「再小心点」）。
 

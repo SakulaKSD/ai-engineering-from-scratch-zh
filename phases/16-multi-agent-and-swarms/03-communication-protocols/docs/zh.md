@@ -14,7 +14,7 @@
 - 对比 MCP（工具访问）、A2A（agent 对 agent）、ACP（企业审计）、ANP（去中心化信任），讲清每个协议解决的是哪个问题
 - 把多个协议接到同一套系统里：agent 通过 MCP 发现工具、通过 A2A 委派任务
 
-## 问题所在
+## 问题背景
 
 你把系统拆成了多个 agent：一个 researcher、一个 coder、一个 reviewer。它们各自的活儿干得漂亮。但现在你需要它们真的彼此对话。
 
@@ -1433,7 +1433,7 @@ protocolDemo().catch((err) => {
 
 **发现惊群。** 50 个 agent 在启动时同时查 `GET /agents`。修法：给 Agent Card 加 TTL 缓存、错开发现间隔，或用基于推送的注册代替轮询。
 
-## 上手使用
+## 实际使用
 
 ### 真实的实现
 
@@ -1468,7 +1468,7 @@ graph TD
     style BROKER fill:#e0e7ff,stroke:#4338ca
 ```
 
-## 交付
+## 拿去用
 
 本课产出：
 - `code/main.ts` —— 四种协议模式的完整实现

@@ -14,7 +14,7 @@
 - 跨 provider 跟踪每请求成本和 token 用量。
 - 为给定的生产约束在 LiteLLM、OpenRouter、Portkey 之间做选择。
 
-## 问题所在
+## 问题背景
 
 provider 路由有用的场景：
 
@@ -98,7 +98,7 @@ Portkey 和 Kong 都交付有主见的护栏。LiteLLM 把它们留作可选。
 - **延迟感知。** 挑过去 N 分钟里最快的模型。
 - **任务感知。** prompt 分类器把编码路由给一个模型、摘要路由给另一个。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 用约 150 行实现一个路由网关：接受 OpenAI 形状的请求、翻译成每 provider 的桩、跑一条优先级 fallback 链、跟踪每请求成本，并对输入应用一道 PII 脱敏。用三个场景跑它：正常请求、主 provider 中断触发 fallback、被脱敏抓住的 PII 泄漏。
 
@@ -109,7 +109,7 @@ Portkey 和 Kong 都交付有主见的护栏。LiteLLM 把它们留作可选。
 - 成本跟踪器把 token 用量乘以每模型费率。
 - PII 脱敏器在转发前清洗 SSN 形状的模式。
 
-## 交付
+## 拿去用
 
 本课产出 `outputs/skill-routing-config-designer.md`。给定一个工作负载画像（延迟、成本、合规），这个 skill 挑 LiteLLM / OpenRouter / Portkey 并产出一份路由配置。
 

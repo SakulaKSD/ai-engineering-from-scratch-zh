@@ -13,7 +13,7 @@
 - 接出一条两级的 retrieve-then-rerank pipeline：用一个廉价 retriever 取 top-N，用 cross-encoder 把 N 重排到 top-K，返回 K。
 - 在一个小 fixture corpus 上测量 latency-vs-quality 的权衡，并为给定的 latency 预算挑出合适的 N。
 
-## 问题所在
+## 问题背景
 
 Bi-encoder 把 query 和 document 映射到同一个向量空间，按余弦排序。两个编码彼此从不照面。模型必须把一篇 document 里所有有用的东西压进单个向量，而且是在对 query 一无所知的情况下。这很快——索引时每篇 document 一次 embedding，query 时每个 query 一次——而且这是唯一能在 corpus 规模上做排序的办法。
 

@@ -15,7 +15,7 @@
 - 用 multinomial sampling、temperature scaling、top-k truncation 和滑动窗口上下文，从 prompt 生成文本。
 - 对照 124M 目标，测参数量和一次前向的开销。
 
-## 问题所在
+## 问题背景
 
 单个 transformer block 自己什么都干不了。你得先把 token ids 变成向量，混入位置信息，穿过整堆 block，再投回词表 logits。四步少任意一步，模型要么前向直接挂掉，要么位置漂移，要么根本不会“说话”。
 
@@ -117,7 +117,7 @@ python3 code/main.py
 
 **在参数层面做 weight tying，不是 copy 一份。** `lm_head.weight = token_embedding.weight` 才是真共享；copy 没意义。优化器应该只更新一块参数，autograd 也只应该累积到一处。若你只是 copy，embedding 和 head 很快就会漂离彼此，weight tying 的所有收益都没了。
 
-## 上手使用
+## 实际使用
 
 - 本课的 `GPTModel`，下一课训练时可以直接接上。
 - 把 learned position embedding 换成 RoPE，你就基本进入 LLaMA 家族了，而 block 和 head 不用动。

@@ -7,7 +7,7 @@
 **前置要求：** 阶段 7 · 05（完整的 Transformer）、阶段 7 · 07（GPT）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 稠密 transformer 推理时的 FLOPs 等于它的参数量（前向通过乘 2）。把稠密模型放大，每个 token 都付全额账单。到 2024 年，前沿撞上了一堵算力墙：要变得有意义地更聪明，每 token 需要指数级更多的 FLOPs。
 
@@ -113,7 +113,7 @@ def route(hidden, W_router, top_k, bias):
 
 打印一个 MoE 配置的"稠密等价"。DeepSeek-V3 形状：256 个路由 + 1 个共享，8 个激活，d_model=7168。总参数量令人咋舌。激活量是稠密 Llama 3 70B 的七分之一。
 
-## 上手使用
+## 实际使用
 
 HuggingFace 加载：
 
@@ -134,7 +134,7 @@ model = AutoModelForCausalLM.from_pretrained("mistralai/Mixtral-8x22B-v0.1")
 - 延迟关键的单用户服务——专家路由增加开销。
 - 小模型（<7B）——MoE 的质量优势只在某个算力阈值（~6B 激活参数）以上才出现。
 
-## 交付
+## 拿去用
 
 见 `outputs/skill-moe-configurator.md`。这个 skill 会根据参数预算、训练 token 数和部署目标，为一个新 MoE 挑选 E、k 和共享专家布局。
 

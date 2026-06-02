@@ -14,7 +14,7 @@
 - 用恰当的指标实现任务特定的 eval：exact match、F1、BLEU 和 LLM-as-judge 打分
 - 设计一套针对你具体用例的自定义评估套件，而不是只靠公开排行榜
 
-## 问题所在
+## 问题背景
 
 MMLU 于 2020 年发布，涵盖 57 个学科的 15,908 道题。三年内，前沿模型把它刷饱和了。GPT-4 得 86.4%。Claude 3 Opus 得 86.8%。Llama 3 405B 得 88.6%。排行榜压缩进一个 3 分的区间，差异是统计噪声，不是真实的能力差距。
 
@@ -410,7 +410,7 @@ for quality, label in [(0.9, "Strong model"), (0.7, "Medium model"), (0.4, "Weak
     print(f"  {label} (quality={quality}): perplexity = {ppl:.2f}")
 ```
 
-## 上手使用
+## 实际使用
 
 ### lm-evaluation-harness（EleutherAI）
 
@@ -474,7 +474,7 @@ tests:
 
 RAGAS 衡量通用 eval 漏掉的东西：模型的答案是否扎根于检索到的上下文，而不只是抽象意义上答案 "正确"。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/prompt-eval-designer.md`——一个可复用的 prompt，为任意任务设计自定义 eval 套件。给它一段任务描述，它生成测试用例、打分函数和一个通过/失败阈值建议。
 

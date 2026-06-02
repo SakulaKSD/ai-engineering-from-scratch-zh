@@ -14,7 +14,7 @@
 - 区分输入 guardrail、输出 guardrail 和工具 guardrail；解释 `run_in_parallel` vs 阻塞模式。
 - 用标准库实现一个运行时，带 handoff + guardrail + span 式 tracing。
 
-## 问题所在
+## 问题背景
 
 不能干净委派的 agent 最后会把一切都塞进一个 prompt。没有 guardrail 的 agent 会泄露 PII、产出违反策略的内容，或者永远循环下去。OpenAI 的 SDK 把让多 agent 工作变得可控的三个原语固化下来。
 
@@ -84,14 +84,14 @@ python3 code/main.py
 
 轨迹展示两次成功的 handoff、一次输入 guardrail 触发，以及一棵镜像真实 SDK 所发出内容的 span 树。
 
-## 上手使用
+## 实际使用
 
 - **OpenAI Agents SDK** 用于 OpenAI 优先的产品。
 - **Claude Agent SDK**（第 17 课）用于 Claude 优先的产品。
 - **LangGraph**（第 13 课）当你想要显式状态和持久恢复时。
 - **自定义** 当你需要精确控制时（语音、多厂商、联邦部署）。
 
-## 交付
+## 拿去用
 
 `outputs/skill-agents-sdk-scaffold.md` 脚手架出一个 Agents SDK 应用，带分流 agent、handoff、输入/输出/工具 guardrail、session 存储和一个 trace processor。
 

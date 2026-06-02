@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 08（用于文本的 CNN + RNN）、Phase 3 · 11（PyTorch 入门）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 分类把一个变长序列映射到单个标签。翻译把一个变长序列映射到另一个变长序列。输入和输出活在不同的词表里，可能是不同的语言，长度也不保证对等。
 
@@ -133,7 +133,7 @@ seq_len=40  copy accuracy: 23%
 
 单个 GRU 隐藏状态没法无损地记住一个 40-token 的输入。信息在每个编码器步骤里都在，但解码器只看到最后那个状态。注意力直接修了这个。
 
-## 上手使用
+## 实际使用
 
 PyTorch 有基于 `nn.Transformer` 和 `nn.LSTM` 的 seq2seq 模板。Hugging Face 的 `transformers` 库提供在数十亿 token 上训练的完整编码器-解码器模型（BART、T5、mBART、NLLB）。
 
@@ -166,7 +166,7 @@ print(tok.decode(out[0], skip_special_tokens=True))
 
 三者至今都适用于基于 transformer 的生成。
 
-## 交付
+## 拿去用
 
 存为 `outputs/prompt-seq2seq-design.md`：
 

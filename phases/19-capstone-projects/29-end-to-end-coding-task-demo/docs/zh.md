@@ -15,7 +15,7 @@
 - 为整次运行发出完整的 OTel GenAI trace 与 Prometheus metrics。
 - 验证 agent 在少于 12 步内修好 fixture，且对合法工具 0 次 gate trip。
 
-## 问题所在
+## 问题背景
 
 大多数 agent demo 单拆开都很漂亮：sandbox 自己看起来没问题，eval harness 自己也没问题，span emitter 也一样。真拼起来，接缝就开始漏。
 

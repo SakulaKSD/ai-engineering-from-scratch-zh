@@ -7,7 +7,7 @@
 **前置要求：** 阶段 6 · 04（ASR）、阶段 5 · 10（注意力）、阶段 7 · 05（完整 Transformer）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 Whisper 由 OpenAI 在 2022 年 9 月发布，是第一个像日用品一样交付的 ASR 模型：贴进音频，拿到文本，99 种语言，抗噪，能在笔记本上跑。到 2024 年 OpenAI 已经放出了 Large-v3 和 Turbo 变体；到 2026 年，从播客转写到语音助手再到 YouTube 字幕，Whisper 是这一切的默认基线。
 
@@ -134,7 +134,7 @@ with torch.inference_mode():
 
 用热力图可视化——你会看到解码器逐步扫过编码器帧时呈现的对角对齐。那条对角线就是 Whisper 对词级时间戳的理解。
 
-## 上手使用
+## 实际使用
 
 2026 年的工具栈：
 
@@ -156,7 +156,7 @@ with torch.inference_mode():
 - **短音频补齐。** 一段 2 秒音频补齐到 30 秒，可能在尾部静音里产生幻觉。用 `pad=False` 或 VAD 把门。
 - **梅尔统计量用错。** 用 librosa 的梅尔而不是 Whisper 的，会产生近乎随机的输出。用 `whisper.audio.log_mel_spectrogram`。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-whisper-tuner.md`。为给定领域设计一条 Whisper 微调或推理流水线。
 

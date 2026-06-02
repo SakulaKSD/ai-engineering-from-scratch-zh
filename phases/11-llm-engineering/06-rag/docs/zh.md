@@ -15,7 +15,7 @@
 - 解释为什么知识接地的应用里 RAG 比微调更受青睐（成本、时效、可溯源）
 - 用检索指标（precision、recall）和生成指标（忠实度、相关性）评估 RAG 质量
 
-## 问题所在
+## 问题背景
 
 你给你公司做一个聊天机器人。一个客户问"企业版套餐的退款政策是什么？"LLM 给出一个关于典型 SaaS 退款政策的泛泛答案。真正的政策，埋在一份 200 页的内部 wiki 里，写着企业客户有 60 天窗口期、按比例退款。LLM 从没见过这份文档。它不可能知道自己没被训练过的东西。
 
@@ -324,7 +324,7 @@ def simple_generate(prompt, retrieved_chunks):
     return best_sentence if best_sentence else "I don't have enough information."
 ```
 
-## 上手使用
+## 实际使用
 
 用上真正的嵌入模型和 LLM，代码几乎不变：
 
@@ -388,7 +388,7 @@ results = collection.query(
 
 Chroma 在内部处理嵌入（默认用 all-MiniLM-L6-v2），并把向量存在一个本地数据库里。同样的模式，不同的管道。
 
-## 交付
+## 拿去用
 
 本节课产出：
 - `outputs/prompt-rag-architect.md`——一个 prompt，为特定用例设计 RAG 系统

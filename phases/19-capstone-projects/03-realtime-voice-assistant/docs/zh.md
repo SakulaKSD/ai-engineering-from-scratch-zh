@@ -8,7 +8,7 @@
 **涉及阶段：** P6 · P7 · P11 · P13 · P14 · P17
 **预计时间：** 30 小时
 
-## 问题所在
+## 问题背景
 
 语音是 2025-2026 年走得最快的 AI 体验品类。技术天花板每个季度都在往下掉。OpenAI Realtime API、Gemini 2.5 Live、Cartesia Sonic-2、ElevenLabs Flash v3、LiveKit Agents 1.0、Pipecat 0.0.70，全都把 800ms 以下的首音输出变得触手可及。这条线不只是延迟，更是交互手感：不打断用户、不被打断、从一句话中途被打断后能恢复、对话中途调用工具而不卡住音频、扛得住抖动的移动网络。
 
@@ -89,7 +89,7 @@ browser / Twilio PSTN
 
 9. **压力测试。** 用合成呼叫者在单台 g5.xlarge 上驱动 50 路并发通话。衡量持续的首音输出 p95。
 
-## 上手使用
+## 实际使用
 
 ```
 caller: "what is the weather in tokyo tomorrow"
@@ -102,7 +102,7 @@ caller: "what is the weather in tokyo tomorrow"
 turn latency: 1040ms user-stop -> audio-out
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-voice-agent.md` 是交付物。给定一个领域（客服、排程或自助终端），它会立起一个 LiveKit agent，把 ASR/VAD/LLM/TTS 流水线调到衡量线上。评分标准：
 

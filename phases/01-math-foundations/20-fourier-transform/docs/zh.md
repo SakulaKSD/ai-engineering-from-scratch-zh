@@ -14,7 +14,7 @@
 - 应用卷积定理，用 FFT 乘法来做卷积
 - 把傅里叶频率分解和 transformer 位置编码、CNN 卷积层联系起来
 
-## 问题所在
+## 问题背景
 
 一段录音是随时间变化的一串气压测量值。一只股票价格是随天数变化的一串值。一张图像是随空间变化的一格像素强度。所有这些都是时域（或空间域）里的数据。你看到值随某个索引变化。
 
@@ -368,7 +368,7 @@ def convolve_fft(x, h):
     return [y[n].real for n in range(N)]
 ```
 
-## 上手使用
+## 实际使用
 
 实际工作中，用 numpy 的 FFT，它由高度优化的 C 库支撑。
 
@@ -414,7 +414,7 @@ spectrogram = np.abs(Zxx) ** 2
 
 声谱图矩阵的形状是 (n_frequencies, n_time_frames)。每一列是一个时间窗的功率谱。这就是音频 ML 模型作为输入消费的东西。
 
-## 交付
+## 拿去用
 
 运行 `code/fourier.py` 来生成 `outputs/prompt-spectral-analyzer.md`。
 

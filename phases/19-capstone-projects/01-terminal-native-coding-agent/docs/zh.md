@@ -8,7 +8,7 @@
 **涉及阶段：** P0 · P5 · P7 · P10 · P11 · P13 · P14 · P15 · P17 · P18
 **预计时间：** 35 小时
 
-## 问题所在
+## 问题背景
 
 2026 年，编码 agent 成了主导性的 AI 应用品类。Claude Code（Anthropic）、带 Composer 2 和 Agent Tabs 的 Cursor 3（Cursor）、Amp（Sourcegraph）、OpenCode（11.2 万 stars）、Factory Droids、Google Jules，全都是同一套架构的变体：一个终端外壳、一组带权限的工具面、一个沙箱，以及围绕前沿模型搭起来的规划-行动-观察循环。前沿很窄——Live-SWE-agent 用 Opus 4.5 在 SWE-bench Verified 上拿到了 79.2%——但工程手艺的空间很宽。绝大多数失败模式都不是模型出错。它们是工具循环不稳、上下文中毒、token 成本失控，以及破坏性的文件系统操作。
 
@@ -79,7 +79,7 @@
 
 8. **PR 发布。** 成功时，最后一步是 `git push` 加一次 GitHub API 调用，开一个 PR，正文里放上计划和 diff 摘要。
 
-## 上手使用
+## 实际使用
 
 ```
 $ agent run ./my-repo "Fix the race condition in worker.rs"
@@ -94,7 +94,7 @@ $ agent run ./my-repo "Fix the race condition in worker.rs"
 [done]  PR opened: #482   turns=9   tokens=38k   cost=$0.41
 ```
 
-## 交付
+## 拿去用
 
 可交付的 skill 放在 `outputs/skill-terminal-coding-agent.md`。给定一个仓库路径和一段任务描述，它会在沙箱里跑完整的规划-行动-观察循环，返回一个 PR URL 加一份 trace 包。这个顶点项目的评分标准：
 

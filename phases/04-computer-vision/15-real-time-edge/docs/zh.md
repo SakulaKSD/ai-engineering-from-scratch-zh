@@ -14,7 +14,7 @@
 - 导出到 ONNX 并用 ONNX Runtime 或 TensorRT 编译；说出三种最常见的导出失败及其修法
 - 解释边缘约束下何时挑 MobileNetV3、EfficientNet-Lite、ConvNeXt-Tiny 或 MobileViT
 
-## 问题所在
+## 问题背景
 
 训练时的视觉模型是个浮点怪兽。1 亿参数，每次前向 10 GFLOPs，2 GB 显存。这些没一样塞得进手机、车载信息娱乐单元、工业相机或无人机。交付一个视觉系统，意味着把同样的预测塞进一个小 100 倍的预算里。
 
@@ -226,7 +226,7 @@ def compare_regimes():
 
 对 `resnet50`、`efficientnet_v2_s` 和 `convnext_tiny` 跑同一个函数，你就有了做部署决策所需的对比表。
 
-## 上手使用
+## 实际使用
 
 生产栈收敛到三条路径之一：
 
@@ -236,7 +236,7 @@ def compare_regimes():
 
 测量方面，`torch-tb-profiler`、`nvprof` / `nsys`，以及 macOS 上的 Instruments 给出逐层分解。`benchmark_app`（OpenVINO）和 `trtexec`（TensorRT）给出独立的 CLI 数字。
 
-## 交付
+## 拿去用
 
 这一课产出：
 

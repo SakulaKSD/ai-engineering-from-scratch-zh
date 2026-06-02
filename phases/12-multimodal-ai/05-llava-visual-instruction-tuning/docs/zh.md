@@ -14,7 +14,7 @@
 - 用图像 token 占位符、系统 prompt 和 user/assistant 轮次构造一个 LLaVA 格式的 prompt。
 - 解释为什么尽管 Q-Former 在 token 预算上占优，社区还是从 Q-Former 转向了 MLP。
 
-## 问题所在
+## 问题背景
 
 BLIP-2 的 Q-Former（第 12.03 课）把一张图压缩成 32 个 token。干净、高效、刷榜好用。但它有两个问题。
 
@@ -126,7 +126,7 @@ LLaVA-1.5-7B 拆解：
 
 阶段 2 训练成本：8xA100 上约 20 小时。这是关键数字——一天、一个节点、可复现。这就是 LLaVA 扩散开来的原因。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 实现了：
 
@@ -134,7 +134,7 @@ LLaVA-1.5-7B 拆解：
 2. prompt 构建流水线：系统 prompt + `<image>` 替换成 N 个投影 token + 用户轮次 + 助手生成占位符。
 3. 一个可视化器，展示 576-token 的视觉块在 LLM 上下文里长什么样（占 2k / 32k / 128k 上下文的百分比）。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/skill-llava-vibes-eval.md`。给定一个 LLaVA 家族的 checkpoint，它跑一个 10-prompt 的氛围评测套件（3 个看图说话、3 个 VQA、2 个推理、2 个拒答），输出一张人可读的记分卡。这不是基准；是个冒烟测试，用来确认投影器和 LLM 接得好不好。
 

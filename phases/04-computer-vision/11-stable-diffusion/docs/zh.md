@@ -14,7 +14,7 @@
 - 用 `diffusers` 生成图像，跑图到图、inpainting，以及 ControlNet 引导的生成
 - 在一个小的自定义数据集上用 LoRA 微调 Stable Diffusion，并在推理时加载 LoRA 适配器
 
-## 问题所在
+## 问题背景
 
 直接在 512x512 RGB 图像上训练 DDPM 很贵。每个训练步都要反向穿过一个看 3x512x512 = 786,432 个输入值的 U-Net，而采样要 50+ 次穿过同一个 U-Net 的前向。在 Stable Diffusion 1.5（2022 年发布）的质量水平上，像素空间扩散大约需要 256 GPU-月的训练，在消费级 GPU 上每张图 10-30 秒。
 
@@ -222,7 +222,7 @@ for step, batch in enumerate(dataloader):
 
 只有 LoRA 矩阵接收梯度；基座 U-Net、VAE 和文本编码器都冻结。batch size 为 1 加梯度检查点，这能塞进 8 GB 显存。
 
-## 上手使用
+## 实际使用
 
 生产中，你真正要做的决策：
 
@@ -233,7 +233,7 @@ for step, batch in enumerate(dataloader):
 
 批量生成用社区工具 `AUTO1111` / `ComfyUI`；生产 API 用 `diffusers` + `accelerate`，或带 TensorRT 编译的 `optimum-nvidia`。
 
-## 交付
+## 拿去用
 
 这一课产出：
 

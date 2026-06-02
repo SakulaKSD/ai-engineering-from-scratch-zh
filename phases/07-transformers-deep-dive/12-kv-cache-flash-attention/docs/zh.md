@@ -7,7 +7,7 @@
 **前置要求：** 阶段 7 · 02（Self-Attention）、阶段 7 · 05（完整的 Transformer）、阶段 7 · 07（GPT）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 一个朴素的自回归解码器生成 `N` 个 token 要做 `O(N²)` 的功：每一步都对整个前缀重算注意力。一个 4K token 的回复就是 1600 万次注意力运算，大部分是冗余的。一个前缀 token 的隐藏状态一旦算出就是确定的——你只需要拿新 token 的 query 去和之前所有东西的缓存 key、value 算一遍。
 
@@ -166,7 +166,7 @@ def tiled_softmax_dot(q, K, V, tile=4):
 
 数注意力运算数。朴素：`O(N²)` = 5050。缓存：`O(N)` = 100。代码两个都打印。
 
-## 上手使用
+## 实际使用
 
 ```python
 # HuggingFace transformers 在纯解码器 generate() 上自动开启 KV 缓存。
@@ -192,7 +192,7 @@ vllm serve meta-llama/Llama-3.1-70B-Instruct \
 
 跨请求的前缀缓存是 2026 年的一大胜利——相同的系统 prompt、少样本示例或长上下文文档，跨调用复用 KV。对于有重复工具 prompt 的 agent 负载，前缀缓存常常带来 5 倍吞吐提升。
 
-## 交付
+## 拿去用
 
 见 `outputs/skill-inference-optimizer.md`。这个 skill 为一个新的推理部署挑选注意力实现、KV 缓存策略、量化和投机解码。
 

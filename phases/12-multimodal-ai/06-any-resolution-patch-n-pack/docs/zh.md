@@ -14,7 +14,7 @@
 - 在不缩放的前提下计算 OCR、图表和摄影图的 token 预算。
 - 说出方块缩放的三种失败模式：被挤扁的文字、被裁掉的内容、浪费在填充上的 token。
 
-## 问题所在
+## 问题背景
 
 Transformer 期望一条序列。一个 batch 是一摞相同长度的序列。如果你的图都是 224x224，那每次都得到 196 个 patch token，不用填充，搞定。在 224 上训，在 224 上推，从此再不用想分辨率的事。
 
@@ -93,7 +93,7 @@ M[i, j] = 1 iff there exists b where offsets[b] <= i < offsets[b+1] and offsets[
 
 2026 年的生产法则：为每个任务挑一个最大像素上限，在该上限内以原生长宽比编码，打包 batch，跳过填充。Qwen2.5-VL 暴露了 `min_pixels` 和 `max_pixels`，正是这根旋钮。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 为一个异质图像 batch（整数像素坐标）实现了 patch-n'-pack。它：
 
@@ -106,7 +106,7 @@ M[i, j] = 1 iff there exists b where offsets[b] <= i < offsets[b+1] and offsets[
 
 跑一下。掉出来的那些数字，就是每个 2026 年开放 VLM 都用 patch-n'-pack 的原因。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/skill-resolution-budget-planner.md`。给定一个混合长宽比的工作负载（OCR、图表、照片、视频帧）和一个总 token 预算，它挑出正确的策略（NaFlex、AnyRes、M-RoPE 或固定方块），并产出每请求的配置。当你为某个产品给 VLM 定规格时就用这个 skill——它能避免那种悄无声息、压垮延迟预算的 10 倍 token 暴涨。
 

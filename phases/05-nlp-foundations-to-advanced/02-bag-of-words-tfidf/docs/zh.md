@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 01（文本处理）、Phase 2 · 02（从零实现线性回归）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 模型要的是数字，你手上是字符串。
 
@@ -135,7 +135,7 @@ def l2_normalize(matrix):
 
 不归一化的话，更长的文档会得到更大的向量，进而主导相似度分数。L2 归一化把每篇文档都放到单位超球面上。这样行与行之间的余弦相似度就只是一次点积。
 
-## 上手使用
+## 实际使用
 
 scikit-learn 自带生产版本。
 
@@ -207,7 +207,7 @@ def tfidf_weighted_embedding(doc, tfidf_scores, embedding_table, dim):
 
 你从 embedding 拿到语义能力，从 TF-IDF 拿到对罕见词的强调。分类器在池化后的向量上训练。在约 5 万标注样本以下的情感、主题、意图分类任务上，它的表现胜过单独用任何一种。
 
-## 交付
+## 拿去用
 
 存为 `outputs/prompt-vectorization-picker.md`：
 

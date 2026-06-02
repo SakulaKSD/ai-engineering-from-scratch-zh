@@ -14,7 +14,7 @@
 - 分析跨语言和代码场景下的分词产物，找出特定 tokenizer 失效的地方
 - 用 tiktoken 和 sentencepiece 库对文本分词，检查得到的 token ID
 
-## 问题所在
+## 问题背景
 
 你的 LLM 不读英文。它不读任何一种语言。它读的是数字。
 
@@ -369,7 +369,7 @@ def analyze_vocabulary(tokenizer, test_texts):
 
 这揭示了你词表里的 Zipf 分布。少数几个 token 占据主导（空格、"the"、"e"）。大多数 token 很少被用到。生产级 tokenizer 针对这种分布做优化——常见模式拿到短的 token ID，罕见模式用更长的表示。
 
-## 上手使用
+## 实际使用
 
 你从零写的 BPE 跑通了。现在看看生产工具长什么样。
 
@@ -431,7 +431,7 @@ for text in multilingual:
 
 Llama 3 的 128K 词表对非英语文本的压缩，明显好过 GPT-2 的 50K 词表。你可以自己验证——用多种语言编码同一句话，数一数 token 数。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/prompt-tokenizer-analyzer.md`——一个可复用的 prompt，能为任意文本和模型组合分析分词效率。喂给它一段文本样本，它会告诉你哪个模型的 tokenizer 处理得最好。
 

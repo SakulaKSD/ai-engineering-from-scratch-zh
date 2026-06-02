@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 14（信息检索）、Phase 5 · 22（嵌入模型）
 **预计时间：** ~60 分钟
 
-## 问题所在
+## 问题背景
 
 你把一份 50 页的合同放进 RAG 系统。用户问："What is the termination clause?"。检索器返回封面页。为什么？因为模型是在 512-token 块上训练的，而终止条款埋在 20 页之后、跨页断开，本地又没有把它和查询挂上钩的关键词。
 
@@ -187,7 +187,7 @@ def recall_at_k(queries, corpus_chunks, encoder, k=5):
 - **没有最小/最大约束。** 5 token 或 5000 token 的块都会破坏检索。夹住。
 - **跨文档分块。** 绝不让一个块跨两篇文档。永远按文档分块，再合并。
 
-## 上手使用
+## 实际使用
 
 2026 年的栈：
 
@@ -202,7 +202,7 @@ def recall_at_k(queries, corpus_chunks, encoder, k=5):
 
 从递归 512 起步。在一个 50 查询的评估集上测 recall@5。再从那里调。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-chunker.md`：
 

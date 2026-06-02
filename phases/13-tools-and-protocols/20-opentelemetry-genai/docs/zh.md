@@ -14,7 +14,7 @@
 - 决定捕获什么内容（选择加入）vs 脱敏什么（默认）。
 - 不重写工具代码就把 span 发到一个本地 collector（Jaeger、Langfuse）。
 
-## 问题所在
+## 问题背景
 
 2026 年 2 月的一次调试：用户报告"我的 agent 有时要 30 秒才响应；其他时候 3 秒"。没有 trace。日志显示了 LLM 调用，但没有工具分发、没有 MCP server 来回、没有子 agent。你猜。最终你查到：一个 MCP server 偶尔在冷启动上卡住。
 
@@ -109,7 +109,7 @@ OTel span 导出到：
 
 AgentOps（2024 年创立）专注于 GenAI 可观测性。它包住流行框架（LangGraph、Pydantic AI、CrewAI），自动发出 OTel span。如果你的栈用一个受支持框架就有用；否则用手动埋点。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 为一个调用一个 LLM、分发两个工具、做一次 MCP 来回的 agent，往 stdout 发出 OTel 形状的 span（以类 OTLP-JSON 的格式）。没有真实 exporter——本课聚焦于 span 形状和属性集。把输出粘进一个 OTLP 兼容查看器，或者就直接读它。
 
@@ -120,7 +120,7 @@ AgentOps（2024 年创立）专注于 GenAI 可观测性。它包住流行框架
 - 必需的 `gen_ai.*` 属性都填了。
 - 内容捕获默认关闭；一个场景经由环境变量把它打开。
 
-## 交付
+## 拿去用
 
 本课产出 `outputs/skill-otel-genai-instrumentation.md`。给定一个 agent 代码库，这个 skill 产出一份埋点计划：在哪里加 span、填哪些属性，以及瞄准哪些 exporter。
 

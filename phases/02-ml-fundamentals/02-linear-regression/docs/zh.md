@@ -14,7 +14,7 @@
 - 构建一个带特征标准化的多元线性回归模型，并解读学到的权重
 - 解释 Ridge 回归（L2 正则化）如何通过惩罚大权重来防止过拟合
 
-## 问题所在
+## 问题背景
 
 你手上有数据：一批房子的面积和它们的成交价。你想根据一套新房子的面积预测它的价格。你可以在散点图上靠眼睛估，但你需要一个公式。你需要一条最贴合数据的直线，这样代入任意面积就能得到价格预测。
 
@@ -460,7 +460,7 @@ print(f"Plain weights: {[round(w, 4) for w in multi_model.weights]}")
 print("Ridge weights are smaller (shrunk toward zero) due to the L2 penalty.")
 ```
 
-## 上手使用
+## 实际使用
 
 现在用 scikit-learn 做同样的事，这才是你在生产里真正会用的。
 
@@ -508,7 +508,7 @@ print(f"Ridge coefficient: {ridge.coef_[0]:.4f}")
 
 你的从零实现和 scikit-learn 产出相同的结果。区别在于：scikit-learn 处理了边界情况、数值稳定性和性能优化。生产用库，从零版用来理解底层发生了什么。
 
-## 交付
+## 拿去用
 
 本节课产出：
 - `outputs/skill-regression.md` - 一个根据问题选择合适回归方法的 skill

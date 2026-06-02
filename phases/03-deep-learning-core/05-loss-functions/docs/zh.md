@@ -14,7 +14,7 @@
 - 把标签平滑（label smoothing）应用到交叉熵上，并说明它如何防止过度自信的预测
 - 为回归、二分类、多分类和嵌入学习任务选对损失函数
 
-## 问题所在
+## 问题背景
 
 一个在分类问题上最小化 MSE 的模型，会自信地对所有东西都预测 0.5。它在最小化损失。它也毫无用处。
 
@@ -388,7 +388,7 @@ class LossComparisonNetwork:
         return losses
 ```
 
-## 上手使用
+## 实际使用
 
 PyTorch 提供了所有标准损失函数，数值稳定性也内置好了：
 
@@ -413,7 +413,7 @@ ce_smooth = F.cross_entropy(logits, labels, label_smoothing=0.1)
 
 对比学习方面，大多数团队用自定义实现，或者 `lightly`、`pytorch-metric-learning` 这类库。核心循环永远一样：算两两相似度、对正样本和负样本做 softmax、反向传播。
 
-## 交付
+## 拿去用
 
 本课产出：
 - `outputs/prompt-loss-function-selector.md` —— 一个可复用的提示词，用于选对损失函数

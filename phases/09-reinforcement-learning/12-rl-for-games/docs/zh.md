@@ -7,7 +7,7 @@
 **前置要求：** Phase 9 · 05（DQN）、Phase 9 · 08（PPO）、Phase 9 · 09（RLHF）、Phase 9 · 10（MARL）
 **预计时间：** ~120 分钟
 
-## 问题所在
+## 问题背景
 
 游戏拥有 RL 想要的一切。干净的奖励（赢/输）。无限的 episode（自我对弈自动重置）。完美的仿真（游戏*就是*仿真器）。离散或小的连续动作空间。逼出对抗稳健性的多 agent 结构。
 
@@ -147,7 +147,7 @@ def grpo_step(theta, p_idx, G=8, beta=0.01, lr=0.1, rng=None):
 - **算力门槛。** MuZero / AlphaZero 需要庞大算力。单次消融常常要几百 GPU 小时。有微缩 demo（如四子棋上的 AlphaZero）供学习。
 - **验证器覆盖。** 对一个有 bug 的解也通过的单元测试会强化那个 bug。设计能抓住边界情况的验证器。
 
-## 上手使用
+## 实际使用
 
 2026 年的游戏 RL 全景，按领域：
 
@@ -164,7 +164,7 @@ def grpo_step(theta, p_idx, G=8, beta=0.01, lr=0.1, rng=None):
 
 这套*配方*——自我对弈、搜索增强的改进、策略蒸馏——横跨文本、像素和物理控制。GRPO 是最年轻的实例；还会有更多。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-game-rl-designer.md`：
 

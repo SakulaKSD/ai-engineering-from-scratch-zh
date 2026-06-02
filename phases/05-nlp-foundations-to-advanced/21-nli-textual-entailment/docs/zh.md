@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 05（情感分析）、Phase 5 · 13（问答）
 **预计时间：** ~60 分钟
 
-## 问题所在
+## 问题背景
 
 你做了个摘要器。它产出了一份摘要。你怎么知道摘要里没有幻觉？
 
@@ -108,7 +108,7 @@ def is_faithful(answer, context, threshold=0.5):
 - **zero-shot 模板敏感。** "This example is about {label}" vs "{label}" vs "The topic is {label}" 能把准确率摆动 10+ 个点。调模板。
 - **领域不匹配。** MNLI 在通用英语上训练。法律、医学、科学文本需要领域专用 NLI 模型（如 SciNLI、MedNLI）。
 
-## 上手使用
+## 实际使用
 
 2026 年的栈：
 
@@ -123,7 +123,7 @@ def is_faithful(answer, context, threshold=0.5):
 
 2026 年的元模式：NLI 是文本理解的强力胶带。每当你需要"A 支持 B 吗？"或"A 与 B 矛盾吗？"——在伸手再发一次 LLM 调用之前，先伸手抓 NLI。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-nli-picker.md`：
 

@@ -16,7 +16,7 @@
 - 每隔 K 步用 `generate_and_print_sample` 生成一段定性样本，在 loss curve 先崩之前抓到异常。
 - 把每一步的 loss 持久化到 JSONL，这样训练日志能被重载、绘图和交付。
 
-## 问题所在
+## 问题背景
 
 一个训练脚本如果只会打印 loss，但除此之外什么都不做，会在三处同时失明。它不知道 loss 降下来到底是不是对的（模型也许只是过拟合训练集）；它不知道发散是不是已经开始（有的 run 会先 spike 一步再恢复，有的则一步直接崩掉）；它更不知道模型到底学会了什么（loss 只是标量，样本生成出来才像人话）。这三类失败，只有肯测才看得到。
 
@@ -104,7 +104,7 @@ python3 code/main.py
 
 **Eval batch 要来自固定切片。** validation token 在脚本启动时就要切好，而不是边跑边抽。可复现的前提，就是每次 run 看到的 eval batch 完全一致。否则你比较的不是模型差异，而是 batch 顺序噪声。
 
-## 上手使用
+## 实际使用
 
 - 本课的 loop 与真实 124M 模型训练用的是同一骨架。把合成 token tensor 换成 `datasets` 风格的 loader，主体逻辑根本不用改。
 - JSONL 日志本身就是交付物，它把“训练过程”变成证据。下一课会直接拿它来对比 freshly trained checkpoint 与 pretrained one。

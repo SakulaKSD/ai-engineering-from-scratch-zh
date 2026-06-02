@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 04（GloVe、FastText、子词）、Phase 5 · 11（机器翻译）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 英语有数十亿标注样本。乌尔都语有几千。迈蒂利语几乎没有。任何服务全球受众的实用 NLP 系统，都得在那条没有任务专属训练数据的语言长尾上工作。
 
@@ -141,7 +141,7 @@ def few_shot_finetune(base_model, base_tokenizer, examples):
 - **实体级测试。** 目标语言里的命名实体。多语言模型对远离拉丁文字的字符，分词往往很弱。
 - **跨语言一致性。** 两种语言里的同一含义应当产出同样的预测。测量这个差距。
 
-## 上手使用
+## 实际使用
 
 2026 年的栈：
 
@@ -168,7 +168,7 @@ def few_shot_finetune(base_model, base_tokenizer, examples):
 
 缓解：为你的目标语言挑一个覆盖好的分词器（XLM-V 的 100 万 token 词表是直接的修法）；训练前在留出的目标文本上验证分词碎裂度；对真正长尾的文字用字节级回退（SentencePiece `byte_fallback=True`、GPT-2 式字节级 BPE），让任何东西都不会 OOV。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-multilingual-picker.md`：
 

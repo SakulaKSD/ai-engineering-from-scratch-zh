@@ -7,7 +7,7 @@
 **前置要求：** 阶段 7 · 05（完整的 Transformer）、阶段 5 · 02（文本表示）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 2018 年，每个 NLP 任务——情感、NER、问答、蕴含——都在自己的标注数据上从零训练自己的模型。没有一个预训练好的"懂英语"的 checkpoint 供你微调。ELMo（2018）证明你可以用双向 LSTM 预训练上下文嵌入；它有帮助，但没法泛化。
 
@@ -107,7 +107,7 @@ def create_mlm_batch(tokens, vocab_size, mask_prob=0.15, rng=None):
 
 在一个玩具情感数据集上，把 MLM 头换成分类头。只有头在训练；编码器冻结。这是每个 BERT 应用遵循的范式。
 
-## 上手使用
+## 实际使用
 
 ```python
 from transformers import AutoModel, AutoTokenizer
@@ -126,7 +126,7 @@ out = model(**inputs).last_hidden_state   # (1, N, 768)
 
 **2026 年什么时候别选 BERT。** 任何生成式任务。编码器没有合理的方式自回归地产出 token。还有：任何 1B 参数以下、用一个小解码器就能以更高灵活性匹配质量的场景（Phi-3-Mini、Qwen2-1.5B）。
 
-## 交付
+## 拿去用
 
 见 `outputs/skill-bert-finetuner.md`。这个 skill 为一个新的分类或抽取任务规划一次 BERT 微调（骨干选择、头规格、数据、评测、停止条件）。
 

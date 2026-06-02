@@ -14,7 +14,7 @@
 - 设计一套多 agent 系统，角色边界清晰、有共享状态、有通信契约
 - 分析多 agent 复杂度（延迟、成本、调试难度）相对单 agent 简洁性的取舍
 
-## 问题所在
+## 问题背景
 
 你在 Phase 14 里造了一个单 agent。它能跑。它能读文件、跑命令、调 API、对结果做推理。然后你把它丢进一个真实代码库：200 个文件、三种语言、依赖基础设施的测试，外加一条「写代码前先去调研外部 API」的要求。
 
@@ -409,7 +409,7 @@ async function compare() {
 
 多 agent 版本用的总 token 更多（三个 agent、三次独立 LLM 调用），但每个 agent 的上下文都保持干净。每个阶段的质量都提升了，因为 system prompt 是专精的。
 
-## 上手使用
+## 实际使用
 
 本课产出一份可复用的 prompt，用来判断什么时候该上多 agent。见 `outputs/prompt-multi-agent-decision.md`。
 

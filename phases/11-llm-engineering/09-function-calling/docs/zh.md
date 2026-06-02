@@ -15,7 +15,7 @@
 - 构建一个多轮 agent 循环，链式调用多个函数来回答复杂查询
 - 处理 function calling 的边缘情况：并行工具调用、错误传播，以及防止无限工具循环
 
-## 问题所在
+## 问题背景
 
 你做一个聊天机器人。一个用户问："东京现在天气怎么样？"
 
@@ -555,7 +555,7 @@ def run_demo():
         print(f"  {tool_name}({list(args.values())[0][:40]}): {'BLOCKED' if blocked else 'ALLOWED'}")
 ```
 
-## 上手使用
+## 实际使用
 
 ### OpenAI Function Calling
 
@@ -671,7 +671,7 @@ Anthropic 把 tool call 作为 `type: "tool_use"` 的内容块返回。工具结
 
 MCP 把工具实现和工具消费解耦。Postgres server 懂 SQL。GitHub server 懂 API。你的 agent 只管发现并调用工具——它不需要为每个集成写 provider 专属的代码。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/prompt-tool-designer.md`——一个可复用的 prompt 模板，用来设计工具定义。给它一段描述说你想让工具干什么，它就产出完整的 JSON Schema 定义，带描述、类型和约束。
 

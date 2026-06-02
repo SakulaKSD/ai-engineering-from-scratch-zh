@@ -15,7 +15,7 @@
 - 套用查询变换技术（HyDE、multi-query、step-back），改善含糊或复杂问题上的检索
 - 诊断并修复常见的 RAG 失败：检索到错的块、答案不在上下文里、多跳推理崩溃
 
-## 问题所在
+## 问题背景
 
 你在第 06 课构建了一条基础 RAG 流水线。它对小语料上的直白问题有效。现在试试这些：
 
@@ -415,7 +415,7 @@ def evaluate_retrieval_recall(queries_with_relevant, retrieval_fn, k=5):
     return avg_recall, results
 ```
 
-## 上手使用
+## 实际使用
 
 用一个真正的 cross-encoder 做重排：
 
@@ -486,7 +486,7 @@ response = collection.query.hybrid(
 
 alpha 参数控制平衡：0.0 = 纯关键词（BM25），1.0 = 纯向量，0.5 = 等权。大多数生产系统用 0.3 到 0.7 之间的 alpha。
 
-## 交付
+## 拿去用
 
 本节课产出：
 - `outputs/prompt-advanced-rag-debugger.md`——一个 prompt，诊断并修复 RAG 质量问题

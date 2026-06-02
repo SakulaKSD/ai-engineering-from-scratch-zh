@@ -101,7 +101,7 @@ python3 code/main.py
 - **先去重再 tokenize。** Tokenization 很贵。同一个文档跑两遍就是两倍代价换同一条 loss 曲线。去重在 tokenization 上游，不是下游。
 - **Manifest 作为合入门禁。** 训练运行从 pinned commit 读 manifest sha256。新版本数据集就需要一个新的 manifest commit。代码和数据的关联靠 git，不靠口口相传。
 
-## 交付
+## 拿去用
 
 `outputs/skill-corpus-downloader.md` 在真实项目中会描述哪些 URL 喂给下载器、检查点目录怎么布局、去重用什么 shingle 宽度和 `(k, b, r)` 三元组、manifest 在版本控制中放在哪里。本课交付的是引擎。
 

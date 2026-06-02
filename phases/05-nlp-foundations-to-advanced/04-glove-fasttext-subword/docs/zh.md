@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 03（从零实现 Word2Vec）
 **预计时间：** ~45 分钟
 
-## 问题所在
+## 问题背景
 
 Word2Vec 留下了两个悬而未决的问题。
 
@@ -172,7 +172,7 @@ def apply_bpe(word, merges):
 
 真实的 GPT / BERT / T5 分词器会学 3 万到 10 万次合并。结果是：任何文本都分成长度有界的已知 ID 序列，永远不会有 OOV。
 
-## 上手使用
+## 实际使用
 
 实践中你很少自己训这些，而是加载预训练 checkpoint。
 
@@ -209,7 +209,7 @@ print(tok.tokenize("unbelievably tokenized"))
 | 从零训练你自己的语言模型 | 先在你的语料上训一个 BPE 或 SentencePiece 分词器 |
 | 用线性模型做生产级文本分类 | 还是 TF-IDF。见第 02 课。 |
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-embeddings-picker.md`：
 

@@ -7,7 +7,7 @@
 **前置要求：** Phase 14（Agent 工程）、Phase 16 · 01（为什么要用多 agent）
 **预计时间：** ~60 分钟
 
-## 问题所在
+## 问题背景
 
 每隔半年就冒出一个新的多 agent 框架。2023 年的 AutoGen。2024 年的 CrewAI。2024 年的 LangGraph 和 OpenAI Swarm。2025 年 4 月的 Google ADK。2026 年 2 月的 Microsoft Agent Framework RC。每篇新闻稿都自称是「那个对的抽象」。
 
@@ -132,11 +132,11 @@ python3 code/main.py
 
 预期输出：三次 orchestrator 运行，每种模式一次。每次都打印最终的消息池。如果 researcher 提前判定自己干完了，handoff 驱动的那次会触达更少的 agent——这就是 LLM 路由取舍的微缩版。
 
-## 上手使用
+## 实际使用
 
 `outputs/skill-primitive-mapper.md` 是一个 skill，它读取任意多 agent 代码库或框架文档，返回四原语映射。在一个新框架发布时跑一下它，在深入读文档之前先得到一段话的理解。
 
-## 交付
+## 拿去用
 
 在采用一个新框架之前，先为它写出原语映射。如果你写不出来，要么文档不完整，要么这个框架在发明第五个原语（罕见——检查一下是不是某种你没见过的共享状态口味）。
 

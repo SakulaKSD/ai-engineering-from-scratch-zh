@@ -14,7 +14,7 @@
 - 画出每个平台的 FinOps 归因视图（Bedrock Application Inference Profiles vs Vertex 每团队一个 project vs Azure 作用域 + PTU 预留）。
 - 写下一条"双供应商起步"的策略，并解释为什么单一厂商锁定是 2026 年代价最高的错误。
 
-## 问题所在
+## 问题背景
 
 你给产品选了 Claude 3.7 Sonnet。现在你得把它服务出去。你可以直接调 Anthropic API，也可以走 AWS Bedrock，或者经过一个 gateway。直接调 API 最简单；Bedrock 加上了 BAA、VPC 端点、IAM 和 CloudWatch 归因。gateway 则跨多家供应商提供故障转移、统一账单和限流。
 
@@ -78,11 +78,11 @@ Vertex：HIPAA、GDPR、按区域的数据驻留；Google Cloud 的合规栈。
 - Azure PTU 盈亏平衡：~40-60% 的持续利用率。
 - 高利用率下 PTU 相比按需的节省：最多 70%。
 
-## 上手使用
+## 实际使用
 
 `code/main.py` 在一个合成工作负载上对比三个平台 —— 它对按需 vs PTU 的经济账、TTFT 方差和成本归因的精确度建模。跑一下，看看 PTU 在哪里划算，以及市场型的模型广度在哪里盖过 TTFT 的差距。
 
-## 交付
+## 拿去用
 
 这一课产出 `outputs/skill-managed-platform-picker.md`。给定一份工作负载画像（需要哪些模型、TTFT SLA、日活量、合规要求），它推荐一个主平台、一个回退平台，以及一套 FinOps 埋点方案。
 

@@ -15,7 +15,7 @@
 - 构建一个成本优化层，含 prompt 压缩、模型路由（贵 vs 便宜）和响应缓存
 - 为不同查询类型设计一套分层缓存策略，用精确匹配、语义相似度和前缀缓存
 
-## 问题所在
+## 问题背景
 
 你做一个 RAG 聊天机器人。它运行得漂亮。用户爱不释手。
 
@@ -748,7 +748,7 @@ if __name__ == "__main__":
     run_demo()
 ```
 
-## 上手使用
+## 实际使用
 
 ### Anthropic Prompt Caching
 
@@ -861,7 +861,7 @@ Batch API 对所有 token 给一律 50% 的折扣。结果在 24 小时内到达
 
 在生产里，把线性扫描换成一个向量索引（Redis Vector Search、Pinecone 或 pgvector）。线性扫描对 <1,000 条目有效。超过那个，用 ANN（近似最近邻）做 O(log n) 的查找。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/prompt-cost-optimizer.md`——一个可复用的 prompt，分析你的 LLM 应用并推荐具体的成本优化，附带预计节省。
 

@@ -7,7 +7,7 @@
 **前置要求：** 阶段 6 · 02（频谱图与梅尔）、阶段 5 · 09（Seq2Seq）、阶段 7 · 05（完整 Transformer）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 你有一个字符串："Please remind me to water the plants at 6 pm."。你需要一段听起来自然的 3 秒音频，韵律正确（停顿、重音），把 "plants" 念对元音，并且在 CPU 上 300 ms 内跑完，供一个实时语音助手用。你还得能换声音、处理混语输入（"remind me at 6 pm, daijoubu?"），并且别在人名上出洋相。
 
@@ -129,7 +129,7 @@ wav = vocoder(mel)                                # [T * 256]
 soundfile.write("out.wav", wav, 24000)
 ```
 
-## 上手使用
+## 实际使用
 
 2026 年的工具栈：
 
@@ -151,7 +151,7 @@ soundfile.write("out.wav", wav, 24000)
 - **削波。** 声码器输出很少削波，但推理时梅尔缩放不匹配会冲过 ±1.0。永远 `np.clip(wav, -1, 1)`。
 - **采样率不匹配。** Kokoro 输出 24 kHz；你下游流水线期望 16 kHz → 重采样，否则混叠。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-tts-designer.md`。为给定的声音、延迟和语种目标设计一条 TTS 流水线。
 

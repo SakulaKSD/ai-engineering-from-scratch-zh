@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 02（BoW + TF-IDF）、Phase 3 · 03（从零实现反向传播）
 **预计时间：** ~75 分钟
 
-## 问题所在
+## 问题背景
 
 TF-IDF 知道 `dog` 和 `puppy` 是两个不同的词，却不知道它们意思几乎一样。在 `dog` 上训练的分类器没法泛化到一篇讲 `puppy` 的评论上。你可以靠列同义词来糊弄过去，但碰到罕见词、领域黑话，以及任何你没预料到的语言，它就崩了。
 
@@ -167,7 +167,7 @@ def analogy(vocab, W, a, b, c, topk=5):
 
 `king - man + woman = queen`。不是因为模型懂什么是王室，而是因为向量 `(king - man)` 捕捉到了类似"皇家"的东西，把它加到 `woman` 上，就落到了皇家女性那片区域附近。
 
-## 上手使用
+## 实际使用
 
 从零写 Word2Vec 是为了教学。生产级 NLP 用 `gensim`。
 
@@ -215,7 +215,7 @@ print(model.wv.most_similar("cat", topn=3))
 
 另一个翻车是词表外问题。如果训练数据里没有 `Zoomer-approved`，Word2Vec 就从没见过它，没有兜底。fastText 用子词组合修了这个（第 04 课）。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-embedding-probe.md`：
 

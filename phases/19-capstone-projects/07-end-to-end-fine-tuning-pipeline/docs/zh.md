@@ -8,7 +8,7 @@
 **涉及阶段：** P2 · P3 · P7 · P10 · P11 · P17 · P18
 **预计时间：** 35 小时
 
-## 问题所在
+## 问题背景
 
 2026 年每个像样的 AI 团队都随时备着一条微调流水线。不是因为他们要发一个前沿基座模型，而是因为下游适配——领域 SFT、针对已标注偏好的 DPO、给推测解码蒸馏出的 draft、用 EAGLE-3 提供服务——才是可测量收益所在。Axolotl v0.8 搞定多 GPU 的 SFT 配置。TRL 0.15 搞定 DPO 和 GRPO。Unsloth 让你在单 GPU 上快速迭代。带 EAGLE-3 的 vLLM 0.7 把解码吞吐提到 2-3 倍且不损质量。工具是好用的；手艺在那些 YAML、数据卫生，以及评测纪律上。
 
@@ -86,7 +86,7 @@ model card (2026 MOF) + safety eval (Llama Guard 4)
 
 9. **model card。** MOF 2026 模板：数据、训练、评测、安全、许可、带 YAML 和 commit SHA 的可复现性章节。
 
-## 上手使用
+## 实际使用
 
 ```
 $ ./pipeline.sh config/llama3.3-8b-domainX.yaml
@@ -99,7 +99,7 @@ $ ./pipeline.sh config/llama3.3-8b-domainX.yaml
 [card]    model-card.md generated under 2026 MOF
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-finetuning-pipeline.md` 描述交付物。一条命令把数据过 SFT、过 DPO、过量化、过服务、过评测，产出一张 model card 加那个服务端点。
 

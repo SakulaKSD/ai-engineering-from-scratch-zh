@@ -14,7 +14,7 @@
 - 分清什么时候用 notebook、什么时候用脚本，并践行「在 notebook 里探索，用脚本交付」的工作流
 - 识别并避开 notebook 的常见坑：乱序执行、隐藏状态、内存泄漏
 
-## 问题所在
+## 问题背景
 
 每一篇 AI 论文、每一份教程、每一场 Kaggle 比赛都在用 Jupyter notebook。它让你分块跑代码、内联看输出、把代码和讲解混在一起、快速迭代。学 AI 却不用 notebook，就像做数学作业不打草稿。
 
@@ -195,7 +195,7 @@ Colab 和本地 Jupyter 的区别：
 - `from google.colab import drive; drive.mount('/content/drive')` 用来持久化存储
 - 闲置 90 分钟后会话超时（免费版）
 
-## 上手使用
+## 实际使用
 
 ### Notebook 还是脚本：什么时候用哪个
 
@@ -224,7 +224,7 @@ AI 里一个常见工作流：
 
 **内存泄漏。** 加载一个 4GB 数据集，训练一个模型，再加载另一个数据集。什么都没被释放。修法：`del variable_name` 加 `gc.collect()`，或者重启 kernel。
 
-## 交付
+## 拿去用
 
 本节课产出：
 - `outputs/prompt-notebook-helper.md`，用于调试 notebook 问题

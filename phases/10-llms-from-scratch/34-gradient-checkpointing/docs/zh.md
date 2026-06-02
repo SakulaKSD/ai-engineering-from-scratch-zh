@@ -7,7 +7,7 @@
 **前置要求：** 阶段 10 第 04 课（预训练 Mini-GPT），阶段 10 第 05 课（规模化与分布式）
 **预计时间：** ~70 分钟
 
-## 问题所在
+## 问题背景
 
 训练一个 transformer 为每一层存反向时被微分的每个操作的输入：注意力输入、Q/K/V 投影、softmax 输出、FFN 输入、norm 输出和残差流。对一个 hidden size 为 `d`、序列长度 `L`、batch `B` 的层，这是每层约 `12 * B * L * d` 个 float 的量级。
 
@@ -254,14 +254,14 @@ def should_recompute(layer_type, activation_bytes, recompute_flops_ratio):
     return False
 ```
 
-## 上手使用
+## 实际使用
 
 - **torch.utils.checkpoint**：`from torch.utils.checkpoint import checkpoint`——PyTorch 里的经典封装。包装一个函数；只存输入，反向时重算。
 - **Megatron-Core 激活重算**：支持 `selective`、`full` 和 `block` 模式。2024+ 前沿训练的标准。
 - **FSDP2 卸载**：在 FSDP2 里用 `module.to_empty(device="cpu")` 配 `offload_policy`，把激活分片到 CPU 而不重算。
 - **DeepSpeed ZeRO-Offload**：优化器状态和激活的 CPU 卸载，和检查点互补。
 
-## 交付
+## 拿去用
 
 本节课产出 `outputs/prompt-activation-recompute-policy.md`——一个 prompt，接收你的模型配置（层数、hidden、seq、batch）和可用 GPU 内存，输出一个逐层重算策略（无 / 选择性 / 全 / 卸载）。
 

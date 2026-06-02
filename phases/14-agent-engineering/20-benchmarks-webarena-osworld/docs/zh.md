@@ -14,7 +14,7 @@
 - 说出 OSWorld 的两个主要失败模式：GUI 锚定和操作性知识。
 - 总结 OSWorld-G 和 OSWorld-Human 在基础基准之上加了什么。
 
-## 问题所在
+## 问题背景
 
 通才 agent 能调工具。它们能驱动浏览器、跨 20 次点击完成一次购物结账吗？它们能只用键盘鼠标配置一台 Linux 机器吗？这些是 WebArena 和 OSWorld 回答的问题。
 
@@ -78,14 +78,14 @@ python3 code/main.py
 
 输出：每任务成功率和轨迹效率，镜像 OSWorld-Human 的方法论。
 
-## 上手使用
+## 实际使用
 
 - **WebArena Verified** 自托管在一个内部集群上做持续评估。
 - **OSWorld** 在一支 VM 队列里做桌面 agent。
 - **computer-use agent**（第 21 课）—— Claude、OpenAI CUA、Gemini —— 全都在这类工作负载上训练。
 - **你自己的产品流程** —— 为你的 top 20 任务捕获黄金轨迹；每周拿 agent 对着它们跑。
 
-## 交付
+## 拿去用
 
 `outputs/skill-web-desktop-harness.md` 构建一个网页/桌面 agent harness，带基于执行的评估和轨迹效率指标。
 

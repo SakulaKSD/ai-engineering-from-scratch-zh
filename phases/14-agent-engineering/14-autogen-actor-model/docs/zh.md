@@ -14,7 +14,7 @@
 - 解释为什么把消息投递与处理解耦能带来故障隔离和天然并发。
 - 用 Python 实现一个标准库 actor 运行时，并把一个双 agent 代码审查流程移植上去。
 
-## 问题所在
+## 问题背景
 
 大多数 agent 框架是同步的：一个 agent 生产，一个 agent 消费，都在一个调用栈里。失败会让栈崩溃。并发是硬加上去的。要分布式就得重写。
 
@@ -77,14 +77,14 @@ python3 code/main.py
 
 轨迹展示消息投递、一个 actor 里模拟的失败（不会让另一个崩溃），以及对一个共享裁决的收敛。
 
-## 上手使用
+## 实际使用
 
 - **AutoGen v0.4/v0.7**（维护中）—— 对研究、原型、多 agent 模式来说稳定。
 - **Microsoft Agent Framework**（公开预览）—— 前进路径；同样的 actor 模型想法，换了套刷新的 API。
 - **LangGraph swarm 拓扑**（第 13 课）—— 通过共享工具交接的类似模式。
 - **自定义 actor 运行时** —— 当你需要特定传输（NATS、RabbitMQ、gRPC）时。
 
-## 交付
+## 拿去用
 
 `outputs/skill-actor-runtime.md` 为给定的多 agent 任务生成一个极简 actor 运行时外加一个团队模板（RoundRobin 或 Selector）。
 

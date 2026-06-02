@@ -7,7 +7,7 @@
 **前置要求：** Phase 5 · 03（Word2Vec）、Phase 5 · 14（信息检索）
 **预计时间：** ~60 分钟
 
-## 问题所在
+## 问题背景
 
 你的 RAG 系统有 40% 的时候检索错段落。罪魁祸首很少是向量数据库或 prompt，而是嵌入模型。
 
@@ -139,7 +139,7 @@ results = evaluation.run(encoder, output_folder="./mteb-results")
 - **上下文截断。** 大多数模型对超过最大长度的输入默默截断。长文档需要分块（见第 23 课）。
 - **忽略延迟尾部。** MTEB 分数藏住了 p99 延迟。一个 600M 模型可能比 335M 模型高 2 个点，但每查询贵 3 倍。
 
-## 上手使用
+## 实际使用
 
 2026 年的栈：
 
@@ -155,7 +155,7 @@ results = evaluation.run(encoder, output_folder="./mteb-results")
 
 2026 年的模式：从 BGE-M3 或 text-3-large 起步，用 MTEB 在你的领域上评估，如果某个领域专用模型胜出超过 3 个点就换。
 
-## 交付
+## 拿去用
 
 存为 `outputs/skill-embedding-picker.md`：
 

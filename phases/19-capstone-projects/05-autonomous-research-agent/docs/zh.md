@@ -8,7 +8,7 @@
 **涉及阶段：** P0 · P2 · P3 · P7 · P10 · P14 · P15 · P16 · P18
 **预计时间：** 40 小时
 
-## 问题所在
+## 问题背景
 
 自主研究 agent 在 2026 年跨过了一道门槛。Sakana AI 的 AI-Scientist-v2 登上了 Nature，其生成的论文通过了 workshop 的同行评审。ShinkaEvolve（ICLR 2026）把这条线延伸到了演化假设。AMD 的 Agent Laboratory 交付了可复现的 trace。这些 agent 不是魔法——它们是一个跑在候选实验树上的规划-执行-验证循环，带成本上限、绑定随机种子的沙箱，以及自动化评审。手艺在于那个循环、那份预算，以及那套安全叙事。
 
@@ -89,7 +89,7 @@ seed idea + domain
 
 9. **可复现性。** 每篇论文都带上它的树搜索 trace JSON、随机种子、W&B run 链接、沙箱配置，以及一个端到端复现它的 README。
 
-## 上手使用
+## 实际使用
 
 ```
 $ ai-scientist run --seed "attention sparsity in sub-1B transformers" --budget 30
@@ -106,7 +106,7 @@ $ ai-scientist run --seed "attention sparsity in sub-1B transformers" --budget 3
 [done]   paper.pdf + review.md + trace.json     $28.40 spent
 ```
 
-## 交付
+## 拿去用
 
 `outputs/skill-ai-scientist.md` 是交付物。给定一个种子想法 + 一个领域 + 30 美元预算，它跑完整条流水线，产出一篇可评审的论文加一份可复现性包。
 

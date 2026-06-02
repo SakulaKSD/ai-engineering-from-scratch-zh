@@ -14,7 +14,7 @@
 - 解释 Anthropic 的「构建对的系统」规则，以及它如何约束拓扑选择。
 - 用标准库针对一个公共的脚本化 LLM 实现全部四种。
 
-## 问题所在
+## 问题背景
 
 团队在需要「多 agent」之前就去够它。四种模式在各框架里反复出现；一旦你能给它们命名，你就能挑对的那个 —— 或者完全跳过拓扑。
 
@@ -98,14 +98,14 @@ python3 code/main.py
 
 输出：每模式的轨迹 + 操作数。supervisor 最干净；swarm 最短；hierarchical 最深；debate 最贵。
 
-## 上手使用
+## 实际使用
 
 - **LangGraph** 用于 supervisor 和 hierarchical（嵌套子图）。
 - **OpenAI Agents SDK** 用于「handoff 即工具」（supervisor 形态）。
 - **CrewAI Flow** 用于生产确定性。
 - **自定义** 用于 debate 或当你想要精确控制时。
 
-## 交付
+## 拿去用
 
 `outputs/skill-orchestration-picker.md` 挑一个拓扑并实现它。
 
