@@ -198,6 +198,8 @@
 | 12 | [KV 缓存、Flash Attention 与推理优化](phases/07-transformers-deep-dive/12-kv-cache-flash-attention) | ✅ | ~75 min |
 | 13 | [缩放定律](phases/07-transformers-deep-dive/13-scaling-laws) | ✅ | ~45 min |
 | 14 | [从零实现一个 Transformer — 总结项目](phases/07-transformers-deep-dive/14-build-a-transformer-capstone) | ✅ | ~120 min |
+| 15 | [Attention 变体——滑动窗口、稀疏、差分](phases/07-transformers-deep-dive/15-attention-variants) | ✅ | ~90 min |
+| 16 | [投机解码——草稿、验证、重复](phases/07-transformers-deep-dive/16-speculative-decoding) | ✅ | ~90 min |
 
 ## Phase 8: 生成式 AI — ✅ (~14 hours)
 
@@ -217,6 +219,7 @@
 | 12 | [3D 生成](phases/08-generative-ai/12-3d-generation/) | ✅ | ~45 min |
 | 13 | [流匹配与整流流](phases/08-generative-ai/13-flow-matching-rectified-flows/) | ✅ | ~45 min |
 | 14 | [评估 — FID、CLIP Score、人类偏好](phases/08-generative-ai/14-evaluation-fid-clip-score/) | ✅ | ~45 min |
+| 19 | [视觉自回归建模（VAR）：下一尺度预测](phases/08-generative-ai/19-visual-autoregressive-var) | ✅ | ~90 min |
 
 ## Phase 9: 强化学习 — ✅ (~13 hours)
 
@@ -261,6 +264,8 @@
 | 20 | [DeepSeek-V3 架构逐步剖析](phases/10-llms-from-scratch/20-deepseek-v3-walkthrough) | ✅ | ~75 min |
 | 21 | [Jamba — 混合 SSM-Transformer](phases/10-llms-from-scratch/21-jamba-hybrid-ssm-transformer) | ✅ | ~60 min |
 | 22 | [异步与 Hogwild! 推理](phases/10-llms-from-scratch/22-async-hogwild-inference) | ✅ | ~60 min |
+| 25 | [推测解码与 EAGLE](phases/10-llms-from-scratch/25-speculative-decoding) | ✅ | ~90 min |
+| 34 | [梯度检查点与激活重算](phases/10-llms-from-scratch/34-gradient-checkpointing) | ✅ | ~90 min |
 
 ## Phase 11: LLM 工程 — ✅ (~17 hours)
 
@@ -604,6 +609,6 @@
 
 ---
 
-**总计：20 个阶段，465+ 节课 | 465+ 已完成 | 预计约 1100 小时**
+**总计：20 个阶段，503 节课 | 503 已完成 | 预计约 1100 小时**
 
 想出一份力？挑任意一节 ⬚ 课提交 PR。详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
