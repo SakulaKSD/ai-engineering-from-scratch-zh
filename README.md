@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-1a1a1a?style=flat-square&labelColor=fafaf5" alt="MIT License"></a>
-  <a href="ROADMAP.md"><img src="https://img.shields.io/badge/lessons-447-3553ff?style=flat-square&labelColor=fafaf5" alt="447 lessons"></a>
+  <a href="ROADMAP.md"><img src="https://img.shields.io/badge/lessons-465-3553ff?style=flat-square&labelColor=fafaf5" alt="465 lessons"></a>
   <a href="#contents"><img src="https://img.shields.io/badge/phases-20-3553ff?style=flat-square&labelColor=fafaf5" alt="20 phases"></a>
   <a href="https://github.com/fancyboi999/ai-engineering-from-scratch-zh/stargazers"><img src="https://img.shields.io/github/stars/fancyboi999/ai-engineering-from-scratch-zh?style=flat-square&labelColor=fafaf5&color=3553ff" alt="GitHub stars"></a>
   <a href="https://aieng-zh.cn"><img src="https://img.shields.io/badge/website-live-3553ff?style=flat-square&labelColor=fafaf5" alt="Website"></a>
@@ -819,7 +819,7 @@ the agent went wrong and explain why...
 </details>
 
 <details id="phase-19">
-<summary><b>Phase 19 — 综合项目</b> &nbsp;<code>67 projects</code>&nbsp; <em>2026 年的端到端可交付产品，每个 20-40 小时。</em></summary>
+<summary><b>Phase 19 — 综合项目</b> &nbsp;<code>85 projects</code>&nbsp; <em>2026 年的端到端可交付产品，每个 20-40 小时。</em></summary>
 <br/>
 
 | # | Project | Combines | Lang |
@@ -891,6 +891,24 @@ the agent went wrong and explain why...
 | 67 | [Query 改写：HyDE、Multi-Query 与 Decomposition](phases/19-capstone-projects/67-query-rewriting-hyde/) | F. 高级 RAG | Python |
 | 68 | [RAG 评测：Precision、Recall、MRR、nDCG 等](phases/19-capstone-projects/68-rag-eval-precision-recall/) | F. 高级 RAG | Python |
 | 69 | [端到端 RAG 系统](phases/19-capstone-projects/69-end-to-end-rag-system/) | F. 高级 RAG | Python |
+| 70 | [任务规格格式](phases/19-capstone-projects/70-task-spec-format/) | G. 评测体系 | Python |
+| 71 | [经典评测指标](phases/19-capstone-projects/71-classical-metrics/) | G. 评测体系 | Python |
+| 72 | [代码执行评测指标](phases/19-capstone-projects/72-code-exec-metric/) | G. 评测体系 | Python |
+| 73 | [perplexity 与 calibration](phases/19-capstone-projects/73-perplexity-calibration/) | G. 评测体系 | Python |
+| 74 | [leaderboard 聚合](phases/19-capstone-projects/74-leaderboard-aggregation/) | G. 评测体系 | Python |
+| 75 | [端到端 eval runner](phases/19-capstone-projects/75-end-to-end-eval-runner/) | G. 评测体系 | Python |
+| 76 | [从零实现集合通信](phases/19-capstone-projects/76-collective-ops-from-scratch/) | H. 分布式训练 | Python |
+| 77 | [数据并行 DDP](phases/19-capstone-projects/77-data-parallel-ddp/) | H. 分布式训练 | Python |
+| 78 | [ZeRO Optimizer State 分片](phases/19-capstone-projects/78-zero-parameter-sharding/) | H. 分布式训练 | Python |
+| 79 | [Pipeline Parallel 与 Bubble 分析](phases/19-capstone-projects/79-pipeline-parallel/) | H. 分布式训练 | Python |
+| 80 | [分片 Checkpoint 与原子化恢复](phases/19-capstone-projects/80-checkpoint-sharded-resume/) | H. 分布式训练 | Python |
+| 81 | [端到端分布式训练](phases/19-capstone-projects/81-end-to-end-distributed-train/) | H. 分布式训练 | Python |
+| 82 | [越狱分类法](phases/19-capstone-projects/82-jailbreak-taxonomy/) | I. 安全护栏 | Python |
+| 83 | [Prompt 注入检测器](phases/19-capstone-projects/83-prompt-injection-detector/) | I. 安全护栏 | Python |
+| 84 | [拒答评估](phases/19-capstone-projects/84-refusal-evaluation/) | I. 安全护栏 | Python |
+| 85 | [内容分类器集成](phases/19-capstone-projects/85-content-classifier-integration/) | I. 安全护栏 | Python |
+| 86 | [Constitutional 规则引擎](phases/19-capstone-projects/86-constitutional-rules-engine/) | I. 安全护栏 | Python |
+| 87 | [端到端 safety gate](phases/19-capstone-projects/87-end-to-end-safety-gate/) | I. 安全护栏 | Python |
 
 </details>
 

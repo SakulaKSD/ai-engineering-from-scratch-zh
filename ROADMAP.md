@@ -583,9 +583,27 @@
 | 67 | [Query 改写：HyDE、Multi-Query 与 Decomposition](phases/19-capstone-projects/67-query-rewriting-hyde) | ✅ | ~90 min |
 | 68 | [RAG 评测：Precision、Recall、MRR、nDCG 等](phases/19-capstone-projects/68-rag-eval-precision-recall) | ✅ | ~90 min |
 | 69 | [端到端 RAG 系统](phases/19-capstone-projects/69-end-to-end-rag-system) | ✅ | ~90 min |
+| 70 | [任务规格格式](phases/19-capstone-projects/70-task-spec-format) | ✅ | ~90 min |
+| 71 | [经典评测指标](phases/19-capstone-projects/71-classical-metrics) | ✅ | ~90 min |
+| 72 | [代码执行评测指标](phases/19-capstone-projects/72-code-exec-metric) | ✅ | ~90 min |
+| 73 | [perplexity 与 calibration](phases/19-capstone-projects/73-perplexity-calibration) | ✅ | ~90 min |
+| 74 | [leaderboard 聚合](phases/19-capstone-projects/74-leaderboard-aggregation) | ✅ | ~90 min |
+| 75 | [端到端 eval runner](phases/19-capstone-projects/75-end-to-end-eval-runner) | ✅ | ~90 min |
+| 76 | [从零实现集合通信](phases/19-capstone-projects/76-collective-ops-from-scratch) | ✅ | ~90 min |
+| 77 | [数据并行 DDP](phases/19-capstone-projects/77-data-parallel-ddp) | ✅ | ~90 min |
+| 78 | [ZeRO Optimizer State 分片](phases/19-capstone-projects/78-zero-parameter-sharding) | ✅ | ~90 min |
+| 79 | [Pipeline Parallel 与 Bubble 分析](phases/19-capstone-projects/79-pipeline-parallel) | ✅ | ~90 min |
+| 80 | [分片 Checkpoint 与原子化恢复](phases/19-capstone-projects/80-checkpoint-sharded-resume) | ✅ | ~90 min |
+| 81 | [端到端分布式训练](phases/19-capstone-projects/81-end-to-end-distributed-train) | ✅ | ~90 min |
+| 82 | [越狱分类法](phases/19-capstone-projects/82-jailbreak-taxonomy) | ✅ | ~90 min |
+| 83 | [Prompt 注入检测器](phases/19-capstone-projects/83-prompt-injection-detector) | ✅ | ~90 min |
+| 84 | [拒答评估](phases/19-capstone-projects/84-refusal-evaluation) | ✅ | ~90 min |
+| 85 | [内容分类器集成](phases/19-capstone-projects/85-content-classifier-integration) | ✅ | ~90 min |
+| 86 | [Constitutional 规则引擎](phases/19-capstone-projects/86-constitutional-rules-engine) | ✅ | ~90 min |
+| 87 | [端到端 safety gate](phases/19-capstone-projects/87-end-to-end-safety-gate) | ✅ | ~90 min |
 
 ---
 
-**总计：20 个阶段，442+ 节课 | 442+ 已完成 | 预计约 1050 小时**
+**总计：20 个阶段，460+ 节课 | 460+ 已完成 | 预计约 1100 小时**
 
 想出一份力？挑任意一节 ⬚ 课提交 PR。详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
