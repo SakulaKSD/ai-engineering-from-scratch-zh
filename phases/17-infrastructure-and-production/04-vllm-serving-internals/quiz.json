@@ -1,6 +1,6 @@
 {
   "lesson": "04-vllm-serving-internals",
-  "title": "vLLM 服务内部机制：PagedAttention、连续批处理、分块预填充",
+  "title": "推理服务引擎内部机制：PagedAttention、连续批处理与分块预填充",
   "questions": [
     {
       "stage": "pre",

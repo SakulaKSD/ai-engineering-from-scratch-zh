@@ -1,10 +1,10 @@
-# Blackwell 上的 TensorRT-LLM，搭配 FP8 与 NVFP4
+# 硬件专用推理编译——Blackwell 上的 FP8 与 NVFP4
 
-> TensorRT-LLM 只跑 NVIDIA，但它在 Blackwell 上赢。在带 Dynamo 编排的 GB200 NVL72 上，SemiAnalysis InferenceX 在 2026 年第一、二季度测得一个 120B 模型每百万 token 0.012 美元，对比 H100 + vLLM 的 $0.09/M —— 7 倍的经济差距。这套栈是三种浮点制度的叠加：FP8 对 KV cache 和注意力 kernel 仍然关键，因为它们需要 FP8 那种动态范围；NVFP4（4 比特微缩放）处理权重和激活；多 token 预测（MTP）和分离式 prefill/decode 又在上面叠了 2-3 倍。Day-0 模型支持直接加载 FP4 权重，不用训练后转换。2026 年工程团队的陷阱在于：TRT-LLM 是封闭的 NVIDIA 栈，所以采用它是拿可移植性换吞吐。在押注之前，对你那套模型和硬件的组合算一算账。
+> 硬件专用推理编译用可移植性换吞吐，TensorRT-LLM 是这笔交易在 Blackwell 上奏效的典型例子。它只面向 NVIDIA，并针对 Blackwell 调优。在带 Dynamo 编排的 GB200 NVL72 上，SemiAnalysis InferenceX 在 2026 年第一、二季度测得一个 120B 模型每百万 token 0.012 美元，对比 H100 + vLLM 的 $0.09/M，形成 7 倍经济差距。这套栈叠加了三种浮点制度：FP8 为 KV cache 和注意力 kernel 提供所需动态范围；NVFP4（4 比特微缩放）处理权重和激活；多 token 预测（MTP）与分离式 prefill/decode 又叠加 2-3 倍收益。Day-0 模型支持可直接加载 FP4 权重，无需训练后转换。TRT-LLM 是开源但 NVIDIA 专用的 CUDA/Blackwell 栈，采用它仍是在用可移植性换吞吐；押注前必须针对自己的模型与硬件组合算账。
 
 **类型：** Learn
 **语言：** Python（标准库，一个玩具级 FP8/NVFP4 内存与成本计算器）
-**前置要求：** 阶段 17 · 04（vLLM 服务内部机制）、阶段 10 · 13（量化）
+**前置要求：** 阶段 17 · 04（推理服务引擎内部机制）、阶段 10 · 13（量化）
 **预计时间：** ~75 分钟
 
 ## 学习目标

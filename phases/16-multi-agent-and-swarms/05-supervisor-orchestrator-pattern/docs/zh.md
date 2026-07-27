@@ -54,7 +54,7 @@ Anthropic 那篇博客列了几条到 2026 年仍然适用的生产教训：
 - **彩虹部署（Rainbow deployment）。** agent 是长时间运行、有状态的。传统的蓝绿部署不管用。Anthropic 用彩虹部署：新版本逐步铺开，同时让旧版本逐渐排空。
 - **token 用量是主导因素。** 多 agent 大约是单 agent 的 15 倍 token。只在任务价值配得上这笔成本时才跑它。
 
-### LangGraph 的转向
+### 图原生实现的转向
 
 LangGraph 早先发布了一个 `langgraph-supervisor` 库，带一个高层的 `create_supervisor` 辅助函数。2025 年 LangChain 把推荐改成了直接通过工具调用来实现 supervisor 模式，因为工具调用对 *supervisor 看到什么*（上下文工程）有更强的控制力。那个库仍然能用；文档现在推荐工具调用形式。
 

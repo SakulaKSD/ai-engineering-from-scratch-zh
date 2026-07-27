@@ -1,6 +1,6 @@
 {
   "lesson": "15-crewai-role-based-crews",
-  "title": "CrewAI：基于角色的 Crew 与 Flow",
+  "title": "基于角色的 Agent 团队：角色、任务与流程",
   "questions": [
     {
       "stage": "pre",

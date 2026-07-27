@@ -71,8 +71,10 @@ git merge experiment/new-optimizer
 
 ### 第 4 步：在本课程仓库里干活
 
+你不能直接推送到课程仓库，只有维护者拥有写入权限。先在 GitHub 上 fork（右上角的 Fork 按钮），让 `origin` 指向你自己的副本：
+
 ```bash
-git clone https://github.com/rohitg00/ai-engineering-from-scratch.git
+git clone https://github.com/YOUR-USERNAME/ai-engineering-from-scratch.git
 cd ai-engineering-from-scratch
 
 git checkout -b my-progress
@@ -96,7 +98,7 @@ git push origin my-progress
 
 ## 练习
 
-1. 克隆这个仓库，创建一个叫 `my-progress` 的分支，建一个文件，提交并推送
+1. Fork 这个仓库，克隆自己的 fork，创建一个叫 `my-progress` 的分支，建一个文件，提交并推送
 2. 写一个 `.gitignore`，排除模型 checkpoint 文件（`.pt`、`.pth`、`.safetensors`）
 3. 用 `git log --oneline` 看看这个仓库的提交历史，读一读课程是怎么一节节加进来的
 

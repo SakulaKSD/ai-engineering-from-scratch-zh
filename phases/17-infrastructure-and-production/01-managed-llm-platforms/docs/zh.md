@@ -111,7 +111,7 @@ Vertex：HIPAA、GDPR、按区域的数据驻留；Google Cloud 的合规栈。
 ## 延伸阅读
 
 - [AWS Bedrock Pricing](https://aws.amazon.com/bedrock/pricing/) —— 权威费率表和 Provisioned Throughput 价格。
-- [Azure OpenAI Service Pricing](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/openai-service/) —— PTU 经济账与费率表。
+- [Azure OpenAI Service Pricing](https://azure.microsoft.com/en-us/pricing/details/azure-openai/) —— PTU 经济账与费率表。
 - [Vertex AI Generative AI Pricing](https://cloud.google.com/vertex-ai/generative-ai/pricing) —— Gemini 各档与 Model Garden 加价。
 - [Artificial Analysis LLM Leaderboard](https://artificialanalysis.ai/) —— 跨供应商的持续延迟与吞吐基准。
 - [The AI Journal — AWS Bedrock vs Azure OpenAI CTO Guide 2026](https://theaijournal.co/2026/03/aws-bedrock-vs-azure-openai/) —— 企业决策框架。

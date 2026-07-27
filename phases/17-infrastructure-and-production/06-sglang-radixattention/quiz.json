@@ -1,6 +1,6 @@
 {
   "lesson": "06-sglang-radixattention",
-  "title": "面向前缀密集型负载的 SGLang 与 RadixAttention",
+  "title": "前缀缓存推理服务：RadixAttention 与 KV 复用",
   "questions": [
     {
       "stage": "pre",

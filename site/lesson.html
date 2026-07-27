@@ -1770,6 +1770,7 @@
   <script src="cmdpalette.js?v=20260525a" defer></script>
   <script src="figures.js?v=20260610e"></script>
   <script src="lesson-figures.js?v=20260610e"></script>
+  <script src="figures-history.js?v=20260727a"></script>
   <script src="figures-math.js?v=20260610e"></script>
   <script src="figures-ml.js?v=20260610e"></script>
   <script src="figures-dl.js?v=20260610e"></script>
@@ -1905,7 +1906,9 @@
       buildSidebar();
       initSidebarToggle();
       initScrollProgress();
+      var lessonQuizPromise = null;
       if (prerendered) {
+        startQuizFetch(lessonPath);
         // 异步到本轮脚本执行完再增强：IIFE 底部还有 var 初始化（如 ghApiCache），
         // 同步调用会在赋值前执行；原 fetch 路径因异步回调天然规避了这一点
         setTimeout(function () {
@@ -1996,7 +1999,7 @@
 
         document.addEventListener('click', function (e) {
           if (window.innerWidth <= 900 && sidebar.classList.contains('open')) {
-            if (!sidebar.contains(e.target) && e.target !== toggle) {
+            if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
               sidebar.classList.remove('open');
             }
           }
@@ -2015,12 +2018,18 @@
       }
 
       // quiz 始终运行时获取（预渲染页与 ?path= 入口共用）
-      function fetchQuiz(path) {
+      function startQuizFetch(path, force) {
+        if (lessonQuizPromise && !force) return lessonQuizPromise;
         var ref = (typeof window !== 'undefined' && window.__AIFS_REF) ? window.__AIFS_REF : 'main';
         var quizUrl = 'https://raw.githubusercontent.com/fancyboi999/ai-engineering-from-scratch-zh/' + ref + '/' + path + '/quiz.json';
-        fetch(quizUrl)
+        lessonQuizPromise = fetch(quizUrl)
           .then(function (res) { return res.ok ? res.json() : null; })
-          .catch(function () { return null; })
+          .catch(function () { return null; });
+        return lessonQuizPromise;
+      }
+
+      function fetchQuiz(path) {
+        startQuizFetch(path)
           .then(function (data) {
             if (!data) return;
             try { renderQuiz(data); }
@@ -2028,11 +2037,12 @@
           });
       }
 
-      function fetchLesson(path) {
+      function fetchLesson(path, retried) {
         // 从本次部署所基于的分支拉取 docs（build.js 经 build-meta.js 写入 __AIFS_REF），
         // 使 PR preview 部署渲染自己分支的课程改动，而非永远拉 main；缺省回退 main。
         var ref = (typeof window !== 'undefined' && window.__AIFS_REF) ? window.__AIFS_REF : 'main';
         var rawUrl = 'https://raw.githubusercontent.com/fancyboi999/ai-engineering-from-scratch-zh/' + ref + '/' + path + '/docs/zh.md';
+        startQuizFetch(path, !!retried);
 
         fetch(rawUrl)
           .then(function (res) {
@@ -2050,6 +2060,11 @@
             fetchQuiz(path);
           })
           .catch(function () {
+            if (!retried) {
+              lessonQuizPromise = null;
+              setTimeout(function () { fetchLesson(path, true); }, 600);
+              return;
+            }
             showError('未找到课程', '无法获取位于 <code>' + escapeHtml(path) + '</code> 的课程，它可能还没有编写。');
           });
       }
@@ -3030,10 +3045,11 @@
         panel.innerHTML = '<div class="ai-panel-header"><div class="ai-panel-icon">O</div><div class="ai-panel-title">本节课交付了什么</div></div><div class="ai-panel-subtitle">可以马上拿来用的提示词、技能和产出</div><div id="outputsContent" class="panel-loading">正在加载产出…</div>';
         container.appendChild(panel);
 
+        var outputsEl = panel.querySelector('#outputsContent');
         ghApiFetch(lessonPath + '/outputs', function (err, data) {
-          var el = document.getElementById('outputsContent');
+          if (!outputsEl || !outputsEl.parentNode) return;
           if (err || !data || !Array.isArray(data) || data.length === 0) {
-            el.innerHTML = '<div class="panel-fallback"><a href="https://github.com/fancyboi999/ai-engineering-from-scratch-zh/tree/main/' + lessonPath + '" target="_blank" rel="noopener">在 GitHub 上查看本课</a></div>';
+            outputsEl.innerHTML = '<div class="panel-fallback"><a href="https://github.com/fancyboi999/ai-engineering-from-scratch-zh/tree/main/' + lessonPath + '" target="_blank" rel="noopener">在 GitHub 上查看本课</a></div>';
             return;
           }
 
@@ -3078,7 +3094,7 @@
             });
           });
           html += '</div>';
-          el.innerHTML = html;
+          outputsEl.innerHTML = html;
         });
       }
 
@@ -3088,10 +3104,11 @@
         panel.innerHTML = '<div class="ai-panel-header"><div class="ai-panel-icon">C</div><div class="ai-panel-title">运行代码</div></div><div class="ai-panel-subtitle">本节课中可执行的文件</div><div id="codeContent" class="panel-loading">正在加载代码文件…</div>';
         container.appendChild(panel);
 
+        var codeEl = panel.querySelector('#codeContent');
         ghApiFetch(lessonPath + '/code', function (err, data) {
-          var el = document.getElementById('codeContent');
+          if (!codeEl || !codeEl.parentNode) return;
           if (err || !data || !Array.isArray(data) || data.length === 0) {
-            el.innerHTML = '<div class="panel-fallback"><a href="https://github.com/fancyboi999/ai-engineering-from-scratch-zh/tree/main/' + lessonPath + '" target="_blank" rel="noopener">在 GitHub 上查看本课</a></div>';
+            codeEl.innerHTML = '<div class="panel-fallback"><a href="https://github.com/fancyboi999/ai-engineering-from-scratch-zh/tree/main/' + lessonPath + '" target="_blank" rel="noopener">在 GitHub 上查看本课</a></div>';
             return;
           }
 
@@ -3111,8 +3128,8 @@
             html += '</div>';
           });
           html += '</div>';
-          el.innerHTML = html;
-          el.querySelectorAll('.code-card-copy').forEach(function (btn) {
+          codeEl.innerHTML = html;
+          codeEl.querySelectorAll('.code-card-copy').forEach(function (btn) {
             btn.addEventListener('click', function () {
               var command = btn.getAttribute('data-command');
               navigator.clipboard.writeText(command).then(function () {
@@ -3192,11 +3209,37 @@
         ];
       }
 
+      function lessonQuizPanelQuestions(data) {
+        var source = data && (data.questions || data);
+        if (!Array.isArray(source)) return [];
+        var valid = source.filter(function (q) {
+          return q && q.question && Array.isArray(q.options) &&
+            typeof q.correct === 'number' && q.correct >= 0 && q.correct < q.options.length;
+        });
+        var post = valid.filter(function (q) { return q.stage === 'post'; });
+        return (post.length ? post : valid).slice(0, 3).map(function (q) {
+          return { q: q.question, opts: q.options, answer: q.correct, explain: q.explanation || '' };
+        });
+      }
+
       function renderQuizPanel(container) {
-        var questions = getQuizQuestions();
         var panel = document.createElement('div');
         panel.className = 'ai-panel';
+        panel.innerHTML = '<div class="ai-panel-header"><div class="ai-panel-icon">Q</div><div class="ai-panel-title">检验你的理解</div></div><div class="panel-loading">正在加载题目…</div>';
+        container.appendChild(panel);
 
+        if (lessonQuizPromise) {
+          lessonQuizPromise.then(function (data) {
+            if (!panel.parentNode) return;
+            var questions = lessonQuizPanelQuestions(data);
+            fillQuizPanel(panel, questions.length ? questions : getQuizQuestions());
+          });
+        } else {
+          fillQuizPanel(panel, getQuizQuestions());
+        }
+      }
+
+      function fillQuizPanel(panel, questions) {
         var phase = '';
         if (currentLessonIndex >= 0) {
           var fl = flatLessons[currentLessonIndex];
@@ -3229,7 +3272,6 @@
         html += '</div>';
 
         panel.innerHTML = html;
-        container.appendChild(panel);
 
         window._quizData = questions;
         window._quizAnswered = 0;

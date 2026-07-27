@@ -51,7 +51,7 @@ code --version
 
 ### 第 2 步：安装核心扩展
 
-在 VS Code 里打开集成终端（`Ctrl+`` ` 或 `` Cmd+` ``），装上对 AI 工作要紧的扩展：
+在 VS Code 里打开集成终端（所有平台均为 `` Ctrl+` ``），装上对 AI 工作要紧的扩展：
 
 ```bash
 code --install-extension ms-python.python
@@ -123,8 +123,8 @@ VS Code 的集成终端是你跑训练脚本、盯 GPU、管环境的地方。
 | 操作 | macOS | Linux/Windows |
 |--------|-------|---------------|
 | 切换终端 | `` Ctrl+` `` | `` Ctrl+` `` |
-| 新建终端 | `Ctrl+Shift+`` ` | `Ctrl+Shift+`` ` |
-| 拆分终端 | `Cmd+\` | `Ctrl+\` |
+| 新建终端 | `` Ctrl+Shift+` `` | `` Ctrl+Shift+` `` |
+| 拆分终端 | `Cmd+\` | `Ctrl+Shift+5` |
 
 拆分终端很有用：一个跑你的脚本，一个用 `nvidia-smi -l 1` 或 `watch -n 1 nvidia-smi` 盯 GPU。
 

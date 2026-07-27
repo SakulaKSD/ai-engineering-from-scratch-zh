@@ -19,6 +19,26 @@
 
 ![N-gram 模型：计数、平滑、生成](../assets/ngram.svg)
 
+### 预测游戏
+
+在这些机制出现之前，有一个实验定义了语言模型究竟是什么。遮住英文句子的下一个字母，让一个人逐个猜，直到猜中。记下猜测次数，然后对几百个字母重复这个过程。
+
+猜测次数不是花边数据，而是对文本的一种无损重编码：把次数序列交给第二个采用相同猜法的人，对方就能还原每个字母，因为他在每个位置都知道各个候选字母的猜测顺序。若一条消息能用更少的符号重新编码，每个符号携带的信息就更少，因此猜测次数的统计结果给出了英语熵的上界。
+
+Shannon 在 1951 年做了这个实验，得到的数值至今仍支配着这个领域。由 26 个字母加空格组成的 27 符号字母表，每个字母最多可携带 `log2(27) ≈ 4.75` 比特。人类在看到前 100 个字母的情况下，每个字母只需 0.6 到 1.3 比特。换句话说，英语大约四分之三的选择都已被上下文锁定。在任何模型学会这种结构之前，人们就已经量出了它。
+
+此后的每个语言模型都是这个游戏的机械玩家，本课里的每个评估指标都是它的计分方式：
+
+- **交叉熵损失**是模型对每个符号平均需要的比特数。训练语言模型，就是在最小化它在猜测游戏中的得分。
+- **困惑度**是 `2^bits`（或 `e^nats`），表示模型猜完之后仍面对的分支数。对 27 个符号均匀猜测时困惑度为 27；每个字母只需 1 比特的玩家，困惑度为 2。
+- **上下文长度就是玩家的记忆。** 三元模型只带两个 token 的记忆；transformer 用 10 万个 token 玩同一个游戏。规则没有变化，玩家变强了。
+
+还要留意一次单位切换：这个游戏用比特（`log2`）为每个字母计分，而下文的 n-gram 公式用 nat（自然对数）为每个词 token 计分。由于以 nat 计算的困惑度 `e^H` 与以比特计算的 `2^H` 相等，两种视角只是同一测量的不同单位。
+
+```figure
+prediction-game
+```
+
 **N-gram 概率：** `P(w_i | w_{i-n+1}, ..., w_{i-1})`。固定 `n`（通常三元组取 3，4-gram 取 4）。从计数算：
 
 ```text
@@ -225,9 +245,11 @@ Refuse to report perplexity computed with different tokenization between systems
 | 回退（Backoff） | 退回更短的上下文 | 三元组计数为零时用二元组。Katz 回退把它形式化。 |
 | Kneser-Ney | n-gram 最佳平滑 | 绝对折扣 + 对低阶模型用延续概率。 |
 | 延续概率 | KN 专属 | `P(w)` 按 `w` 出现的上下文数加权，而非按原始计数。 |
+| 文本熵 | 每个符号的信息量 | 给定上下文后，编码下一个符号平均所需的比特数。Shannon 在 1951 年估算，印刷英语在最多 100 个字母的上下文下为 0.6-1.3 比特/字母；这个结果早于任何语言模型。 |
 
 ## 延伸阅读
 
+- [Shannon (1951). Prediction and Entropy of Printed English](https://www.princeton.edu/~wbialek/rome/refs/shannon_51.pdf) —— 用猜测游戏定义了所有语言模型至今仍在优化的目标。
 - [Jurafsky and Martin — Speech and Language Processing, Chapter 3 (2026 draft)](https://web.stanford.edu/~jurafsky/slp3/3.pdf) —— n-gram LM 与平滑的经典论述。
 - [Chen and Goodman (1998). An Empirical Study of Smoothing Techniques for Language Modeling](https://dash.harvard.edu/handle/1/25104739) —— 把 Kneser-Ney 钉为最佳 n-gram 平滑器的那篇论文。
 - [Kneser and Ney (1995). Improved Backing-off for M-gram Language Modeling](https://ieeexplore.ieee.org/document/479394) —— 原始 KN 论文。

@@ -120,7 +120,7 @@ python3 code/main.py
 
 ## 延伸阅读
 
-- [HDF5 分块文档](https://docs.hdfgroup.org/hdf5/v1_14/) - 本课使用的分块可扩容 dataset 布局
+- [HDF5 分块文档](https://support.hdfgroup.org/documentation/hdf5/latest/hdf5_chunking.html) - 本课使用的分块可扩容 dataset 布局
 - [h5py 用户指南](https://docs.h5py.org/en/stable/) - HDF5 的 Python 绑定
 - [NumPy memory mapping](https://numpy.org/doc/stable/reference/generated/numpy.memmap.html) - h5py 通过 HDF5 暴露的读端原语
 - 第 19 阶段 · 42 - 本课 tokenize 的下载器输出

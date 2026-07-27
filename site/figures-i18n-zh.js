@@ -5,6 +5,7 @@
    说明散文(.lf-cap，按 widget 名索引)。
    不在本层范围：动态拼接文案（lf-meta / lf-num / lf-formula，拖动时由各渲染器
    实时重写）保持英文；figures.js 旧大动画（tokenizer-bpe 等 10 个，非 LF 结构）。
+   figures-history.js 的三个稳定 SVG 文本是例外，也在本层按 widget 名查表替换。
    查表未命中 → 保持英文。上游新增 widget 自动安全降级，翻译表事后补即可。
    词向量 / n-gram widget 的英文词样本（cat、the…）是演示数据，刻意不翻。 */
 (function () {
@@ -130,6 +131,8 @@
     'SWARM MESSAGES': '群体消息',
     'SWIGLU FEED-FORWARD': 'SwiGLU 前馈层',
     'TASK DECOMPOSITION': '任务分解',
+    'THE PREDICTION GAME': '预测游戏',
+    'THE SCRIPTED HALF-CENTURY': '脚本机器人的半个世纪',
     'TENSOR PARALLELISM': '张量并行',
     'THROUGHPUT / LATENCY': '吞吐 / 延迟',
     'TOKENIZER TRADEOFF': '分词器权衡',
@@ -141,6 +144,7 @@
     'VALUE ITERATION': '价值迭代',
     'VANISHING GRADIENTS': '梯度消失',
     'VECTOR PROJECTION': '向量投影',
+    'WHERE THE TRIANGLE COMES FROM': '三角掩码从何而来',
     'WEIGHT INIT VARIANCE': '权重初始化方差',
     'WEIGHT TYING': '权重共享',
     'WORD VECTOR ARITHMETIC': '词向量运算',
@@ -258,6 +262,8 @@
     'pick the ZeRO stage': '选 ZeRO 阶段',
     'pick the entity': '选一个实体',
     'pick the precision': '选精度',
+    'entropy measured by hand, 1951': '1951 年，手工测量熵',
+    'match, respond, repeat': '匹配、回应、重复',
     'rotate the boundary, widen the street': '旋转边界，加宽间隔带',
     'shape p (blue) and q (grey)': '调整 p（蓝）与 q（灰）',
     'stack the layers': '逐层堆叠',
@@ -266,6 +272,7 @@
     'step through the stages': '逐阶段推进',
     'switch the landscape': '切换地形',
     'temperature → top-k → top-p': 'temperature → top-k → top-p',
+    'three refinements of one matrix': '同一矩阵的三次改进',
     'toggle and drag x': '切换并拖动 x',
     'toggle and shift': '切换并平移',
     'toggle early vs late': '切换 early vs late',
@@ -661,7 +668,38 @@
     'pass-at-k': 'Pass@k 问的是 k 次独立采样里是否至少有一次解出任务。每次成功概率为 p，则 k 次全败的概率是 (1-p)^k，pass@k 就是一减它。哪怕弱模型也会随采样数陡峭爬升——这就是 best-of-k 如此便宜的杠杆、pass@1 和 pass@k 讲出不同故事的原因。',
     'eval-harness-matrix': '评测框架把每个任务跑过每个模型变体，在网格里记下通过或失败。竖着读一列能看出哪些任务难；横着读一行得到一个变体的总分。这张矩阵把模糊的直觉变成可以做回归测试的数字。',
     'canary-rollout': '金丝雀发布把一小片流量路由到新版本，其余留在久经考验的旧版上。金丝雀的错误率对照 SLA 盯着；一旦越线，流量立刻撤回稳定版。这里金丝雀错误率偏高，所以放大切片会推高混合错误率、让回滚时刻待命。',
-    'trace-spans': '分布式 trace 是摆在时间线上的 span 树。根 span 罩住整个请求；每次 LLM 调用、检索、工具调用的子 span 按开始时间和时长嵌在里面。读这张甘特图就能看出延迟到底去了哪——这是每次线上事故的第一问。'
+    'trace-spans': '分布式 trace 是摆在时间线上的 span 树。根 span 罩住整个请求；每次 LLM 调用、检索、工具调用的子 span 按开始时间和时长嵌在里面。读这张甘特图就能看出延迟到底去了哪——这是每次线上事故的第一问。',
+    'prediction-game': '人类逐个猜测隐藏字母，直到猜中；仅凭猜测次数就能重建文本，因此这些统计量给出了每个字母信息量的上界。27 个符号的字母表每个字母最多携带 4.75 比特，而看到上下文的人类猜测者只需要接近 1 比特。此后的每个语言模型都是这个游戏的机械玩家，困惑度就是它的得分。',
+    'chatbot-lineage': '这条时间线上的系统都使用同一种机制：匹配输入、输出预制回复、更新少量状态。PARRY 加入情绪变量，ALICE 加入 4 万个类别，SmarterChild 加入后端查询。覆盖率随规则线性增长，通用性却始终没有出现；这个上限正是后三个范式存在的原因。',
+    'mask-derivation': '三个面板都是用下三角行随机矩阵乘以序列。前缀平均把权重固定为 1/(i+1)；学习分数让权重变得不均匀但仍静态；注意力则让权重由 token 本身决定，所以第三个面板不断变化。掩码从未改变，它就是原始平均操作的循环边界。'
+  };
+
+  var SVG_TEXT = {
+    'prediction-game': {
+      'GUESS THE NEXT LETTER · COUNT THE TRIES': '猜下一个字母 · 记录尝试次数',
+      'BITS PER LETTER': '每个字母的比特数',
+      'log2(27) = 4.75 RAW': 'log2(27) = 4.75 原始上限',
+      '~1.2 GUESSED': '约 1.2（猜测）',
+      'GUESS COUNTS RE-ENCODE THE TEXT · THEIR AVERAGE BOUNDS THE ENTROPY': '猜测次数可重编码文本 · 其均值给出熵的上界'
+    },
+    'chatbot-lineage': {
+      'IMITATION GAME': '模仿游戏',
+      'dialogue = benchmark': '对话即基准',
+      'FIELD NAMED': '领域得名',
+      '2-month conjecture': '两个月的设想',
+      '~200 patterns, no state': '约 200 条模式，无状态',
+      '3 affect variables': '3 个情绪变量',
+      '40K categories': '4 万个类别',
+      'templates + APIs': '模板 + API',
+      'SAME MACHINE · MORE RULES · NEVER GENERAL': '同一种机器 · 更多规则 · 从未通用'
+    },
+    'mask-derivation': {
+      'AVERAGE': '平均',
+      'LEARNED': '学习权重',
+      'ATTENTION': '注意力',
+      'learn S': '学习 S',
+      'TRIANGLE CONSTANT · WEIGHTS EVOLVE': '三角结构不变 · 权重不断演化'
+    }
   };
 
   // 重建型条目的模式匹配：部分 widget（gpu-memory-breakdown、zero-sharding、
@@ -695,6 +733,14 @@
     });
   }
 
+  function translateSvgText(host, name) {
+    var map = SVG_TEXT[name];
+    if (!map) return;
+    host.querySelectorAll('svg text').forEach(function (node) {
+      if (map[node.textContent]) node.textContent = map[node.textContent];
+    });
+  }
+
   function applyFigureI18n(root) {
     (root || document).querySelectorAll('.lesson-figure[data-figure]').forEach(function (host) {
       if (host.dataset.lfI18n || !host.dataset.lfMounted) return;
@@ -707,6 +753,7 @@
         if (H[hint.textContent]) hint.textContent = H[hint.textContent];
       }
       translateCtrls(host);
+      translateSvgText(host, name);
       var cap = host.querySelector('.lf-cap');
       if (cap && CAP[name]) cap.textContent = CAP[name];
       // 重建型 widget：交互后 _render 会重建 ctrl 行（冒泡晚于渲染），重跑替换

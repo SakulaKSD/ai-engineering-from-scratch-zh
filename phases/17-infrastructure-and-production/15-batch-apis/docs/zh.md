@@ -112,6 +112,6 @@ batch 文件格式各供应商不同：
 
 - [OpenAI Batch API](https://platform.openai.com/docs/guides/batch) —— JSONL 格式和 `/v1/batches` 语义。
 - [Anthropic Message Batches](https://docs.anthropic.com/en/docs/build-with-claude/batch-processing) —— batch 格式和 `cache_control` 相互作用。
-- [Vertex AI Batch Prediction](https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/batch-prediction) —— Gemini batch 语义。
+- [Vertex AI Batch Prediction](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/batch-prediction-gemini) —— Gemini batch 语义。
 - [Finout — OpenAI vs Anthropic API Pricing 2026](https://www.finout.io/blog/openai-vs-anthropic-api-pricing-comparison)
 - [Zen Van Riel — LLM API Cost Comparison 2026](https://zenvanriel.com/ai-engineer-blog/llm-api-cost-comparison-2026/)

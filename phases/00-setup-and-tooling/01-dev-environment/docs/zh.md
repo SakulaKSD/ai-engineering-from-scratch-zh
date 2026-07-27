@@ -92,6 +92,14 @@ npm install -g pnpm
 node -e "console.log('Node', process.version)"
 ```
 
+**macOS / Apple Silicon（M1/M2/M3/M4）：** 如果安装器报错 `Error: Cannot install under Rosetta 2 in ARM default prefix (/opt/homebrew)`，说明终端正通过 Rosetta 2 运行（`arch` 输出 `i386`），而 Homebrew 是原生 arm64 构建。强制使用 arm64 安装 fnm，将它接入 shell，然后从上面的 `fnm install 22` 继续执行：
+
+```bash
+arch -arm64 brew install fnm
+echo 'eval "$(fnm env --use-on-cd)"' >> ~/.zshrc
+source ~/.zshrc
+```
+
 ### 第 4 步：Rust
 
 用于性能关键的课程（推理、系统）。
@@ -115,17 +123,27 @@ julia -e 'println("Julia ", VERSION)'
 
 ### 第 6 步：GPU 配置（如果你有 GPU）
 
+**NVIDIA（Linux / Windows）：**
+
 ```bash
-# NVIDIA
 nvidia-smi
 
 # 安装带 CUDA 的 PyTorch
 uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 ```
 
+**macOS / Apple Silicon（M1/M2/M3/M4）：** Mac 没有 CUDA，这是预期行为，并非安装失败。**不要**传入 `--index-url .../cuXXX`（这些 wheel 只支持 Linux/Windows，否则安装会失败）。直接安装普通版本，其中包含 Apple 的 MPS（Metal）GPU 后端：
+
+```bash
+uv pip install torch torchvision torchaudio
+```
+
+验证（适用于所有平台）：
+
 ```python
 import torch
-print(f"CUDA available: {torch.cuda.is_available()}")
+print(f"CUDA available: {torch.cuda.is_available()}")           # macOS 上为 False，符合预期
+print(f"MPS available:  {torch.backends.mps.is_available()}")   # Apple Silicon 上为 True
 if torch.cuda.is_available():
     print(f"GPU: {torch.cuda.get_device_name(0)}")
 ```

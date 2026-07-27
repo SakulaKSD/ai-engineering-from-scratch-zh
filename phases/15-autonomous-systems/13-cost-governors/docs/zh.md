@@ -41,7 +41,7 @@
 - **坏发布**（新版本用 5 倍的 token）：靠每周 / 每月上限抓住。
 - **正当的激增**（真实需求，不是 bug）：靠每小时 / 每天上限带清晰日志抓住。
 
-### Claude Code 的预算面
+### Harness 的预算面
 
 Claude Code Agent SDK 暴露（公开文档）：
 
@@ -50,7 +50,7 @@ Claude Code Agent SDK 暴露（公开文档）：
 - `allowed_tools` / `disallowed_tools` —— 工具白名单与黑名单。
 - 工具使用前的钩子点，用于自定义成本核算。
 
-跟权限模式阶梯（第 10 课）结合。一个没有 `max_budget_usd` 的 `autoMode` 会话就是不受治理的自主性。Anthropic 明确把 Auto Mode 定位为需要预算控制；分类器跟成本是正交的。
+跟权限模式阶梯（第 10 课）结合。一个没有 `max_budget_usd` 的 `auto` 会话就是不受治理的自主性。Anthropic 明确把 Auto Mode 定位为需要预算控制；分类器跟成本是正交的。
 
 ### EU AI Act、OWASP Agentic Top 10
 
@@ -98,5 +98,5 @@ Claude Code Agent SDK 暴露（公开文档）：
 - [Anthropic Claude Code Agent SDK — agent loop and budgets](https://code.claude.com/docs/en/agent-sdk/agent-loop) —— `max_turns`、`max_budget_usd`、工具白名单。
 - [Microsoft Agent Framework — human-in-the-loop and governance](https://learn.microsoft.com/en-us/agent-framework/workflows/human-in-the-loop) —— 成本调控器检查点。
 - [Anthropic — Claude Managed Agents overview](https://platform.claude.com/docs/en/managed-agents/overview) —— 服务方侧的成本控制。
-- [Anthropic — Prompt caching (Claude API docs)](https://platform.claude.com/docs/en/prompt-caching) —— 缓存机制。
+- [Anthropic — Prompt caching (Claude API docs)](https://platform.claude.com/docs/en/build-with-claude/prompt-caching) —— 缓存机制。
 - [Anthropic — Measuring agent autonomy in practice](https://www.anthropic.com/research/measuring-agent-autonomy) —— 长程 agent 的成本画像。

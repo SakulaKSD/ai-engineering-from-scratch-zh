@@ -1,6 +1,6 @@
-# 自托管服务选型 —— llama.cpp、Ollama、TGI、vLLM、SGLang
+# 自托管推理服务选型——让引擎匹配硬件与规模
 
-> 2026 年四个引擎主导自托管推理。基于硬件、规模和生态来挑。**llama.cpp** 在 CPU 上最快 —— 模型支持最广，对量化和线程完全掌控。**Ollama** 是开发笔记本上的一条命令安装，比 llama.cpp 慢约 15-30%（Go + CGo + HTTP 序列化），在类生产负载下吞吐差 3 倍。**TGI 于 2025 年 12 月 11 日进入维护模式** —— 只修 bug，裸吞吐比 vLLM 慢约 10%，但历来可观测性和 HF 生态集成顶尖。那个维护状态让它成为一个长期上有风险的押注 —— 新项目用 SGLang 或 vLLM 是更安全的默认。**vLLM** 是通用生产默认 —— v0.15.1（2026 年 2 月）加了 PyTorch 2.10、RTX Blackwell SM120、H200 优化。**SGLang** 是 agentic 多轮 / prefix 重的专家 —— 生产里 400,000+ 块 GPU（xAI、LinkedIn、Cursor、Oracle、GCP、Azure、AWS）。硬件约束：仅 CPU → 只能 llama.cpp。AMD / 非 NVIDIA → 只能 vLLM（TRT-LLM 锁死 NVIDIA）。2026 流水线模式：开发 = Ollama，预发 = llama.cpp，生产 = vLLM 或 SGLang。全程同一套 GGUF/HF 权重。
+> 引擎选型取决于硬件、规模和生态，而不是照着排行榜抄答案。2026 年主导自托管推理的是 llama.cpp、Ollama、vLLM 和 SGLang，TGI 则落在维护模式之后。**llama.cpp** 在 CPU 上最快，模型支持最广，也能完全掌控量化和线程。**Ollama** 是开发笔记本上的一条命令安装，比 llama.cpp 慢约 15-30%（Go + CGo + HTTP 序列化），在类生产负载下吞吐可差 3 倍。**TGI 于 2025 年 12 月 11 日进入维护模式**，只修 bug，裸吞吐比 vLLM 慢约 10%，但历来可观测性和 HF 生态集成出色；长期采用风险使 SGLang 或 vLLM 成为新项目更稳妥的默认。**vLLM** 是通用生产默认，v0.15.1（2026 年 2 月）增加了 PyTorch 2.10、RTX Blackwell SM120 和 H200 优化。**SGLang** 擅长 agentic 多轮与前缀密集负载，已在生产中部署于 400,000+ 块 GPU。硬件约束：CPU 优先时选 llama.cpp；AMD / 非 NVIDIA 环境中，vLLM 是支持最强的路径，TRT-LLM 则锁定 NVIDIA。2026 年常见流水线是开发用 Ollama、预发用 llama.cpp、生产用 vLLM 或 SGLang。注意各引擎采用不同权重格式：llama.cpp 系列使用 GGUF，GPU 引擎使用 HF safetensors，阶段之间可能需要格式转换。
 
 **类型：** Learn
 **语言：** Python（标准库，引擎决策树遍历器）
@@ -11,8 +11,8 @@
 
 - 给定硬件（CPU / AMD / NVIDIA Hopper / Blackwell）、规模（1 用户 / 100 / 10,000）和工作负载（通用聊天 / agent / 长上下文），挑一个引擎。
 - 说出 2026 年 TGI 的维护模式状态（2025 年 12 月 11 日），以及为什么它让新项目偏向 vLLM 或 SGLang。
-- 描述全程用同一套 GGUF 或 HF 权重的 开发/预发/生产 流水线。
-- 解释为什么"仅 CPU"逼向 llama.cpp，"AMD"排除 TRT-LLM。
+- 描述开发/预发/生产流水线，包括 GGUF 到 safetensors 的格式转换会出现在哪个阶段。
+- 解释为什么"CPU 优先"指向 llama.cpp，"AMD"排除 TRT-LLM。
 
 ## 问题背景
 
@@ -34,9 +34,9 @@
 
 ### 硬件优先的决策
 
-**仅 CPU** → llama.cpp。Ollama 也行但更慢。CPU 上没有其他引擎有竞争力。
+**CPU 优先** → llama.cpp。Ollama 也行但更慢。CPU 上没有其他引擎有竞争力。
 
-**AMD GPU** → vLLM（AMD ROCm 支持）。SGLang 也行。TRT-LLM 锁死 NVIDIA，所以出局。
+**AMD GPU** → vLLM 是支持最强的路径（AMD ROCm 支持）。SGLang 也行。TRT-LLM 锁死 NVIDIA，所以出局。
 
 **NVIDIA Hopper（H100 / H200）** → vLLM 或 SGLang 或 TRT-LLM。三个都是顶级。
 
@@ -74,7 +74,7 @@ Hugging Face TGI 于 2025 年 12 月 11 日进入维护模式 —— 今后只�
 
 ### 流水线模式
 
-开发（Ollama）→ 预发（llama.cpp）→ 生产（vLLM）。全程同一套 GGUF 或 HF 权重。工程师在笔记本上快速迭代；预发镜像生产的量化；生产是服务目标。
+开发（Ollama）→ 预发（llama.cpp）→ 生产（vLLM）。各引擎使用不同权重格式：llama.cpp 系列使用 GGUF，GPU 引擎使用 HF safetensors，所以阶段之间可能需要格式转换。工程师在笔记本上快速迭代；预发镜像生产的量化；生产是服务目标。
 
 ### Ollama 注意事项
 
@@ -123,7 +123,7 @@ data-parallel
 | TRT-LLM | "锁 NVIDIA 的" | Blackwell 吞吐领头羊，仅 NVIDIA |
 | GGUF | "llama.cpp 格式" | 打包的 K-quant 变体 |
 | Production-stack | "vLLM K8s" | 阶段 17 · 18 的参考部署 |
-| 流水线模式 | "开发→预发→生产" | 同一套权重上 Ollama → llama.cpp → vLLM |
+| 流水线模式 | "开发→预发→生产" | Ollama → llama.cpp → vLLM；各引擎的权重格式不同 |
 
 ## 延伸阅读
 

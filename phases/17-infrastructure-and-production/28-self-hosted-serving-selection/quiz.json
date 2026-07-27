@@ -1,6 +1,6 @@
 {
   "lesson": "28-self-hosted-serving-selection",
-  "title": "自托管服务选型 —— llama.cpp、Ollama、TGI、vLLM、SGLang",
+  "title": "自托管推理服务选型：让引擎匹配硬件与规模",
   "questions": [
     {
       "stage": "pre",

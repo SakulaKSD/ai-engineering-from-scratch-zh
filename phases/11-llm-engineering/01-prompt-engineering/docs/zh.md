@@ -513,15 +513,15 @@ MODEL_CONFIGS = {
     },
     "claude-3.5-sonnet": {
         "provider": "anthropic",
-        "model": "claude-3-5-sonnet-20241022",
+        "model": "claude-sonnet-5",
         "max_tokens": 2048,
-        "context_window": 200_000,
+        "context_window": 1_000_000,
     },
     "gemini-1.5-pro": {
         "provider": "google",
-        "model": "gemini-1.5-pro",
+        "model": "gemini-2.5-pro",
         "max_tokens": 2048,
-        "context_window": 2_000_000,
+        "context_window": 1_000_000,
     },
 }
 
@@ -952,7 +952,7 @@ assistant prefill（`"{"`）逼着 Claude 接着产出 JSON、不带任何开场
 
 Gemini 把 system 指令当成模型配置的一部分来处理，而不是一条消息。2M token 的上下文窗口意味着你可以塞进那些 GPT-4o 或 Claude 装不下的海量 few-shot 示例集。
 
-### LangChain：与 provider 无关的 prompt
+### 与 provider 无关的 prompt 模板
 
 ```python
 # from langchain_core.prompts import ChatPromptTemplate

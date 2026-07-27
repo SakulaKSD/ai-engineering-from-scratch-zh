@@ -1,6 +1,6 @@
 {
   "lesson": "14-autogen-actor-model",
-  "title": "AutoGen v0.4：Actor 模型与 agent 框架",
+  "title": "Agent 的 Actor 模型：异步消息与类型化运行时",
   "questions": [
     {
       "stage": "pre",

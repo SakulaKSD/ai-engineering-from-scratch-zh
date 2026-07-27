@@ -1,10 +1,10 @@
-# SGLang 与 RadixAttention 应对 prefix 重的工作负载
+# 前缀缓存推理服务——RadixAttention 与 KV 复用
 
-> SGLang 把 KV cache 当成一个一等的、可复用的资源，存在一棵 radix 树里。vLLM 按 FCFS（先到先服务）调度请求，而 SGLang 的缓存感知调度器优先服务共享前缀更长的请求 —— 本质上是一次深度优先的 radix 遍历，让热分支常驻在 HBM 里。在 Llama 3.1 8B 上跑 ShareGPT 式的 1K prompt，SGLang 跑到约 16,200 tok/s，vLLM 约 12,500，约 29% 的优势。在 prefix 重的 RAG 工作负载上，优势达到 6.4 倍。在语音克隆形态的工作负载上，缓存命中率越过了 86%。2026 年部署在 xAI、LinkedIn、Cursor、Oracle、GCP、Azure、AWS 的 400,000+ 块 GPU 上。坑在于：当前缀顺序不一致时，那个 6.4 倍的数字会蒸发 —— 顺序是工程师手里的杠杆。
+> 把 KV cache 视为存放在 radix 树中的一等可复用资源后，调度方式也随之变化。vLLM 按 FCFS（先到先服务）调度请求，而缓存感知调度器会优先服务共享前缀更长的请求，本质上是一次深度优先的 radix 遍历，让热分支常驻 HBM。SGLang 正是围绕这个思路构建推理服务的引擎。在 Llama 3.1 8B 上跑 ShareGPT 式的 1K prompt，SGLang 跑到约 16,200 tok/s，vLLM 约 12,500，约有 29% 优势；在前缀密集的 RAG 负载上，优势达到 6.4 倍；在语音克隆形态的负载上，缓存命中率超过 86%。2026 年它部署在 xAI、LinkedIn、Cursor、Oracle、GCP、Azure、AWS 的 400,000+ 块 GPU 上。坑在于：当前缀顺序不一致时，6.4 倍这个数字会消失，顺序才是工程师手里的杠杆。
 
 **类型：** Learn
 **语言：** Python（标准库，一个玩具级 radix 树缓存 + 缓存感知调度器）
-**前置要求：** 阶段 17 · 04（vLLM 服务内部机制）、阶段 14（Agentic RAG）
+**前置要求：** 阶段 17 · 04（推理服务引擎内部机制）、阶段 14（Agentic RAG）
 **预计时间：** ~75 分钟
 
 ## 学习目标

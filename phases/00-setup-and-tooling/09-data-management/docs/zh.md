@@ -45,7 +45,7 @@ pip install datasets huggingface_hub
 ```python
 from datasets import load_dataset
 
-dataset = load_dataset("imdb")
+dataset = load_dataset("stanfordnlp/imdb")
 print(dataset)
 print(dataset["train"][0])
 ```
@@ -72,7 +72,7 @@ for i, example in enumerate(dataset):
 `datasets` 库底层用的是 Apache Arrow。你可以根据流水线的需要转成其他格式。
 
 ```python
-dataset = load_dataset("imdb", split="train")
+dataset = load_dataset("stanfordnlp/imdb", split="train")
 
 dataset.to_csv("imdb_train.csv")
 dataset.to_json("imdb_train.json")
@@ -101,7 +101,7 @@ dataset.to_parquet("imdb_train.parquet")
 有些数据集自带划分。没有的时候，自己来划：
 
 ```python
-dataset = load_dataset("imdb", split="train")
+dataset = load_dataset("stanfordnlp/imdb", split="train")
 
 split = dataset.train_test_split(test_size=0.2, seed=42)
 train_val = split["train"].train_test_split(test_size=0.125, seed=42)

@@ -56,6 +56,6 @@
   <rect x="40" y="390" width="880" height="100" class="box"/>
   <text x="480" y="412" text-anchor="middle" class="head">2026 pipeline pattern</text>
   <text x="480" y="434" text-anchor="middle" class="step">dev: Ollama   →   staging: llama.cpp   →   prod: vLLM (or SGLang)</text>
-  <text x="480" y="454" text-anchor="middle" class="step">same GGUF or HF weights across all three tiers</text>
+  <text x="480" y="454" text-anchor="middle" class="step">convert GGUF to HF safetensors between tiers when needed</text>
   <text x="480" y="476" text-anchor="middle" class="caption">engineers iterate fast locally; staging mirrors prod quant; prod is the serving target</text>
 </svg>

@@ -1,6 +1,6 @@
-# CrewAI：基于角色的 Crew 与 Flow
+# 基于角色的 Agent 团队——角色、任务与流程
 
-> CrewAI 是 2026 年基于角色的多 agent 框架。四个原语：Agent、Task、Crew、Process。两种顶层形态：Crew（自主、基于角色的协作）和 Flow（事件驱动、确定性）。文档说得很直白：「对任何生产就绪的应用，从 Flow 开始。」
+> 四个原语：Agent、Task、Crew、Process。两种顶层形态：Crew（自主、基于角色的协作）和 Flow（事件驱动、确定性）。CrewAI 是 2026 年的参考实现，其文档说得很直白：「对任何生产就绪的应用，从 Flow 开始。」
 
 **类型：** Learn + Build
 **语言：** Python（标准库）
@@ -108,13 +108,13 @@ CrewAI 开箱提供四种记忆类型。它们可组合：一个 Crew 可以一�
 
 在 Crew 上用 `memory=True` 或按类型配置启用。由你配置的一个 embedding 提供方支撑（默认 OpenAI，可换成本地）。记忆是 CrewAI 相比更薄框架对得起身价的地方之一；纯 LangGraph 要求你自己把这些一个个接好。
 
-### CrewAI 什么时候合适
+### 基于角色的团队什么时候合适
 
 - 三到六个有具名角色和协作工作流的 agent。起草、审查、规划、头脑风暴。
 - 路由场景，其中 LLM 对下一步的判断本身就是价值的一部分（Hierarchical）。
 - 任何团队读 `role + goal + backstory` 比读一个图定义更舒服的地方。
 
-### CrewAI 什么时候不合适
+### 什么时候不合适
 
 - 有严格顺序的确定性 DAG。用 LangGraph（第 13 课）。图形态才是对的抽象；CrewAI 的角色框定是摩擦。
 - 亚秒级延迟预算。Hierarchical 增加往返。连 Sequential 都要序列化那些包含 backstory 和先前输出的 prompt。

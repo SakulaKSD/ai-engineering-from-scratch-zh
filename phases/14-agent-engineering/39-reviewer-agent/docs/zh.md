@@ -122,8 +122,8 @@ python3 code/main.py
 
 ## 延伸阅读
 
-- [OpenAI Agents SDK handoffs](https://platform.openai.com/docs/guides/agents-sdk/handoffs)
-- [Anthropic Claude Code subagents](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/sub-agents)
+- [OpenAI Agents SDK handoffs](https://openai.github.io/openai-agents-python/handoffs/)
+- [Anthropic Claude Code subagents](https://code.claude.com/docs/en/sub-agents)
 - [Cloudflare, Orchestrating AI Code Review at Scale](https://blog.cloudflare.com/ai-code-review/) —— 7 专家 + 协调器架构，30 天 13.1 万次运行
 - [Agent-as-a-Judge: Evaluating Agents with Agents (OpenReview / ICLR)](https://openreview.net/forum?id=DeVm3YUnpj) —— DevAI 基准，366 个分层解法要求
 - [Adnan Masood, Rubric-Based Evaluations and LLM-as-a-Judge: Methodologies, Biases, Empirical Validation](https://medium.com/@adnanmasood/rubric-based-evals-llm-as-a-judge-methodologies-and-empirical-validation-in-domain-context-71936b989e80) —— 四种偏见与缓解

@@ -19,6 +19,28 @@
 
 ![聊天机器人演进：基于规则 → 检索 → 神经 → agent](../assets/chatbot.svg)
 
+### 脚本机器人的半个世纪：1950-2001
+
+第一个范式延续的不是五年，而是整整五十年。理解这段历史很重要，因为其中每个系统本质上都是同一台机器：匹配输入、输出预制回复、更新少量状态。给这台机器添加了五十年规则，仍没有得到通用能力。正是这个上限，催生了后面的三个范式。
+
+**1950 年。** Turing 没有直接回答“机器能思考吗”，而是提出了一个可操作的替代问题：如果询问者通过电传打字无法分辨机器和人，那么原来的哲学问题就失去了实际意义。这个领域还没有名字，对话就先成了它的基准。
+
+**1956 年。** 名字出现了。Dartmouth 夏季研讨会提出“智能的每个方面，原则上都能被精确描述到可由机器模拟”，并由此创造了“人工智能”一词。提案原本只为取得实质进展预留了两个月。
+
+**1966 年。** ELIZA 带来了你会在第 1 步实现的反射技巧：分解规则从输入中抽取片段，重组规则再把它们变成问题反射回去。总共约 200 个模式，没有状态，也没有理解，但用户仍愿意向它倾诉。Weizenbaum 的余生都在警惕：让人产生这种错觉所需的机制竟如此之少。
+
+**1972 年。** Stanford 为模拟偏执症而开发的 PARRY，补上了 ELIZA 缺少的内部状态。恐惧、愤怒和不信任三个数值变量会在每轮更新，并决定下一段脚本能否触发，因此相同输入会因之前的对话而产生不同回复。在一次盲测中，精神科医生区分 PARRY 和真实患者的表现与随机猜测相当。它是人格条件化的直接祖先，相当于用三个浮点数实现系统 prompt。同年，人们让两个机器人通过 ARPANET 对话：治疗师脚本采访偏执状态机，成为网络上的第一次机器人对机器人对话。
+
+**1995 年。** ALICE 用 AIML 扩展了 ELIZA 的配方。AIML 是一种描述模式-模板对的 XML 方言，包含约 4 万个手写类别，并三次赢得 Loebner Prize。它证明了基于规则系统的扩展规律：更多规则可以买到覆盖率，却买不到通用性；每条规则都成了需要维护的负债。
+
+**2001 年。** SmarterChild 把这套配方带给 3000 万即时通信用户，并把天气、股票和电影场次等后端查询嵌入模板。换个角度看，这就是披着 2001 年外衣的工具调用：解析意图、调用服务、把结果渲染进回复。
+
+五十年，一套机制，不断增长的规则数量。这个范式的终结并非因为它被理论推翻，而是因为手写状态机的维护成本随覆盖范围线性增长，用户预期却会跟着上周见过的最好产品不断上涨。
+
+```figure
+chatbot-lineage
+```
+
 **基于规则（ELIZA、AIML、DialogFlow）。** 手工撰写的模式匹配用户输入并产出回复。意图分类器把请求路由到预定义的流程。槽位填充状态机收集所需信息。在为它设计的窄范围内运转得漂亮，一出范围立刻翻车。在不容忍幻觉的安全关键领域（银行身份认证、机票预订）至今还在用。
 
 **基于检索。** 一个 FAQ 式系统。把每一对（话语，回复）编码。运行时，编码用户的消息，检索出最近的已存回复。想想 Zendesk 经典的"相似文章"功能。比规则更能处理复述。不生成，所以不幻觉。
@@ -232,7 +254,9 @@ Refuse to recommend a pure-LLM agent for any destructive action (payments, accou
 | prompt 注入 | 用户攻击 prompt | 试图覆盖系统 prompt 的恶意输入。 |
 
 ## 延伸阅读
+- [Turing (1950). Computing Machinery and Intelligence](https://academic.oup.com/mind/article/LIX/236/433/986238) —— 让对话成为这个领域基准的论文。
 
+- [Colby, Weber, Hilf (1971). Artificial Paranoia](https://doi.org/10.1016/0004-3702(71)90002-6) —— PARRY 的情绪变量架构，也是第一个有状态聊天机器人。
 - [Weizenbaum (1966). ELIZA — A Computer Program For the Study of Natural Language Communication](https://web.stanford.edu/class/cs124/p36-weizenabaum.pdf) —— 原始的基于规则聊天机器人论文。
 - [Thoppilan et al. (2022). LaMDA: Language Models for Dialog Applications](https://arxiv.org/abs/2201.08239) —— Google 后期的神经聊天机器人论文，恰在 LLM agent 接管之前。
 - [Yao et al. (2022). ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) —— 给 agent 循环模式命名的那篇论文。

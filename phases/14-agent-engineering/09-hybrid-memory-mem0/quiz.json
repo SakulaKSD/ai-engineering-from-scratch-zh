@@ -1,6 +1,6 @@
 {
   "lesson": "09-hybrid-memory-mem0",
-  "title": "混合记忆：向量 + 图 + KV（Mem0）",
+  "title": "混合记忆：向量 + 图 + KV",
   "questions": [
     {
       "stage": "pre",

@@ -38,7 +38,7 @@ provider 路由有用的场景：
 
 ### 模型别名
 
-你的代码不说 `claude-3-5-sonnet-20251022`，而说 `our_smart_model`。网关把别名映射到真实模型。Anthropic 发布 Claude 4 时，你在 server 端改别名；你的代码一点不用动。
+你的代码不写死某个 snapshot ID，而说 `our_smart_model`。网关把别名映射到真实模型。某家提供商发布新一代模型时，你只需在 server 端改别名，业务代码一点不用动。
 
 ### fallback 链
 

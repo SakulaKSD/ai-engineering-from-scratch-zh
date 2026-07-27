@@ -1,6 +1,6 @@
-# 记忆块与 Sleep-Time Compute（Letta）
+# 记忆块与休眠时计算
 
-> MemGPT 在 2024 年变成了 Letta。2026 年的演进加了两个想法：模型可直接编辑的离散功能性记忆块，以及一个在主 agent 空闲时异步整合记忆的 sleep-time agent。这就是你把记忆扩展到单次对话之外的办法。
+> 两个想法让记忆扩展到单次对话之外：模型可直接编辑的离散功能性记忆块，以及一个在主 agent 空闲时异步整合记忆的 sleep-time agent。
 
 **类型：** Build
 **语言：** Python（标准库）
@@ -22,7 +22,7 @@ MemGPT（第 07 课）解决了虚拟内存的控制流。又冒出三个生产�
 2. **记忆腐烂。** 写入越攒越多。被推翻的事实还留着。检索淹没在过时内容里。
 3. **结构丢失。** 一个扁平的 archival 存储没法表达「Human 块始终在 prompt 里；Persona 块始终在 prompt 里；Task 块每个会话换一次」。
 
-Letta（letta.com）是 2026 年的重写版。记忆块让结构显式化；sleep-time compute 把整合挪出关键路径。
+Letta（letta.com）是原 MemGPT 项目在 2024 年采用的平台名称，论文中的模式仍叫 MemGPT；2026 年的 Letta V1 重写是后续独立的一步。记忆块让结构显式化，sleep-time compute 把整合挪出关键路径。
 
 ## 核心概念
 
@@ -64,7 +64,7 @@ Letta 把它推广到任意用户自定义块：当前目标用一个 `Task` 块
 
 这个形态契合人类的工作方式：你做任务，你睡一觉，长期记忆在过夜里沉淀下来。
 
-### Letta V1 与原生推理
+### 原生推理
 
 Letta V1（`letta_v1_agent`，2026）废弃了 `send_message`/heartbeat 和内联的 `Thought:` token，转用原生推理。Responses API（OpenAI）和带 extended thinking 的 Messages API（Anthropic）在一个独立通道上输出推理，跨多轮透传（生产环境里跨厂商加密）。控制循环仍是 ReAct。思考轨迹是结构化的，不是 prompt 形态的。
 

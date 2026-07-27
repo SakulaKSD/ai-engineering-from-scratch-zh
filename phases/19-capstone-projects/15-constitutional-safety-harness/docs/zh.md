@@ -146,7 +146,7 @@ $ safety probe --model=target --family=PAIR --budget=50
 ## 延伸阅读
 
 - [Anthropic Constitutional Classifiers](https://www.anthropic.com/research/constitutional-classifiers) —— 训练期参考
-- [Meta Llama Guard 4](https://ai.meta.com/research/publications/llama-guard-4/) —— 2026 年的输入/输出分类器
+- [Meta Llama Guard 4](https://www.llama.com/docs/model-cards-and-prompt-formats/llama-guard-4/) —— 2026 年的输入/输出分类器
 - [Google ShieldGemma-2](https://huggingface.co/google/shieldgemma-2b) —— 图像 + 多模态安全
 - [NVIDIA Nemotron 3 Content Safety](https://developer.nvidia.com/blog/building-nvidia-nemotron-3-agents-for-reasoning-multimodal-rag-voice-and-safety/) —— 企业参考
 - [X-Guard (arXiv:2504.08848)](https://arxiv.org/abs/2504.08848) —— 132 语种多语种安全

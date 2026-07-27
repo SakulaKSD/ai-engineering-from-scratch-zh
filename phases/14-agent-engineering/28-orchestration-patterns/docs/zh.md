@@ -52,7 +52,7 @@
 - 并行提议者 + 迭代交叉批判（第 25 课）。
 - 算不上真正的编排 —— 更偏验证 —— 但在框架里以拓扑选择的形式出现。
 
-### CrewAI Crew vs Flow
+### Autonomous crews vs deterministic flows
 
 CrewAI 形式化了两种部署模式：
 

@@ -1,6 +1,6 @@
-# 记忆：虚拟上下文与 MemGPT
+# Agent 记忆——虚拟上下文与记忆分页
 
-> 上下文窗口是有限的。对话、文档和工具轨迹不是。MemGPT（Packer 等人，2023）把这事框定为操作系统的虚拟内存 —— 主上下文是内存，外部存储是磁盘，agent 在两者之间换页。这是 2026 年每个记忆系统都继承的模式。
+> 上下文窗口是有限的。对话、文档和工具轨迹不是。解决办法是重新采用操作系统的虚拟内存思想：主上下文是内存，外部存储是磁盘，agent 在两者之间换页。MemGPT（Packer 等人，2023）为这个模式命名，许多生产记忆系统都建立在它之上。
 
 **类型：** Build
 **语言：** Python（标准库）
@@ -26,9 +26,9 @@
 
 ## 核心概念
 
-### MemGPT：OS 类比
+### OS 类比
 
-Packer 等人（arXiv:2310.08560，v2，2024 年 2 月）把上下文管理映射到操作系统的虚拟内存：
+MemGPT（Packer 等人，arXiv:2310.08560，v2，2024 年 2 月）把上下文管理映射到操作系统的虚拟内存：
 
 | OS 概念 | MemGPT 概念 | 2026 生产对应物 |
 |------------|---------------|------------------------|
@@ -58,7 +58,7 @@ MemGPT 引入了「记忆即中断」：对话中途 agent 可以调用一个记
 - `archival_memory_search(query, top_k)` —— 从外部存储检索。
 - `conversation_search(query)` —— 扫描过往轮次。
 
-### MemGPT 到哪儿结束、Letta 从哪儿开始
+### 论文到哪儿结束、生产实现从哪儿开始
 
 2024 年 9 月 MemGPT 变成了 Letta。研究仓库（`cpacker/MemGPT`）还在；Letta 扩展了这个设计：
 
@@ -106,6 +106,25 @@ python3 code/main.py
 
 按运维形态（自托管、托管、框架集成）来选，而不是按核心模式 —— 核心模式就是 MemGPT。
 
+### Agent 记忆的形态
+
+换页解决的是容量问题，却没有决定该存什么。生产系统中反复出现四类记忆，每类回答一个不同的问题：
+
+- **工作记忆**：现在什么最重要？它是上下文内的一层，包含当前任务、最近几轮和固定的核心 section，也就是 prompt 本身。
+- **情景记忆**：发生过什么？保存过去的对话轮次和执行轨迹，并附上会话与轮次引用，需要时可以重放。
+- **语义记忆**：什么是真的？记录关于用户、领域和世界的事实，并在事实变化时更新和去重。
+- **程序性记忆**：这件事该怎么做？保存学到的流程、偏好和规则，用来引导未来行为，而不仅是被动回忆。
+
+不同开源实现选择了不同切入点：
+
+| 类型 | 实现 | 处理方式 |
+|------|------|----------|
+| 工作记忆 | MemGPT / Letta | 通过记忆工具，在固定 prompt 预算中换入和换出内容（本课、第 08 课） |
+| 情景记忆 | Zep | 使用时序知识图谱，事实带有效期，因此可以查询“某个时间点什么为真” |
+| 语义记忆 | Mem0 | 通过提取流水线，在向量、KV 和图存储间去重并更新事实（第 09 课） |
+| 语义 + 程序性记忆 | LangMem | 在后台提取事实和行为规则，写入 agent 在不同轮次之间会查询的存储 |
+| 情景 + 语义记忆 | agentmemory | 在会话运行时捕获记录，再整合成带类型、可搜索的条目 |
+
 ## 拿去用
 
 `outputs/skill-virtual-memory.md` 是一个可复用技能，为任意目标运行时产出一个正确的两级记忆脚手架（主 + archival + 工具接触面），驱逐策略和引用字段都接好。
@@ -137,3 +156,7 @@ python3 code/main.py
 - [Letta, Memory Blocks blog](https://www.letta.com/blog/memory-blocks) —— 三级演进
 - [Anthropic, Effective context engineering](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) —— 把上下文当预算来对待
 - [Chhikara et al., Mem0 (arXiv:2504.19413)](https://arxiv.org/abs/2504.19413) —— 建立在这个模式之上的混合生产记忆
+- [Zep (getzep/zep)](https://github.com/getzep/zep) —— 上表中的时序知识图谱记忆
+- [Mem0 (mem0ai/mem0)](https://github.com/mem0ai/mem0) —— 第 09 课混合存储背后的提取流水线
+- [LangMem (langchain-ai/langmem)](https://github.com/langchain-ai/langmem) —— 在后台提取事实和行为规则
+- [agentmemory (rohitg00/agentmemory)](https://github.com/rohitg00/agentmemory) —— 捕获会话并整合成带类型、可搜索的记录

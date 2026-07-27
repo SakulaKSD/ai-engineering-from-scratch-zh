@@ -1,6 +1,6 @@
-# Claude Agent SDK：子 agent 与会话存储
+# Harness 即库——子 agent 与会话存储
 
-> Claude Agent SDK 是 Claude Code harness 的库形态。内置工具、用于上下文隔离的子 agent、hook、W3C trace 传播、与 TypeScript 对齐的会话存储。Claude Managed Agents 是面向长时运行异步工作的托管替代品。
+> 一套可以直接导入的 harness：内置工具、用于上下文隔离的子 agent、hook、W3C trace 传播和会话持久化。Claude Agent SDK 是参考实现，也就是 Claude Code harness 的库形态；Claude Managed Agents 则是面向长时异步工作的托管替代品。
 
 **类型：** Learn + Build
 **语言：** Python（标准库）

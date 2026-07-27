@@ -126,6 +126,6 @@ python3 code/main.py
 - [Datadog Frontend, Steering AI Agents in Monorepos with AGENTS.md](https://dev.to/datadog-frontend-dev/steering-ai-agents-in-monorepos-with-agentsmd-13g0) —— 实战中的嵌套优先级
 - [Nx Blog, Teach Your AI Agent How to Work in a Monorepo](https://nx.dev/blog/nx-ai-agent-skills) —— 横跨六个工具的单源生成
 - [The Prompt Shelf, AGENTS.md Best Practices: Structure, Scope, and Real Examples](https://thepromptshelf.dev/blog/agents-md-best-practices/) —— 能挺过审查的章节排序
-- [Anthropic, Claude Code subagents and session store](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/sub-agents)
+- [Anthropic, Claude Code subagents](https://code.claude.com/docs/en/sub-agents)
 - 阶段 14 · 31 —— 这个最小集吸收的失败模式
 - 阶段 14 · 34 —— 这一课预演的持久状态 schema

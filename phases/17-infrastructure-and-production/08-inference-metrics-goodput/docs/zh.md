@@ -4,7 +4,7 @@
 
 **类型：** Learn
 **语言：** Python（标准库，一个玩具级分位数计算器与 goodput 报告器）
-**前置要求：** 阶段 17 · 04（vLLM 服务内部机制）
+**前置要求：** 阶段 17 · 04（推理服务引擎内部机制）
 **预计时间：** ~60 分钟
 
 ## 学习目标
@@ -140,5 +140,5 @@ throughput-latency
 - [Anyscale — LLM Serving Benchmarking Metrics](https://docs.anyscale.com/llm/serving/benchmarking/metrics) —— 替代定义与测量配方。
 - [BentoML — LLM Inference Metrics](https://bentoml.com/llm/inference-optimization/llm-inference-metrics) —— 在真实部署上的实测。
 - [LLMPerf](https://github.com/ray-project/llmperf) —— 基于 Ray 的开源基准。
-- [GenAI-Perf](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/client/src/c++/perf_analyzer/genai-perf/README.html) —— NVIDIA 的基准工具。
+- [GenAI-Perf](https://github.com/triton-inference-server/perf_analyzer/blob/main/genai-perf/README.md) —— NVIDIA 的基准工具。
 - [MLPerf Inference](https://mlcommons.org/benchmarks/inference-datacenter/) —— 业界公认的基于 goodput 的基准。

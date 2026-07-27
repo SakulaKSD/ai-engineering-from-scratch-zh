@@ -579,7 +579,7 @@ the agent went wrong and explain why...
 | 13 | [构建一个生产级 LLM 应用](phases/11-llm-engineering/13-production-app/) | Build | Python |
 | 14 | [模型上下文协议（MCP）](phases/11-llm-engineering/14-model-context-protocol/) | Build | Python |
 | 15 | [提示缓存与上下文缓存](phases/11-llm-engineering/15-prompt-caching/) | Build | Python |
-| 16 | [LangGraph：面向 agent 的状态机](phases/11-llm-engineering/16-langgraph-state-machines/) | Build | Python |
+| 16 | [Agent 状态机——图、节点与检查点](phases/11-llm-engineering/16-langgraph-state-machines/) | Build | Python |
 | 17 | [agent 框架的取舍](phases/11-llm-engineering/17-agent-framework-tradeoffs/) | Learn | Python |
 
 </details>
@@ -662,18 +662,18 @@ the agent went wrong and explain why...
 | 04 | [Tree of Thoughts 与 LATS](phases/14-agent-engineering/04-tree-of-thoughts-lats/) | Build | Python |
 | 05 | [Self-Refine 与 CRITIC](phases/14-agent-engineering/05-self-refine-and-critic/) | Build | Python |
 | 06 | [工具使用与函数调用](phases/14-agent-engineering/06-tool-use-and-function-calling/) | Build | Python |
-| 07 | [记忆——虚拟上下文与 MemGPT](phases/14-agent-engineering/07-memory-virtual-context-memgpt/) | Build | Python |
-| 08 | [记忆块与睡眠时计算](phases/14-agent-engineering/08-memory-blocks-sleep-time-compute/) | Build | Python |
-| 09 | [混合记忆——Mem0 向量 + 图 + KV](phases/14-agent-engineering/09-hybrid-memory-mem0/) | Build | Python |
+| 07 | [Agent 记忆——虚拟上下文与记忆分页](phases/14-agent-engineering/07-memory-virtual-context-memgpt/) | Build | Python |
+| 08 | [记忆块与休眠时计算](phases/14-agent-engineering/08-memory-blocks-sleep-time-compute/) | Build | Python |
+| 09 | [混合记忆——向量 + 图 + KV](phases/14-agent-engineering/09-hybrid-memory-mem0/) | Build | Python |
 | 10 | [技能库与终身学习——Voyager](phases/14-agent-engineering/10-skill-libraries-voyager/) | Build | Python |
 | 11 | [用 HTN 与进化搜索做规划](phases/14-agent-engineering/11-planning-htn-and-evolutionary/) | Build | Python |
 | 12 | [Anthropic 的工作流模式](phases/14-agent-engineering/12-anthropic-workflow-patterns/) | Build | Python |
-| 13 | [LangGraph——有状态图与持久化执行](phases/14-agent-engineering/13-langgraph-stateful-graphs/) | Build | Python |
-| 14 | [AutoGen v0.4——Actor 模型](phases/14-agent-engineering/14-autogen-actor-model/) | Build | Python |
-| 15 | [CrewAI——基于角色的团队与流程](phases/14-agent-engineering/15-crewai-role-based-crews/) | Build | Python |
+| 13 | [有状态图编排——持久执行与检查点](phases/14-agent-engineering/13-langgraph-stateful-graphs/) | Build | Python |
+| 14 | [Agent 的 Actor 模型——异步消息与类型化运行时](phases/14-agent-engineering/14-autogen-actor-model/) | Build | Python |
+| 15 | [基于角色的 Agent 团队——角色、任务与流程](phases/14-agent-engineering/15-crewai-role-based-crews/) | Build | Python |
 | 16 | [OpenAI Agents SDK——交接、护栏、追踪](phases/14-agent-engineering/16-openai-agents-sdk/) | Build | Python |
-| 17 | [Claude Agent SDK——子 agent 与会话存储](phases/14-agent-engineering/17-claude-agent-sdk/) | Build | Python |
-| 18 | [Agno 与 Mastra——生产级运行时](phases/14-agent-engineering/18-agno-and-mastra-runtimes/) | Learn | Python |
+| 17 | [Harness 即库——子 agent 与会话存储](phases/14-agent-engineering/17-claude-agent-sdk/) | Build | Python |
+| 18 | [生产级 Agent 运行时——快速实例化与类型化工作流](phases/14-agent-engineering/18-agno-and-mastra-runtimes/) | Learn | Python |
 | 19 | [基准——SWE-bench、GAIA、AgentBench](phases/14-agent-engineering/19-benchmarks-swebench-gaia/) | Learn | Python |
 | 20 | [基准——WebArena 与 OSWorld](phases/14-agent-engineering/20-benchmarks-webarena-osworld/) | Learn | Python |
 | 21 | [操作电脑——Claude、OpenAI CUA、Gemini](phases/14-agent-engineering/21-computer-use-agents/) | Build | Python |
@@ -718,7 +718,7 @@ the agent went wrong and explain why...
 | 07 | [递归式自我改进：能力 vs 对齐](phases/15-autonomous-systems/07-recursive-self-improvement/) | Learn | Python |
 | 08 | [有界自我改进的设计](phases/15-autonomous-systems/08-bounded-self-improvement/) | Learn | Python |
 | 09 | [自主编码 agent 全景（SWE-bench、CodeAct）](phases/15-autonomous-systems/09-coding-agent-landscape/) | Learn | Python |
-| 10 | [Claude Code 的权限模式与 Auto 模式](phases/15-autonomous-systems/10-claude-code-permission-modes/) | Learn | Python |
+| 10 | [自主 Agent 的权限模式](phases/15-autonomous-systems/10-claude-code-permission-modes/) | Learn | Python |
 | 11 | [浏览器 agent 与间接提示注入](phases/15-autonomous-systems/11-browser-agents/) | Learn | Python |
 | 12 | [长时运行 agent 的持久化执行](phases/15-autonomous-systems/12-durable-execution/) | Learn | Python |
 | 13 | [动作预算、迭代上限、成本管控](phases/15-autonomous-systems/13-cost-governors/) | Learn | Python |
@@ -777,10 +777,10 @@ the agent went wrong and explain why...
 | 01 | [托管 LLM 平台 — Bedrock、Azure OpenAI、Vertex AI](phases/17-infrastructure-and-production/01-managed-llm-platforms/) | Learn | Python |
 | 02 | [推理平台经济学 — Fireworks、Together、Baseten、Modal](phases/17-infrastructure-and-production/02-inference-platform-economics/) | Learn | Python |
 | 03 | [Kubernetes 上的 GPU 自动扩缩 — Karpenter、KAI Scheduler](phases/17-infrastructure-and-production/03-gpu-autoscaling-kubernetes/) | Learn | Python |
-| 04 | [vLLM 服务内部机制 — PagedAttention、连续批处理、分块预填充](phases/17-infrastructure-and-production/04-vllm-serving-internals/) | Learn | Python |
+| 04 | [推理服务引擎内部机制——PagedAttention、连续批处理与分块预填充](phases/17-infrastructure-and-production/04-vllm-serving-internals/) | Learn | Python |
 | 05 | [生产环境中的 EAGLE-3 推测解码](phases/17-infrastructure-and-production/05-eagle3-speculative-decoding/) | Learn | Python |
-| 06 | [面向前缀密集型负载的 SGLang 与 RadixAttention](phases/17-infrastructure-and-production/06-sglang-radixattention/) | Learn | Python |
-| 07 | [Blackwell 上用 FP8 与 NVFP4 的 TensorRT-LLM](phases/17-infrastructure-and-production/07-tensorrt-llm-blackwell/) | Learn | Python |
+| 06 | [前缀缓存推理服务——RadixAttention 与 KV 复用](phases/17-infrastructure-and-production/06-sglang-radixattention/) | Learn | Python |
+| 07 | [硬件专用推理编译——Blackwell 上的 FP8 与 NVFP4](phases/17-infrastructure-and-production/07-tensorrt-llm-blackwell/) | Learn | Python |
 | 08 | [推理指标 — TTFT、TPOT、ITL、Goodput、P99](phases/17-infrastructure-and-production/08-inference-metrics-goodput/) | Learn | Python |
 | 09 | [生产级量化 — AWQ、GPTQ、GGUF、FP8、NVFP4](phases/17-infrastructure-and-production/09-production-quantization/) | Learn | Python |
 | 10 | [无服务器 LLM 的冷启动缓解](phases/17-infrastructure-and-production/10-cold-start-mitigation/) | Learn | Python |
@@ -791,7 +791,7 @@ the agent went wrong and explain why...
 | 15 | [批处理 API — 50% 折扣作为行业标准](phases/17-infrastructure-and-production/15-batch-apis/) | Learn | Python |
 | 16 | [把模型路由作为降本原语](phases/17-infrastructure-and-production/16-model-routing/) | Learn | Python |
 | 17 | [预填充/解码分离 — NVIDIA Dynamo 与 llm-d](phases/17-infrastructure-and-production/17-disaggregated-prefill-decode/) | Learn | Python |
-| 18 | [带 LMCache KV 卸载的 vLLM 生产栈](phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/) | Learn | Python |
+| 18 | [生产级推理服务栈——KV 卸载与缓存感知路由](phases/17-infrastructure-and-production/18-vllm-production-stack-lmcache/) | Learn | Python |
 | 19 | [AI 网关 — LiteLLM、Portkey、Kong、Bifrost](phases/17-infrastructure-and-production/19-ai-gateways/) | Learn | Python |
 | 20 | [影子、金丝雀与渐进式部署](phases/17-infrastructure-and-production/20-shadow-canary-progressive/) | Learn | Python |
 | 21 | [LLM 功能的 A/B 测试 — GrowthBook 与 Statsig](phases/17-infrastructure-and-production/21-ab-testing-llm-features/) | Learn | Python |
@@ -801,7 +801,7 @@ the agent went wrong and explain why...
 | 25 | [安全 — 密钥、PII 脱敏、审计日志](phases/17-infrastructure-and-production/25-security-secrets-audit/) | Learn | Python |
 | 26 | [合规 — SOC 2、HIPAA、GDPR、EU AI Act、ISO 42001](phases/17-infrastructure-and-production/26-compliance-frameworks/) | Learn | Python |
 | 27 | [面向 LLM 的 FinOps — 单位经济与多租户归因](phases/17-infrastructure-and-production/27-finops-llms/) | Learn | Python |
-| 28 | [自托管服务选型 — llama.cpp、Ollama、TGI、vLLM、SGLang](phases/17-infrastructure-and-production/28-self-hosted-serving-selection/) | Learn | Python |
+| 28 | [自托管推理服务选型——让引擎匹配硬件与规模](phases/17-infrastructure-and-production/28-self-hosted-serving-selection/) | Learn | Python |
 
 </details>
 

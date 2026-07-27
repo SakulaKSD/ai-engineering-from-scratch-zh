@@ -355,18 +355,18 @@
 | 04 | 思维树与 LATS | ✅ | ~75 min |
 | 05 | Self-Refine 与 CRITIC | ✅ | ~60 min |
 | 06 | 工具使用与函数调用 | ✅ | ~60 min |
-| 07 | 记忆 — 虚拟上下文与 MemGPT | ✅ | ~75 min |
-| 08 | 记忆块与睡眠时计算 (Letta) | ✅ | ~75 min |
-| 09 | 混合记忆 — 向量 + 图 + KV (Mem0) | ✅ | ~75 min |
+| 07 | Agent 记忆 — 虚拟上下文与记忆分页 | ✅ | ~75 min |
+| 08 | 记忆块与休眠时计算 | ✅ | ~75 min |
+| 09 | 混合记忆 — 向量 + 图 + KV | ✅ | ~75 min |
 | 10 | 技能库与终身学习 (Voyager) | ✅ | ~75 min |
 | 11 | 用 HTN 与进化搜索做规划 | ✅ | ~75 min |
 | 12 | Anthropic 的工作流模式 | ✅ | ~60 min |
-| 13 | LangGraph — 有状态图与持久化执行 | ✅ | ~75 min |
-| 14 | AutoGen v0.4 — Actor 模型 | ✅ | ~75 min |
-| 15 | CrewAI — 基于角色的团队与流程 | ✅ | ~60 min |
+| 13 | 有状态图编排 — 持久执行与检查点 | ✅ | ~75 min |
+| 14 | Agent 的 Actor 模型 — 异步消息与类型化运行时 | ✅ | ~75 min |
+| 15 | 基于角色的 Agent 团队 — 角色、任务与流程 | ✅ | ~60 min |
 | 16 | OpenAI Agents SDK — 移交、护栏、追踪 | ✅ | ~75 min |
-| 17 | Claude Agent SDK — 子智能体与会话存储 | ✅ | ~75 min |
-| 18 | Agno 与 Mastra — 生产级运行时 | ✅ | ~45 min |
+| 17 | Harness 即库 — 子 agent 与会话存储 | ✅ | ~75 min |
+| 18 | 生产级 Agent 运行时 — 快速实例化与类型化工作流 | ✅ | ~45 min |
 | 19 | 基准 — SWE-bench、GAIA、AgentBench | ✅ | ~60 min |
 | 20 | 基准 — WebArena 与 OSWorld | ✅ | ~60 min |
 | 21 | 计算机操作 — Claude、OpenAI CUA、Gemini | ✅ | ~60 min |
@@ -405,7 +405,7 @@
 | 07 | 递归自我改进 — 能力对齐之争 | ✅ | ~60 min |
 | 08 | 有界自我改进设计 | ✅ | ~60 min |
 | 09 | 自主编码智能体全景 (SWE-bench、CodeAct) | ✅ | ~45 min |
-| 10 | Claude Code 权限模式与自动模式 | ✅ | ~45 min |
+| 10 | 自主 Agent 的权限模式 | ✅ | ~45 min |
 | 11 | 浏览器智能体与间接提示注入 | ✅ | ~45 min |
 | 12 | 长时运行智能体的持久化执行 | ✅ | ~60 min |
 | 13 | 动作预算、迭代上限、成本调控器 | ✅ | ~60 min |
@@ -456,10 +456,10 @@
 | 01 | 托管 LLM 平台 — Bedrock、Azure OpenAI、Vertex AI | ✅ | ~60 min |
 | 02 | 推理平台经济学 — Fireworks、Together、Baseten、Modal | ✅ | ~60 min |
 | 03 | Kubernetes 上的 GPU 自动扩缩 — Karpenter、KAI Scheduler | ✅ | ~75 min |
-| 04 | vLLM 服务内部机制 — PagedAttention、连续批处理、分块预填充 | ✅ | ~75 min |
+| 04 | 推理服务引擎内部机制 — PagedAttention、连续批处理与分块预填充 | ✅ | ~75 min |
 | 05 | 生产环境中的 EAGLE-3 推测解码 | ✅ | ~60 min |
-| 06 | 面向前缀密集型负载的 SGLang 与 RadixAttention | ✅ | ~60 min |
-| 07 | Blackwell 上用 FP8 与 NVFP4 的 TensorRT-LLM | ✅ | ~75 min |
+| 06 | 前缀缓存推理服务 — RadixAttention 与 KV 复用 | ✅ | ~60 min |
+| 07 | 硬件专用推理编译 — Blackwell 上的 FP8 与 NVFP4 | ✅ | ~75 min |
 | 08 | 推理指标 — TTFT、TPOT、ITL、Goodput、P99 | ✅ | ~60 min |
 | 09 | 生产级量化 — AWQ、GPTQ、GGUF、FP8、NVFP4 | ✅ | ~75 min |
 | 10 | 无服务器 LLM 的冷启动缓解 | ✅ | ~60 min |
@@ -470,7 +470,7 @@
 | 15 | 批处理 API — 50% 折扣作为行业标准 | ✅ | ~45 min |
 | 16 | 把模型路由作为降本原语 | ✅ | ~60 min |
 | 17 | 预填充/解码分离 — NVIDIA Dynamo 与 llm-d | ✅ | ~75 min |
-| 18 | 带 LMCache KV 卸载的 vLLM 生产栈 | ✅ | ~60 min |
+| 18 | 生产级推理服务栈 — KV 卸载与缓存感知路由 | ✅ | ~60 min |
 | 19 | AI 网关 — LiteLLM、Portkey、Kong、Bifrost | ✅ | ~60 min |
 | 20 | 影子、金丝雀与渐进式部署 | ✅ | ~60 min |
 | 21 | LLM 功能的 A/B 测试 — GrowthBook 与 Statsig | ✅ | ~60 min |
@@ -480,7 +480,7 @@
 | 25 | 安全 — 密钥、PII 脱敏、审计日志 | ✅ | ~60 min |
 | 26 | 合规 — SOC 2、HIPAA、GDPR、EU AI Act、ISO 42001 | ✅ | ~60 min |
 | 27 | 面向 LLM 的 FinOps — 单位经济与多租户归因 | ✅ | ~60 min |
-| 28 | 自托管服务选型 — llama.cpp、Ollama、TGI、vLLM、SGLang | ✅ | ~45 min |
+| 28 | 自托管推理服务选型 — 让引擎匹配硬件与规模 | ✅ | ~45 min |
 
 ## Phase 18: 伦理、安全与对齐 — ✅ (~31 hours)
 

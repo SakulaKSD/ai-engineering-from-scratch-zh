@@ -202,5 +202,5 @@ tags: [llm-engineering, mcp, tool-use]
 - [Anthropic — Introducing MCP (Nov 2024)](https://www.anthropic.com/news/model-context-protocol)——带设计理由的发布博客。
 - [Python SDK](https://github.com/modelcontextprotocol/python-sdk)——本课用的官方 SDK。
 - [Security considerations for MCP](https://modelcontextprotocol.io/docs/concepts/security)——roots、破坏性提示、工具投毒。
-- [Google A2A specification](https://google.github.io/A2A/)——Agent2Agent 协议；与 MCP 的 agent 到工具范围互补的、agent 到 agent 通信的姊妹标准。
+- [Google A2A specification](https://a2a-protocol.org/latest/)——Agent2Agent 协议；与 MCP 的 agent 到工具范围互补的、agent 到 agent 通信的姊妹标准。
 - [Anthropic — Building effective agents (Dec 2024)](https://www.anthropic.com/research/building-effective-agents)——MCP 在更广的 agent 设计模式库（增强型 LLM、工作流、自主 agent）里处于什么位置。

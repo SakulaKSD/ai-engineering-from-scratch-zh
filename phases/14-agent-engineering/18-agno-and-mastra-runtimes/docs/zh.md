@@ -1,6 +1,6 @@
-# Agno 与 Mastra：生产运行时
+# 生产级 Agent 运行时——快速实例化与类型化工作流
 
-> Agno（Python）和 Mastra（TypeScript）是 2026 年的生产运行时组合。Agno 瞄准微秒级的 agent 实例化和无状态的 FastAPI 后端。Mastra 在 Vercel AI SDK 底座上提供 agent、工具、工作流、统一模型路由和复合存储。
+> 生产级 agent 运行时会优化原型框架忽略的部分：实例化成本、类型化工作流接口，以及可直接服务的后端。2026 年的一组代表实现是 Agno（Python）与 Mastra（TypeScript）：前者瞄准微秒级 agent 实例化和无状态 FastAPI 后端，后者在 Vercel AI SDK 底座上提供 agent、工具、工作流、统一模型路由和复合存储。
 
 **类型：** Learn
 **语言：** Python、TypeScript

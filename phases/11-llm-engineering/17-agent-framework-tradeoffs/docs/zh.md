@@ -1,4 +1,4 @@
-# Agent 框架取舍——LangGraph vs CrewAI vs AutoGen vs Agno
+# Agent 框架取舍——图、角色与 Actor 编排
 
 > 每个框架卖的都是同一个 demo（研究 agent 生成一份报告），藏的都是同一个 bug（状态 schema 和编排层打架）。挑那个抽象与你问题形状相匹配的框架；其余一切都是你要写两遍的胶水。
 

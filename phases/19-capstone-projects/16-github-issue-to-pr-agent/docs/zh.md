@@ -1,6 +1,6 @@
 # 顶点项目 16 —— GitHub Issue 到 PR 的自主 agent
 
-> AWS Remote SWE Agents、Cursor Background Agents、OpenAI Codex cloud、Google Jules，全都出了同一套 2026 产品形态：给一个 issue 打标签，拿一个 PR。在云沙箱里跑一个 agent，验证测试通过，再发一个附理由、可供评审的 PR。难的部分是自动复现仓库的构建环境、防止凭证泄漏、强制逐仓库预算，以及确保 agent 不能 force-push。这个顶点项目搭出自托管版本，并在成本和通过率上跟托管的替代品对比。
+> 给一个 issue 打标签，拿到一个 PR，这是 2026 年自主编码 agent 的产品形态：在云沙箱里运行 agent，验证测试通过，再发布一个附带理由、可供评审的 PR。AWS Remote SWE Agents、Cursor Background Agents、OpenAI Codex cloud 和 Google Jules 都提供了这种能力。难点是自动复现仓库构建环境、防止凭证泄漏、执行逐仓库预算，以及确保 agent 不能 force-push。本顶点项目要搭出自托管版本，并在成本与通过率上和托管替代品对比。
 
 **类型：** Capstone
 **语言：** Python（agent）、TypeScript（GitHub App）、YAML（Actions）

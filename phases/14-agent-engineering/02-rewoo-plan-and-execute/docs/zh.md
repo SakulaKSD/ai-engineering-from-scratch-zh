@@ -46,7 +46,7 @@ ReWOO 只付出一个 planner prompt（大）、N 个小 worker prompt（每个�
 
 论文的第二个结果：因为规划器看不到观察，你可以拿一个 175B 教师模型产出的规划器输出去微调一个 7B 模型。小模型负责规划；推理时不再需要大模型。这现在已经是标配 —— 2026 年许多生产 agent 用小规划器配大执行器，或反过来。
 
-### Plan-and-Execute（LangChain，2023）
+### Plan-and-Execute（2023）
 
 LangChain 团队 2023 年 8 月那篇帖子把 ReWOO 一般化成了一个模式名：Plan-and-Execute。前置的规划器吐出一个步骤列表，执行器跑每一步，一个可选的重规划器（replanner）可以在观察到结果后修订。这比 ReWOO 更接近 ReAct（重规划器把观察带回了规划），但保留了 token 节省。
 

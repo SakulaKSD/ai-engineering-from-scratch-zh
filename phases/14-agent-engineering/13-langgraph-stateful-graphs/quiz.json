@@ -1,6 +1,6 @@
 {
   "lesson": "13-langgraph-stateful-graphs",
-  "title": "LangGraph：有状态的图与持久化执行",
+  "title": "有状态图编排：持久执行与检查点",
   "questions": [
     {
       "stage": "pre",

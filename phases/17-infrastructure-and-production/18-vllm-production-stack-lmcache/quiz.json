@@ -1,6 +1,6 @@
 {
   "lesson": "18-vllm-production-stack-lmcache",
-  "title": "搭配 LMCache KV 卸载的 vLLM 生产技术栈",
+  "title": "生产级推理服务栈：KV 卸载与缓存感知路由",
   "questions": [
     {
       "stage": "pre",

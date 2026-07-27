@@ -1,6 +1,6 @@
 # 多 agent 原语模型
 
-> 2026 年在用的每一个多 agent 框架——AutoGen、LangGraph、CrewAI、OpenAI Agents SDK、Microsoft Agent Framework——都是一个四维设计空间里的一个点。原语就四个，不多不少：agent、handoff、共享状态、orchestrator。本课从零构建它们，把一个玩具系统在这四个原语上跑一遍，然后把每个主流框架映射到同一组坐标轴上，让你一段话就能读懂任何新发布。
+> 原语就四个，不多不少：agent、handoff、共享状态、orchestrator。它们构成一个四维设计空间，2026 年的主要多 agent 框架（AutoGen、LangGraph、CrewAI、OpenAI Agents SDK、Microsoft Agent Framework）都是其中的点。本课从零构建这四个原语，把一个玩具系统跑一遍，再把主流框架映射到同一组坐标轴上，让你一段话就能读懂任何新发布。
 
 **类型：** Learn
 **语言：** Python（标准库）

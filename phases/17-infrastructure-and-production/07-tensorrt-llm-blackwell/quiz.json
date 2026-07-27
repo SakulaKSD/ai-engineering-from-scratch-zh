@@ -1,6 +1,6 @@
 {
   "lesson": "07-tensorrt-llm-blackwell",
-  "title": "在 Blackwell 上使用 FP8 与 NVFP4 的 TensorRT-LLM",
+  "title": "硬件专用推理编译：Blackwell 上的 FP8 与 NVFP4",
   "questions": [
     {
       "stage": "pre",

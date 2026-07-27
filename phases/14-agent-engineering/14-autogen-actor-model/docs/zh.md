@@ -1,6 +1,6 @@
-# AutoGen v0.4：Actor 模型与 agent 框架
+# Agent 的 Actor 模型——异步消息与类型化运行时
 
-> AutoGen v0.4（Microsoft Research，2025 年 1 月）围绕 actor 模型重新设计了 agent 编排。异步消息交换、事件驱动的 agent、故障隔离、天然并发。该框架现在进入维护模式，而 Microsoft Agent Framework（2025 年 10 月公开预览）成为继任者。
+> 把 agent 当作 actor：异步交换消息、用事件驱动处理器响应、隔离故障，并自然获得并发。AutoGen v0.4（Microsoft Research，2025 年 1 月）围绕这个模型重新设计了 agent 编排；该框架现在进入维护模式，Microsoft Agent Framework（2025 年 10 月公开预览）成为它的生产继任者。
 
 **类型：** Learn + Build
 **语言：** Python（标准库）
@@ -32,7 +32,9 @@ AutoGen v0.4 的回答：actor 模型。每个 agent 是一个带私有收件箱
 
 两个 actor 不能共享内存。它们只能发消息。
 
-### AutoGen v0.4 的三个 API 层
+### 三个 API 层
+
+AutoGen v0.4 把接口分成三层：
 
 1. **Core。** 底层 actor 框架。`AgentRuntime`、`Agent`、`Message`、`Topic`。异步消息交换，事件驱动。
 2. **AgentChat。** 任务驱动的高层 API（v0.2 的 ConversableAgent 的替代）。`AssistantAgent`、`UserProxyAgent`、`RoundRobinGroupChat`、`SelectorGroupChat`。
@@ -58,7 +60,7 @@ AutoGen v0.4 的回答：actor 模型。每个 agent 是一个带私有收件箱
 
 ### 状态：维护模式
 
-2026 年初：AutoGen v0.7.x 对研究和原型来说是稳定的。微软已把活跃开发转向了 Microsoft Agent Framework（2025 年 10 月 1 日公开预览；1.0 GA 目标定在 2026 年 Q1 末）。AutoGen 模式能干净地向前移植 —— actor 模型才是那个持久的想法。
+2026 年初：AutoGen v0.7.x 对研究和原型来说是稳定的。微软已把活跃开发转向生产继任者 Microsoft Agent Framework（2025 年 10 月 1 日公开预览；1.0 GA 当时目标定在 2026 年 Q1 末）。AutoGen 模式能干净地向前移植，actor 模型才是那个持久的想法。
 
 ## 动手构建
 
@@ -80,7 +82,7 @@ python3 code/main.py
 ## 实际使用
 
 - **AutoGen v0.4/v0.7**（维护中）—— 对研究、原型、多 agent 模式来说稳定。
-- **Microsoft Agent Framework**（公开预览）—— 前进路径；同样的 actor 模型想法，换了套刷新的 API。
+- **Microsoft Agent Framework** —— 生产继任者（2025 年 10 月公开预览）；同样的 actor 模型想法，换了套刷新的 API。
 - **LangGraph swarm 拓扑**（第 13 课）—— 通过共享工具交接的类似模式。
 - **自定义 actor 运行时** —— 当你需要特定传输（NATS、RabbitMQ、gRPC）时。
 

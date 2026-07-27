@@ -1,6 +1,6 @@
 # Agent 循环：观察、思考、行动
 
-> 2026 年的每一个 agent —— Claude Code、Cursor、Devin、Operator —— 都是 2022 年那个 ReAct 循环的变体。推理 token 与工具调用、观察结果交替进行，直到触发停止条件。在碰任何框架之前，先把这个循环吃透。
+> 2026 年的每一个 agent 都是 2022 年 ReAct 循环的变体，Claude Code、Cursor、Devin 和 Operator 也不例外。推理 token 与工具调用、观察结果交替进行，直到触发停止条件。在碰任何框架之前，先把这个循环吃透。
 
 **类型：** Build
 **语言：** Python（标准库）
@@ -12,7 +12,7 @@
 - 说出 ReAct 循环的三个组成部分 —— Thought、Action、Observation —— 并解释为什么每一个都是承重结构，少不得。
 - 用一个玩具 LLM、工具注册表和停止条件，在 200 行以内实现一个标准库版的 agent 循环。
 - 认清 2026 年从「基于 prompt 的思考 token」到「模型原生推理」的转变（Responses API、加密推理透传）。
-- 解释为什么每一个现代 harness（Claude Agent SDK、OpenAI Agents SDK、LangGraph、AutoGen v0.4）底层跑的还是这个循环。
+- 解释为什么现代 harness（Claude Agent SDK、OpenAI Agents SDK、LangGraph、AutoGen v0.4）仍建立在这个循环之上。
 
 ## 问题背景
 
@@ -60,7 +60,7 @@ Action: finish("Paris")
 
 ### 为什么这个循环无处不在
 
-Claude Agent SDK、OpenAI Agents SDK、LangGraph、AutoGen v0.4 AgentChat、CrewAI、Agno、Mastra —— 这里头每一个底层跑的都是 ReAct。框架之间的差异在于循环周围放了什么：状态检查点（LangGraph）、actor 模型的消息传递（AutoGen v0.4）、角色模板（CrewAI）、tracing span（OpenAI Agents SDK）。循环本身是不变的。
+Claude Agent SDK、OpenAI Agents SDK、LangGraph、AutoGen v0.4 AgentChat、CrewAI、Agno、Mastra 的底层都能看到 ReAct 形态的循环，它是共同且影响深远的模式。框架之间的差异在于循环周围放了什么：状态检查点（LangGraph）、actor 模型的消息传递（AutoGen v0.4）、角色模板（CrewAI）、tracing span（OpenAI Agents SDK）。循环本身是不变的。
 
 ### 2026 年的坑
 

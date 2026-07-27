@@ -525,19 +525,19 @@ def run_demo():
 
 ## 实际使用
 
-### Claude Code 的上下文策略
+### 由 Harness 管理上下文
 
 Claude Code 用分层的方式管理上下文。system prompt 包含行为规则和工具定义（约 6K token）。当你打开一个文件，它的内容作为上下文注入。当你搜索，结果被加进来。老的对话轮次被摘要。CLAUDE.md 提供跨会话持久的长期记忆。
 
 关键的工程决策是：Claude Code 不会把你整个 codebase 一股脑塞进上下文。它按需检索相关文件。这就是 context engineering 的实战。
 
-### Cursor 的动态上下文加载
+### 动态上下文加载
 
 Cursor 把你整个 codebase 索引成 embedding。当你敲入一个查询，它用向量相似度检索出最相关的文件和代码块。只有那些片段进入上下文窗口。一个 50 万行的 codebase 被压缩成最相关的 5-10 个代码块。
 
 这就是那个模式：嵌入一切，按需检索，只纳入要紧的。
 
-### ChatGPT Memory
+### Assistant Long-Term Memory
 
 ChatGPT 把用户偏好和事实作为长期记忆存储。每次对话开始时，相关记忆被取出并加进 system prompt。"用户偏好 Python"只占 5 token，却省下跨对话里几百 token 的重复指令。
 

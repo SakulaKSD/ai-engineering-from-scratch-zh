@@ -1,6 +1,6 @@
 {
   "lesson": "17-claude-agent-sdk",
-  "title": "Claude Agent SDK：子 agent 与会话存储",
+  "title": "Harness 即库：子 agent 与会话存储",
   "questions": [
     {
       "stage": "pre",

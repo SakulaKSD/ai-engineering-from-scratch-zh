@@ -1,6 +1,6 @@
 # 群聊与发言者选择
 
-> AutoGen GroupChat 和 AG2 GroupChat 让 N 个 agent 共享一段对话；一个选择器函数（LLM、轮询、或自定义）挑出接下来谁发言。这是涌现式多 agent 对话的原型——agent 不知道自己在某张静态图里的角色，它们只是对共享池子做出反应。AutoGen v0.2 的 GroupChat 语义被保留在 AG2 分叉里；AutoGen v0.4 把它重写成了事件驱动的 actor 模型。微软在 2026 年 2 月把 AutoGen 转入维护模式，并把它与 Semantic Kernel 合并进 Microsoft Agent Framework（RC 2026 年 2 月）。GroupChat 这个原语在 AG2 和 Microsoft Agent Framework 里都活了下来——学一次，到处用。
+> 共享对话编排让 N 个 agent 进入同一段对话，再由选择器函数（LLM、轮询或自定义）决定谁接着发言。这是涌现式多 agent 对话的原型：agent 不知道自己在某张静态图里的角色，只对共享池作出反应。AutoGen GroupChat 和 AG2 GroupChat 是参考实现。AutoGen v0.2 的 GroupChat 语义被保留在 AG2 分叉里，AutoGen v0.4 则把它重写成事件驱动的 actor 模型。微软在 2026 年 2 月把 AutoGen 转入维护模式，并把它与 Semantic Kernel 合并进 Microsoft Agent Framework（RC 2026 年 2 月）。GroupChat 原语在 AG2 与 Microsoft Agent Framework 中都保留了下来，学一次即可迁移使用。
 
 **类型：** Learn + Build
 **语言：** Python（标准库）
@@ -62,7 +62,7 @@ manager = GroupChatManager(groupchat=chat, llm_config={...})
 - **「TERMINATE」token。** agent 可以发出一个哨兵消息；manager 一看到就停。
 - **目标达成检查。** 每一轮跑一个轻量 verifier，完成时停掉聊天。
 
-### AutoGen → AG2 的分裂，以及 Microsoft Agent Framework 的合并
+### 血缘：分叉与合并
 
 2025 年初，微软围绕事件驱动的 actor 模型开始了对 AutoGen 的大重写（v0.4）。社区把 AutoGen v0.2 的 GroupChat 语义分叉成了 AG2，保留了早期采用者已经集成的那套 API。
 
@@ -141,5 +141,5 @@ python3 code/main.py
 
 - [AutoGen group chat docs](https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/design-patterns/group-chat.html) —— 参考实现
 - [AG2 repo](https://github.com/ag2ai/ag2) —— 社区版 AutoGen v0.2 延续
-- [Microsoft Agent Framework docs](https://microsoft.github.io/agent-framework/) —— 合并后的继任者，RC 2026 年 2 月
+- [Microsoft Agent Framework docs](https://learn.microsoft.com/en-us/agent-framework/) —— 合并后的继任者，RC 2026 年 2 月
 - [AutoGen v0.4 release notes](https://microsoft.github.io/autogen/stable/) —— 事件驱动 actor 模型重写细节

@@ -51,7 +51,7 @@ Matrix 是 2025 年那篇把 swarm 推到自然终点的论文：控制流和数
 
 贡献：一种编程模型，让多 agent 协调变成「这个 agent 订阅什么消息主题？」而不是「supervisor 接下来挑哪个 agent？」这让系统看起来像一张 pub/sub 事件网格。
 
-### LangGraph 的 Swarm 架构
+### 图框架中的 Swarm
 
 LangGraph 2025 文档明确把「Swarm 架构」描述为多 agent 模式之一：agent 是节点，但边构成一张带环的有向图，任何节点都能从池子里被激活。worker 按条件领可用的活儿，而不是靠 supervisor 分配。
 

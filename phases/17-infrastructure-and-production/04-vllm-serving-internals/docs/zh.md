@@ -1,6 +1,6 @@
-# vLLM 服务内部机制：PagedAttention、Continuous Batching、Chunked Prefill
+# 推理服务引擎内部机制——PagedAttention、连续批处理与分块预填充
 
-> vLLM 在 2026 年的统治地位靠的是三个叠加生效的默认项，不是某一个单点技巧。PagedAttention 永远开着。Continuous batching 在 decode 迭代之间把新请求注入活跃批次。Chunked prefill 把长 prompt 切片，让 decode token 永不挨饿。三个全开，一块 H100 SXM5 上的 Llama 3.3 70B FP8 在 128 并发下能跑到 2,200-2,400 tok/s —— 大约比 vLLM 自己的默认高 25%，是朴素 PyTorch 循环的 3-4 倍。这一课把调度器和注意力 kernel 读到你能画出图来的程度，并以 `code/main.py` 里一个玩具级 continuous batcher 收尾 —— 它像 vLLM 那样调度 prefill 和 decode。
+> 现代推理服务引擎的吞吐来自三个叠加生效的默认项，而不是某个单点技巧：PagedAttention 始终开启；continuous batching 在 decode 迭代之间把新请求注入活跃批次；chunked prefill 把长 prompt 切片，让 decode token 不会挨饿。三个全开时，一块 H100 SXM5 上的 Llama 3.3 70B FP8 在 128 并发下能跑到 2,200-2,400 tok/s，大约比 vLLM 自己的默认高 25%，是朴素 PyTorch 循环的 3-4 倍。本课以同时实现这三种技术的参考引擎 vLLM 为例，把调度器和注意力 kernel 读到你能画出图来的程度，并以 `code/main.py` 里的玩具级 continuous batcher 收尾。
 
 **类型：** Learn
 **语言：** Python（标准库，一个玩具级 continuous batching 调度器）

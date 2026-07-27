@@ -1,6 +1,6 @@
 {
   "lesson": "18-agno-and-mastra-runtimes",
-  "title": "Agno 与 Mastra：生产运行时",
+  "title": "生产级 Agent 运行时：快速实例化与类型化工作流",
   "questions": [
     {
       "stage": "pre",

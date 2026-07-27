@@ -150,9 +150,9 @@ answer:
 - [Harvey AI](https://www.harvey.ai) —— 参考级法律生产栈
 - [Glean enterprise search](https://www.glean.com) —— 企业规模 RAG 参考
 - [Mendable documentation](https://mendable.ai) —— 开发者文档 RAG 参考
-- [LlamaCloud Parse + Index](https://docs.llamaindex.ai/en/stable/examples/llama_cloud/llama_parse/) —— 托管摄入
+- [LlamaCloud Parse + Index](https://docs.cloud.llamaindex.ai/llamaparse/getting_started) —— 托管摄入
 - [Anthropic prompt caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching) —— 成本杠杆参考
 - [RAGAS 0.2 documentation](https://docs.ragas.io/) —— 标准 RAG 评测框架
 - [Arize Phoenix](https://github.com/Arize-ai/phoenix) —— 参考级漂移可观测性
-- [Llama Guard 4](https://ai.meta.com/research/publications/llama-guard-4/) —— 2026 安全分类器
+- [Llama Guard 4](https://www.llama.com/docs/model-cards-and-prompt-formats/llama-guard-4/) —— 2026 安全分类器
 - [NeMo Guardrails v0.12](https://docs.nvidia.com/nemo-guardrails/) —— 策略 rail 框架

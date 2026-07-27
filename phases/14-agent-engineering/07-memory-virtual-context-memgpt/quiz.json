@@ -1,6 +1,6 @@
 {
   "lesson": "07-memory-virtual-context-memgpt",
-  "title": "记忆：虚拟上下文与 MemGPT",
+  "title": "Agent 记忆：虚拟上下文与记忆分页",
   "questions": [
     {
       "stage": "pre",

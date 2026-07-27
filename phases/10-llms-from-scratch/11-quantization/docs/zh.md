@@ -818,7 +818,7 @@ if __name__ == "__main__":
 # llama-server -m llama-8b-q4km.gguf -c 4096 -ngl 99
 ```
 
-### 用 vLLM 服务
+### 部署量化模型
 
 ```python
 # pip install vllm

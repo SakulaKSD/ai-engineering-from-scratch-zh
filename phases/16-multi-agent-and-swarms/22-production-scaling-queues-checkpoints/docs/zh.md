@@ -1,6 +1,6 @@
 # 生产环境扩展 —— 队列、检查点、持久性
 
-> 把多 agent 系统扩展到数千个并发运行需要**持久化执行（durable execution）**。LangGraph 的运行时在每个 super-step 之后按 `thread_id` 写一个检查点（默认 Postgres）；worker 崩溃会释放一个租约，另一个 worker 接着恢复。agent 能无限期沉睡，等待人类输入。**MegaAgent**（arXiv:2408.09955）跑一个每 agent 的生产者-消费者队列，带三个状态（Idle / Processing / Response）和两层协调（组内聊天 + 组间管理聊天）。**Fiber/async** 在 LLM 流式上打败「每活儿一线程」：线程 99% 的时间在等 token 时闲着，fiber 在 I/O 上协作式让出。反方观点：Ashpreet Bedi 的《Scaling Agentic Software》主张在负载证明你需要更多之前就 **FastAPI + Postgres，别的都不要**——简单架构走得比预期远。本课构建一个持久化检查点日志、一个带状态转移的每 agent 工作队列、一个 async-vs-thread 演示，并落实那条务实的「从简开始」规则。
+> 把多 agent 系统扩展到数千个并发运行需要**持久化执行（durable execution）**：工作队列加检查点，并配套正确的租约处理、幂等副作用与确定性重放，使任何 worker 都能在任何崩溃后恢复任意运行。LangGraph 的运行时是参考例子：它在每个 super-step 之后按 `thread_id` 写一个检查点（默认 Postgres）；worker 崩溃会释放租约，另一个 worker 接着恢复。agent 能无限期沉睡，等待人类输入。**MegaAgent**（arXiv:2408.09955）为每个 agent 运行生产者-消费者队列，带三个状态（Idle / Processing / Response）和两层协调（组内聊天 + 组间管理聊天）。**Fiber/async** 在 LLM 流式上优于「每任务一线程」：线程 99% 的时间都在等待 token，fiber 则在 I/O 上协作式让出。反方观点是，在负载证明你需要更多之前，坚持 **FastAPI + Postgres，别的都不要**。本课会构建检查点日志、带状态转移的每 agent 工作队列和 async-vs-thread 演示，并落实「从简开始」规则。
 
 **类型：** Learn + Build
 **语言：** Python（标准库，`asyncio`、`sqlite3`）
@@ -47,9 +47,9 @@ worker 在某步骤中途崩溃
 
 LangGraph 在每个 super-step 后写检查点；Temporal 在每个 activity 后写；Restate 用事件溯源日志。三者实现同一个模式。
 
-### LangGraph 的运行时
+### 每步一个检查点的运行时
 
-每个 agent 有一个 `thread_id`；状态是一个类型化的 dict；每个 super-step 往 checkpoints 表写一行。恢复时，运行时从最后的检查点回放，而不是从头来。agent 能 `interrupt()` 来等待人类输入；运行时持久化并释放 worker。输入到达时，任何 worker 都能恢复。
+这里以 LangGraph 运行时为例：每个 agent 有一个 `thread_id`，状态是类型化 dict，每个 super-step 往 checkpoints 表写一行。恢复时从最后的检查点回放，而不是从头来。agent 能 `interrupt()` 来等待人类输入；运行时持久化并释放 worker。输入到达时，任何 worker 都能恢复。
 
 这是 2026 年 4 月的参考生产设计。
 

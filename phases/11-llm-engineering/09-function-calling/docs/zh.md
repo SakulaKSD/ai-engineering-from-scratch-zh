@@ -612,7 +612,7 @@ OpenAI 把 tool call 作为 `response.choices[0].message.tool_calls` 返回。�
 # client = anthropic.Anthropic()
 #
 # response = client.messages.create(
-#     model="claude-sonnet-4-20250514",
+#     model="claude-sonnet-5",
 #     max_tokens=1024,
 #     tools=[{
 #         "name": "get_weather",
@@ -633,7 +633,7 @@ OpenAI 把 tool call 作为 `response.choices[0].message.tool_calls` 返回。�
 # result = get_weather(**tool_block.input)
 #
 # final = client.messages.create(
-#     model="claude-sonnet-4-20250514",
+#     model="claude-sonnet-5",
 #     max_tokens=1024,
 #     tools=[...],
 #     messages=[

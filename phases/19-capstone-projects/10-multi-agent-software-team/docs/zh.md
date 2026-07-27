@@ -1,6 +1,6 @@
 # 顶点项目 10 —— 多 agent 软件工程团队
 
-> SWE-AF 的工厂架构、MetaGPT 的角色化 prompt、AutoGen 0.4 的带类型 actor 图、Cognition 的 Devin、Factory 的 Droids，全都收敛到了同一套 2026 形态：一个架构师规划，N 个程序员在并行的 worktree 里干活，一个评审者把关，一个测试者验证。并行 worktree 把墙钟时间换成吞吐。共享状态和交接协议成了失败面。这个顶点项目就是搭出这个团队、在 SWE-bench Pro 上评测、并报告哪些交接会断、多久断一次。
+> 2026 年的多 agent 工程团队已经收敛到同一种形态：一个架构师规划，N 个程序员在并行 worktree 里干活，一个评审者把关，一个测试者验证。SWE-AF 的工厂架构、MetaGPT 的角色化 prompt、AutoGen 0.4 的类型化 actor 图、Cognition 的 Devin 和 Factory 的 Droids 都独立走到了这里。并行 worktree 把墙钟时间换成吞吐，共享状态与交接协议则成为失败面。本顶点项目要搭出这个团队，在 SWE-bench Pro 上评测，并报告哪些交接会断、多久断一次。
 
 **类型：** Capstone
 **语言：** Python / TypeScript（agent）、Shell（worktree 脚本）
@@ -146,6 +146,6 @@ $ team run --issue https://github.com/acme/widget/issues/842
 - [AutoGen v0.4](https://github.com/microsoft/autogen) —— 微软的带类型 actor 框架
 - [Cognition AI (Devin)](https://cognition.ai) —— 参考产品
 - [Factory Droids](https://www.factory.ai) —— 备选参考产品
-- [Google A2A protocol](https://developers.google.com/agent-to-agent) —— agent 间消息规范
+- [Google A2A protocol](https://a2a-protocol.org/latest/) —— agent 间消息规范
 - [git worktree documentation](https://git-scm.com/docs/git-worktree) —— 隔离底座
 - [SWE-bench Pro](https://www.swebench.com) —— 评测目标

@@ -127,7 +127,7 @@ python3 code/main.py
 
 ## 延伸阅读
 
-- [DeepSpeed checkpointing](https://www.deepspeed.ai/tutorials/checkpointing/)
+- [DeepSpeed checkpointing](https://deepspeed.readthedocs.io/en/latest/model-checkpointing.html)
 - [PyTorch torch.distributed.checkpoint](https://pytorch.org/docs/stable/distributed.checkpoint.html)
 - [POSIX rename 原子性](https://pubs.opengroup.org/onlinepubs/9699919799/functions/rename.html)
 - 阶段19 第78课 - 这个 checkpoint 为之塑形保存的 ZeRO state

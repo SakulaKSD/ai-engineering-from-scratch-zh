@@ -453,7 +453,7 @@ def solve_with_escalation(question, examples, client, model):
 
 ## 实际使用
 
-### 配合 LangChain
+### 模板驱动的 few-shot prompt
 
 LangChain 内置了对 prompt 模板和输出解析的支持，能简化 few-shot 和 CoT 模式：
 
@@ -491,7 +491,7 @@ selector = SemanticSimilarityExampleSelector.from_examples(
 )
 ```
 
-### 配合 DSPy
+### 编译式 prompt
 
 DSPy 把 prompting 策略当成可优化的模块。你不再手工打磨 CoT prompt，而是定义一个 signature，让 DSPy 去优化 prompt：
 

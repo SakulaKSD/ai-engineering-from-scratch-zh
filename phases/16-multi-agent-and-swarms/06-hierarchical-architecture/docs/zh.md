@@ -50,9 +50,9 @@
 
 串行（线性流水线）对层级式：你的任务真有相互独立的子团队，还是一条假装成树的线性流？如果是后者，用串行。如果是前者，用层级式，但要给显式的调和规则留出预算。
 
-### CrewAI 的实现
+### 基于角色框架的实现
 
-`Process.hierarchical` 在专精 crew 之上接一个 manager LLM。manager：
+CrewAI 的 `Process.hierarchical` 在专精 crew 之上接一个 manager LLM。manager：
 
 - 接收顶层任务，
 - 把子任务分配给各个 crew，
@@ -61,7 +61,7 @@
 
 文档：https://docs.crewai.com/en/introduction（在 Core Concepts 下找「Hierarchical Process」）。
 
-### LangGraph 的实现
+### 图框架的实现
 
 LangGraph 用嵌套的 `create_supervisor` 调用。内层 supervisor 有自己的图；外层 supervisor 把内层图当成一个不透明的节点。这在调试上比 CrewAI 干净（你可以分别单步跟踪每个图），但更难表达对树的动态重塑。
 
