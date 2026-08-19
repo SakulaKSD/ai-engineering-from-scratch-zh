@@ -79,3 +79,8 @@ site/lessons/
 # 上游 scripts/build_catalog.py 的产物（上游也 gitignore 它）。本仓不用那套
 # （它认 docs/en.md），课数校验改用 site/build.js --check——忽略以防误提交。
 catalog.json
+
+# 模型权重文件（禁止提交）
+*.pt
+*.pth
+*.safetensors
