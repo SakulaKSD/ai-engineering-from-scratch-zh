@@ -1,0 +1,18 @@
+[project]
+name = "ai-course-notes"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.5",
+    "matplotlib>=3.11",
+    "pandas>=2.2",
+    "jupyter>=1.1",
+    "scikit-learn>=1.4",
+]
+
+[project.optional-dependencies]
+torch = [
+    "torch>=2.11",
+    "torchvision>=0.26",
+    "torchaudio>=2.11",
+]
