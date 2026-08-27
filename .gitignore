@@ -84,3 +84,4 @@ catalog.json
 *.pt
 *.pth
 *.safetensors
+*.parquet
