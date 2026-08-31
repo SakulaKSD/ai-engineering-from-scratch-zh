@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "phases/01-math-foundations/10-dimensionality-reduction": {
     "r2": "https://videos.aieng-zh.cn/lessons/01-10-dimensionality-reduction.mp4",
@@ -970,3 +971,1122 @@
     "slug": "10-34-gradient-checkpointing"
   }
 }
+=======
+{
+  "phases/01-math-foundations/10-dimensionality-reduction": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-10-dimensionality-reduction.mp4",
+    "bilibili": "BV16pju6TENy",
+    "slug": "01-10-dimensionality-reduction"
+  },
+  "phases/01-math-foundations/11-singular-value-decomposition": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-11-svd.mp4",
+    "bilibili": "BV1cnju6BED9",
+    "slug": "01-11-svd"
+  },
+  "phases/01-math-foundations/14-norms-and-distances": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-14-norms-and-distances.mp4",
+    "bilibili": "BV1rNjG6LE15",
+    "slug": "01-14-norms-and-distances"
+  },
+  "phases/01-math-foundations/03-matrix-transformations": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-03-matrix-transformations.mp4",
+    "bilibili": "BV1Jxju6NEVa",
+    "slug": "01-03-matrix-transformations"
+  },
+  "phases/01-math-foundations/01-linear-algebra-intuition": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-01-linear-algebra.mp4",
+    "bilibili": "BV1tMju62ENt",
+    "slug": "01-01-linear-algebra"
+  },
+  "phases/01-math-foundations/02-vectors-matrices-operations": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-02-vectors-matrices.mp4",
+    "bilibili": "BV1Zxju6PE1q",
+    "slug": "01-02-vectors-matrices"
+  },
+  "phases/01-math-foundations/04-calculus-for-ml": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-04-calculus.mp4",
+    "bilibili": "BV1o4ju6YE2S",
+    "slug": "01-04-calculus"
+  },
+  "phases/01-math-foundations/05-chain-rule-and-autodiff": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-05-chain-rule-autodiff.mp4",
+    "bilibili": "BV1o4ju6YEhj",
+    "slug": "01-05-chain-rule-autodiff"
+  },
+  "phases/01-math-foundations/06-probability-and-distributions": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-06-probability.mp4",
+    "bilibili": "BV1pJju6uEMq",
+    "slug": "01-06-probability"
+  },
+  "phases/01-math-foundations/08-optimization": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-08-optimization.mp4",
+    "bilibili": "BV1A7ju66EhG",
+    "slug": "01-08-optimization"
+  },
+  "phases/01-math-foundations/12-tensor-operations": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-12-tensors.mp4",
+    "bilibili": "BV1wnju6BEPh",
+    "slug": "01-12-tensors"
+  },
+  "phases/01-math-foundations/17-linear-systems": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-17-linear-systems.mp4",
+    "bilibili": "BV1fMjG6VEQT",
+    "slug": "01-17-linear-systems"
+  },
+  "phases/01-math-foundations/07-bayes-theorem": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-07-bayes-theorem.mp4",
+    "bilibili": "BV1HJju6uEe6",
+    "slug": "01-07-bayes-theorem"
+  },
+  "phases/01-math-foundations/09-information-theory": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-09-information-theory.mp4",
+    "bilibili": "BV1fpju6KEbN",
+    "slug": "01-09-information-theory"
+  },
+  "phases/01-math-foundations/13-numerical-stability": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-13-numerical-stability.mp4",
+    "bilibili": "BV1rNjG6LEnv",
+    "slug": "01-13-numerical-stability"
+  },
+  "phases/01-math-foundations/15-statistics-for-ml": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-15-statistics.mp4",
+    "bilibili": "BV1rAjG62ESz",
+    "slug": "01-15-statistics"
+  },
+  "phases/01-math-foundations/16-sampling-methods": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-16-sampling.mp4",
+    "bilibili": "BV1rAjG62EL8",
+    "slug": "01-16-sampling"
+  },
+  "phases/01-math-foundations/18-convex-optimization": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-18-convex-optimization.mp4",
+    "bilibili": "BV1fMjG6VEeW",
+    "slug": "01-18-convex-optimization"
+  },
+  "phases/01-math-foundations/20-fourier-transform": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-20-fourier.mp4",
+    "bilibili": "BV1Cfj36JEfh",
+    "slug": "01-20-fourier"
+  },
+  "phases/01-math-foundations/19-complex-numbers": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-19-complex-numbers.mp4",
+    "bilibili": "BV1nSjG6LEGS",
+    "slug": "01-19-complex-numbers"
+  },
+  "phases/01-math-foundations/21-graph-theory": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-21-graph-theory.mp4",
+    "bilibili": "BV1xfj36nEuT",
+    "slug": "01-21-graph-theory"
+  },
+  "phases/01-math-foundations/22-stochastic-processes": {
+    "r2": "https://videos.aieng-zh.cn/lessons/01-22-stochastic-processes.mp4",
+    "bilibili": "BV1Nfj36nEKT",
+    "slug": "01-22-stochastic-processes"
+  },
+  "phases/02-ml-fundamentals/01-what-is-machine-learning": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-01-what-is-machine-learning.mp4",
+    "bilibili": "BV1yoj36DEDx",
+    "slug": "02-01-what-is-machine-learning"
+  },
+  "phases/02-ml-fundamentals/02-linear-regression": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-02-linear-regression.mp4",
+    "bilibili": "BV1AwjG6EEbv",
+    "slug": "02-02-linear-regression"
+  },
+  "phases/02-ml-fundamentals/03-logistic-regression": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-03-logistic-regression.mp4",
+    "bilibili": "BV1WwjG6EEEM",
+    "slug": "02-03-logistic-regression"
+  },
+  "phases/02-ml-fundamentals/04-decision-trees": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-04-decision-trees.mp4",
+    "bilibili": "BV1CFjG6UEt2",
+    "slug": "02-04-decision-trees"
+  },
+  "phases/02-ml-fundamentals/05-support-vector-machines": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-05-support-vector-machines.mp4",
+    "bilibili": "BV1v7jG6TESw",
+    "slug": "02-05-support-vector-machines"
+  },
+  "phases/02-ml-fundamentals/06-knn-and-distances": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-06-knn-and-distances.mp4",
+    "bilibili": "BV1d7jG6TEAo",
+    "slug": "02-06-knn-and-distances"
+  },
+  "phases/02-ml-fundamentals/07-unsupervised-learning": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-07-unsupervised-learning.mp4",
+    "bilibili": "BV1iLjG6BE53",
+    "slug": "02-07-unsupervised-learning"
+  },
+  "phases/02-ml-fundamentals/08-feature-engineering": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-08-feature-engineering.mp4",
+    "bilibili": "BV1vLjG6BEaz",
+    "slug": "02-08-feature-engineering"
+  },
+  "phases/02-ml-fundamentals/09-model-evaluation": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-09-model-evaluation.mp4",
+    "bilibili": "BV1qLjG6BE5o",
+    "slug": "02-09-model-evaluation"
+  },
+  "phases/02-ml-fundamentals/10-bias-variance": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-10-bias-variance.mp4",
+    "bilibili": "BV1XnjG6NEDQ",
+    "slug": "02-10-bias-variance"
+  },
+  "phases/02-ml-fundamentals/11-ensemble-methods": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-11-ensemble-methods.mp4",
+    "bilibili": "BV1enjG6KEmz",
+    "slug": "02-11-ensemble-methods"
+  },
+  "phases/02-ml-fundamentals/12-hyperparameter-tuning": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-12-hyperparameter-tuning.mp4",
+    "bilibili": "BV1vEjG6iEE5",
+    "slug": "02-12-hyperparameter-tuning"
+  },
+  "phases/02-ml-fundamentals/13-ml-pipelines": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-13-ml-pipelines.mp4",
+    "bilibili": "BV1vEjG6iE6T",
+    "slug": "02-13-ml-pipelines"
+  },
+  "phases/02-ml-fundamentals/14-naive-bayes": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-14-naive-bayes.mp4",
+    "bilibili": "BV1B3jG63EzW",
+    "slug": "02-14-naive-bayes"
+  },
+  "phases/02-ml-fundamentals/15-time-series": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-15-time-series.mp4",
+    "bilibili": "BV16ujG6kEK1",
+    "slug": "02-15-time-series"
+  },
+  "phases/02-ml-fundamentals/16-anomaly-detection": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-16-anomaly-detection.mp4",
+    "bilibili": "BV1BujG6kERh",
+    "slug": "02-16-anomaly-detection"
+  },
+  "phases/02-ml-fundamentals/17-imbalanced-data": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-17-imbalanced-data.mp4",
+    "bilibili": "BV1o5jG6uEou",
+    "slug": "02-17-imbalanced-data"
+  },
+  "phases/02-ml-fundamentals/18-feature-selection": {
+    "r2": "https://videos.aieng-zh.cn/lessons/02-18-feature-selection.mp4",
+    "bilibili": "BV1BGjG66EHN",
+    "slug": "02-18-feature-selection"
+  },
+  "phases/03-deep-learning-core/01-the-perceptron": {
+    "r2": "https://videos.aieng-zh.cn/lessons/03-01-the-perceptron.mp4",
+    "bilibili": "BV1dYju6bEni",
+    "slug": "03-01-the-perceptron"
+  },
+  "phases/03-deep-learning-core/02-multi-layer-networks": {
+    "r2": "https://videos.aieng-zh.cn/lessons/03-02-multi-layer-networks.mp4",
+    "bilibili": "BV1dYju6bETj",
+    "slug": "03-02-multi-layer-networks"
+  },
+  "phases/03-deep-learning-core/03-backpropagation": {
+    "r2": "https://videos.aieng-zh.cn/lessons/03-03-backpropagation.mp4",
+    "bilibili": "BV12Xju61ENP",
+    "slug": "03-03-backpropagation"
+  },
+  "phases/03-deep-learning-core/04-activation-functions": {
+    "r2": "https://videos.aieng-zh.cn/lessons/03-04-activation-functions.mp4",
+    "bilibili": "BV1yXju61EUZ",
+    "slug": "03-04-activation-functions"
+  },
+  "phases/03-deep-learning-core/05-loss-functions": {
+    "r2": "https://videos.aieng-zh.cn/lessons/03-05-loss-functions.mp4",
+    "bilibili": "BV11Qju6jEH7",
+    "slug": "03-05-loss-functions"
+  },
+  "phases/03-deep-learning-core/06-optimizers": {
+    "r2": "https://videos.aieng-zh.cn/lessons/03-06-optimizers.mp4",
+    "bilibili": "BV11Qju6jEJx",
+    "slug": "03-06-optimizers"
+  },
+  "phases/03-deep-learning-core/07-regularization": {
+    "r2": "https://videos.aieng-zh.cn/lessons/03-07-regularization.mp4",
+    "bilibili": "BV1NQju67ECP",
+    "slug": "03-07-regularization"
+  },
+  "phases/03-deep-learning-core/08-weight-initialization": {
+    "r2": "https://videos.aieng-zh.cn/lessons/03-08-weight-initialization.mp4",
+    "bilibili": "BV1UCju6QEWk",
+    "slug": "03-08-weight-initialization"
+  },
+  "phases/03-deep-learning-core/09-learning-rate-schedules": {
+    "r2": "https://videos.aieng-zh.cn/lessons/03-09-learning-rate-schedules.mp4",
+    "bilibili": "BV1SCju6QEvt",
+    "slug": "03-09-learning-rate-schedules"
+  },
+  "phases/03-deep-learning-core/10-mini-framework": {
+    "r2": "https://videos.aieng-zh.cn/lessons/03-10-mini-framework.mp4",
+    "bilibili": "BV1Skju6pEzs",
+    "slug": "03-10-mini-framework"
+  },
+  "phases/03-deep-learning-core/11-intro-to-pytorch": {
+    "r2": "https://videos.aieng-zh.cn/lessons/03-11-intro-to-pytorch.mp4",
+    "bilibili": "BV1qGjG66EdD",
+    "slug": "03-11-intro-to-pytorch"
+  },
+  "phases/03-deep-learning-core/12-intro-to-jax": {
+    "r2": "https://videos.aieng-zh.cn/lessons/03-12-intro-to-jax.mp4",
+    "bilibili": "BV196j36aEjf",
+    "slug": "03-12-intro-to-jax"
+  },
+  "phases/03-deep-learning-core/13-debugging-neural-networks": {
+    "r2": "https://videos.aieng-zh.cn/lessons/03-13-debugging-neural-networks.mp4",
+    "bilibili": "BV1X6j36YE4f",
+    "slug": "03-13-debugging-neural-networks"
+  },
+  "phases/04-computer-vision/01-image-fundamentals": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-01-image-fundamentals.mp4",
+    "bilibili": "BV1Yzj36PEke",
+    "slug": "04-01-image-fundamentals"
+  },
+  "phases/04-computer-vision/02-convolutions-from-scratch": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-02-convolutions-from-scratch.mp4",
+    "bilibili": "BV1QCj368Eqn",
+    "slug": "04-02-convolutions-from-scratch"
+  },
+  "phases/04-computer-vision/03-cnns-lenet-to-resnet": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-03-cnns-lenet-to-resnet.mp4",
+    "bilibili": "BV1DCj368ESH",
+    "slug": "04-03-cnns-lenet-to-resnet"
+  },
+  "phases/04-computer-vision/04-image-classification": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-04-image-classification.mp4",
+    "bilibili": "BV1Xkj36cE2Y",
+    "slug": "04-04-image-classification"
+  },
+  "phases/04-computer-vision/05-transfer-learning": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-05-transfer-learning.mp4",
+    "bilibili": "BV17ej36qEcS",
+    "slug": "04-05-transfer-learning"
+  },
+  "phases/04-computer-vision/06-object-detection-yolo": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-06-object-detection-yolo.mp4",
+    "bilibili": "BV1Rej36iErL",
+    "slug": "04-06-object-detection-yolo"
+  },
+  "phases/04-computer-vision/07-semantic-segmentation-unet": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-07-semantic-segmentation-unet.mp4",
+    "bilibili": "BV1ZYj36TE3K",
+    "slug": "04-07-semantic-segmentation-unet"
+  },
+  "phases/04-computer-vision/08-instance-segmentation-mask-rcnn": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-08-instance-segmentation-mask-rcnn.mp4",
+    "bilibili": "BV1ZYj36TEWz",
+    "slug": "04-08-instance-segmentation-mask-rcnn"
+  },
+  "phases/04-computer-vision/09-image-generation-gans": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-09-image-generation-gans.mp4",
+    "bilibili": "BV1Lqj36vEGo",
+    "slug": "04-09-image-generation-gans"
+  },
+  "phases/04-computer-vision/10-image-generation-diffusion": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-10-image-generation-diffusion.mp4",
+    "bilibili": "BV1vqj36vEBU",
+    "slug": "04-10-image-generation-diffusion"
+  },
+  "phases/04-computer-vision/11-stable-diffusion": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-11-stable-diffusion.mp4",
+    "bilibili": "BV15ij36KEfr",
+    "slug": "04-11-stable-diffusion"
+  },
+  "phases/04-computer-vision/12-video-understanding": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-12-video-understanding.mp4",
+    "bilibili": "BV1Lij36KEgz",
+    "slug": "04-12-video-understanding"
+  },
+  "phases/04-computer-vision/13-3d-vision-nerf": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-13-3d-vision-nerf.mp4",
+    "bilibili": "BV12Xj36WEUa",
+    "slug": "04-13-3d-vision-nerf"
+  },
+  "phases/04-computer-vision/14-vision-transformers": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-14-vision-transformers.mp4",
+    "bilibili": "BV1MDj36dEGt",
+    "slug": "04-14-vision-transformers"
+  },
+  "phases/04-computer-vision/15-real-time-edge": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-15-real-time-edge.mp4",
+    "bilibili": "BV1UDj36REiK",
+    "slug": "04-15-real-time-edge"
+  },
+  "phases/04-computer-vision/16-vision-pipeline-capstone": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-16-vision-pipeline-capstone.mp4",
+    "bilibili": "BV11dj36HEvE",
+    "slug": "04-16-vision-pipeline-capstone"
+  },
+  "phases/04-computer-vision/17-self-supervised-vision": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-17-self-supervised-vision.mp4",
+    "bilibili": "BV1Ndj36pEap",
+    "slug": "04-17-self-supervised-vision"
+  },
+  "phases/04-computer-vision/18-open-vocab-clip": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-18-open-vocab-clip.mp4",
+    "bilibili": "BV149j369EYc",
+    "slug": "04-18-open-vocab-clip"
+  },
+  "phases/04-computer-vision/19-ocr-document-understanding": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-19-ocr-document-understanding.mp4",
+    "bilibili": "BV1D2j36tEoz",
+    "slug": "04-19-ocr-document-understanding"
+  },
+  "phases/04-computer-vision/20-image-retrieval-metric": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-20-image-retrieval-metric.mp4",
+    "bilibili": "BV1h2j36bEUu",
+    "slug": "04-20-image-retrieval-metric"
+  },
+  "phases/04-computer-vision/21-keypoint-pose": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-21-keypoint-pose.mp4",
+    "bilibili": "BV131j36FE2N",
+    "slug": "04-21-keypoint-pose"
+  },
+  "phases/04-computer-vision/22-3d-gaussian-splatting": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-22-3d-gaussian-splatting.mp4",
+    "bilibili": "BV181j36FEqj",
+    "slug": "04-22-3d-gaussian-splatting"
+  },
+  "phases/04-computer-vision/23-diffusion-transformers-rectified-flow": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-23-diffusion-transformers-rectified-flow.mp4",
+    "bilibili": "BV1mSj36xE2T",
+    "slug": "04-23-diffusion-transformers-rectified-flow"
+  },
+  "phases/04-computer-vision/24-sam3-open-vocab-segmentation": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-24-sam3-open-vocab-segmentation.mp4",
+    "bilibili": "BV1SSj36xEuD",
+    "slug": "04-24-sam3-open-vocab-segmentation"
+  },
+  "phases/04-computer-vision/25-vision-language-models": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-25-vision-language-models.mp4",
+    "bilibili": "BV1Smj36oEQj",
+    "slug": "04-25-vision-language-models"
+  },
+  "phases/04-computer-vision/26-monocular-depth": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-26-monocular-depth.mp4",
+    "bilibili": "BV1Dmj36oEKF",
+    "slug": "04-26-monocular-depth"
+  },
+  "phases/04-computer-vision/27-multi-object-tracking": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-27-multi-object-tracking.mp4",
+    "bilibili": "BV1KLj36SE7w",
+    "slug": "04-27-multi-object-tracking"
+  },
+  "phases/04-computer-vision/28-world-models-video-diffusion": {
+    "r2": "https://videos.aieng-zh.cn/lessons/04-28-world-models-video-diffusion.mp4",
+    "bilibili": "BV1KLj36SEwH",
+    "slug": "04-28-world-models-video-diffusion"
+  },
+  "phases/05-nlp-foundations-to-advanced/01-text-processing": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-01-text-processing.mp4",
+    "bilibili": "BV1WNL96YEJv",
+    "slug": "05-01-text-processing"
+  },
+  "phases/05-nlp-foundations-to-advanced/02-bag-of-words-tfidf": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-02-bag-of-words-tfidf.mp4",
+    "bilibili": "BV1kTL96wErm",
+    "slug": "05-02-bag-of-words-tfidf"
+  },
+  "phases/05-nlp-foundations-to-advanced/03-word-embeddings-word2vec": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-03-word-embeddings-word2vec.mp4",
+    "bilibili": "BV1pTL96wEeP",
+    "slug": "05-03-word-embeddings-word2vec"
+  },
+  "phases/05-nlp-foundations-to-advanced/04-glove-fasttext-subword": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-04-glove-fasttext-subword.mp4",
+    "bilibili": "BV12fLX6qEau",
+    "slug": "05-04-glove-fasttext-subword"
+  },
+  "phases/05-nlp-foundations-to-advanced/05-sentiment-analysis": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-05-sentiment-analysis.mp4",
+    "bilibili": "BV14fLX6qErV",
+    "slug": "05-05-sentiment-analysis"
+  },
+  "phases/05-nlp-foundations-to-advanced/06-named-entity-recognition": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-06-named-entity-recognition.mp4",
+    "bilibili": "BV1UZLX6MEHa",
+    "slug": "05-06-named-entity-recognition"
+  },
+  "phases/05-nlp-foundations-to-advanced/07-pos-tagging-parsing": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-07-pos-tagging-parsing.mp4",
+    "bilibili": "BV1xwL96vEEj",
+    "slug": "05-07-pos-tagging-parsing"
+  },
+  "phases/05-nlp-foundations-to-advanced/08-cnns-rnns-for-text": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-08-cnns-rnns-for-text.mp4",
+    "bilibili": "BV1swL96vEC2",
+    "slug": "05-08-cnns-rnns-for-text"
+  },
+  "phases/05-nlp-foundations-to-advanced/09-sequence-to-sequence": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-09-sequence-to-sequence.mp4",
+    "bilibili": "BV1ywL96vE9Y",
+    "slug": "05-09-sequence-to-sequence"
+  },
+  "phases/05-nlp-foundations-to-advanced/10-attention-mechanism": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-10-attention-mechanism.mp4",
+    "bilibili": "BV14cL96KE6R",
+    "slug": "05-10-attention-mechanism"
+  },
+  "phases/05-nlp-foundations-to-advanced/11-machine-translation": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-11-machine-translation.mp4",
+    "bilibili": "BV1Z7L96sEeL",
+    "slug": "05-11-machine-translation"
+  },
+  "phases/05-nlp-foundations-to-advanced/12-text-summarization": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-12-text-summarization.mp4",
+    "bilibili": "BV1E7L96sEDv",
+    "slug": "05-12-text-summarization"
+  },
+  "phases/05-nlp-foundations-to-advanced/13-question-answering": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-13-question-answering.mp4",
+    "bilibili": "BV16LL96dEMC",
+    "slug": "05-13-question-answering"
+  },
+  "phases/05-nlp-foundations-to-advanced/14-information-retrieval-search": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-14-information-retrieval-search.mp4",
+    "bilibili": "BV1ELL96dEmj",
+    "slug": "05-14-information-retrieval-search"
+  },
+  "phases/05-nlp-foundations-to-advanced/15-topic-modeling": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-15-topic-modeling.mp4",
+    "bilibili": "BV1LnL96pEC3",
+    "slug": "05-15-topic-modeling"
+  },
+  "phases/05-nlp-foundations-to-advanced/16-text-generation-pre-transformer": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-16-text-generation-pre-transformer.mp4",
+    "bilibili": "BV1EEL969E5N",
+    "slug": "05-16-text-generation-pre-transformer"
+  },
+  "phases/05-nlp-foundations-to-advanced/17-chatbots-rule-to-neural": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-17-chatbots-rule-to-neural.mp4",
+    "bilibili": "BV1n3L96bErm",
+    "slug": "05-17-chatbots-rule-to-neural"
+  },
+  "phases/05-nlp-foundations-to-advanced/18-multilingual-nlp": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-18-multilingual-nlp.mp4",
+    "bilibili": "BV1n3L96bExX",
+    "slug": "05-18-multilingual-nlp"
+  },
+  "phases/05-nlp-foundations-to-advanced/19-subword-tokenization": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-19-subword-tokenization.mp4",
+    "bilibili": "BV1pgL96FEsW",
+    "slug": "05-19-subword-tokenization"
+  },
+  "phases/05-nlp-foundations-to-advanced/20-structured-outputs-constrained-decoding": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-20-structured-outputs-constrained-decoding.mp4",
+    "bilibili": "BV1wgL96cEqY",
+    "slug": "05-20-structured-outputs-constrained-decoding"
+  },
+  "phases/05-nlp-foundations-to-advanced/21-nli-textual-entailment": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-21-nli-textual-entailment.mp4",
+    "bilibili": "BV1c5L96tEnS",
+    "slug": "05-21-nli-textual-entailment"
+  },
+  "phases/05-nlp-foundations-to-advanced/22-embedding-models-deep-dive": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-22-embedding-models-deep-dive.mp4",
+    "bilibili": "BV1nGL96ZEj6",
+    "slug": "05-22-embedding-models-deep-dive"
+  },
+  "phases/05-nlp-foundations-to-advanced/23-chunking-strategies-rag": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-23-chunking-strategies-rag.mp4",
+    "bilibili": "BV1JGL96ZECD",
+    "slug": "05-23-chunking-strategies-rag"
+  },
+  "phases/05-nlp-foundations-to-advanced/24-coreference-resolution": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-24-coreference-resolution.mp4",
+    "bilibili": "BV1j6LX6DEcy",
+    "slug": "05-24-coreference-resolution"
+  },
+  "phases/05-nlp-foundations-to-advanced/25-entity-linking": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-25-entity-linking.mp4",
+    "bilibili": "BV1i6LX6SEnk",
+    "slug": "05-25-entity-linking"
+  },
+  "phases/05-nlp-foundations-to-advanced/26-relation-extraction-kg": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-26-relation-extraction-kg.mp4",
+    "bilibili": "BV1d6LX6SEJo",
+    "slug": "05-26-relation-extraction-kg"
+  },
+  "phases/05-nlp-foundations-to-advanced/27-llm-evaluation-frameworks": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-27-llm-evaluation-frameworks.mp4",
+    "bilibili": "BV1dzLX6nESm",
+    "slug": "05-27-llm-evaluation-frameworks"
+  },
+  "phases/05-nlp-foundations-to-advanced/28-long-context-evaluation": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-28-long-context-evaluation.mp4",
+    "bilibili": "BV1iCLX6UEMF",
+    "slug": "05-28-long-context-evaluation"
+  },
+  "phases/05-nlp-foundations-to-advanced/29-dialogue-state-tracking": {
+    "r2": "https://videos.aieng-zh.cn/lessons/05-29-dialogue-state-tracking.mp4",
+    "bilibili": "BV19CLX6mErT",
+    "slug": "05-29-dialogue-state-tracking"
+  },
+  "phases/06-speech-and-audio/01-audio-fundamentals": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-01-audio-fundamentals.mp4",
+    "bilibili": "BV1dCLX6mEey",
+    "slug": "06-01-audio-fundamentals"
+  },
+  "phases/06-speech-and-audio/02-spectrograms-mel-features": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-02-spectrograms-mel-features.mp4",
+    "bilibili": "BV1okLX6EEPU",
+    "slug": "06-02-spectrograms-mel-features"
+  },
+  "phases/06-speech-and-audio/03-audio-classification": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-03-audio-classification.mp4",
+    "bilibili": "BV1zeLX69Ef9",
+    "slug": "06-03-audio-classification"
+  },
+  "phases/06-speech-and-audio/04-speech-recognition-asr": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-04-speech-recognition-asr.mp4",
+    "bilibili": "BV16eLX69EEv",
+    "slug": "06-04-speech-recognition-asr"
+  },
+  "phases/06-speech-and-audio/05-whisper-architecture-finetuning": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-05-whisper-architecture-finetuning.mp4",
+    "bilibili": "BV16YLX6sEEz",
+    "slug": "06-05-whisper-architecture-finetuning"
+  },
+  "phases/06-speech-and-audio/06-speaker-recognition-verification": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-06-speaker-recognition-verification.mp4",
+    "bilibili": "BV1fYLX6sEt5",
+    "slug": "06-06-speaker-recognition-verification"
+  },
+  "phases/06-speech-and-audio/07-text-to-speech": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-07-text-to-speech.mp4",
+    "bilibili": "BV1fqLX6QE5R",
+    "slug": "06-07-text-to-speech"
+  },
+  "phases/06-speech-and-audio/08-voice-cloning-conversion": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-08-voice-cloning-conversion.mp4",
+    "bilibili": "BV1fiLX6pESq",
+    "slug": "06-08-voice-cloning-conversion"
+  },
+  "phases/06-speech-and-audio/09-music-generation": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-09-music-generation.mp4",
+    "bilibili": "BV1ziLX6pE5L",
+    "slug": "06-09-music-generation"
+  },
+  "phases/06-speech-and-audio/10-audio-language-models": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-10-audio-language-models.mp4",
+    "bilibili": "BV1hXLX6rEpC",
+    "slug": "06-10-audio-language-models"
+  },
+  "phases/06-speech-and-audio/11-real-time-audio-processing": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-11-real-time-audio-processing.mp4",
+    "bilibili": "BV1hXLX6rEkF",
+    "slug": "06-11-real-time-audio-processing"
+  },
+  "phases/06-speech-and-audio/12-voice-assistant-pipeline": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-12-voice-assistant-pipeline.mp4",
+    "bilibili": "BV1hQLX6GEnc",
+    "slug": "06-12-voice-assistant-pipeline"
+  },
+  "phases/06-speech-and-audio/13-neural-audio-codecs": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-13-neural-audio-codecs.mp4",
+    "bilibili": "BV1aQLX6GE47",
+    "slug": "06-13-neural-audio-codecs"
+  },
+  "phases/06-speech-and-audio/14-voice-activity-detection-turn-taking": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-14-voice-activity-detection-turn-taking.mp4",
+    "bilibili": "BV1tdLX6zEBz",
+    "slug": "06-14-voice-activity-detection-turn-taking"
+  },
+  "phases/06-speech-and-audio/15-streaming-speech-to-speech-moshi-hibiki": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-15-streaming-speech-to-speech-moshi-hibiki.mp4",
+    "bilibili": "BV1bdLX6zEZu",
+    "slug": "06-15-streaming-speech-to-speech-moshi-hibiki"
+  },
+  "phases/06-speech-and-audio/16-anti-spoofing-audio-watermarking": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-16-anti-spoofing-audio-watermarking.mp4",
+    "bilibili": "BV1bRLX6gEed",
+    "slug": "06-16-anti-spoofing-audio-watermarking"
+  },
+  "phases/06-speech-and-audio/17-audio-evaluation-metrics": {
+    "r2": "https://videos.aieng-zh.cn/lessons/06-17-audio-evaluation-metrics.mp4",
+    "bilibili": "BV1bRLX6gEuQ",
+    "slug": "06-17-audio-evaluation-metrics"
+  },
+  "phases/07-transformers-deep-dive/01-why-transformers": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-01-why-transformers.mp4",
+    "bilibili": "BV1X2LX61E5i",
+    "slug": "07-01-why-transformers"
+  },
+  "phases/07-transformers-deep-dive/02-self-attention-from-scratch": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-02-self-attention.mp4",
+    "bilibili": "BV1e1LX6jEz2",
+    "slug": "07-02-self-attention"
+  },
+  "phases/07-transformers-deep-dive/03-multi-head-attention": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-03-multi-head-attention.mp4",
+    "bilibili": "BV191LX6jEJs",
+    "slug": "07-03-multi-head-attention"
+  },
+  "phases/07-transformers-deep-dive/04-positional-encoding": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-04-positional-encoding.mp4",
+    "bilibili": "BV1GSLX6yEDc",
+    "slug": "07-04-positional-encoding"
+  },
+  "phases/07-transformers-deep-dive/05-full-transformer": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-05-full-transformer.mp4",
+    "bilibili": "BV1aULX65EqZ",
+    "slug": "07-05-full-transformer"
+  },
+  "phases/07-transformers-deep-dive/06-bert-masked-language-modeling": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-06-bert-masked-language-modeling.mp4",
+    "bilibili": "BV1VULX6LERX",
+    "slug": "07-06-bert-masked-language-modeling"
+  },
+  "phases/07-transformers-deep-dive/07-gpt-causal-language-modeling": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-07-gpt-causal-language-modeling.mp4",
+    "bilibili": "BV1ujLX6TEYJ",
+    "slug": "07-07-gpt-causal-language-modeling"
+  },
+  "phases/07-transformers-deep-dive/08-t5-bart-encoder-decoder": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-08-t5-bart-encoder-decoder.mp4",
+    "bilibili": "BV1mjLX6KEjq",
+    "slug": "07-08-t5-bart-encoder-decoder"
+  },
+  "phases/07-transformers-deep-dive/09-vision-transformers": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-09-vision-transformers.mp4",
+    "bilibili": "BV1TjLX6TE43",
+    "slug": "07-09-vision-transformers"
+  },
+  "phases/07-transformers-deep-dive/10-audio-transformers-whisper": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-10-audio-transformers-whisper.mp4",
+    "bilibili": "BV1M5LX6BEHw",
+    "slug": "07-10-audio-transformers-whisper"
+  },
+  "phases/07-transformers-deep-dive/11-mixture-of-experts": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-11-mixture-of-experts.mp4",
+    "bilibili": "BV11JLX6PE86",
+    "slug": "07-11-mixture-of-experts"
+  },
+  "phases/07-transformers-deep-dive/12-kv-cache-flash-attention": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-12-kv-cache-flash-attention.mp4",
+    "bilibili": "BV1TJLX6NECa",
+    "slug": "07-12-kv-cache-flash-attention"
+  },
+  "phases/07-transformers-deep-dive/13-scaling-laws": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-13-scaling-laws.mp4",
+    "bilibili": "BV1TJLX6NEE5",
+    "slug": "07-13-scaling-laws"
+  },
+  "phases/07-transformers-deep-dive/14-build-a-transformer-capstone": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-14-build-a-transformer-capstone.mp4",
+    "bilibili": "BV1wgjz6oEhS",
+    "slug": "07-14-build-a-transformer-capstone"
+  },
+  "phases/07-transformers-deep-dive/15-attention-variants": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-15-attention-variants.mp4",
+    "bilibili": "BV19tjz65Eq9",
+    "slug": "07-15-attention-variants"
+  },
+  "phases/07-transformers-deep-dive/16-speculative-decoding": {
+    "r2": "https://videos.aieng-zh.cn/lessons/07-16-speculative-decoding.mp4",
+    "bilibili": "BV1Ltjz6LEGk",
+    "slug": "07-16-speculative-decoding"
+  },
+  "phases/08-generative-ai/01-generative-models-taxonomy-history": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-01-generative-models-taxonomy-history.mp4",
+    "bilibili": "BV1Dqjz6MEd3",
+    "slug": "08-01-generative-models-taxonomy-history"
+  },
+  "phases/08-generative-ai/02-autoencoders-vae": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-02-autoencoders-vae.mp4",
+    "bilibili": "BV1CSjz6FEJB",
+    "slug": "08-02-autoencoders-vae"
+  },
+  "phases/08-generative-ai/03-gans-generator-discriminator": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-03-gans-generator-discriminator.mp4",
+    "bilibili": "BV1pvjk6TEZC",
+    "slug": "08-03-gans-generator-discriminator"
+  },
+  "phases/08-generative-ai/04-conditional-gans-pix2pix": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-04-conditional-gans-pix2pix.mp4",
+    "bilibili": "BV1E2jk6fER6",
+    "slug": "08-04-conditional-gans-pix2pix"
+  },
+  "phases/08-generative-ai/05-stylegan": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-05-stylegan.mp4",
+    "bilibili": "BV1E2jk6fEaF",
+    "slug": "08-05-stylegan"
+  },
+  "phases/08-generative-ai/06-diffusion-ddpm-from-scratch": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-06-diffusion-ddpm-from-scratch.mp4",
+    "bilibili": "BV1z1jk68E6C",
+    "slug": "08-06-diffusion-ddpm-from-scratch"
+  },
+  "phases/08-generative-ai/07-latent-diffusion-stable-diffusion": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-07-latent-diffusion-stable-diffusion.mp4",
+    "bilibili": "BV1J1jk68Eak",
+    "slug": "08-07-latent-diffusion-stable-diffusion"
+  },
+  "phases/08-generative-ai/08-controlnet-lora-conditioning": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-08-controlnet-lora-conditioning.mp4",
+    "bilibili": "BV1CBjk6NEj2",
+    "slug": "08-08-controlnet-lora-conditioning"
+  },
+  "phases/08-generative-ai/09-inpainting-outpainting-editing": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-09-inpainting-outpainting-editing.mp4",
+    "bilibili": "BV1HBjk6NEMY",
+    "slug": "08-09-inpainting-outpainting-editing"
+  },
+  "phases/08-generative-ai/10-video-generation": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-10-video-generation.mp4",
+    "bilibili": "BV1Wijk6iEeL",
+    "slug": "08-10-video-generation"
+  },
+  "phases/08-generative-ai/11-audio-generation": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-11-audio-generation.mp4",
+    "bilibili": "BV1Wijk6iEDn",
+    "slug": "08-11-audio-generation"
+  },
+  "phases/08-generative-ai/12-3d-generation": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-12-3d-generation.mp4",
+    "bilibili": "BV16Fjk6cEUV",
+    "slug": "08-12-3d-generation"
+  },
+  "phases/08-generative-ai/13-flow-matching-rectified-flows": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-13-flow-matching-rectified-flows.mp4",
+    "bilibili": "BV1zPjk6tEv1",
+    "slug": "08-13-flow-matching-rectified-flows"
+  },
+  "phases/08-generative-ai/14-evaluation-fid-clip-score": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-14-evaluation-fid-clip-score.mp4",
+    "bilibili": "BV1zPjk6tEjn",
+    "slug": "08-14-evaluation-fid-clip-score"
+  },
+  "phases/08-generative-ai/19-visual-autoregressive-var": {
+    "r2": "https://videos.aieng-zh.cn/lessons/08-19-visual-autoregressive-var.mp4",
+    "bilibili": "BV1zwjk6fE54",
+    "slug": "08-19-visual-autoregressive-var"
+  },
+  "phases/09-reinforcement-learning/01-mdps-states-actions-rewards": {
+    "r2": "https://videos.aieng-zh.cn/lessons/09-01-mdps-states-actions-rewards.mp4",
+    "bilibili": "BV1Y5jk6DEN5",
+    "slug": "09-01-mdps-states-actions-rewards"
+  },
+  "phases/09-reinforcement-learning/02-dynamic-programming": {
+    "r2": "https://videos.aieng-zh.cn/lessons/09-02-dynamic-programming.mp4",
+    "bilibili": "BV1Syjr63ELR",
+    "slug": "09-02-dynamic-programming"
+  },
+  "phases/09-reinforcement-learning/03-monte-carlo-methods": {
+    "r2": "https://videos.aieng-zh.cn/lessons/09-03-monte-carlo-methods.mp4",
+    "bilibili": "BV11Qjr6iEhH",
+    "slug": "09-03-monte-carlo-methods"
+  },
+  "phases/09-reinforcement-learning/04-q-learning-sarsa": {
+    "r2": "https://videos.aieng-zh.cn/lessons/09-04-q-learning-sarsa.mp4",
+    "bilibili": "BV1XYjr6UEBt",
+    "slug": "09-04-q-learning-sarsa"
+  },
+  "phases/09-reinforcement-learning/05-dqn": {
+    "r2": "https://videos.aieng-zh.cn/lessons/09-05-dqn.mp4",
+    "bilibili": "BV1qMjy6YErr",
+    "slug": "09-05-dqn"
+  },
+  "phases/09-reinforcement-learning/06-policy-gradients-reinforce": {
+    "r2": "https://videos.aieng-zh.cn/lessons/09-06-policy-gradients-reinforce.mp4",
+    "bilibili": "BV1vVjy6FEZj",
+    "slug": "09-06-policy-gradients-reinforce"
+  },
+  "phases/09-reinforcement-learning/07-actor-critic-a2c-a3c": {
+    "r2": "https://videos.aieng-zh.cn/lessons/09-07-actor-critic-a2c-a3c.mp4",
+    "bilibili": "BV1iVjy6FEuT",
+    "slug": "09-07-actor-critic-a2c-a3c"
+  },
+  "phases/09-reinforcement-learning/08-ppo": {
+    "r2": "https://videos.aieng-zh.cn/lessons/09-08-ppo.mp4",
+    "bilibili": "BV1q3jy6hE6F",
+    "slug": "09-08-ppo"
+  },
+  "phases/09-reinforcement-learning/09-reward-modeling-rlhf": {
+    "r2": "https://videos.aieng-zh.cn/lessons/09-09-reward-modeling-rlhf.mp4",
+    "bilibili": "BV1rwjy6qEdN",
+    "slug": "09-09-reward-modeling-rlhf"
+  },
+  "phases/09-reinforcement-learning/10-multi-agent-rl": {
+    "r2": "https://videos.aieng-zh.cn/lessons/09-10-multi-agent-rl.mp4",
+    "bilibili": "BV16Pjy6KEiG",
+    "slug": "09-10-multi-agent-rl"
+  },
+  "phases/09-reinforcement-learning/11-sim-to-real-transfer": {
+    "r2": "https://videos.aieng-zh.cn/lessons/09-11-sim-to-real-transfer.mp4",
+    "bilibili": "BV1rwjy6qEZk",
+    "slug": "09-11-sim-to-real-transfer"
+  },
+  "phases/09-reinforcement-learning/12-rl-for-games": {
+    "r2": "https://videos.aieng-zh.cn/lessons/09-12-rl-for-games.mp4",
+    "bilibili": "BV1cwjy6BEaG",
+    "slug": "09-12-rl-for-games"
+  },
+  "phases/10-llms-from-scratch/01-tokenizers": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-01-tokenizers.mp4",
+    "bilibili": "BV1GMjm6cEDi",
+    "slug": "10-01-tokenizers"
+  },
+  "phases/10-llms-from-scratch/02-building-a-tokenizer": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-02-building-a-tokenizer.mp4",
+    "bilibili": "BV13Mjm6cEBe",
+    "slug": "10-02-building-a-tokenizer"
+  },
+  "phases/10-llms-from-scratch/03-data-pipelines": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-03-data-pipelines.mp4",
+    "bilibili": "BV1gMjm6cEyF",
+    "slug": "10-03-data-pipelines"
+  },
+  "phases/10-llms-from-scratch/04-pre-training-mini-gpt": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-04-pre-training-mini-gpt.mp4",
+    "bilibili": "BV1VKjm6aEEB",
+    "slug": "10-04-pre-training-mini-gpt"
+  },
+  "phases/10-llms-from-scratch/05-scaling-distributed": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-05-scaling-distributed.mp4",
+    "bilibili": "BV13Kjm6aE16",
+    "slug": "10-05-scaling-distributed"
+  },
+  "phases/10-llms-from-scratch/06-instruction-tuning-sft": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-06-instruction-tuning-sft.mp4",
+    "bilibili": "BV1ggjm6fEBq",
+    "slug": "10-06-instruction-tuning-sft"
+  },
+  "phases/10-llms-from-scratch/07-rlhf": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-07-rlhf.mp4",
+    "bilibili": "BV1ggjm6fEvB",
+    "slug": "10-07-rlhf"
+  },
+  "phases/10-llms-from-scratch/08-dpo": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-08-dpo.mp4",
+    "bilibili": "BV13ujm68Ev8",
+    "slug": "10-08-dpo"
+  },
+  "phases/10-llms-from-scratch/09-constitutional-ai-self-improvement": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-09-constitutional-ai-self-improvement.mp4",
+    "bilibili": "BV14qj26HEHf",
+    "slug": "10-09-constitutional-ai-self-improvement"
+  },
+  "phases/10-llms-from-scratch/10-evaluation": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-10-evaluation.mp4",
+    "bilibili": "BV1xqj26HE8v",
+    "slug": "10-10-evaluation"
+  },
+  "phases/10-llms-from-scratch/11-quantization": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-11-quantization.mp4",
+    "bilibili": "BV1tvj26XEuY",
+    "slug": "10-11-quantization"
+  },
+  "phases/10-llms-from-scratch/12-inference-optimization": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-12-inference-optimization.mp4",
+    "bilibili": "BV1s6j26JELD",
+    "slug": "10-12-inference-optimization"
+  },
+  "phases/10-llms-from-scratch/13-building-complete-llm-pipeline": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-13-building-complete-llm-pipeline.mp4",
+    "bilibili": "BV1x6j26JEGP",
+    "slug": "10-13-building-complete-llm-pipeline"
+  },
+  "phases/10-llms-from-scratch/14-open-models-architecture-walkthroughs": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-14-open-models-architecture-walkthroughs.mp4",
+    "bilibili": "BV1xBj26DEoN",
+    "slug": "10-14-open-models-architecture-walkthroughs"
+  },
+  "phases/10-llms-from-scratch/15-speculative-decoding-eagle3": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-15-speculative-decoding-eagle3.mp4",
+    "bilibili": "BV1sBj26DEap",
+    "slug": "10-15-speculative-decoding-eagle3"
+  },
+  "phases/10-llms-from-scratch/16-differential-attention-v2": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-16-differential-attention-v2.mp4",
+    "bilibili": "BV1hhj26xEPb",
+    "slug": "10-16-differential-attention-v2"
+  },
+  "phases/10-llms-from-scratch/17-native-sparse-attention": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-17-native-sparse-attention.mp4",
+    "bilibili": "BV1Dbj26oE4T",
+    "slug": "10-17-native-sparse-attention"
+  },
+  "phases/10-llms-from-scratch/18-multi-token-prediction": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-18-multi-token-prediction.mp4",
+    "bilibili": "BV1Sbj26oE8n",
+    "slug": "10-18-multi-token-prediction"
+  },
+  "phases/10-llms-from-scratch/19-dualpipe-parallelism": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-19-dualpipe-parallelism.mp4",
+    "bilibili": "BV1bej26WEL9",
+    "slug": "10-19-dualpipe-parallelism"
+  },
+  "phases/10-llms-from-scratch/20-deepseek-v3-walkthrough": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-20-deepseek-v3-walkthrough.mp4",
+    "bilibili": "BV1Sej26WEcR",
+    "slug": "10-20-deepseek-v3-walkthrough"
+  },
+  "phases/10-llms-from-scratch/21-jamba-hybrid-ssm-transformer": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-21-jamba-hybrid-ssm-transformer.mp4",
+    "bilibili": "BV18aj26REpw",
+    "slug": "10-21-jamba-hybrid-ssm-transformer"
+  },
+  "phases/10-llms-from-scratch/22-async-hogwild-inference": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-22-async-hogwild-inference.mp4",
+    "bilibili": "BV1taj26REYo",
+    "slug": "10-22-async-hogwild-inference"
+  },
+  "phases/10-llms-from-scratch/25-speculative-decoding": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-25-speculative-decoding.mp4",
+    "bilibili": "BV1JSj26VECh",
+    "slug": "10-25-speculative-decoding"
+  },
+  "phases/10-llms-from-scratch/34-gradient-checkpointing": {
+    "r2": "https://videos.aieng-zh.cn/lessons/10-34-gradient-checkpointing.mp4",
+    "bilibili": "BV1rSj26VEPE",
+    "slug": "10-34-gradient-checkpointing"
+  },
+  "phases/00-setup-and-tooling/01-dev-environment": {
+    "r2": "https://videos.aieng-zh.cn/lessons/00-01-dev-environment.mp4",
+    "bilibili": "BV1C38v62E88",
+    "slug": "00-01-dev-environment"
+  },
+  "phases/00-setup-and-tooling/02-git-and-collaboration": {
+    "r2": "https://videos.aieng-zh.cn/lessons/00-02-git-collaboration.mp4",
+    "bilibili": "BV1k38v62E8E",
+    "slug": "00-02-git-collaboration"
+  },
+  "phases/00-setup-and-tooling/03-gpu-setup-and-cloud": {
+    "r2": "https://videos.aieng-zh.cn/lessons/00-03-gpu-setup-and-cloud.mp4",
+    "bilibili": "BV16j8v6VEVq",
+    "slug": "00-03-gpu-setup-and-cloud"
+  },
+  "phases/00-setup-and-tooling/04-apis-and-keys": {
+    "r2": "https://videos.aieng-zh.cn/lessons/00-04-apis-and-keys.mp4",
+    "bilibili": "BV1Jj8v65EzF",
+    "slug": "00-04-apis-and-keys"
+  },
+  "phases/00-setup-and-tooling/05-jupyter-notebooks": {
+    "r2": "https://videos.aieng-zh.cn/lessons/00-05-jupyter-notebooks.mp4",
+    "bilibili": "BV1H58v61EDL",
+    "slug": "00-05-jupyter-notebooks"
+  },
+  "phases/00-setup-and-tooling/06-python-environments": {
+    "r2": "https://videos.aieng-zh.cn/lessons/00-06-python-environments.mp4",
+    "bilibili": "BV1c58v61EvL",
+    "slug": "00-06-python-environments"
+  },
+  "phases/00-setup-and-tooling/07-docker-for-ai": {
+    "r2": "https://videos.aieng-zh.cn/lessons/00-07-docker-for-ai.mp4",
+    "bilibili": "BV1aa8v6AEaH",
+    "slug": "00-07-docker-for-ai"
+  },
+  "phases/00-setup-and-tooling/08-editor-setup": {
+    "r2": "https://videos.aieng-zh.cn/lessons/00-08-editor-setup.mp4",
+    "bilibili": "BV1ea8v6AEsG",
+    "slug": "00-08-editor-setup"
+  },
+  "phases/00-setup-and-tooling/09-data-management": {
+    "r2": "https://videos.aieng-zh.cn/lessons/00-09-data-management.mp4",
+    "bilibili": "BV1Ra8v6AENP",
+    "slug": "00-09-data-management"
+  },
+  "phases/00-setup-and-tooling/10-terminal-and-shell": {
+    "r2": "https://videos.aieng-zh.cn/lessons/00-10-terminal-and-shell.mp4",
+    "bilibili": "BV1v88v6eE5w",
+    "slug": "00-10-terminal-and-shell"
+  },
+  "phases/00-setup-and-tooling/11-linux-for-ai": {
+    "r2": "https://videos.aieng-zh.cn/lessons/00-11-linux-for-ai.mp4",
+    "bilibili": "BV1Y88v6eE4E",
+    "slug": "00-11-linux-for-ai"
+  },
+  "phases/00-setup-and-tooling/12-debugging-and-profiling": {
+    "r2": "https://videos.aieng-zh.cn/lessons/00-12-debugging-and-profiling.mp4",
+    "bilibili": "BV1R88v6eEn1",
+    "slug": "00-12-debugging-and-profiling"
+  },
+  "phases/11-llm-engineering/01-prompt-engineering": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-01-prompt-engineering.mp4",
+    "bilibili": "BV19U8e6aEu5",
+    "slug": "11-01-prompt-engineering"
+  },
+  "phases/11-llm-engineering/02-few-shot-cot": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-02-few-shot-cot.mp4",
+    "bilibili": "BV1Cg8v67EPn",
+    "slug": "11-02-few-shot-cot"
+  },
+  "phases/11-llm-engineering/03-structured-outputs": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-03-structured-outputs.mp4",
+    "bilibili": "BV1AM8v6SEkT",
+    "slug": "11-03-structured-outputs"
+  },
+  "phases/11-llm-engineering/04-embeddings": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-04-embeddings.mp4",
+    "bilibili": "BV1PM8v6SEx6",
+    "slug": "11-04-embeddings"
+  },
+  "phases/11-llm-engineering/05-context-engineering": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-05-context-engineering.mp4",
+    "bilibili": "BV11fhP6TE5W",
+    "slug": "11-05-context-engineering"
+  },
+  "phases/11-llm-engineering/06-rag": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-06-rag.mp4",
+    "bilibili": "BV1tfhP6MEVo",
+    "slug": "11-06-rag"
+  },
+  "phases/11-llm-engineering/07-advanced-rag": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-07-advanced-rag.mp4",
+    "bilibili": "BV1UDhP6kEkn",
+    "slug": "11-07-advanced-rag"
+  },
+  "phases/11-llm-engineering/08-fine-tuning-lora": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-08-fine-tuning-lora.mp4",
+    "bilibili": "BV1fhhP6xEiL",
+    "slug": "11-08-fine-tuning-lora"
+  },
+  "phases/11-llm-engineering/09-function-calling": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-09-function-calling.mp4",
+    "bilibili": "BV1zhhP64EtY",
+    "slug": "11-09-function-calling"
+  },
+  "phases/11-llm-engineering/10-evaluation": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-10-evaluation.mp4",
+    "bilibili": "BV1ovhP6XEW9",
+    "slug": "11-10-evaluation"
+  },
+  "phases/11-llm-engineering/11-caching-cost": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-11-caching-cost.mp4",
+    "bilibili": "BV1G2hP6jE1c",
+    "slug": "11-11-caching-cost"
+  },
+  "phases/11-llm-engineering/12-guardrails": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-12-guardrails.mp4",
+    "bilibili": "BV1oBhP6DEnV",
+    "slug": "11-12-guardrails"
+  },
+  "phases/11-llm-engineering/13-production-app": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-13-production-app.mp4",
+    "bilibili": "BV1RBhP6DEvc",
+    "slug": "11-13-production-app"
+  },
+  "phases/11-llm-engineering/14-model-context-protocol": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-14-model-context-protocol.mp4",
+    "bilibili": "BV1eFhP6mEF7",
+    "slug": "11-14-model-context-protocol"
+  },
+  "phases/11-llm-engineering/15-prompt-caching": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-15-prompt-caching.mp4",
+    "bilibili": "BV1GNhP65Eyy",
+    "slug": "11-15-prompt-caching"
+  },
+  "phases/11-llm-engineering/16-langgraph-state-machines": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-16-langgraph-state-machines.mp4",
+    "bilibili": "BV1GNhP65Ewz",
+    "slug": "11-16-langgraph-state-machines"
+  },
+  "phases/11-llm-engineering/17-agent-framework-tradeoffs": {
+    "r2": "https://videos.aieng-zh.cn/lessons/11-17-agent-framework-tradeoffs.mp4",
+    "bilibili": "BV1MLhP6qETQ",
+    "slug": "11-17-agent-framework-tradeoffs"
+  }
+}
+>>>>>>> main
